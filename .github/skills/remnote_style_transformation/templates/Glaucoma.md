@@ -1,0 +1,1624 @@
+- IOP
+    - note:>Elevated IOP≠Glaucoma, Glaucoma≠Elevated IOP
+    - 何謂正常
+        - Normal IOP:>10~22 mmHg, 台灣人約10~20 mmHg
+        - 考量到個人差異，臨床更應該focus在{{baseline IOP}} 
+        - Age的影響:>年紀越大, IOP越高 (70歲的人上限為23mmHg)
+        - Diurnal pattern:>higher in the morning and lower in the afternoon and evening
+    - Determination >>>
+        - Aqueous humor production
+        - Resistance to outflow:<最主要 因素
+        - Episcleral venous pressure
+        - The Goldmann equation:>$IOP = (F-U)/C + Pv$
+            - F:>Rate of Aqueous Production (µl/min)
+            - U:>Rate of Aqueous Uveoscleral Drainage
+            - C:>Facility of Trabecular Outflow (µL/min/mm Hg)
+            - Pv:>Episcleral Venous Pressure (mmHg)  
+    - Aqueous humor production and drainage
+        - Uveoscleral outflow
+            - Reduce with {{increasing age}} 
+        - ![](https://remnote-user-data.s3.amazonaws.com/EMiZTzBQg5j0G9F2xi42vS4gnSLWEhKcFt5UQfdn5AUA189G1IoEJG_HwxD2lgCWRJN-P5viKGHoGSHa8neIN833BlEpZTS0rH4W2J4SX2dd0KRop_zalzV0JvVEA_Fs.png)
+    - Risk factor:>cardio/neurovascular diseases, ocular blood flow, vasospasm, oxidative stress, endothelial dysfunction, interact with IOP
+    - Progression
+        - Risk of VF progression increases {{10}}% per each 1 mmHg of long-term IOP fluctuation
+        - ![](https://remnote-user-data.s3.amazonaws.com/zpkQDqnS3yEE1fZvhtgsHK22JmPdUZRhisCRnf6rFCS-pfmQv96Xpma-ogh9Ol4HJ0MT28ZQgKCICSfviTv97_6xUvYbTWOOBh1o1zL9hINrZSpVIZFbkPhgA-ZoXYYp.png)
+    - Tonometry眼壓計
+        - Applanation tonometry::gold standard
+            - 使用器械？:>裝在slit lens上
+        - Non-contact tonometry (pneumotonometry)
+            - 麻醉？:>不需要
+            - 準確度？:>誤差大
+        - Indentation (Schiotz) tonometry
+            - 麻醉？:>需要
+            - Schiotz Tonometry::Ophthalmic diagnostic method that measures intraocular pressure by using a weighted indentation on the cornea.
+        - Electronic indentation tonometry (tonopen)
+- Ocular Hypertension #[[Ocular disease]] 
+    - [Overview]();-Elevated IOP (>21 mmHg) w/o optic nerve damage or visual field loss
+        - [Presentation]()
+        - [Examination ]()
+        - [Management]()
+    - [Epidemiology]()
+    - [Etiology]()
+    - [Risk Factors]()
+    - [General Pathology]()
+    - [Pathophysiology]()
+    - [History]()
+    - [Physical examination]()
+    - [Symptoms]()
+    - [Signs]()
+    - [Clinical diagnosis]()
+    - [Diagnostic procedures]()
+    - [Laboratory test]()
+    - [Differential diagnosis]()
+    - [General treatment]();;Early treatment (reducing IOP) reduces the cumulative incidence of glaucoma, esp. in high-risk patients; early treatment of low-risk individuals is not needed
+        - Indication:>IOP ≥ 30, IOP > 24 + other baseline risk factor
+    - [Medical therapy]();;Careful monitoring in low-risk patient; treatment options are identical to those used for POAG, but less aggressive
+    - [Medical follow-up]();;baseline visual fields and RNFL/disc imaging should be performed, and regular visual field and imaging follow-up should be performed every 1-3 years
+        - Targeted IOP:>IOP <25 mm Hg and 20% below baseline
+    - [Surgery]();;treatment options are identical to those used for POAG
+    - [Complications]()
+    - [Prognosis]();;untreated 10% will develop glaucoma over a 10 year period
+        - Risk factor in developing into glaucoma:>high IOP, old age, central corneal thickness (CCT)   <555 μm, high CD ratio, high PSD in visual field testing
+            - ![](https://remnote-user-data.s3.amazonaws.com/nWk89LjBVBnzwBJj1DxGS-95HLYrZGXGhYNpab0t_vcZorm2fDzoIDVdqpK43b5pPwDGREdBa6FIiaHWJS0PJMXDo4-sFjsWJ7_yT39WReSrao48ZILM1wNb3mFKxnXH.png)
+- [Normal-Tension Glaucoma](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma.md):>IOP normal w/ optic nerve damage or visual field loss
+- Glaucoma definition:>optic neuropathy with associated visual field loss
+- Risk factor:>high intraocular presssure, resistance of the optic nerve axons to pressure damage, impaired autoregulation (BMI, alcohol, HbA1c, )
+- Epidemiology:>2–3% of people over the age of 40 years
+    - --------------------- Portal ---------------------
+        - 臨床 
+- Type 
+    - Angle分類依據檢查→gonioscopy
+        - Shaffer grading 
+            - Schwalbe's line:>trabecular meshwork和角膜內皮之間的交界處，也是Descemet membrane的終點  
+            - ![](https://remnote-user-data.s3.amazonaws.com/qfQ4DBbeTQlbCMp49THwOfIu_PN2Eb5CeKbmMG89qq_Qb15ff-y-Q_mX66XHgzIcT85KFWd95kkIBVJF0bAi75aPYiyXlj4XA2vC7UE-_q2AE32wYTfzKQynzme5KO_T.png)
+            - Grade 0:>angle-closure 
+            - Grade III:>as open-angle
+            - Grade IV:>wide open, characteristic of myopia  and pseudophakia
+            - ![](https://remnote-user-data.s3.amazonaws.com/qP-QOOVC_GVdB347KLbVwg8rZzjv1BuB_zn5aTCBWttmuCsf_nPS3ygjJsoU-7ppyqTdlR3rYFg4g3EvKYnczgNTfsM35f2YKltkhx4A8jp0ULWyb2yv69ulkjWZ1idT.png) 
+        - van Herick method
+            - ![](https://remnote-user-data.s3.amazonaws.com/0Psv5LNDEdWeAhRqzs7SB5T4c2mE9MRq79GnIGLn2KZ2X9AYS7xCDcai7l1U-htzkSfq6jpETbJs0DnppvV53VMMeDUb2CXSa719D-ruvKsA5-LbSBA_uPFk3W_E9_WC.png)
+    - AGS
+        - Pathophysiology
+            - Paradoxical dilatation:>ACG的人收縮後，再放鬆時iris體積變大而造成angle closure
+            - Plateau iris:>gonio 看起來iris比較平
+    - Angle-Closure Glaucoma (ACG)
+        - Types
+            - Primary Angle-Closure Glaucoma (PACG)
+                - Risk factor 
+                    - Age:>old age (cataract)
+                    - Ethnics:>亞洲40-60 y女性, 因紐特人
+                    - Structure:>眼軸短, hyperopia
+                    - Environment:>走到暗處（光線變化）
+                    - 造成Glaucoma失明的主要原因:>90% 
+                - Pathophysiology
+                    - Pupillary block (blocking Schlemm's canal)::primary causes, most frequent
+                        - Fixed pupil:>due to  due to constant high IOP, causing ischemia
+                        - --------------------- Portal ---------------------
+                            - 臨床 
+                    - Peripheral anterior synechiae (PAS):>iris adheres to the angle, angle pigmentation in gonioscopy
+                        - ![](https://remnote-user-data.s3.amazonaws.com/MkEzhBR4uCMNW8PrBHCdDMS_zRbq8fcJ1r8mUDl-UkceHm75OXvzK-9ZHZ4Mq1ORcHIrOFd-iCG0UJ3RkQKzrLij9Y3WMEgdgkCdWDzRQnMJGR0VlUqeqcRJu8gfFk5k.png)
+                        - Formation:>scar tissue extending between the iris and the trabecular meshwork
+                        - Cf. [Pigment dispersion syndrome](): Pigment dispersion syndrome的angle pigmentation較為濃厚且均勻
+                    - Plateau iris:>Ciliary body 本身體積過大且位置靠前將iris root 往前推，造成central iris看起來較平或是微微突起；而indentation gonioscopy下可以看到**‘double hump’ sign，indentation**將使central iris被後面的central lens推擠而有central hump，而peripheral hump則是因為anterior ciliary body orientation造成
+                - Classification
+                    - Primary Angle-Closure Suspect:>≥180° iridotrabecular contact **without IOP elevation,  PAS, or glaucomatous optic neuropathy** 
+                    - Primary Angle Closure:>≥180° iridotrabecular contact with statistically elevated IOP and/  or PAS in the **absence of glaucomatous optic neuropathy** 
+                    - Primary angle-closure glaucoma:>≥180° iridotrabecular contact with statistically  elevated IOP and/or PAS and evidence of glaucomatous optic neuropathy
+                    - [Acute Primary Angle Closure ](Glaucoma/Emergency/Acute%20Primary%20Angle%20Closure.md):>closed angle with **symptomatic IOP** elevation
+                    - Plateau Iris Configuration:>persistent iridotrabecular contact after a patent  laser  peripheral iridotomy **without IOP elevation** after pupil dilation
+                    - Plateau Iris Syndrome:>persistent iridotrabecular contact after a patent  laser peripheral iridotomy **with IOP elevation** after pupil dilation)  
+            - Secondary ACG 
+                - Cf. Primary vs. secondary ACG:>epidemiology, fellow eye, previous medical history, morphology; primary typically presented as iris bombe, central deep, evenly peripheral shallow, and with fellow eye involvement; secondary could have prominent IK touch if pushing mechanism
+                - With pupillary block >>>
+                    - Lens-induced narrow angles (Phacomorphic Glaucoma)
+                    - Lens dislocation/subluxation (Ectopia lentis)
+                    - [Capsular Bag Distension Syndrome]()
+                    - Pseudophakic Pupillary Block
+                    - Posterior synechiae (esp. in 360^o^ posterior sunechiae in Seclusio pupillae)
+                    - Vitreous protrusion
+                    - Aphakic Pupillary Block:>mechanism  anterior vitreous plug/fibrous adhesions/silicon oil ⇒ pupillary block ⇒ iris bombé
+                    - Aphakia with vitreous protrusion
+                - Without pupillary block >>>
+                    - Anterior pulling >>>
+                        - Contraction of inflammatory membrane or fibrovascular tissue (PAS or [NVG](Glaucoma/Neovascular%20Glaucoma%20(NVG).md))
+                        - Posterior polymorphous corneal dystrophy:>mechanism causing glaucoma  **abnormal developmental differentiation** ⇒ endothelial layer transforms into cells similar to stratified, squamous epithelium ⇒ abnormal epithelialized cells are keratinized, migrate randomly, **secrete defective basement membrane** cells ⇒ **peripheral synechiae**, and ineffectively remove fluid from the corneal stroma ⇒ increasing the risk of edema and glaucoma  
+                        - Migration of abnormal corneal endothelium:>[Iridocorneal Endothelial Syndrome (ICE)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Secondary%20ACG/Iridocorneal%20Endothelial%20Syndrome%20(ICE).md)
+                        - Fibrous ingrowth
+                        - Epithelial ingrowth
+                        - Iris incarceration in traumatic wound or surgical incision  
+                    - Posterior pushing >>>
+                        - Malignant Glaucoma (usually seen in aqueous misdirection)
+                        - Ciliary body swelling, inflammation, or cysts
+                        - Anteriorly oriented ciliary processes:>due to CRVO, encircling bands, scleral buckle, PRP, causing plateau iris configuration/syndrome
+                        - Anteriorly displaced lens (eg, due to trauma, zonular laxity)
+                        - Phacomorphic glaucoma
+                        - Choroidal effusion or hemorrhage
+                        - Posterior segment tumors or space- occupying substances (silicone oil, gas  bubble)
+                        - Contraction of retrolental tissue ([Persistent Fetal Vasculature](), [Retinopathy of Premature (ROP)]())
+                - Iridocorneal Endothelial Syndrome (ICE) #[[Ocular disease]] 
+                    - [Overview]();-irregular corneal endothelium that can lead to varying degrees of corneal edema, iris atrophy, and secondary angle-closure glaucoma
+                        - [Presentation]()
+                        - [Examination ]()
+                        - [Management]()
+                    - [Epidemiology]();;20-50 y/o, F>M
+                    - [Etiology]();;sporadic, underlying viral (HSV, EBV) infection
+                    - [Risk Factors]()
+                    - [General Pathology]();;normal endothelial cells have been replaced with a more epithelial-like cell with migratory characteristics. The altered endothelium migrates posteriorly, moving beyond Schwalbe's line, onto the trabecular meshwork, and at times, onto peripheral iris
+                        - ![](https://remnote-user-data.s3.amazonaws.com/_7-NwISN4gXDW3FJqvx23SOEgo99yFwclzMCgCjcVZ10siej6fstYVp3Y2dKYP7Xxyd-7v-gG8SJEHQnbNvAHU5N5k8Tb-dDcMcwvw3EkKzxJOydglP7qt2mP0QybYD5.png)
+                    - [Pathophysiology]();;**abnormal endothelial cells** proliferate and **migrate to the trabecullar meshwork**, and at times, onto **peripheral iris** ⇒ contraction of this tissue within the angle and on the iris results in the high peripheral anterior synechiae (**PAS**) and iris changes ⇒ **corneal edema** (due to elevated IOP and altered endothelial function)
+                    - [History]()
+                    - [Physical examination]()
+                    - [Symptoms]();;**Unilateral** eye pain, BV, iris change
+                    - [Signs]();;**Elevated IOP**, **Corneal edema**, '**beaten bronze**' or '**hammered silver**' appearance, close angle 
+                        - ![](https://remnote-user-data.s3.amazonaws.com/rFmaAlQakPNi9AXSv5DAsSON-risyIPxP-AbkZxXaPLqbjk13yXAsSXDXBZ774nQdcodXVyerOCRH-3P2PrCDa21HD_SCMnmYSrP3G-d01WlFglhAtKN5s_z1zeUWEVG.png)
+                    - [Clinical diagnosis]()
+                        - Variants >>>
+                            - Chandler Syndrome:>corneal edema (caused by PAS and resulting elevated IOP), Abnormal endothelium is confined to the corneal surface
+                            - Essential / Progressive Iris Atrophy:>abnormal endothelium spreads to iris, causing **iris atrophy**, corectopia, and polycoria
+                            - Iris Nevus / Cogan-Reese Syndrome:>iris nodule and nevus, abnormal endothelium **spreads to and contracts iris**, producing multiple clumps of pigmented nodules
+                    - [Diagnostic procedures]()
+                    - [Laboratory test]()
+                    - [Differential diagnosis]()
+                        - [NVG](Glaucoma/Neovascular%20Glaucoma%20(NVG).md)/NVA
+                            - --------------------- Portal ---------------------
+                                - 臨床 
+                        - [PPMD]()
+                            - Cf. PPMD vs. ICE vs. Fuchs
+                                - ![](https://remnote-user-data.s3.amazonaws.com/xBa2M1gaW2k_RECH_u-PwqmWl8bkXTmxTmuPE0TYsAtqgqFTy06ETCeEoAbKBNRViGEaXlUNAX1XhpVjOxkkQxr-Vhx8V37jMhuZKWVeOhyHETdeAg3INCaKSaAM441R.png)
+![](https://remnote-user-data.s3.amazonaws.com/s8LEeyE6LYBuDcgSxbT4Xfc0hxHES47hEblxkyj3tpGcQbxUUu-KpOCqfyDsrT-OZy2NSiwwgkztZfPIUtKFJnVxN0KfPwnK_UsGGlZTgL6J1ENMNJn0mrkhTUM-lODD.png)
+                    - [General treatment]()
+                    - [Medical therapy]();;control IOP
+                    - [Medical follow-up]()
+                    - [Surgery]()
+                        - PK vs. EK
+                            - ![](https://remnote-user-data.s3.amazonaws.com/DsFG0eLA2kVSalfewG8X-1KbUlmXmoYB9G4f8-4Jg2FzFYoQ3zT-iMWzO4inkekxdMbsTFRF7it3y_iPGiRNGAYAPITbaJSBKj4sAQ8T-vc2raxlsO6043E7SLSScy7e.png)
+                            - PK:>traditional approach
+
+
+ => High rates of graft rejection and failure
+
+
+ 50% failed
+
+
+ (7%: rejection, 43%: endothelial failure) 
+
+
+ 
+                            - DSEK/DMEK
+                                - Faster visual recovery
+                                - Challenge: PAS, shallow chamber
+                        - ![](https://remnote-user-data.s3.amazonaws.com/Kg6ujIyfxdUwQvLb-nQ8v_Vi0b1NjR9T0fJd9eeAnA-ipBXsyrS0JJ6OTk7VLB1Y5zP5q9HXzjtx2TEYKWNXg3fA6FaSNWBrEBD7SYdDbNjs-alDFWQ5hM9BNXhG5P-A.png)![](https://remnote-user-data.s3.amazonaws.com/6iUhJ7NQP5q49TEyhqfTW-mzfmY-d0w8PVj41SStCD9Ji-gQ8cH2qAFQV1pmOM063DEpo-RBR1NNVQZjvsJJMxqVVeyrytfppsbXVpmAF18lcsBt0f9FiBKSx5x2MGdn.png)![](https://remnote-user-data.s3.amazonaws.com/eDLFNbjHBb1J_xesXCvnRpdbLpSzqWotOUXYozm6G5pxtTmSyGBRDW1J1Xe4jtKMfSgR_tibwZinSE4L7AQbBaXDme_Bd5Xcya62lOGyE8U2CjTFftHnI5KcqbS3ZpBG.png)![](https://remnote-user-data.s3.amazonaws.com/ye-iwQm6G4Z35D7_NFHdFsY5yjDN_kifWDJ7f_8PwO35wXyW9YVMr8QnpXz82ajFHAVaRT3e0XffAKUE1qprrEIx2xm569DFza5priWOWGMeUjkrevi7DcPRdI_gw9WU.png)
+                        - 36-month graft survivial
+                            - ![](https://remnote-user-data.s3.amazonaws.com/GhDkfodaK3VKQ_FiiueZl_2rQvLE1WJ-nO8ikxJNyf6jVZsaVezMiNQygerOzhft3YRBTyws_AP3ETzbgzgPLmg7L-IUA4fqutodCTlsruNNT5oceZ40HeV3EsIbGtH1.png)![](https://remnote-user-data.s3.amazonaws.com/9gQca9Iab8pvlILSqmtYlQfQYRKBZeCQbJkaIXzTEttyLYfy9DeJx3u1yeHO6IUgADGVpySlQ27Ne58ePa1EU-FcdpENdyy30SPtQ66ud97GejRYe-Ooj9oTjanwzQBW.png)![](https://remnote-user-data.s3.amazonaws.com/nHibCrakUP0_3o9J-1wIeVICwYHD93Qdp6c5eU_0rIssAv0rhe1pvqGd5UtdrZICtTvK7oL5RpNgW8nlK7QWgFMUd5yJUuJ_6Ws7BVMSeHIrYqCn0-e6okyuuWIJ3-0_.png)![](https://remnote-user-data.s3.amazonaws.com/hhre4salp90II2y-eLeNWTCpJhJbDnf9hWDuMNeFSe8OPhpk23-mEvyn-BhVRurZ17OodJsuccaiYB4XWT8W4l5u3N8dYlUD5bswxBVXQoEAu6Y6R0iMgmp7W9k0J_Cz.png)
+no effect on 36-month graft survival
+![](https://remnote-user-data.s3.amazonaws.com/b4ra6IhKv6oTOEfWpnxuTHPR9LaoLOhjFc2MH4wCBzyJ6ngw9ZR3kId18HguGXG3EacQbfS3VTMoBSBE3DU5Uulr9easu7fgYiAi16zhGliYb2FR5f2p8Y5hti0s1LUX.png)
+                        - Pre-op BCVA
+                            - ![](https://remnote-user-data.s3.amazonaws.com/rvEV16gbaKzvOfi2lck7f88mk8AjbZIwBJWyvgqJJ7aHNBBnaid6rWWWXC5wl27m-X5htxhnmHNZoi91lZgmQ-r7mnidUDIObjS-7RQuw6ecrj80Bz2M3kpIQolYS0vu.png)
+                        - Post-op improvement BCVA
+                            - ![](https://remnote-user-data.s3.amazonaws.com/sHxdbIKjWtC4Wz5OE_rv6Hqk7abJpiGfLGKMj-3OSeivAeOriOOjJxe7sT7KlFRsg_Bn8-pdZd-h_B0550R48s-kmBdRmjVvNJztIjOpfRI_Cm91sNm6PXnMDrNqBpBc.png)![](https://remnote-user-data.s3.amazonaws.com/z1wRiXgyqXA_FfAYtmD_Gw4159R7fIKYt1gkpyswvNl6rhTSYfNm0W-tSaXeWY6FanhqfNL-wV9kR-h2Q3h8PslrLwYsNSfGtQILK-b3njEIZGgIJFxWYqmXBu9gI5B4.png)![](https://remnote-user-data.s3.amazonaws.com/NZMC0biehmmzcJxfCj6EIPtZECcDxhSumqupD75PAYO8Fvh2C3GPTR3AyaKGbbamfCji8dyJ3BqyzXESxGR7RJVm7gjudcj6iigXPfgWM0jqesv5X7dLsaac3sBPsGix.png)
+                        - Endothelial cell density
+                            - ![](https://remnote-user-data.s3.amazonaws.com/xiti8Df7SX0-tMVOqQbEvV76-LDkoH-byD33PJBxqzVDE0mourtPqQ7lr49MSvlxP3AatEcA-VBkBi8YjGeWpWA3yiK_4JPy_YT7Mr78XWFwrOrdts9xuKMYxQVQS0qf.png)
+                        - Conclusion
+                            - ![](https://remnote-user-data.s3.amazonaws.com/ioAUVEWYMibvDNMpzurYHihfQu4h0CvJaC3jY7RxUA1S-Tly4VpsjHFUabNf23X-UNKUmV3gNt8VxMsmvKIFUqcbtIwmN-3-BNzQ1J4FF2c66rOoh6_FTHDOV7HwpLkg.png)
+                            - PK have better graft survival
+                            - Comparable in BCVA improvement
+                            - Graft survival not related to glaucoma surgery
+                    - [Complications]()
+                        - Secondary angle-closure glaucoma:>mechansim consequence of high PAS, or occur without overt synechiae (can be presented as open-angle glaucoma initially)
+                    - [Prognosis]()
+                - Pathophysiology
+                    - Posterior synechiae::secondary causes, anterior lens surface with pigmentation residues
+                - Medication
+                    - Most common:>sulfur drug (Topiramate, acetazolamide, hydrocholorothiazide and cotrimoxazole)
+                    - ![](https://remnote-user-data.s3.amazonaws.com/gjmri6Ba4L-lxG5znuzBg2VxZtbJGSJhP9K6pmE7fpsY1zKjDsYbWZ5N1F6Jv5fsGI2HbRcnvowMJlNTgyXOd1ktTDCGI24r36b-DuyY78P56Pl3lQmayuhjh2OT6a0o.png)
+                    - Topiramate causing:>abnormal vision, acute secondary angle closure glaucoma, acute myopia and suprachoroidal effusions
+                        - Mechanism;;drug-stimulated prostaglandins ⇒ vasodilation and increased permeability ⇒ ciliochoroidal effusion ⇒ **forward movement of the lens-iris diaphragm** ⇒ acute angle closure 
+                        - Treatment:>stopped topiramate use, treated with cycloplegia and topical corticosteroids 
+        - Treatment
+            - Posture:>躺平
+                - 目的:>讓Lens不要掉下來 
+            - Pilocarpine
+                - 要ciliary body功能比較好(IOP elevation的時候pupillary block, 會造成iris necrosis)的情況下使用比較有效，否則無效
+                - 通常使用在primary glaucoma，可以將iris diaphram向後拉
+            - Mannitol
+                - 先點mannitol可能可以讓ciliary body動的比較好
+    - Open-Angle Glaucoma (OAG):>no angle closure
+        - Diagnosis:>IOP level, optic disc appearance, visual field loss
+            - Determination:>gonioscopic exam
+        - Risk factor >>>
+            - **Elevated IOP** 
+            - **Old age** 
+            - **Family history** of glaucoma (esp. first-degree)
+            - **African Americans** 
+            - **Long ocular axial length, Myopia** 
+            - Genetics:>MYOC (coding for the protein myocilin in trabecular meshwork), OPTN gene (codes for optineurin)
+            - Anti-VEGF therapy (bevacizumab > ranibizumab)
+            - vascular disease
+            - systematic CCB
+            - Greater translaminar pressure gradient (IOP - orbital CSF pressure)
+            - Lower ocular perfusion pressure (arterial BP - IOP)
+        - Type >>>
+            - Primary Open-Angle Glaucoma #[[Ocular disease]] 
+                - [Overview]()
+                    - [Presentation]()
+                    - [Examination ]()
+                    - [Management]()
+                - [Epidemiology]()
+                - [Etiology]()
+                - [Risk Factors]()
+                - [General Pathology]()
+                - [Pathophysiology]()
+                - [History]();;absent visual symptoms (unless advanced), ophthalmic history (myopia for risk, secondary cause eg. trauma or inflammation), family history of POAG or OHT, past medical history, current medication (steroid for secondary cause, oral beta-blocker for underestimate real IOP, substance use, allergy)
+                    - **Past Medical History:**
+                        - **Asthma, heart failure, or heart block**, and **peripheral vascular disease** are conditions that contraindicate the use of beta-blockers.
+                        - A history of **head injury** or **intracranial pathology** (such as stroke) may lead to **optic atrophy** or **visual field defects**.
+                        - Conditions involving **vasospasm**, including **migraine** and **Raynaud’s phenomenon**, are also relevant.
+                        - **Diabetes**, **systemic hypertension**, and **cardiovascular disease** may elevate the risk of **primary open-angle glaucoma (POAG)**.
+                        - Prolonged use of **oral contraceptive pills** may be linked to an increased risk of developing **glaucoma**.
+                - [Physical examination]();;VA, RAPD in substantial progression, Ishihara chart (suggestion of optic neuropathy other than glaucoma), Tonometry, Gonioscopy, optic disc examination
+                - [Symptoms]()
+                - [Signs]()
+                - [Clinical diagnosis]()
+                - [Diagnostic procedures]()
+                - [Laboratory test]()
+                - [Differential diagnosis]()
+                - [General treatment]();;lowering IOP first, considering surgery if still in progression despite good IOP control
+                    - Targeted IOP:>varies patients to patients, but generally recommended < 18 mmHg, may consider lowering the target if continue to progression
+                    - Efficacy comparison
+                        - Medical therapy {{was as effective as}} trabeculectomy
+                        - Initial laser trabeculoplasty {{was as effective as}} medical therapy.  
+                - [Medical therapy]();-[Glaucoma Medication]()
+                - [Medical follow-up]()
+                    - --------------------- Portal ---------------------
+                        - 臨床 
+                    - Perimetry every {{6-12 mo}} 
+                    - Gonioscopy {{annually}} 
+                    - Optic disc examination every {{visit}} 
+                - [Surgery]()
+                    - Primary option:>[Laser Trabeculoplasty (LTP)](Glaucoma/Management/Laser%20surgery/Laser%20Trabeculoplasty%20(LTP).md)
+                    - Secondary for surgical procedure >>>
+                        - [Trabeculectomy](Glaucoma/Management/Incisional%20surgery/Trabeculectomy.md)
+                        - [Microinvasive Glaucoma Surgery (MIGS)](Glaucoma/Management/Microinvasive%20Glaucoma%20Surgery%20(MIGS).md)
+                - [Complications]()
+                - [Prognosis]();;Good with IOP controlled, lifetime blindness 5-10% if untreated
+                    - Progression risk >>>
+                        - Magnitude of initial IOP reduction
+                        - Height of baseline IOP
+                        - Presence of pseudoexfoliation syndrome
+                        - Presence of bilateral disease
+                        - Worse mean deviation (visual field loss)
+                        - Older age
+            - Normal-Tension Glaucoma
+                - Proportion of NTG amongst primary open angle glaucoma (POAG) in different ethics:>Asian > African > Caucasian
+                - Pathogenesis/risk factor
+                    - --------------------- Portal ---------------------
+                        - 臨床 
+                    - Blood pressure
+                        - Related to glaucoma::low night-time BP, iatrogenic low BP
+                        - Greatest risk for progression::ambulatory BP monitor
+                    - Impaired vascular bed autoregulation
+                        - Autoregulation site:>short post. ciliary artery
+                        - Risk for {{glaucoma progression}} 
+                    - Endothelial dysfunction
+                        - Risk factor:>HTN, Hypercholesterolaemia, heart/renal failure, DM, smoking, raised plasma homocysteine 
+                        - 機轉;;oxidative stress ⇒ inbalenced mediators ⇒ increased ET-1, decreased NO ⇒ impaired angiogenesis and autoregulation ⇒ ischemia, dysregulation in ONH
+                    - Neurovascular coupling
+                        - Relationship between neuron and blood flow:>Retinal ganglion cell (RGC) activity increased ONH blood flow
+                            - 機轉;;active neurons send signal to blood vessels, active astrocytes to release vasoactive agents onto vessel
+                        - Hypoxia影響;;RGC apoptosis  ⇒ reduce autoregulation of ONH vasculature
+                    - Small vessel disease (SVD)
+                        - Silent cerebral infarct (SCI)
+                            - Definition:>incidental finding of vascular occlusion infarction on CT/MRI w/o neurological signs
+                            - 34% NTG patient has SCI
+                        - Risk factor:>vascular risk factor (ex. HTN)
+                    - Oxidative stress in glaucoma neurodegeneration
+                        - ROS
+                            - Origin:>by-products generated by mitochondria
+                    - Retinal venous pressure (RVP)
+                - Treatment
+                    - Medication >>>
+                        - Omidenepag Isopropyl
+                            - Mechanism:>EP2 recepter agonist, lowering IOP 
+                            - Side effect:>conjunctival hyperaemia, eye pain
+                            - Contraindication:>pseudophakic (post cataract surgery) patient
+                            - --------------------- Portal ---------------------
+                                - 臨床 
+                        - Ripasudil, Netarsudil
+                            - Mechanism→Rho-kinase inhibitor (ROCK)
+                            - Role in treatment:>add-on treatment in NTG
+                            - --------------------- Portal ---------------------
+                                - 臨床 
+                        - Gingko Biloba Extract (GBE) 銀杏萃取
+                            - Effect:>increased blood flow velocity in retrobulbar vasculature, reduced vascular resistance in central retinal artery (CRA) and nasal short post. ciliary artery (SPCA)
+                            - Side effect:>bleeding and seizure 
+                        - Resveratrol
+                            - Mechanism:>inhibit ET-1 synthesis, react with ROS, maintain mitochondrial integrity
+                    - Surgical / procedure
+                        - [Trabeculectomy](Glaucoma/Management/Incisional%20surgery/Trabeculectomy.md)
+                            - Complication:>more over-filtration/hypotony (IOP too low)
+                        - iStent Inject:>most common MIGS (Minimally-Invasive Glaucoma Surgery), excellent safety
+                        - XEN gel stent:>more effective in IOP reduction
+                        - Micropulse laser cyclophotocoagulation (MPCPC):>good response in IOP reduction
+                            - Complication:>no persistenet inflammation/hypotony, phthisis bulbi ( atrophic scarred and disorganized globe), or sympathetic ophthalmia (bilateral, granulomatous uveitis, caused by autoimmune disease of exposure of previously immune-privileged ocular antigens)
+                        - Selective laser trabeculoplasty (SLT)
+            - Open-angle glaucoma suspect
+            - Secondary open-angle glaucoma >>>
+                - Pseudoexfoliation Syndrome and Glaucoma  #[[Ocular disease]] 
+                    - 
+                    - [Overview]()
+                        - [Presentation]()
+                        - [Examination ]()
+                        - [Management]()
+                    - [Epidemiology]();;old age (60~), F>M, Scandinavia
+                        - Onset age:>after 50 yrs old, increasing in 60s, 5% at age 75–85 years old
+                    - [Etiology]()
+                    - [Risk Factors]();;Old age (late 60-70s), Scandinavian and Mediterranean race, UV light exposure
+                    - [General Pathology]();;glycoconjugates surrounding a protein core  
+                    - [Pathophysiology]();;Genetic Factors (LOXL1 polymorphisms) + Environmental Stress (UV exposure, oxidative stress, aging) ⇒ abnormal elastin/ECM metabolism ⇒ pseudoexfoliative deposits in anterior segment + iris/zonule damage ⇒ **trabecular blockage by deposits and pigment dispersion** + Lens instability ⇒ ↑ IOP ⇒ optic nerve injury ⇒ progressive glaucoma
+                    - [History]();;**asymmetric or unilateral** at presentation, 50% of eyes diagnosed with PXS are ultimately diagnosed with PXG, and 15–30% of eyes with PXS have glaucoma or increased IOP at initial diagnosis  
+                    - [Physical examination]()
+                    - [Symptoms]()
+                    - [Signs]();;**Pseudoexfoliative material:** Grayish-white flaky material found on the **pupillary margin; uneven/patchy TM pigment distribution; 3 zones of anterior lens capsule after pupil dilation (**central zone of exfoliation material, middle clear zone due to iris rubbing, peripheral cloudy zone); **Iris transillumination defects (TIDs):** **peripupillary (pupillary margin); **[Sampaolesi line (pigment anterior to Schwalbe’s line)](); lens dislocation or subluxation; [Glaucomatous Optic Neuropathy](Glaucoma/Glaucomatous%20Optic%20Neuropathy.md)
+                    - [Clinical diagnosis]()
+                    - [Diagnostic procedures]()
+                    - [Laboratory test]()
+                    - [Differential diagnosis]()
+                        - True Exfoliation (Capsular Delamination):>Results from trauma or chronic infrared exposure (e.g., glass blower’s cataract); **glaucoma is uncommon**  
+                        - [POAG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Primary%20Open-Angle%20Glaucoma.md)
+                            - Cf. POAG vs. PXG:>PXG with **high intraocular pressure (IOP) at onset; highly volatile IOP**; and **faster rates of progression (if failed IOP control, progressed in months)** compared to POAG and NTG
+                        - [Primary Angle-Closure Glaucoma (PACG)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG).md)
+                            - Cf.:>In angle closure secondary to PXF, the presence of **pseudoexfoliative material** and marked **asymmetry in anterior chamber depth** (due to zonular laxity) helps distinguish it from PACG  
+                        - [Pigment dispersion syndrome]()
+                            - --------------------- Portal ---------------------
+                                - 臨床 
+                    - [General treatment]();;similar to those for POAG, but require more aggressive intervention  
+                    - [Medical therapy]();;controlling the IOP with medications, similar to POAG
+                        - **Miotics** (e.g., pilocarpine) should generally be **avoided** in active inflammatory glaucoma and may **exacerbate angle closure** secondary to zonular laxity in PXF
+                    - [Medical follow-up]()
+                    - [Surgery]();;[Laser Trabeculoplasty (LTP)](Glaucoma/Management/Laser%20surgery/Laser%20Trabeculoplasty%20(LTP).md) can be particularly effective (possibly related to the high laser uptake due to TM pigmentation)
+                        - Advanced case:>filtering surgery (e.g., trabeculectomy) with similar success rate to POAG  
+                        - angle closure secondary to PXF with uncontrolled IOP or inflammation:>lens removal  
+                    - [Complications]()
+                        - with cataract surgery:>capsulorhexis contraction (capsular phimosis) and postoperative IOP spikes  
+                    - [Prognosis]()
+                    - Presentation:>exudate in ant. Chamber
+                - Steroid Induced Glaucoma
+                    - Population:>long term systemic/topical steroid use, especially topical steroid use
+                    - S/S:>bilateral eye with systemic steroid effects
+                    - 成因:>steroid造成aqueous humor produce ↑  , 排水 ↓   
+                        - Outflow mechanism;;increased extracellular matrix and altered cytoskeleton of trabecula and lamina cribosa, causing blocking of trabecular outflow
+                    - Steroid IOP response
+                        - Armaly classification
+                            - low responder:>IOP increase < 6 mmHg
+                            - intermediate:>IOP increase 6-15 mmHg 
+                            - Higher responder:>↔IOP increase > 15 mmHg  
+                        - Becker classification
+                            - Low:>final IOP <20 mm Hg
+                            - Intermediate:>final IOP 20-31 mm Hg 
+                            - High:>final IOP > 31 mm Hg  
+                    - Risk factor:>young age (<50 y/o), cortocosteroid （ketone group > ester group)
+                        - Ketone group
+                            - Metabolism:>liver分解, 比較容易堆積濃度
+                            - Fluorometholone:>對成人影響較小，但在小孩身上發現眼壓還是會變高 
+                            - Betamethasone (Fuxone): 對眼內penetration較大，IOP responese較大
+                            - Fluorometholone (Foxone): 主要作用於眼球表面，對眼內penetration較小，IOP response不會這麼高
+                            - Dexamethasone 
+                            - Anterior subtenon triamcinolone acetonide (ASTA) may have{{ higher}} response than PSTA
+                                - 可能原因:>ASTA可能比較接近trabecular meshwork
+                                    - Leakage of PSTA:>higher IOP 
+                        - Ester group
+                            - Metabolism:>水解, 比較不容易造成濃度的累積 
+                            - Loteprednol:>responder, increased IOP level都比較少 
+                    - Onset:>1**-6 weeks**, **1/3 patient presented in 1 week** 
+                    - Cross-over effect:>presumed steroid in contralateral eye也會造成眼壓增加
+                    - Implant
+                        - Indication:>post-surgical macular edema, DME, RVO, uveitis
+                        - Risk factor for IOP elevation:>young age (<60 y/o), RVO, uveitis
+                        - Elevated IOP onset:>within first 2 week
+                        - Implant vs. systemic:>higher elevated IOP risk, glaucoma risk in implant group, no significant systematic complication, 
+                    - Intravitreal injection
+                        - Testing:>prednisolone provocative test 
+                    - Management
+                        - Overall management:>suspened steroid, use of topical IOP lowering medication, laser trabeculoplasty, filtering surgery (trabeculetomy), and glaucoma drainage implant surgery  
+                        - Treatment similar to {{POAG}} 
+                        - Medication effect:>good response to IOP lowering medication 
+                        - Surgery:>good response to trabeculetomy
+                            - [Selective Laser Trabeculoplasty (SLT)](Glaucoma/Management/Laser%20surgery/Laser%20Trabeculoplasty%20(LTP)/Procedure%20type/Selective%20Laser%20Trabeculoplasty%20(SLT).md):>efficacyeffective lowering IOP and reducing medication dependence  
+                - Pigmentary Glaucoma
+                - Traumatic glaucoma
+                - Glaucoma associated with intraocular inflammation
+                - Hemolytic glaucoma (hemoglobin- laden macrophages obstruct TM)
+                - Ghost cell glaucoma (degenerated RBCs obstruct TM)  
+                - Glaucoma associated with intraocular tumors (neoplastic cells, cellular material,  debris, or RBCs obstruct outflow)  
+                - Glaucomatocyclitic Crisis
+                    - Population→中年40s-50s (比ACG年輕), M > F
+                    - Open-angle
+                    - History:>acute onset, recurrent, unilateral
+                    - S/S:>high IOP, 眼睛不太紅, 症狀較輕微(mild BV, , no associated symptoms), 反覆發生
+                        - Cornea:>[KP]() (esp. small, discrete, round, self-limiting in wks), Corneal edema
+                        - AC:>open angle with low grade inflammation (angle closure通常不會有), no synechiae
+                        - Iris:>no fixed dilation (因為眼壓上上下下不會造成ischemia), no iris bombe, may have iris
+                        - Posterior pole:>ex
+                        - Retina:>uncommon glaucomatous optic neuropathy, reversible cupping, exclude hemorrhage, vasculitis, ischemia, 
+                        - 成因:>recurrent high IOP
+                    - Differential diagnosis
+                        - [Uveitis Glaucoma Hyphema (UGH)]()
+                        - HSV/VZV infection
+                        - Fuch uveitis
+                        - Toxoplasma
+                    - Treatment
+                        - AC tapping for HSV/VZV/CMV
+                        - Medical treatment is usually enough
+                        - 通常對Mannitol反應好
+                        - Avoid {{Prostaglandin (for mild infection, r/o uveitis first)}} and delay {{steroid (only use in acute inflammation)}} use
+                        - Definite treatment:>Ganciclovir for CMV infection
+                - early stage of [Neovascular Glaucoma (NVG)](Glaucoma/Neovascular%20Glaucoma%20(NVG).md)
+                - [Fuchs Uveitis Syndrome ]()
+                - [Uveitis Glaucoma Hyphema (UGH)]()
+                - Lens associated >>>
+                    - [Phacolytic Glaucoma]() (leaked lens proteins obstruct TM)
+                    - Lens particle glaucoma (retained lens material after surgery or trauma)
+                    - Phacoantigenic glaucoma (inflammatory response after surgical or accidental lens  trauma)  
+                - Glaucoma associated with elevated episcleral venous pressure
+                - Glaucoma associated with siderosis, chalcosis
+                - Schwartz-Matsuo syndrome (IOP elevation caused by photoreceptor outer segment  release in association with rhegmatogenous ret i nal detachment)
+                - Glaucoma due to IOP elevation associated with repeated anti- VEGF intravitreous injection  
+                - Common most cause of secondary open-angle glaucoma:>[Pseudoexfoliation Syndrome and Glaucoma ](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Secondary%20open-angle%20glaucoma/Pseudoexfoliation%20Syndrome%20and%20Glaucoma.md)
+        - with Uveitis
+            - Differential diagnosis >>>
+                - CMV
+                    - cirisis
+                    - unilateral involvement, recurrent
+                    - 20-40 y/o M
+                    - discrete, round 
+                    - coin shape KP
+                        - ![](https://remnote-user-data.s3.amazonaws.com/-rGUE-I22jmMLlKz2WMJ-23kn6pVge5f6VEpTFX0eh8XFeycY1Kmhv8-svPT9UPs284xABydbzx0XSZMmhS0ATXp_ewdT7owBSsVGIqktEvK4Ayld6p7WBCpNFa1-jTR.png)
+                    - Confocal:>owl shape endothelial cells (cell nuclei)
+                    - cause for high IOP:>inflammation of trabecular meshwork
+                    - Gonioscopy:>trabecular meshwork whitish due to ischemia
+                    - Treatment
+                        - control IOP, avoid PGA
+                        - topical Valgancyclovir
+                            - 減少復發
+                        - topical steroid
+                            - 可能有效 但對於high IOP不一定有效
+                    - Complication
+                        - {{20}}% 發展成seconday glaucoma
+                        - 
+                - HSV infection
+                    - diffuse KP, 
+                - VZV infection
+                - Fuchs uveitis
+                    - shallow AC
+                    - CMV discrete, round, 
+Fuch diffuse, spiculated change, PSC
+                    - iris change, cornea atrophy, 
+                    - Complication
+                        - 10-20%發展成secondary glaucoma
+                        - hansler sign
+                            - trabecular meshwork 血管破裂 during PK due to AC pressure change
+                    - Treatment
+                        - topical steroid:>treatment efficacy  對於眼壓沒有幫助
+                - JIA
+                    - {{不會有}}redness
+                    - vs. toxoplasma:>vitreous inflammation, 
+                    - Examination:>band keratosis
+- Neovascular Glaucoma (NVG) #[[Ocular disease]] 
+    - [Overview]();-A result of **aggressive iris neovascularization (rubeosis iridis)**, which leads to **progressive angle closure** and **rapid glaucomatous atrophy**.
+        - [Presentation]()
+        - [Examination ]()
+        - [Management]()
+    - [Epidemiology]()
+    - [Etiology]()
+        - Common etiology >>>
+            - ischemic [Central retinal venous occlusion (CRVO)]()
+                - predictors of the risk of subsequent NVG:>VA of less than 6/60, a RAPD and extensive peripheral retinal capillary non-perfusion on FAG
+                - Prevalence in CRVO, NVA develops without NVI:>4%
+                - NVG onset:>60% in 100 days (100-day glaucoma)
+            - [Diabetic Retinopathy]()
+                - Overall prevelance:>10-15%
+                - Risk factor:>PPV (around 7%)
+                - Protective factor:>[Laser photocoagulation](), [anti-VEGF agents]()
+            - [Branch retinal venous occlusion (BRVO)]()
+                - NV Prevalance {{2}}%
+                - ischemic type NV Prevalance {{36}}%
+            - Arterial retinal vascular disease ([Central retinal artery occlusion (CRAO)]() or [Ocular Ischemic Syndrome (OIS)]())
+                - CRAO
+                    - NV Prevalance and onset time: {{18}}% {{12}}wks內
+            - Other:>other vascular conditions causing ischemia, Intraocular tumours, long standing RD, chronic intraocular inflammation.
+            - CRVO and diabetes retinopathy underlying nearly {{two thirds}} of all NVG cases
+            - ![](https://remnote-user-data.s3.amazonaws.com/CJNAXFCMoMGPJqm2GqB9DOy7_xTt2kiTx0BtUZQqhBvBXuqyl_fka1AY6QmkdXTQfgNfKIGApWNGmcqMjsv1eROwKoCUAqBhRQdo98G8HzlQUwB_OgviPftJ-0sKunkN.png)
+    - [Risk Factors]()
+    - [General Pathology]()
+    - [Pathophysiology]();;**inadequate oxygen supply** to the retinal cells leading to the release of various angiogenic factors including **VEGF and interleukin-6**. Normally VEGF levels are in equilibrium with pigment epithelium-derived growth factor (PEDF), an antiangiogenic factor. When the **equilibrium between VEGF and PEDF is shifted in favor of VEGF**, this promotes activation, proliferation, and migration of endothelial cells, leading to neovascularization of the anterior segment (NVI, NVA, NVG).
+    - [History]()
+    - [Physical examination]()
+    - [Symptoms]();;none to severe pain, decreased vision, redness and photophobia
+    - [Signs]();;**acute elevated IOP**, **microcystic corneal edema**, AC hemorrhage, AC cells, posterior synechiae, **subtle vessels in pupillary margin**, **rubeosis iridis**, **Angle neovascularization**, cataract, glaucomatic optic neuropathy
+        - Neovascularization of the Angle (NVA)
+            - Complication:>PAS
+                - Cf. NVA vs. [Iridocorneal Endothelial Syndrome (ICE)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Secondary%20ACG/Iridocorneal%20Endothelial%20Syndrome%20(ICE).md):>PAS in NVA end at the Schwalbe line, while ICE syndrome exceeding Schwalbe line
+    - [Clinical diagnosis]()
+        - FAG
+            - Aims:>confirming aetiology and delineating ischaemia
+        - B-scan
+            - Aims:>exclude potential causes such as RD or tumor
+        - Anterior segment OCT
+    - [Diagnostic procedures]()
+    - [Laboratory test]()
+    - [Differential diagnosis]()
+    - [General treatment]();;treat/control underlying disease, IOP lower medication, symptom-relieving agents
+    - [Medical therapy]();;as for POAG
+        - > {{miotics}} should be avoided as they increase vascular permeability 
+        - Temporizing measures:>topical steroid, apraclonidine and oral acetazolamide
+    - [Medical follow-up]()
+    - [Surgery]() >>>
+        - Panretinal photocoagulation (PRP)
+            - Efficacy:>in inducing regression of neovascularization and, if performed early, **preventing progression to glaucoma**.  
+        - Intraocular VEGF inhibitors
+            - usually use with {{adjunctive}} measure with PRP
+            - candidate:>fibrovascular angle closure has not yet supervened
+            - efficacy:>**rapid pain relief, delayed of NVG onset** 
+            - treatment course:>usually not single dose, required multiple injection
+        - Ciliary body ablation
+            - Indication:>medical IOP control is not possible in eyes with poor visual potential or reasonable vision with NG controlled
+            - efficacy:>pain/symptom relief, clearing corneal oedema facilitating PRP
+        - Filtration surgery (artificial filtering shunt (glaucoma drainage device), trabeculectomy with mini-shunt implantation, adjunctive mitomycin C and postoperative subconjunctival 5-FU)
+        - Retrobulbar alcohol injection, Enucleation or evisceration
+            - Candidate:>painful eye with no visual potential
+    - [Complications]()
+    - [Prognosis]();;Poor, best outcome is often a blind but comfortable eye
+        - prevalence of blindness in  the affected eye varies from {{25% to 50}}% depending on the length of follow-up  
+        - Risk for poor visual outcome:>young age, VA less than 6/60 and IOP >35 mmHg on presentation  
+    - 
+- Pseudophakic Glaucoma #[[Ocular disease]] 
+    - [Overview]();-complication which follow congenital cataract surgery in children
+        - [Presentation]()
+        - [Examination ]()
+        - [Management]()
+    - [Epidemiology]()
+    - [Etiology]() >>>
+        - Distortion of Anterior Chamber Angle
+        - Influence of Viscoelastic Substances
+        - Inflammation and Hemorrhage
+        - [Pigment dispersion syndrome]()
+        - Vitreous Filling the Anterior Chamber
+        - Pupillary Block
+        - Peripheral Anterior Synechiae and/or Trabecular Damage
+        - Influence of alpha-chymotrypsin
+        - Lens-Particle Glaucoma
+        - Neodymium: YAG Laser posterior capsulotomy
+    - [Risk Factors]()
+    - [General Pathology]()
+    - [Pathophysiology]()
+    - [History]()
+    - [Physical examination]()
+    - [Symptoms]()
+    - [Signs]()
+    - [Clinical diagnosis]()
+    - [Diagnostic procedures]()
+    - [Laboratory test]()
+    - [Differential diagnosis]()
+    - [General treatment]()
+    - [Medical therapy]()
+    - [Medical follow-up]()
+    - [Surgery]()
+    - [Complications]()
+    - [Prognosis]()
+- Aphakic Glaucoma #[[Ocular disease]] 
+    - [Overview]();-glaucoma following implantation of the lens with cataract surgery
+        - [Presentation]()
+        - [Examination ]()
+        - [Management]()
+    - [Epidemiology]()
+    - [Etiology]()
+    - [Risk Factors]()
+    - [General Pathology]()
+    - [Pathophysiology]()
+    - [History]()
+    - [Physical examination]()
+    - [Symptoms]()
+    - [Signs]()
+    - [Clinical diagnosis]()
+    - [Diagnostic procedures]()
+    - [Laboratory test]()
+    - [Differential diagnosis]()
+    - [General treatment]()
+    - [Medical therapy]()
+    - [Medical follow-up]()
+    - [Surgery]()
+    - [Complications]()
+    - [Prognosis]()
+- Glaucomatous Optic Neuropathy
+    - Pathogenesis:>mediated by **vascular perfusion compromise** (low [Ocular perfusion pressure (OPP)](Glaucoma/Ocular%20perfusion%20pressure%20(OPP).md)) instead of a direct mechanical compression of elevated IOP, but **direct mechanical damage** of optic nerve head over **lamina cribrosa** still caused reduction in axoplasmic flow, interference supply of nutrients or elimination of metabolic waste, lack of neuronal growth factors, oxidative stress, and the onset of immune-related damage  
+    - Sign
+        - 主客觀→醫師主觀
+        - Generalized >>>
+            - Large optic cup
+                - > 💡A large disc has a large cup and may be entirely healthy, while any cupping in a small disc may be abnormal 
+            - Asymmetry of the cups
+            - Progressive enlargement of the cup
+        - Focal >>>
+            - Narrowing of the rim
+            - Vertical elongation of the cup
+            - Cupping to the rim margin
+            - Regional pallor
+            - Splinter hemorrhage
+                - ![](https://remnote-user-data.s3.amazonaws.com/Duki9oGMrsd-G7lNX09gJmBodB4HRxkXU2JUMt8VOECBv5c4yBgZ8nXpeFnSlAofro8tDRDgdmKS60JIknHjAVkNmL_womLfssi472ut9xC531wo2okiKBzqt2GX1sGy.png) 
+                - often extend from the NRR onto the retina, most commonly {{inferotemporally }}{({location})} 
+                - Non-specific to glaucoma, more common in {{NTG}} but can also occur in healthy individuals as well as patients with {{systemic vascular}} disease
+            - Peripapillary retinal nerve fivers loss
+                - Structure of RNFL
+                    - Fibres arising near to the optic nerve lie {{superficially}} within the nerve fibre layer (i.e. near the vitreous) but they occupy the {{central (deep) }}portion of the optic nerve.  
+                    - ![](https://remnote-user-data.s3.amazonaws.com/ybbVNx_0PK1qHlbORAib4_umwOA-IxSoKanxrypYBkB-RrJBE494SrUOzIrtJji9P4izEXy9kr3c5WjBLK7pVXWRxvDkoUin7kB_LpihVeavDp4N5fP46f-_UUHOE95N.png)
+                - Retinal nerve fibre layer defects {{precede}}{({time})} the development of optic disc and visual field change in glaucoma.  
+                - findings >>>
+                    - slit defect:>width < 1 st order vessel, 正常發現
+                    - Segmental defect:>not reached nerve fiber rim, width > 1 st order vessel, 遠離nerve Fiber rim就比較沒有關係
+                    - Wedge defect:>reached nerve fiber rim ,width > 1 st order vessel, early change
+                    - generalized loss:>reached nerve fiber rim, width ≥ 2 clock hours
+                - objective measurement
+                    - OCT
+                        - optic disc topography
+                        - Peripapillary retinal nerve fiver layer thickness
+                            - Sensitivity and specificity utilizing comparison with a normative database is as high as 90%.  
+                            - Thickness: {{superior and inferior}}最厚, {{nasal and temporal}}最薄
+                            - 旁邊黑色的是超過OCT的掃描範圍，常見於高度近視的人，nerve fiber會往temporal被拉薄
+                            - 下方為再nerve fiber rim切一圈切面與正常人比較，deviation map會套色，如果校正常族群薄，就會顯示黃色警示/紅色警告
+                        - Ganglion cell complex (GCC) analysis  
+                            - macular inner retinal layer thickness
+                - Less helpful in advanced glaucoma because of the 'floor' effect (i.e. when the retinal nerve fibre layer reaches {{45–50}} μm it does not decrease any further even though progressive damage may be occurring).  
+        - Glaucomatous disc >>>
+            - Breaking ISNT rule
+            - vertical cup-to-disc ratio (vCDR):>≥ 0.7 
+            - vCDR asymmetry between two eye:>≥ 0.2 
+            - C/D ratio > 0.7
+            - notch
+            - small size:>< 1.5 mm 
+            - average size:>1.5-2.0mm
+            - lens adjustment
+            - Disc damage likelihood scale:>ISNT rule (cup location) + disc size + neuroretinal rim width 
+            - Subtypes of glaucomatous damage
+                - Focal ischemic discs:<![](https://remnote-user-data.s3.amazonaws.com/ojN7y1T0y_v7vJhEu-fUEhlzx93Wrm34U9rVtuY_ggZZTtblbGfpizgjyjSzQywsSjQSr8ahZvvnuylIwH6GS-9quWDliB_skr3yWyL-Uu_IVdxUixn-T0CCXKq5w6Qk.png)
+                    - Focal ischaemic – inferior notch.  
+                    - typically present with localized {{notching}} in the {{superior and/or inferior}} regions. These changes are linked to localized visual field defects, often posing an early risk to central fixation.
+                - Myopic discs with glaucoma:<![](https://remnote-user-data.s3.amazonaws.com/4Vgx-G7AZDIMZ4O-_9yku7wwJUK0bWymDFOujYyMv3ZIJI2XDjGLEuCBSD4wBd-ZZ3pQfJ1CCNEM3fc8JFfp8MaEBU_Dl1RFMvldHUT5nhQcpseBNWfxTsDdNOTcMP-1.png)
+                    - Myopic with a temporal crescent and loss of the inferior neuroretinal rim.  
+                    - {{tilted, shallow}} optic discs, often with a {{temporal crescent of parapapillary atrophy}}. These discs show signs of glaucomatous damage, and dense superior or inferior scotomas threatening fixation are commonly observed. This disc type is most frequently found in {{younger male}}{({age, gender})} patients.
+                - Sclerotic discs::![](https://remnote-user-data.s3.amazonaws.com/9yo76z-OuADzKehr7EpQtinBCBpVgNBtdoEWDwiqJej381vdlzu29OY2IZ3J7Zgs-T-s7hFGxLsXvi2BlzKxsqAfLlKLAwS1-_l0jaHMGwCdyDCHEEtVf7ebT2YDlfpU.png)
+                    - Sclerotic with superior shelving and inferior notching.  
+                    - a shallow, {{saucer}}-shaped cup and a gradually sloping neuroretinal rim (NRR), along with varying degrees of {{parapapillary atrophy}} and peripheral visual field loss. The peripapillary choroid is {{thinner}} compared to other disc types. Affected individuals tend to be {{older}}{({age})}, of either sex, and often have {{systemic vascular}} disease.
+                - Concentrically enlarging discs:<![](https://remnote-user-data.s3.amazonaws.com/RTfx5GxWaD8APa6aUHpzrsbHwS7lh1Ine_DvKMQCyuwzo84fqFyjVPzErMvd7R2qlOSlUisRVraK6l7sz9JhtHftw3ZCgmIoJStdF5zemGEwGq3_Of5Dy25n4I22N4RV.png)
+                    - Concentrically enlarged with deep uniform enlargement of the optic cup.  
+                    - confirmed through serial monitoring, show relatively uniform thinning of the NRR and are often associated with diffuse visual field loss. Intraocular pressure (IOP) is typically significantly {{elevated}} at the time of diagnosis.
+        - Less specific:>Peripapillary cresent, Bayoneting, Baring of circumlinear vessels, Collaterals between two veins at the disc, Exposed lamina cribrosa (laminar dot sign), Nasal displacement of vessels
+            - --------------------- Portal ---------------------
+                - 臨床 
+            - Baring of circumlinear blood vessels:>a space between the neuroretinal rim and a superficial blood vessel
+            - Bayoneting:>double angulation of a blood vessel due to NRR loss
+        - ![](https://remnote-user-data.s3.amazonaws.com/ircJHpzJTai9YupS0rWdvHx5A_EMEvRU45XpB9Deg7jXB94FZCRjhU58VE2JvhAeO5qmS5tWxpI0B1ftua1UG8JyiqFGEqQgXAuhna5AtGGbOb1-cNO3QqJVeVoNg4nH.png)
+        - 
+- Uveitis Glaucoma
+    - Etiology:>inflammation (primary: HSV/VZV iridocyclitis, toxoplasma, fuch heterochromic iridocyclitis; secondary: [VKH]() or SO, lens induced uveitis, UGH in pseudophakic), or steroid responder
+    - Physiolo inflammation, protein, fibrin, clogging trabecular meshwork, 
+    - Sign:>typically lower IOP in acute phase (due to ciliary body shut down during active inflammation), [KP](), AC cells, fibrin material
+        - --------------------- Portal ---------------------
+            - 臨床 
+    - Lab:>systematic blood workup
+    - Differential diagnosis
+        - [Glaucomatocyclitic Crisis](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Secondary%20open-angle%20glaucoma/Glaucomatocyclitic%20Crisis.md)
+            - Cf.:>最大的分別為crisis不會PS, 其他為fine KP in CMV infection
+    - Complication:>secondary  [Secondary ACG ](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Secondary%20ACG.md) (due to PAS, PS)
+    - Management:>lower IOP, anti-inflammation (for PS management), topical mydriasis, filtration surgery if poor response, laser iridotomy, 
+        - avoid PG in the first place, caution with steroid in active infection
+- Ocular perfusion pressure (OPP)
+    - Related to OAG:>low mean OPP, low diastolic OPP in treated HTN patients
+    - Glaucoma progression::Low systolic OPP
+- Examination
+    - Gonioscopic exam
+        - Aims:>Determine open-angle or Angle-closure
+        - Other pathologic finding
+            - --------------------- Portal ---------------------
+                - 臨床 
+            - Angle recession
+        - Type:>Direct, indirect
+            - Direct
+                - 影像正立倒立:>正立
+                - 使用時機:>較為笨重，手術中使用
+            - Indirect
+                - 影像正立倒立→上下左右倒立
+                - 使用時機→較為輕巧，適合門診
+        - Finding
+            - 看不到Schwalbe's line代表 angle-closed
+            - ![](https://remnote-user-data.s3.amazonaws.com/T4cic3NLti0zhra_eUqS94abX45hpjQn9IbrgTEhUdu9a_ihXEUQtF776oH0DOQ72XX6Y0O8q41SX1jIxUVT3Ix5OKAwk_nqyhzrwVv6bBcmiah2ZT_YExpK_rmskPCc.png) 
+    - Ocular biometrics
+        - Aims:>Risk factor for angle closure
+        - Small crowded anterior segments::primary angle closure
+            - Etiology >>>
+                - Shallow anterior chamber (<2.5mm)
+                - Thick lens
+                - Short axial length
+                - Small corneal diameter and radius of curvature
+    - Central corneal thickness
+        - High IOP measurement:<increased CCT
+        - Low IOP measurement:<decreased CCT
+    - Ophthalmoscopy
+        - Aims:>detect optic nerve damage
+        - Type→Direct, indirect
+            - Direct
+                - 影像正立or倒立:>正立
+                - 視野{{小}}，放大倍率{{大 }} 
+            - Indirect
+                - 影像正立or倒立:>上下左右倒立
+                - 視野{{大 }} 
+                - 搭配儀器→Slit lamp
+        - Normal
+            - ISNT rule
+                - ![](https://remnote-user-data.s3.amazonaws.com/r7e0qhaKSl0eKq9YqPhLQ4RLHgLZSQ9puDfg5AD8zD-yFK9lFibqBnVGoVCHoQqSMc6wLrgj1T6v7-MztvlqrHNie6QIAYqj1vnfUZkjHqmRglWGA4omLjIoYBZSNL6V.png) 
+                - Normal
+                    - 寬度順序→Inf.⇒sup.⇒nasal⇒temporal
+                - Abnormal例子
+                    - ![](https://remnote-user-data.s3.amazonaws.com/nvlcmMTtk0l5M210PZpVbfdUag7vZ2tiJwZ-mpocEf1TuO6Tjb97sNn7xPe1DtD64mBFELG8eabOgoo9tVIH6niDu6-KUx4uNiA2u2-rTtFgfa3WqymOFy0A73YKHHfH.png) 
+                    - 異常處: sup.最窄、vertical elongation of the cup
+            - C/D ratio:>30%-60% 
+        - Glaucomatous optic neuropathy
+            - --------------------- Portal ---------------------
+                - 臨床 
+    - --------------------- Portal ---------------------
+        - 臨床 
+    - Visual Field Testing
+        - Normal vision
+            - Hill of vision
+                - ![](https://remnote-user-data.s3.amazonaws.com/Z8Nys4s7HlBH33Gf-MAb1Y2A2lEdSJnpJq-5tz_FyLpz4JWUmOOiUBZhvD176vIvEwTy6aznsfZBYalNr--ftJyx-pbZb1FdmO6_y5SP4K3fRm8zrb4eo_fypvYzfC3v.png)
+            - ONH is ~{{**15**}}**°** **nasal** to the fovea, slightly {{below }}the horizontal => physiologic blind spot sits ~{{**15**}}**°** **temporal** to the point of gaze
+            - Typical blind spot size: ~5° horizontally * 7° vertically
+            - Normal visual angle >>>
+                - Sup:>60
+                - Inf:>70
+                - nasal:>60
+                - temporal:>100
+                - stereoscope:>120 in horizontal
+                    - 因此glaucoma neuropathy病人會無法察覺
+            - Central visual field:>Within 30° of fixation
+                - Contains most retinal ganglion cells (RGCs) => yields more precise, informative sensitivity measurements than the periphery
+            - Peripheral visual field:>the area beyond 30° of fixation
+            - Normal ranges
+                - **Key Findings** 
+                    - Threshold sensitivity distribution = non-Gaussian, negatively skewed
+                    - Peripheral variability > central
+                    - Superior field shows the greatest intersubject variation in normals
+                    - Aging effects are not uniform across the field
+                - ![](https://remnote-user-data.s3.amazonaws.com/dvUUBAwtizB8JWLmB11z3GDwF5GR3nuplMbXFvYQxkEIT-HyZi7IdBPuJpyJnWFJzUA4tXHOa21TIeHHvGa3S9B-On-g-k4ls7eMvRchELRPnTR-nSUY_lt9Df28K_PP.png)
+        -  Selecting a Test
+            - Threshold sensitivity test 
+                - ![](https://remnote-user-data.s3.amazonaws.com/thFnxlw4OmfaArOhGsl46G1ScsRTgPcBuIdMAFcF9iTQ9gP35GKMLUBfufveiStV7SLv2sZs5B1KT2qAcI_BXvJc3BXDY0BaqEHYaACwzZMJGQwSe3Qgt3KrlbCPEgGP.png)
+                    - Stimulus Size & Intensity
+                        - Threshold sensitivity:>stimulus seen 50% of the time
+                            - Change with age:>After the age of 20 years the sensitivity decreases by about 1 dB per 10 years
+                            - Determined by stimulus intensity, not size
+                        - Stimulus size
+                            - Humphrey Perimeter: can test 5 Goldmann sizes
+                            - Size III (0.43°) = standard
+                            - Size V = advanced field loss
+                            - Sizes I, II, IV rarely used
+                    - Background Illumination in Perimetry
+                        - Scotopic (low illumination) influence to retinal sensitivity:>peripheral retina becomes more sensitive (Rod > cone) in proportion to the central retina at lower light level
+                        - Standard Setting
+                            - Background = {{10}} cd/m² (31.4 asb)
+                            - Same as Goldmann perimeter => international standard
+                        - Rationale
+                            - Matches minimum retinal adaptation for  _photopic vision_   (cone-driven, daylight)
+                            - Visibility depends on contrast rather than absolute intensity
+                        - Advantages of photopic testing
+                            - depends on contrast rather than absolute intensity
+                            - less influenced by pupil size or lens transparency
+                    - Stimulus Duration
+                        - Humphrey Perimeter Standard: {{200}} ms
+                        - Rationale:
+                            - Long enough;;visibility not affected by small duration variations
+                            - Shorter than eye movement reaction time;;Prevents patient from shifting gaze to stimulus in periphery
+                    - Fixation Monitoring
+                        - Impact of Poor Fixation
+                            - Like a "jiggled camera" => blurred image
+                            - Alters size, depth, location of VF defects
+                        - Humphrey Perimeter Gaze Tracker
+                            - Precision: $\sim 2^{\circ}$
+                            - Records gaze with each stimulus
+                            - Displays results during test + on final report
+                    - Testing algorithms
+            - Suprathreshold testing
+                - Goal:>Detect abnormally low sensitivity at any VF location
+                - Uses bright stimuli => easy for first-time patients
+                - Historically faster, but no speed advantage vs SITA Faster
+                - **Limitations:**
+                    - No quantitative data
+                    - Less sensitive to early field loss
+                - **Current Role of Suprathreshold Tests**
+                    - Easier for inexperienced patients
+                    - For screening or certification
+            -  Kinetic Perimetry (outdated)
+                - **Historical Standard**: Goldmann manual perimetry (pre-automated era)
+                - **Objective**: Identify locations with the same threshold sensitivity (可看到雙眼視野寬度, 用於申請駕照)
+                - **Method**:
+                    - - Move stimulus (known size & intensity) from periphery $\rightarrow$ center
+                    - - Record first detection point
+                    - - Connect detection points $\rightarrow$ isopter (line of equal sensitivity)
+                    - - Plot with $\geq$2 isopters (intense vs weaker stimulus)Current Role of
+            - ![](https://remnote-user-data.s3.amazonaws.com/pnUooHj-HvkschkIFUTMsrzHhM1c9vPJdtD-jcU-FW1tuelvil3lndIcsYkTc7vzsgA8x7FnZN3PKD_7cwSNyBosFtzo4h7mAYZzMIGRrgbin9iVwzn8i8xze5ER08wV.png)
+            - **Threshold testing** is almost always preferred over **suprathreshold** screening in ophthalmic clinical settings
+            - Detects earliest visual field changes
+            - Standard for follow-up
+        - 儀器 >>>
+            - Standard automated perimetry (SAP):>Humphrey field analyser (HFA)
+                - Quantifies sensitivity of peripheral vision by testing at specific peripheral test locations
+                - **Primary function:** 
+                    - Precise, standardized quantification of visual field sensitivity
+                - Type
+                    - Central visual field testing: within 30° of the fovea (most)
+                    - Peripheral visual field testing
+                - ![](https://remnote-user-data.s3.amazonaws.com/6Z9Cg_kzKIBPAS024XKd1zNtp3tbcmZ9yP16Mk8p72lELNTlbd_BGKbVj9iKT7z6hU040v0i2qI7ETxmNySW7EUxocLk6IHRkWXqhSBPvJ2PAODJIV9akgKwuCzDLZzD.png)
+                - Mode selection
+                    - Recommended mode: **24-2** pattern + **SITA Faster**
+                    - **24-2**: testing central visual field at 54 locations; most commonly used worldwide
+                    - ![](https://remnote-user-data.s3.amazonaws.com/W3y1r8zuYqC22rHhTivxYlIpnEtUuhEKNJ4IU6v4Tt26CDOrZNCF6o_I_pKpHuHwN_neqcY7-DEwEdvhVw70xfrYYmP5ZbNSdyU7XRSW0HqzLMWAyGCLfUzWP03AjMz6.png)
+                    - ![](https://remnote-user-data.s3.amazonaws.com/YwmQmeZlcTwrxQ8og69U1P2rnKSCe-_7wvwAjkbVIR_t7t0wCVO7v8RoLRK1RQIF6h_RkF4RiNtQBeD-2kMhzzjowvjP_9_Mgco2QTxqt6Vm5EV0BPiI_qC6gGwIpGKD.png)
+                    - **SITA Faster** / **SITA Fast** / **SITA standard**
+                        - SITA (Swedish Interactive Thresholding Algorithm)
+                            - Innovations:
+                                - - Prior models of normal & abnormal fields
+                                - - Used all responses (seen + unseen)
+                                - - Certainty-based stopping rules
+                                - - Real-time reaction time adjustment
+                                - - Faster electromechanical design
+                                - - False positives measured without catch trials (e.g. response speed too fast for a human)
+                            - Same/better accuracy, ~50% shorter test time
+                        - SITA Faster (Latest Evolution)
+                            - Innovations:
+                                - - Updated VF model: primary points tested once, blind points tested once
+                                - - No routine False Negative catch trials
+                                - - Gaze tracker replaces blind spot monitoring
+                                - - Removed delay after unseen stimuli
+                            - 53% shorter than SITA Standard, same reproducibility & performance
+                    - Kinetic testing: available in HFA, but very seldom used
+                    - In severe or end-stage glaucoma→10-2 test pattern
+                        - Only testing the central 10°, but with a more detailed 2º grid of test points
+                        - Larger Size V stimulus
+                - Principle
+                    - ![](https://remnote-user-data.s3.amazonaws.com/70cSUbXlQCn3N905QcFb0Vn2LkGxYGYaKW9kzeUn33xxw3lpTq7DUd3FnroaTqYFJqMXWDTwUW8KokZJ801KbVO0IbVVadIj7MC6RDDvKG0VtwyhD1nLPFnytptdaKjv.png)
+            - Frequency Doubling Technology (FDT) Perimetry:>Matrix visual field
+                - Matrix VF test
+                    - Indication:>sensitive to detect very early glaucoma changes，因此在初期可以使用此技術來偵測，但無法使用其追蹤glaucoma progression
+                    - 原理:>FDT perimetry, 利用2組3條條紋快速閃爍，讓人眼覺得有6條條紋
+                    - 可靠性指標 >>>
+                        - fixation error:>central vision fixation (決定之後考題難度), 之後用temporal 15度打到盲點，如果看不到就知道眼睛沒有亂飄，之後就會開始測驗，中間會跑到盲點再打一次
+                        - False positive error:>電腦有時候會不跳，如果你還按下按鈕有看到
+                        - False negative error:>給他一個比較亮的點看不到，之後同個位置比較暗的點卻看得到 
+            - Interpreting test result
+                - ![](https://remnote-user-data.s3.amazonaws.com/CO04rMcJXgHRh-fl_4A9_nXkYCiQCXYwk_lsJKIpZMLOx7cgBe2LOMYQjy3uPB-jwZ85owSROlCAIyYpqw8tNoV_EkFHPKU4SUHY3q3p-U1Qsj0zglwN1EtQ50Knt5HK.png)
+                - **Statpac Analyses** 
+                    - Numerical threshold sensitivities
+                        - The measured threshold sensitivities (decibel) at each test point
+                        - Basic information upon which all the other analyses and printouts are based
+                    - Grayscale presentation of threshold sensitivity
+                        - Darker: lower sensitivity
+                        - Not compared to normal ranges
+                        - => clinically significant loss may not be recognized in this presentation
+                        - Useful for identifying artifacts & identifying typical disease-specific visual field defect patterns
+                    - Total deviation maps
+                        - Total deviation   _numerical plot_  : any deviation from age-corrected normal
+                        - Total deviation   _probability map_  : statistical significant abnormality
+                    - Pattern deviation maps
+                        - Correcting for any overall change in the height of the hill of vision (e.g., cataract) =>**Best at localizing true glaucomatous defects**
+                    - Pattern deviation   _probability map_  :
+                        - Statistical significant abnormality
+                        - The single most useful Statpac analysis
+                    - total deviation:>像原始考試成績
+                    - pattern deviation:>像考試成績加分，電腦調整後 
+                    - **The Glaucoma Hemifield Test (GHT)**
+                        - Al-based plain-language analysis
+                        - High sensitivity & specificity for glaucomatous defects
+                        - Based upon patterns of loss commonly seen in glaucoma
+                    - => Pattern deviation scores in each of five zones in the upper hemifield are compared to findings in mirror-image zones in the inferior visual field • Accessible for clinicians less experienced with VF interpretation • Not designed for neurological/retinal defects, but may still flag abnormalities
+                    - ![](https://remnote-user-data.s3.amazonaws.com/zNfoDpS9MY8bd9Yn9eQMRnGUz65Ysi2KOqQx0yO1S8LJmxDXSoT5YLz43sg9CvwwOEQFEEoEaZPm0hUBW55b-p8LKF0bxdcK0_46a9pQtW5YfKmTSKbvAaPqtjuIsM-6.png)
+                    - Visual field index (MD, VFI, and PSD)
+                        - Mean Deviation (MD)
+                            - Weighted average of the values presented in the Total Deviation numerical plot
+                            - Large negative values = advanced loss
+                        - Visual Field Index (VFI)
+                            - Enhancement of MD $\rightarrow$ less affected by cataract, sensitive to central change
+                            - Better correlation with ganglion cell loss
+                            - 100% = normal, 0% = perimetric blindness
+                            - {{No much change}}{({sensitive or not})} during early glaucomatous change
+                        - Pattern Standard Deviation (PSD)
+                            - Quantify localized loss & ignore generalized depression
+                            - Low in normal, diffuse, or blind fields; highest in moderate–advanced focal loss
+                        - => Helpful for staging and follow-up, but less diagnostic than probability maps & GHT
+                    - 
+                    - early glaucoma常常會出現visual field跟CFP不同的發現
+                    - Special modalities such as {{frequency doubling technology (FDT)}} and {{short wavelength automated perimetry (SWAP)}} may demonstrate defects at an earlier stage.  
+                - Guided progression analysis:>Method of evaluating changes in visual field test (3 SITA testing) results over time to assess the progression of glaucoma.
+                    - ![](https://remnote-user-data.s3.amazonaws.com/TuVzPhCvQOuj2B3obh7Qa9k9QBCRirj-yC7rqQp4ZM2VOI7omZsnAS8W7k1J9NYvw3iAbYhpr0bCfcHzsQIujpN-mZkgz7JWJuWBLMskIbNx-71EyP9xPrORmlOeq21y.png)
+                    - Two analyses:
+                        - Glaucoma change probability maps:
+                            - Reproducible statistically significant changes => glaucomatous progression
+                            - GPA Alert: a plain-language analysis of series of field tests
+                        - VFI/MD trend analysis
+                            - => distinguish fast vs. slow progressors
+            - Minimal criteria for glaucomatous damage on SAP >>>
+                - outside normal limits (differences between superior and inferior halves of the visual field) on at least two consecutive occasions 
+                - A **cluster** of **three** or more non-edge points in a location typical for glaucoma, all of which are depressed on **PSD at P <5%** level **and one** which is depressed at **P <1%** level, on **two consecutive** occasions  
+                - **Corrected PSD** that occurs in **less than 5%** of normal individuals on **two consecutive **fields.
+            - **Artifactual Test Results** 
+                - Common artifacts:
+                    - Ptosis, prominent brows
+                    - Trial lens holder blocking periphery
+                    - Trigger-happy fields: False positives, unusually high threshold values
+                    - Learning effect: First test depressed, later tests improve (usually mild)
+            - Abnormal findings
+                - Filling-in effect: 自動腦補看不到的區域
+                -  _Field Defects from Preretinal Conditions_  
+                    -  *Cause*  : corneal clouding/ cataract / cloudy ocular media / uncorrected
+                - refractive error =>   _General depression_   =   _diffuse sensitivity loss_ 
+                    -  *Cause*  : Preretinal macular hemorrhage =>   _Localized positive field defect _ (  _scotoma_  )
+                - Field Defects from Outer Retinal Disease
+                    - Causes: Damage to   _RPE or photoreceptors_ 
+                        - - AMD $\rightarrow$ central scotoma
+                        - - Retinitis pigmentosa $\rightarrow$ deepest loss in midperiphery
+                    - Characteristics:
+                        - - Negative field defect
+                        - - Do not respect vertical/horizontal meridian
+                        - - If bilateral, usually asymmetric between eyes
+                - Field Defects from Inner Retina & Optic Nerve
+                    - Most common: Glaucoma
+                    - Other causes: Optic disc drusen, optic neuritis, ischemic optic neuropathy, vascular occlusion
+                    - Glaucomatous VF Loss
+                        - - Shallow disc rim notching $\rightarrow$ small localized scotomas (ex. nasal - step)
+                        - - deep focal rim damage $\rightarrow$ arcuate/curved defects
+                        - -   _Respect nasal horizontal meridian_ 
+                - Field Defects from Inner Retina & Optic Nerve
+                    - Nonglaucomatous VF Loss
+                        - - Optic neuritis => central scotoma
+                        - Ischemic optic neuropathy => glaucoma-like defects
+                        - Vascular occlusion => paracentral/arcuate scotomas (glaucoma-like) Pattern Deviation→
+                -  Field Defects from Chiasmal Disturbances
+                    - **Cause:** Lesions at the chiasm (e.g., pituitary adenoma)
+                    - **Anatomy:** Crossing fibers = from nasal retina of each eye
+                    - **Visual Field Pattern:**
+                        - - Bitemporal field loss (both eyes)
+                        - - Early stages => incomplete, asymmetric
+                        - - Severe disease: May extend to optic nerve or optic tract => mixed VF abnormalities
+                - Field Defects from Postchiasmal Lesions
+                    - Cause: Tumors, stroke, head injury (optic tract $\rightarrow$ visual cortex)
+                    - Visual Field Pattern:
+                        - - Homonymous hemianopia
+                        - -May be congruous (similar in both eyes) or incongruous
+                    - Key Principle:
+                        - - Lesion location matters
+                        - - More posterior lesion $\rightarrow$ more congruous VF defect
+                - 防熱防 Pattern Deviation
+        - Defect pattern >>>
+            - Early glaucomatous defects
+                - Often come and go for years before clear and **repeatable** 
+            - Generalized depression
+            - Paracentral scotoma
+                - Common scotoma location (病人視野):>superonasally
+                - Common seen in {{NTG}}{({types of glaucoma})} 
+                - ![](https://remnote-user-data.s3.amazonaws.com/wg-kWxWfqK11LaVXs3jgfwMuBHdeQM3B7PbBYO5QVpi9bT4O3YIrvzYM_qYqe8h35WTFmvWWNXvqTMJ7AqVMTMu5nXCjHrEYJbnjPxEbOhQOFmaCfg2iJOpQZJsgv8uB.png) 
+                    - 上圖代表lesion位置→temporal lower disk nerve fiber damage
+            - Nasal step
+                - ![](https://remnote-user-data.s3.amazonaws.com/qA2wqWn4W0PD8lBFHoAORDBENwVcFY9zQmJaNijItTBjZonbzPCpNfvcKFetcLXhYJZxUfEDDuZi0nSQxTsFmVG-h-QIws5E0qsf5egNeqIpfWX3k2pwBo4eL96Cg8u7.png)
+                    - 上圖代表lesion位置→sup. temporal disk nerve fiber damage
+                - 視野缺損位置→nasal，中心沒有缺損
+                - 更嚴重的時候:>會沿著nerve fiber progression 
+                - glaucoma會有的特殊呈現:>有層次的視野缺損，往損傷外移動時盲區會漸漸下降 
+            - Arcuate scotoma (Bjerrum scotoma)
+                - ![](https://remnote-user-data.s3.amazonaws.com/PaPc2ohK95809vex5VuyL7mlFaMJk8FGOU7a7RndpNZHDU3AVIxyyhMDH_R5R71Bcf8dqOLUkM4C41hx59d0XcPjYe8xLx_pCsJ6IDU5BUHvVp6VgGqeumCe4LhBRoww.png)
+                - 常出現在{{後期}}病程
+                - 上圖代表lesion位置→temporal lower disk nerve fiber damage，較為嚴重
+                - D/D:>如果盲區上策最嚴重，往中間慢慢變好，有可能是ptosis 
+            - Altitudinal defect
+                - 慢性變化，因此一半不好，另外一半也會有某種程度的損傷
+                - D/D:>AION, blood supply有一半區域不好, 另外一半會是好的 
+            - Temporal wedge
+            - A ring scotoma
+            - End-stage 
+                - small island of central vision, typically accompanied by a {{temporal}} island  
+        - Staging
+            - early glaucomatous loss:>MD of < −6 dB
+            - moderate glaucomatous loss:>−6 to −12 dB
+            - severe glaucomatous loss:>> −12 dB, or any absolute defect (0 dB) in the central 5 degrees
+    - --------------------- Portal ---------------------
+        - 臨床 
+    - Vascular geometry
+        - Fundus photography
+            - Ocular hypertension:>decreased retinal vascular fractal dimension
+            - Glaucoma:>retinal arteriolar narrowing
+            - [POAG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Primary%20Open-Angle%20Glaucoma.md):>Decreased retinal arteriolar and venular tortuosity, narrower retinal venular branching angle
+        - OCT-A
+            - [POAG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Primary%20Open-Angle%20Glaucoma.md):>decreased circumpapillary vessel density (cpVD)
+            - [NTG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma.md):>Decreased peripapillary and superficial macula area vessel density (cpVD)
+            - Treatment response
+                - [PG (Prostaglandin-analogue)](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma/Treatment/Medication/Omidenepag%20Isopropyl.md):>increased ONH vessel density (VD) and radial peripapillary capillaries (RPC)
+                - [Rho-kinase inhibitor (ROCK)](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma/Treatment/Medication/Ripasudil%2C%20Netarsudil.md):>increased parapapillary vessel density (VD)
+        - Swept-source optical coherence tomography (SS-OCT)
+            - [NTG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma.md):>decreased macular choroidal vascularity, more obvious in Haller's layer than Scattler's layer 
+    - AI application 
+        - Glaucoma suspect vs. early NTG
+        - Vascular geometry changes in NTG progression
+    - Cerebrospinal fluid pressure (CSFP)
+        - Translaminar cribrosa pressure difference (TLCPD):>IOP - retrobulbar CSFP
+            - Better association with OAG and GON than IOP
+            - Relationship with IOP in NTG:>TLCPD associated with high-teens (≥ 15 mmHg) IOP 
+            - Retrobulbar CSFP
+                - [NTG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Normal-Tension%20Glaucoma.md):>lower retrobulbar CSFP
+                - Measurement
+                    - Non-Invasive:>MRI-assisted measurement of orbital subarachnoid space width (OSASW)
+            - factor for higher CSFP:>younger age, higher BP, high BMI
+            - 
+- Emergency
+    - Acute Primary Angle Closure  #^^ALERT^^ 
+        - [Signs]() >>>
+            - High IOP, 中等程度pupil dilation w/ 光反射減低, corneal epi. edema, conjunctiva充血, shallow ant. chamber, mid ant. chamber cells (inflammation reaction), glaucomflecken (necrosis of the lens epithelium over ant. capsule), disc hyperemia
+            - Glaucomflecken::image![](https://remnote-user-data.s3.amazonaws.com/V9U2H0BLS8EtaoOFipCYFl5iiwP_fLehVpq9KYs7zqEBTyG7okdP2MXp4mWJ2nWJA1ivWaDzB4h89jjn8qMsCczCgsNymVW0kfQ3KEDWnMF2ji-lFDj5_VwukGT-lf-q.png)
+            - ![](https://remnote-user-data.s3.amazonaws.com/FOt-dtp9eZwaW3lCevNN5mUG6PzU4h9IV51zOiBPRenBLF8VsrD0lKMo6OORhisCiERF-NOBOXS6kHgjh0Gx8LTaDjf6SF5h-wI5GJjpcBArKXYxABf-jnJydbROWZX_.png) 
+        - [Symptoms]();;Blurred vision, eye pain, headache, nausea/vomiting, halo vision (有光暈產生)
+        - Epidemiology:>age, gender, race, and family history
+            - Age:>常見60歲The average age at presentation is 60, and prevalence increases thereafter. This is felt to be due to the increasing size of the lens with age.
+            - Gender:>女生多There is a 4 to 1 ratio of the incidence of angle-closure glaucoma in women versus men.
+            - Race:>黑人少Angle-closure glaucoma is more common in Southeast Asians, Chinese, and Eskimos. It is uncommon in black populations. In whites, acute angle-closure glaucoma accounts for 6% of all glaucoma diagnoses.[6]
+            - Family history:>Ocular anatomic features are inherited.
+        - Involvement:>bil. or uni?usually unilateral 
+        - DDx:>Migraine, 腸胃炎
+        - [Emergent management]()
+            - Acute phase
+                - Aims→lower IOP
+                    - Aqueous secretion機轉
+![](https://remnote-user-data.s3.amazonaws.com/ziIY__d8X3a6FCRxuJdfyesrNP66_1ycIogUooUZyD_0Vs88JO-KFr-ZUd7e5Lv7FonVcop3wiLfupOV2l3Dxvd6aWIanNcDqigFMeEKsJHkxIDWUlVZp3gFFxeFJmdQ.png)
+                    - Medication >>>
+                        - Pilocarpine
+                            - 劑量途徑:>1% to 2% one drop every 15 minutes for two doses once intraocular pressure is below 40 mm Hg
+                            - 作用機轉→cholinergic agent, 瞳孔縮小讓angle稍微可以張開 
+                            - Note:>not effective at higher pressures due to pressure-induced ischemic paralysis of the iris
+                        - beta-blocker
+                            - 藥物劑量途徑:>timolol 0.5% one drop   
+                            - 作用機轉→抑制aqueous secretion
+                            - Contraindication:>Asthma, COPD, heart failure, 2nd-degree AV block, bradycardia, hypotension
+                        - alpha-2 agonist
+                            - 藥物劑量途徑:>apraclonidine 1% one drop, Alphagan (Brimonidine tartrate 0.15%) 1gtt STAT+Q8H
+                            - 作用機轉→抑制aqueous secretion
+                        - acetazolamide
+                            - 劑量途徑:>500 mg IV or 2# STAT + 0.5# QID, po
+                            - 作用機轉→抑制aqueous secretion 
+                        - Steroid
+                            - 藥物劑量途徑:>Betame (Betamethasone) 1gtt QID
+                        - Combined medication
+                            - 藥物劑量途徑→Cosopt (dorzolamide hydrochloride + timolol maleate) 1gtt STAT+Q12H 
+                        - Mannitol
+                            - 劑量途徑:>1 to 2 grams/kg STAT IF full run
+                            - 作用機轉→滲透壓將水分更快排出
+                            - 作用速度→最快
+                            - 何種病人不適合→電解質不平衡、心/腎功能差的病人
+                            - 適合病人:>acute primary angle closure attack
+                            - 後續用藥:>Pilocarpine 1gtt after mannitol finished, Q5mins (no more than 3 times) until pupil constriction, then QID "ou"
+                        - --------------------- Portal ---------------------query:[Medication](Glaucoma/Emergency/Acute%20Primary%20Angle%20Closure/Emergent%20management/Acute%20phase/Aims/Medication.md)
+                            - --------------------- Portal ---------------------
+            - Definite treatment:>[Laser Peripheral Iridotomy (LPI) ](Glaucoma/Management/Laser%20surgery/Laser%20Peripheral%20Iridotomy%20(LPI).md) or surgical iridectomy in symptomatic eye and **prophylatic for fellow eye**  ，在iris上開一小洞，讓房水可以自由流通
+        - [Management]() >>>
+            - --------------------- Portal ---------------------
+                - 臨床 
+            - Contraindication
+                - --------------------- Portal ---------------------
+                    - 臨床 
+- 
+- Management
+    - Medical vs. surgical treatment
+        - IOP fluctuation is {{greater }}in medically treated eyes than in surgically treated eyes 
+        - Compared with preoperative measurements, trabeculectomy with MMC reduces IOP fluctuations at day and night 
+        - Trabeculectomy provides a {{lower}} 24-hour IOP variation than maximum medical therapy 
+    - Timing of surgical intervention
+        - ![](https://remnote-user-data.s3.amazonaws.com/5zPOezwTBvcFZ_OIMrdxXr7nRDKy6wsGlHgSL8psxZ9yNRA7rkPrfYpVjPvPod6aNAojkJrY4qN_EAUYw_J18XeeboNwCrM4FVeQGmjUukhySuVlNa53iLWUUF8FFxZE.png)
+    - Early [Trabeculectomy](Glaucoma/Management/Incisional%20surgery/Trabeculectomy.md)
+    - Laser surgery
+        - Laser Trabeculoplasty (LTP)
+            - Indication:>primary alternative to topical medications for **OAG (primary and secondary)** and **ocular hypertension**, Failure of adherence/intolerance to the medical regimen, Adjunctive treatment, Failure of medical therapy
+            - Contraindication:>closed angle glaucoma
+            - Caution or avoid:>advanced glaucoma with high IOP, anterior uveitis, neovascular glaucoma, high IOP spike caution for highly pigmented TM
+            - Mechanism remained unclear
+                - stimulation fo cell division in TM
+                - cytokine release
+                - recuritment of monocytes macorphages, enhanced phagocytic
+                - thermal extracellular matrix
+            - Procedure type
+                - instrument gonioscope
+                - Selective Laser Trabeculoplasty (SLT)
+                    - LiGHT trial
+                    - 532 nm frequency doubled, Q-switched Nd:YAG laser is used to selectively target intracellular  melanin pigment in TM cells 80-120' over 180
+                    - First-line treatment fortreatment recommendation::ocular hypertension and primary open angle glaucoma
+                    - Efficacy in reducing IOP:>IOP reductions of 10–40% can be expected after 6 months in responsive patients  
+                    - Repeatability:>SLT and MLT can be repreated, even if initial treatment has been  unsuccessful (due to no thermal tissue damage)
+                    - Postoperative medication:>no drops in one trial
+                    - Complication:>transient mild inflammation with  mild discomfort, PAS formation and IOP elevation (esp. in heavily pigmented angles)
+                - Argon Laser Trabeculoplasty (ALT)  
+                    - ALT 50-60' over 180, caution for IOP spike
+                    - Repeatability→no, due to sustains thermal damage with low or none benefit
+                    - Postoperative medication:>steroid/NSAID
+                    - Complication:>peripheral anterior synechiae, **acute elevation of IOP** (should be monitored carefully over subsequent weeks in patients with severe glaucomatous damage), cystoid macular oedema and anterior uveitis (usually mild)  
+                - Micropulse laser trabeculoplasty (MLT)
+                    - extremely short duration pulses of laser to  deliver thermal energy to the TM to stimulate cells without  damage
+                    - ![](https://remnote-user-data.s3.amazonaws.com/8odax6brSmcZXbweakqAUBqGTRPMKGDHmRokg0kiRC3XxjTcOsHqevRWTDLzmUKGR-pGGey6Ej2G6TmvpMV1SB2SIjE2bnXfdPzGFxN3QwiHLQwglicKRb6BHFeWI5bB.png)
+            - Complication:>corneal abrasion, infalmmation, IOP spikes, pain, acute IOP elevation (esp. in advanced glaucoma, within 1 hour, common in ALT)
+            - Efficacy
+                - ALT {{similar to}} SLT
+                - 80% uncontrolled OAG showed IOP reduction
+                - 50% initial response, maintain effect for 3-5 years
+                - 30% maintain effect at 10 years
+                - old patient with POAG and pseudoexfoliation
+                - ALT repeat in untreated 180
+                - ALT vs. timolol in newly diagnosed POAG:>effective as meds in reducing IOP, preventing VF loss, and increaseing C/D ??
+        - Laser Peripheral Iridotomy (LPI) 
+            - Indication >>>
+                - Relieve pupillary block in [Acute Primary Angle Closure ](Glaucoma/Emergency/Acute%20Primary%20Angle%20Closure.md) (definite for symptomatic eye and **prophylatic for fellow eye)**, [Primary Angle-Closure Suspect](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG)/Classification/Primary%20Angle-Closure%20Suspect.md), [Primary Angle Closure](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG)/Classification/Primary%20Angle%20Closure.md), [Primary Angle-Closure Glaucoma (PACG)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG).md)
+                - [With pupillary block](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Secondary%20ACG/With%20pupillary%20block.md)
+                - Eliminates the possibility of a pupillary block mechanism in [Malignant Glaucoma (usually seen in aqueous misdirection)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Secondary%20ACG/Without%20pupillary%20block/Posterior%20pushing/Malignant%20Glaucoma%20(usually%20seen%20in%20aqueous%20misdirection).md), [Plateau Iris Configuration](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG)/Classification/Plateau%20Iris%20Configuration.md), [Plateau Iris Syndrome](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG)/Types/Primary%20Angle-Closure%20Glaucoma%20(PACG)/Classification/Plateau%20Iris%20Syndrome.md)
+                - Relieve reverse pupillary in [Postoperative Reverse Pupillary Block]()
+                - multiple times for posterior synachiae
+                - contraindication:>Ocular media opacities, high-risk patients (very shallow AC, uveitis, NV glaucoma, iridocorneal endothelial syndrome)
+                - Technique
+                    - Prophylatic case:>topical hypotensive agent befor LPI (Topical alpha-2 agonists (brimonidine or apraclonidine), pilocarpine for reducing iris thickness and facilitating perforation (but may not work if ischemia)
+                    - choose the most peripheeral, thin area of treatmet
+                    - sign of penetration:>fluid and pigemtn release into AC
+                    - Laser selection
+                        - Q-switched Nd:YAG Laser (1064 nm)
+                            - Mechanism:>**Photodisruption** (creates an ionic plasma wave and cavitation bubble)  
+                            - Benefits:>effective in all iris colors (independent of melanin content) and perforates the iris easily, requiring lower energy  
+                            - Location selection:>11' 1' 9' 3' 7' 5'
+                                - avoid in 12' due to:>gas bubble blocking entry of laser
+                                - avoid in 6' due to:>hemorrhage blocking view
+                                - avoid in 10' or 2' at eye lid due to:>prism effect
+                        - Argon 532 nm Laser
+                            - Mechanism:>**Photothermal** (coagulative or explosive effects) 
+                            - Requires pigment for energy absorption; less effective alone than the Nd:YAG laser
+                            - **sequential combination** with Nd:YAG for thick irides  
+                - Postop care:>IOP checked 0.5-1 hour after to monitor for acute IOP spike
+                    - topical steroid {{1}} week for inflammaion
+                    - esp. in extensive PAS, and advanced glaucoma
+                - Complication >>>
+                    - Transient increase in IOP (most common postoperative complication):>usually occurring in the first 4 hours. It is thought to be caused by debris (blood, pigment granules) released into the trabecular meshwork
+                    - Hyphema
+                    - Visual hysphotopsia (likely related to iridotomy location near the tear meniscus (prism), bending light
+                    - Cataract progression
+                    - Closure of the iridotomy  
+                        - up to {{20}}% of cases within {{6}} months
+                    - Aqueous Misdirection Syndrome:>A rare, serious complication that may follow LPI, resulting in elevated IOP and shallowing of the anterior chamber due to the misdirection of aqueous humor  
+                - Efficacy:>effective in deepening in the angle in pupillar block induced glaucmoa
+                    - Cf. cataract surgery vs. LPI combined with medical treatment in PAC and PACG patients:>clear lens extraction (cataract surgery) was superior in patients with an IOP over 30 mm Hg, with less subsequent treatment to control IOP
+                        - The **EAGLE trial** concluded that clear lens extraction (cataract surgery) was superior to LPI combined with medical treatment for PAC and PACG patients who presented with an IOP over 30 mm Hg, requiring significantly less subsequent treatment to control IOP  
+                - Limitation
+                    - {{40-60}}% PAC patients require additional treatmetn after LPI
+            - Laser iridoplasty
+                - thermal laser applied to 
+                - indication:>prevent PAC or PACG in eyes with narrow angle despite LPI
+        - Cycolphotocoagulation (CPC)
+            - Surgical goal:>reduced aqueous humor production by danaging the nonpigmeted ciliary epi.
+            - Indication:>suitable for most glaucoma, esp. in older adult , painful flind eye (palliative), myst continue anticoagulation/ antiplatelet therapy
+            - still carry risk for [Sympathetic ophthalmia (SO)]()
+            - Technique
+                - local anaethesia
+                - fiber-optic probe posterior to limbus
+                - endoscopic cyclophotocoagulation (ECP)
+                    - laser treatment 270-360'
+                    - endpoint:>whitening and shrinkage of the treated tissue, cuation for rupture
+                    - postop care:>topical steroid
+                    - complicaiton:>prolonged hypotony, pain, inflammaion, [Sympathetic ophthalmia (SO)](), endothelmitis?
+                    - Efficacy:>all forms of CPC is effective for lowering IOP
+    - Incisional surgery
+        - Indication:>progressive (visual field loss, optic nerve cupping, approaching to fixation), uncontrolled, high risk, primary for congental glaucoma.
+            - ![](https://remnote-user-data.s3.amazonaws.com/TcmLXBxr5fqK2GH4Wf_tdV6h2P0fB39x2CxNc9ePtY6MdTPA-eZvn5k4Md_jM3nsdjDGHp2K-GKqDgD5pqaA7RM2a7A816_bvp_pneivrcJ2qDds1oG2CtC0kl2Y-fQC.png)
+            - Early surgery can reduce poor prognosis
+        - Trabeculectomy
+            - ![](https://remnote-user-data.s3.amazonaws.com/N1NfCrblnuWCAodProwIKM6n5qNC2eoLIhY7sZX5bAlJuntoM_J3C_k-HE3FH9oWYtR75JdwojWZFUAd8Ik2RPi46mKhe_yidjr9VPN5U60cpPmJ5dsuUTwLy__z-W5w.png)
+            - Primary 
+            - Indication:>Failure of conservative therapy, Progressive deterioration despite seemingly adequate IOP control, Patient's preference
+            - Absolute contraindication:>patient unlikely to develop visual disability from glaucoma,  limited life expectency, POAG without prior or contemporaneous cataract surgery
+            - Relative contraindication:>Age < 2 y/o, Prior cataract surgery, Active inflammation, AC neovascularization, extensive conjunctival injury, extremely thin or abnormal sclera, systematic disease with lower success rate (DM, heritable connective tissue disorders (collagen vascular diseases) and autoimmune diseases)
+            - Aims:>Lowers IOP by creating a fistula, protected by a superficial scleral flap, to allow aqueous outflow from the anterior chamber to the sub-Tenon space.
+            - Technique
+                - The pupil is {{constricted}} preoperatively (e.g. {{pilocarpine 2%}}).
+                - A bridle suture is inserted (commonly superior cornea or superior rectus muscle).
+                - A limbal or fornix-based flap of conjunctiva and Tenon capsule is fashioned superiorly.
+                - Episcleral tissue is cleared and major vessels cauterized.
+                - Placing the incisions at {{12}} o’clock, preventing {{bleb dysaesthesia}}  
+                - Incisions are made through about 50% of scleral thickness, to create a ‘trapdoor’ lamellar scleral flap (Fig. 11.72A). This flap may be rectangular (3 × 3–4 mm), trapezoidal or triangular, according to preference.
+                - The superficial flap is dissected forwards until clear cornea is reached (Fig. 11.72B).
+                - ![](https://remnote-user-data.s3.amazonaws.com/PjUw4nICT9tkNpurtG6XpnBI9AKcPPr2-GLTo0BZiXHZ9fNdWphH3v4jfh1HTweHX4Pqpsz-BiDdb3mtpWwMOsIhF9luxEEPr_atrEsejOQHAJqQ30dDOEuzrwOOCZVc.png)
+                - A paracentesis is made in temporal peripheral clear cornea.
+                - The AC is entered along most of the width of the trapdoor base.
+                - A block of deep sclera is excised, usually using a punch (e.g. Kelly – Fig. 11.72C).
+                - A peripheral iridectomy is created to prevent {{blockage of the internal sclerostomy}} (Fig. 11.72D). Some surgeons omit this step in pseudophakic eyes, but there remains a small risk of iris prolapse into the sclerostomy site if that option is adopted.
+                - ![](https://remnote-user-data.s3.amazonaws.com/CjaBDca2QkNmaqmhiGONEX_Hs9k3bx7Rei56qQEcwy0yB64XXIup4uEhkrc9tQ-7SxwXfW1tbRGEQC2xJpapQK25OfeFaOLmGFEsGxvta5-wNG_7TRh0K22LC_qAENmZ.png)
+                - The superficial scleral flap is sutured at its posterior corners, either so that it is lightly opposed to the underlying bed or tightly closed with releasable or lysable sutures to reduce the risk of postoperative leakage. Some surgeons insert a suture into each of the radial edges to reduce the risk of a substantial lateral leak (Fig. 11.72E).
+                - Balanced salt solution is injected through the paracentesis to deepen the anterior chamber and to test the patency of the fistula (see Fig. 11.72E).
+                - Conjunctiva/Tenon capsule flap is sutured (Fig. 11.72F). Irrigation through the paracentesis is repeated to produce a bleb, which is checked for leakage.
+                - ![](https://remnote-user-data.s3.amazonaws.com/4sV7KfQNnlbBvqThqKgFxLoDsJHY8lOPIZaEiuABPpdMjq1NqxsgM2wVtsM6wm7mNlTymPsaYutbn-CPc_F6xvAKYDT1_OSW0iE6fJT6d9fUWDJrfmnDtDskVhoyAvE9.png)
+                - A drop of atropine 1% is instilled. When no iridectomy has been performed, pilocarpine 2% may be used instead.
+                - Steroid and antibiotic are injected under the inferior conjunctiva.
+                - {{Steroid and antibiotic drops}} are used four times daily for {{2 weeks}}{({time period})} and then changed to {{steroid}} alone for a further {{8–12 weeks}}.
+            - Adjunctive antimetabolites
+                - Goal:>inhibit the natural healing response that may preclude successful filtration surgery
+                - Indication:>uncomplicated glaucoma
+                - Risk factor of surgery failure >>>
+                    - Previous failed trabeculectomy or MIGS.
+                    - Previous conjunctival or cataract surgery.
+                    - Secondary glaucoma (e.g. inflammatory, neovascular, post-traumatic).
+                    - Demographic: Black race, age under 65 years.
+                    - Patients on topical medication (particularly sympathomimetics) for over 3 years.
+                - Medication >>>
+                    - --------------------- Portal ---------------------
+                        - 臨床 
+                    - Mitomycin-C (MMC)
+                        - Intraoperative use: 0.2 mg/ml for 2 minutes, a higher concentration (e.g. 0.4  mg/ml) may be used for particularly {{high-risk}} patients. 
+                        - Higher concentrations and extended exposure times are associated with  an increased risk of complications
+                        - Complication:>chronic hypotony, late-onset bleb leak and endophthalmitis
+                    - Bevacizumab
+                        - Intracameral or subconjunctival  
+                        - Complication:>bleb encapsulation
+            - Complication >>>
+                - Bleb-related complication
+                    - Bleb-related infection
+                        - Stage
+                            - Stage I:>localized inflammation of the bleb
+                            - Stage II:>anterior chamber with cells, flare, or hypopyon
+                            - Stage III:>vitreous involvement
+                        - Onset:>occur days to years after the procedure.
+                        - Risk factors:>**use of antimetabolites** during initial surgery, multiple surgeries, a flat anterior chamber, thin bleb, an inferiorly placed bleb, and **wound leak** (increase 26X).
+                        - Pathogen:>often highly virulent (e.g.,   *Haemophilus influenzae*  ,   *Streptococcus spp.*  )
+                        - Type
+                            - Blebitis:>infection of the filtering bleb without vitreous involvement.
+                            - Bleb-associated endophthalmitis:>↔infection of the filtering bleb with vitreous involvement
+                                - Prognosis:>poor, 94% with VA < 20/200
+                                    - Poor prognostic factor:>positive vitreal culture, more virulent organisms, such as gram-negative bacteria
+                    - Early bleb leakage:>def. / cause < 3 months, wound dehiscence or incomplete conjunctival closure 
+                    - Late Bleb Leakage:>def. / cause > 3 months, disintegration of the conjunctiva over the sclerostomy, typically following the application of antimetabolites.  
+                    - Bleb Encapsulation (Tenon cyst):>Characterized by a localized, highly elevated, dome-shaped cavity of hypertrophied Tenon capsule.
+                - Shallow anterior chamber
+                    - Mechanism >>>
+                        - Pupillary block after trabeculectomy
+                            - Risk factor:>non-patent peripheral iridectomy
+                            - Sign:>High IOP and flat bleb, Negative Seidel test, Iris bombe with a non-patent iridectomy
+                            - Treatment:>**Nd:YAG laser** (to the pigment epithelium at the iridectomy site if the anterior iris stroma appears to have been largely removed (common), or the creation of a new laser iridotomy.), **needle or cannula** mechanically pulling away iris (if iris blocking ostomy site)
+                        - Overfiltration  
+                            - a shallow anterior chamber Grade 2 or Grade 3, or a shallow anterior chamber that persists beyond the first week, often is an indication for reformation of the chamber with viscoelastic. 
+                - Bleb leak
+                    - If a conjunctival hole or wound leak is present, a {{pressure patch or bandage contact lens}} may be used as initial measures to tamponade the leak  
+                - Chorioretinal folds/effusion secondary to Hypotony
+                - Ptosis from overfiltering bleb
+                - Inadequate filtration: argon laser may be used to contract the iris away from the ostomy site. Alternatively, a needle or cannula may be used to mechanically pull the iris away from the ostomy site through the anterior chamber. If the ostium is blocked by a large blood clot, TPA can be considered if there are no contraindications present. If there is a low or flat bleb with insufficient flow from the scleral flap, the flap sutures can be lysed using the argon laser, or removed if releasable sutures are used. If these measures do not succeed in lowering IOP, glaucoma medications should be resumed, and further glaucoma surgery is necessary if IOP cannot be lowered to an acceptable level  
+            - Ex-Press mini-shunt:>during a **modified trabeculectomy**, a **valveless titanium MRI-compatible stent** inserted following creation of the scleral flap as for a standard trabeculectomy, entering anterior chamber instead of creating a punch sclerostomy. A peripheral iridectomy is not performed
+                - Not suitable:>primary angle-closure glaucoma without prior or contemporaneous cataract surgery
+                - Efficacy compared with standard trabeculectomy:>the same
+                - Complication rate of {{hypotony and hyphaema}} is lower
+    - Microinvasive Glaucoma Surgery (MIGS)
+        - ![](https://remnote-user-data.s3.amazonaws.com/B1h3oTGcPNY1L00lXD1ok_vYAi5stS_6lmhNALejDE5tRXhVYC8uZ55kD6qmZ_ERrhjD4jcXyvaSFSd5faBlvLuFtyscqHbPdL13SFPptc_euy44B4217lGlpvD3BRY8.png)![](https://remnote-user-data.s3.amazonaws.com/KLNafrjiqDT3SH24THV52VY6al8KNJ1eKevACcA3iSBXBrGWT6wvTZ6rrxGK3TGoWd0ZriOoZmRZ9T1lDH9qIz9jC0bzEt3-J9D0dSTaLzy-dZWpFfVmK2b9Nd9YeJkk.png)
+        - developing
+        - 作法類似 Trabeculectomy,但不用把結膜打開,而是從對側進針,將一根管子由
+        - anterior chamber 貫穿到結膜下,做房水引流
+        - 2. 優點:傷口小、復原快、安全性高,病人較不會排斥
+        - 3. 此微創手術較不會像傳統 trabeculectomy 易造成結膜形成 scar 及 fibrosis,因此
+        - 往後當青光眼復發則有更多種手術方式可供選擇(多留一點後路)
+        - Approach
+        - required {{gonioscopy view}}{({instrument})} during surgery
+            - post-op meds:>steroid + antibiotics
+        - pilocarpine if TM disruption
+        - complication
+        - Indication:>mild to moderate glaucoma with additional IOP reduction, reduced meds burden
+        - Contraindication:>no evidence for severe glaucoma
+        - Type
+            - ![](https://remnote-user-data.s3.amazonaws.com/NassIqV_4pAlQKaxKxCTK-gojEAODbaMkLFSgYF52z8FNey7Xkmuhb5yj7v_IFA4sJxsnUFVpwDKdeYhRHCcBEaQB3j3VSNWESRnRBf7sn_OEpzajzuvQHTcMfXEB0h2.png)
+        -  Minimally Invasive Glaucoma Surgeries (MIGS)
+            -  Also called microinvasive or microincisional glaucoma surgery
+            -  Procedures that enhance preexisting pathways for aqueous outflow
+            -  Significant complications occur less frequently than with traditional glaucoma surgeries
+        -  3 general categories for MIGS procedures:
+            -  Stents to Schlemm canal (Trabecular Bypass Devices)
+            -  TM disruption
+            -  Stents to the suprachoroidal space
+        - ![](https://remnote-user-data.s3.amazonaws.com/EzctBEY3UoG2feEvCmF5xBGBqe2UOLDyPg9EcKd4asqFI_loWj7CJXei1E5V4LWobehOzI-PMmtUSLvTJzUgKASrIHf6kwyndX5uuaXDM0za8R_CPiHzr-iPWSmXdIb_.png)
+            -  Other Glaucoma Surgeries:
+                -  Minimally Invasive Glaucoma Surgeries (MIGS)
+                    -  Trabecular Bypass Devices
+                    -  To create a low-resistance pathway between anterior chamber and Schlemm's canal
+                    -  iStent
+                        -  1st & 2nd generation
+                    -  Hydrus
+        - ![](https://remnote-user-data.s3.amazonaws.com/K_21UfJfgt-83QREUwVYUDlf8yPjC3CNKrZbIbTLhnAn4Hq1D8HdJDPDzD-jzfSgPqST3a-eAOhyU4e8-DYFUYBt9cb-qQdkihbTsiWCwnppDtzbUOIkZ-3I-2fYndIA.png)
+            - Design
+            - 1^st^ generation (Glaukos Corporation):
+                - L-shaped
+                - Sharp tip pierces TM tangentially
+                - Several retention rings on the outer aspect of the hollow body
+                - $\rightarrow$ keep the stent in place
+            - 2^nd^ generation (iStent inject):
+                - Head in Schlemm's canal, thorax in TM, flange in AC
+                - 2 devices in the same eye
+        - ![](https://remnote-user-data.s3.amazonaws.com/h2br0rRnH9lhg6_ixeuaPBhDy9YR5MiltdwxcSz3chTC3ratUcsx3mN3hyZ41gHuIz2-dnMRa18_bgj_Yhn1rxad6O_CpCt9Uki5GBmrOJHN6552gRfy183VC5Rdzdmi.png)
+        - ![](https://remnote-user-data.s3.amazonaws.com/S_lAV2mfRBScuycnO7tSOyKR5T0IrGrML2dx_1ruTOHCHzwGAeU2eqTT5wG-tXhWHk23TLmWqkH4sgilGitGX7-rT9wHQG2-hAyQFgtQzX3ZsMU24hpKQABeE89Fuz6y.png)
+            - Surgical technique
+            - Temporal corneal incision => Fill AC with cohesive OVD
+            - Direct gonioscopy visualization
+            - 1st generation:
+                - 
+                - Insert stent tangentially into TM => advance into Schlemm's canal
+                - 
+                - => release the device from the handpiece with the push of a
+                - 
+                - button
+        - ![](https://remnote-user-data.s3.amazonaws.com/78ycBgew6PMQmqpa-3oxszNYEDYcblyBJ23mnXZO00zYnI3fDbCsNY1iYy786oQFobNYS7MLBVtet0fCiL-DXoX1LF9CLv1yI8DGo2Q5kZ9eSfqJhgFhuLVaZC9pV_0C.png)
+            - # Other Glaucoma Surgeries:
+                - ## MIGS—iStent
+                    - **Effectiveness (RCT)**
+                    - 1^st^ generation
+                        - cataract surgery + iStent vs cataract surgery alone
+                        - More likely to achieve 20% unmedicated IOP $\downarrow$ (53% vs 44%)
+                        - Unmedicated IOP $\leq$21 mmHg more likely (61% vs 50%)
+                    - 2^nd^ generation
+                        - Greater mean diurnal IOP reduction (7.0 vs 5.4 mmHg, p<0.01)
+                        - 20% $\downarrow$ IOP reduction more likely (76% vs 62%)
+            - ![](https://remnote-user-data.s3.amazonaws.com/dp1gPqTeQCl6RPTyszJslID2zQCSDotRAqwMXb6LLUhz-RKj2lzInuBV91hDg2zt6wBIqr4NsBOceclSO_ax_PWc3RZ2Hz-oBPhfGCbssNklZcSTEro2oi6sTqVa3364.png)
+                -  MIGS—The Hydrus implant
+                    - **Design**
+                    - Similar to the iStent: traverses the TM
+                    - Designed to dilate Schlemm's canal over ~3 clock-hours
+                    - Provides both **bypass** and **canal dilation** to enhance aqueous outflow
+                    - **Technique**
+                    - The inserter with Hydrus stent is introduced into AC
+                    - Cannula tip perforates TM
+                    - $\rightarrow$ delivery of the Hydrus into Schlemm canal
+                - ![](https://remnote-user-data.s3.amazonaws.com/xX9CvgJcqe7LVN01OUrFW0usZzUj70O_Rz0poy6yK6tcfuRMHFqQstLr26uhGLB6uIX9T4aV2_7oiSEYw0kTLPfa9ODxknB08gQvKSRYdsGl6i6-OW1ibMtc7GgCBw85.png)
+                    - Other Glaucoma Surgeries:
+                    - MIGS—The Hydrus implant
+                    - 
+                    - • **Effectiveness**
+                    - 
+                    - • cataract surgery + Hydrus device vs cataract surgery alone
+                    - 
+                    - • More likely to achieve 20% unmedicated IOP $\downarrow$ (80% vs 46%)
+                    - 
+                    - • Greater mean diurnal IOP reduction: 9.4 vs 7.4 mmHg
+        - ![](https://remnote-user-data.s3.amazonaws.com/gve0PkdS17yQGiqcf-Kt-zMh2AmyIqiD41NhOM_58jnhla6ecqNEId3PhNNwguDktX_foqWNAhQfKp-ADXylaa9VbWH9287bvS6E_5wWnrpfRy-WG8rvkRP3rYxj_6ry.png)
+            - # Other Glaucoma Surgeries:
+                - ## Minimally Invasive Glaucoma Surgeries (MIGS)
+                - • Trabecular disruption
+                - 
+                - • To remove or disrupt inner wall of Schlemm's canal & TM
+                - 
+                - => open the canal and downstream collector channels directly to
+                - 
+                - aqueous outflow
+                - 
+                - • Prevent PAS with **pilocarpine** + topical steroids/antibiotics
+                - 
+                - • Types:
+                - 
+                - • Trabectome
+                - 
+                - • Kahook Dual Blade
+                - 
+                - • Gonioscopy-assisted transluminal trabeculotomy (GATT)
+                - 
+                - • Ab interno canaloplasty
+            - ![](https://remnote-user-data.s3.amazonaws.com/mw7-ebvzZ7iqO8BCOnfLKwLWAsrNI2rQhzzxP3sErqO9bhY-TI-X1zaEpJL5mcK26I3IUO539RFOerjcAZ8XotFS3qHpQZCgIScRd4yChitfzRIjnT8bziIy78REn1Go.png)
+                -  Trabectome
+                    - Ablate the TM and inner wall of Schlemm canal
+                    - a handpiece with a tip that ablates the tissue with a bipolar 550 kHz electrode
+                    - I/A ports: dissipate heat, remove debris, maintain AC stability
+            - ![](https://remnote-user-data.s3.amazonaws.com/tecXNQUb-2TuvdmHCadhUCa5FsF_vVY3YmoRNfSeXPHOaxOlfpqwrm_qvpEqU3xt-ESGVogpF9lodTlRZXPKSdCYQYHemvKm11LGxLAoEY6Ho6Iwqz-0qnR4pjpMmsu4.png)
+                - # Other Glaucoma Surgeries:
+                    - ## MIGS—Trabectome
+                        - **Technique**
+                        - Temporal clear corneal incision => gonioscopy lens
+                        - No OVD (Visco) during surgery
+                        - Gas bubbles resulting from ablation could be trapped in the viscoelastic => obscure the view of TM
+                        - Up to 180° TM removal by the ablating tip of the handpiece
+                        - OVD postoperatively to prevent blood reflux
+                        - **Effectiveness**
+                        - No RCT vs cataract surgery alone
+            - ![](https://remnote-user-data.s3.amazonaws.com/leu-biWwoGWt9pMRyYVXJU4_2Ez2O-CuRcbVfd56P8FITPCvZn2gLMjVMWWIRGLS2MAB3gr88blkZ-aM4CeNA9vXTGGk-sb1Ndu5a0KdvBN6nkWL7tdJDTbPb2tIzaTx.png)
+                -  Kahook Dual Blade
+                    - **Design/Function**
+                    - To perform an  *excisional goniotomy*  by removing of a strip of tissue from the TM and inner wall of Schlemm canal
+                    - **Technique**
+                    - Temporal corneal incision; fill with cohesive OVD
+                    - Direct gonioscopy visualization
+                    - The device tip is embedded into TM => the TM and inner wall of Schlemm canal are stripped and excised
+                    - **Effectiveness**
+                    - No RCT evidence
+        - ![](https://remnote-user-data.s3.amazonaws.com/rdQa8TvQHOYbdL2yzUL3Vyk2aama3nFBvw8Y8YcIGlzR0YpXolGiU8eWeK7xzh9JakwPetsxMkV062G2IaxJew9oU4uvjbBnFiuuQOmQOJPVYhciXGdvEJu6wUE5N8cI.png)
+            - # Other Glaucoma Surgeries:
+                - # Gonioscopy-assisted transluminal
+                - # trabeculotomy (GATT)
+                - 
+                - • Design/Function
+                - 
+                - • Similar to ab externo 360° suture trabeculotomy, except that the suture is introduced into Schlemm canal through an  *intracameral*  approach
+                - 
+                - => sparing the conjunctiva
+                - 
+                - • Also called 360° ab interno suture trabeculotomy
+        - ![](https://remnote-user-data.s3.amazonaws.com/wbne_gAGEX1H01xwgGBvDMEqxEfvyyNsFDM0pF3znPJroBCK7ll2H6fRBRcwAEGv0t5ZeEixhosxNx5RKRUi_hA1Yois1H5J2XXerblSs0A1JSg2pXxmOi16_IXxpvDe.png)![](https://remnote-user-data.s3.amazonaws.com/-vuAO-CWLKTH0oo0yS19NmKxbjBOFEQVb-dIkgHnTmJjqIEjn5u0NtUVUcOeonZCLsXsiD3AkIoZJhYqMZJ91OoBhEuVSx0u5B0bCIoJiubmvJ3kVcfPQEXyC5dnh8Cv.png)
+            - # Other Glaucoma Surgeries:
+                - # Gonioscopy-assisted transluminal
+                - # trabeculotomy (GATT)
+                - • Technique • Two paracenteses • 1 for surgical manipulation, the other for suture/microcatheter entry • Under direct gonioscopic, 1–2 mm goniotomy was created at nasal angle • A suture or an **illuminated microcatheter** is inserted into Schlemm's canal through the goniotomy site => The device is passed 360° => The distal and proximal ends of the suture are grasped => Cheese-wire the TM/Schlemm canal complex => Creating a 360° trabeculotomy
+        - ![](https://remnote-user-data.s3.amazonaws.com/p-7UhnVTMlKnZbMO35jfZHa4yXBxymJglGqk1CTsL_OQnddR48KjNkrq7tMwiyg2-akxZUNfoJk-AuMRCirJn6BC7TbLsqJcFnrgwIO6yJpdlvW6Syi59PS3AWpJ_246.png)
+            - # Other Glaucoma Surgeries:
+                - ## Gonioscopy-assisted transluminal trabeculotomy (GATT)
+                    - **Effectiveness**
+                    - No prospective comparative studies
+                    - Retrospective (198 eyes):
+                        - POAG: IOP $\downarrow$9 mmHg
+                        - Secondary open-angle glaucoma: IOP $\downarrow$14 mmHg at 24 months
+                        - 1-2 fewer medications at 24 months
+                        - more effective in young group
+        - ![](https://remnote-user-data.s3.amazonaws.com/LdYN2VnrNKE2K4wK0B1tgMW3PakxfKFEDV4eVdR3pQQIj8ZLzKDEurjxuiOA_6CcArfKVLLmhjI0D0A4lYuOl__1t8iekNfH_Wf6CSZlu7FVNTQcOsS7ErfYjPShVdrT.png)![](https://remnote-user-data.s3.amazonaws.com/FiFfELapy7npmu4iAJ0aw_X62_sFRZfNWT_3GWVzmJGWB1Q7YBEj4SucG3F_nz1luwjlnsPb78mIDe6Aaadat4H4FSFczkt8-iXz6ZPemTFCwulC9TnYJZ45GA-KC2t6.png)
+            - # Other Glaucoma Surgeries:
+                - ## Ab interno canaloplasty (AbIC)
+                - • **Design/Function** • Specially designed illuminated microcatheter => introduced into Schlemm canal via an internal approach • OVDs is injected through the microcatheter into Schlemm canal to viscodilate the canal and, possibly, the downstream collector channels • **Technique** • Similar to GATT • Inject OVD while the catheter is advanced into the canal • Goniotomy: optional • **Effectiveness** • No prospective trials
+            - # Other Glaucoma Surgeries:
+                - ## Aqueous shunt into the suprachoroidal space
+                - • No devices approved by FDA currently to shunt aqueous into the suprachoroidal space
+                - 
+                - • **CyPass Micro-Stent (Alcon):**
+                - 
+                - • A tube-shaped device placed in the anterior chamber angle to create a conduit from the anterior chamber to the suprachoroidal space
+                - 
+                - • 2-year RCT: additional IOP $\downarrow$ 2.0 mmHg vs cataract surgery alone
+                - 
+                - • Recalled by FDA in 2018 due to endothelial cell loss
+            - ![](https://remnote-user-data.s3.amazonaws.com/Ci_y1JpTLuqt0vivcblBbQmJo4VhD6bo2YO_Wrct_GkWpdQPYYfxph4PfYqyL5Cm7wx718LvbfEYIY6NJ-0TrcAsmTNezpbe4D2JpOhG_0pPaXAKcDIy0iy-HUOpj93m.png)
+                - # Other Glaucoma Surgeries:
+                    - # Short Aqueous Stent to Subconjunctival Space
+                    - • Devices:
+                    - 
+                    - • XEN Gel Stent (Allergan)
+                    - 
+                    - • PreserFlo Microshunt (Santen)
+                    - 
+                    - • vs traditional plate-based tube implants:
+                    - 
+                    - No plate attached to the subconjunctival portion of the tube
+            - ![](https://remnote-user-data.s3.amazonaws.com/3p0L3XCMFGqADoL2kwu8sadACviRRABeygO7AFtQXv9fT9Vo_wTYKW9q2rpxNDXeR67mvo4ueXoOqcdxJkCuK_BqC2dtvF8OiY4U6hNS-Bt_BayELKUHG4XOkIwjmcw-.png)
+                - # Other Glaucoma Surgeries:
+                    - ## XEN Gel Stent
+                        - **Surgical Technique**
+                        - Clear corneal incision in inferior cornea => Fill AC with OVDs
+                        - Place gonioscope => visualize superior angle
+                        - Injector needle introduced => pierce superior TM
+                        - Needle advanced through sclera, and exit 3 mm posterior to limbus into subconjunctival space
+                        - Device injected into subconjunctival space
+                        - Mitomycin C (MMC) applied to reduce fibrosis
+            - ![](https://remnote-user-data.s3.amazonaws.com/B5UCWxIKMSTWX8kefc5EeOTU33zTS3CCIIzs4WL5Efse-HbvZeoU7Fhr88xsza6ASPa01T9_JM56qVrASfhdGgJzTRvMy6iZRzdaTBJwwP9iS5Ejt3UaLssMoNvoDr1J.png)
+                - # Other Glaucoma Surgeries:
+                    - ## XEN Gel Stent
+                        - Clinical Outcomes
+                            - 第一天眼壓常常為個位數字
+                        - FDA pivotal study (12 months):
+                            - 75% achieved $\ge$20% IOP reduction
+                            - 32% required transconjunctival needle revision
+                            - 25% had transient hypotony
+                        - Complications:
+                            - Similar to trabeculectomy/tube shunts
+                            - Choroidal effusion, tube erosion, prolonged hypotony, infection
+                        - XEN vs. Trabeculectomy
+                            - No comparator arm in pivotal trial
+                            - Retrospective studies: No significant difference in success rates
+                            - Non-inferior to trabeculectomy
+                            - Lower hypotony rate
+                - ![](https://remnote-user-data.s3.amazonaws.com/gE6qtL7WJZT0AnIPZbum4lAmx_VTDfCEUk94SniOpL2UL6h6J6e8G8QdRbJ9pCorwixrEXWangZOS9dG-B7pa7x-BauHNPBpA3puD7xzINjgknrkjGVMKmfA4DEfn452.png)
+                    - # Other Glaucoma Surgeries:
+                        - ## The PreserFlo Microshunt
+                        - • Externally placed, non-plated tube implant
+                        - 
+                        - • Currently under FDA evaluation
+                        - 
+                        - • 4-year nonrandomized study results:
+                        - 
+                        - • 80% achieved IOP <14 mmHg from a baseline IOP 25 mmHg
+    - Tube shunt surgery
+        - Dioplopia
+        - 
+    - ![](https://remnote-user-data.s3.amazonaws.com/u0kLRqkIBAIqH-OtpxhC6_qAO10niqJxfOxFH0EDke7nICIAb6ON57U8YaSzaoFpLW0mYu2v5vM70OKzPOkxDvTcsnb3MLQIrCzI3zyWxGPfCnSvzf6lYrFNcugvrU0f.png)
+        -  Nonpenetrating Glaucoma Surgery
+            - **Definition:**
+                - 
+                - Incisional glaucoma surgeries that do not enter the anterior chamber
+            - To lower IOP while reducing complications seen in trabeculectomy
+            - **Main Types:**
+                - Deep sclerectomy
+                - Viscocanalostomy
+                - Canaloplasty
+        - ![](https://remnote-user-data.s3.amazonaws.com/daqS054jhdcRyDz9bQ58mLiHtX9zDOq6UASyQvW08h5RCRRpQdYIDb9smwCRRa4Ly0_r65gyoC-OAWScQFrKKihuepEygn_2BklX5V00m9LflzeAnBGzd_i0ElTt53p9.png)
+            - # Other Glaucoma Surgeries:
+                - ## Nonpenetrating Glaucoma Surgery
+                    - Surgical technique
+                    - Create fornix-based conjunctival incision
+                    - Create superficial scleral flap
+                    - Excise deeper sclera & peripheral cornea beneath flap => Leaves only thin sclera + Descemet membrane
+                    - Aqueous humor percolates through Descemet => into scleral lake
+        - ![](https://remnote-user-data.s3.amazonaws.com/mTvYi78hTIW-pel7E-46Urb6v9yd9uCiFLRZQmAdPgqCKnaE9KXoJ_DZUoHkmxVBM3JG38f_73ELyy5ToTsAi-2heZzlxTQcN9MvOKIICdlxXLOTYnk8wpibXFTVUno2.png)
+            - # Other Glaucoma Surgeries:
+                - ## Nonpenetrating Glaucoma Surgery
+                    - Viscocanalostomy:
+                        - Cannula injects viscoelastic into a limited segment of Schlemm's canal
+                    - Canaloplasty:
+                        - Flexible illuminated catheter used to:
+                        - Deliver viscoelastic into 360° of Schlemm's canal
+                        - Pass and tie a suture under moderate tension => keeps canal expanded
+                    - Both procedures:
+                        - 
+                        - Deep sclerectomy + viscoelastic injection into Schlemm's canal
+                - ![](https://remnote-user-data.s3.amazonaws.com/rWBzr1H0UaiNcR1wva2ex6hThQXwxNkUo9yr20GcBhDLcQFGm8aGYoiook8O9rgOmTyyNpkl7I4JNyR3JoNVOVwYuT8lS2D7IMRNOsUoLOFON8uATzmMmMcsfAKPiPGa.png)
+                    - # Other Glaucoma Surgeries:
+                        - ## Nonpenetrating Glaucoma Surgery
+                            - Limitations:
+                            - Technically challenging
+                            - May require conversion to trabeculectomy
+                            - Conjunctival scarring $\rightarrow$ limits future surgery options
+                            - **Complications:**
+                            - Descemet membrane detachment
+                            - Infection
+    - Phacoemulsification
+        - associated with a 15% fall in IOP with monotherapy
+        - indication:>patients in whom signicant lens opacity
+        - may combined with filtration or a MIGS procedure
+    - Plate-based tube shunt surgery
+        - post-op complication and management
+            - Elevated IOP
+                - Hypertensive phase:>sudden IOP elevation after initially controlled presure
+                    - Onset:>3 weeks to 3 months post-op
+                    - cause: decreased permeability of the fibrous capsule around the palte
+                    - Prognosis:>often simutnaeously 
+    - Cataract surgery in the glaucoma patient
+        - [Ocular Hypertension](Glaucoma/Ocular%20Hypertension.md)
+            - Efficacy:>significant lowered IOP, maintained for 3 year
+        - [POAG](Glaucoma/Type/Open-Angle%20Glaucoma%20(OAG)/Type/Primary%20Open-Angle%20Glaucoma.md)
+            - Possible mechanism: a
+            - Efficacy:>no enough evidence for reduced IOP, still associated with acute attack
+        - [Angle-Closure Glaucoma (ACG)](Glaucoma/Type/Angle-Closure%20Glaucoma%20(ACG).md)
+            - Mechanism: IOL thinner ⇒ less angle closure
+            - Efficacy:>in EAGLE study, lowered IOL, less glaucoma meds in following 3 year follow-up
+            - 因此有些人建議在ACG病人身上可以提前進行cataract手術，但台灣因為健保關係，還是大致上會維持原本的建議
+        - Timing:>cataract surgery before glaucoma surgery, or combined if timely intervention was warranted.
+        - Cataract surgery and [Trabeculectomy](Glaucoma/Management/Incisional%20surgery/Trabeculectomy.md)
+            - OP method: single-site (insert the phaco handpiece underneath trabe flap), two-site (create a separate corneal wound); with similar outcome
+            - cataract surgery done after trabe: mixed effect on IOP, recommended delayed cataract surgery 6-12 months after trabeculectomy (reduced with of hypotony)
+    - ![](https://remnote-user-data.s3.amazonaws.com/zqVslLVOY0QsIGosrJMO9r1H6wbLFTlLEbeCZggl4xeSVXXNc5lYgFxpxvDwnp3dFBPYmp2x3vh81zj3rYJo_e21iOrI1chpszuWgixcFJYCgKHrfaWUHcR1ddx9yYDI.png)
+        - # Special Considerations in the Surgical
+        - Management of Elderly Glaucoma Patients
+        - • Preoperative Considerations • Disease severity and risk of functional vision loss relative to life
+        - 
+        - expectancy • Presence of systemic comorbidities that may affect surgical
+        - 
+        - outcome • Medication adherence assessment:
+        - 
+        - memory loss, poor vision, tremor, arthritis...
+        - 
+        - => Poor preoperative adherence predicts poor postoperative
+        - 
+        - adherence
+    - ![](https://remnote-user-data.s3.amazonaws.com/kDGlKB5vJmirt_hKOjqoFsKJMtmOT4n522YBKTGsbCWsi62OkcgczgeU1LLF1IbIosmMJOZkkZA6EU613M3-q2PwrnF2KdpSQYCoKnvVEfYYixhhZWD9t2cWYOLFDMLX.png)
+        - # Special Considerations in the Surgical
+        - Management of Elderly Glaucoma Patients
+            - Choose procedure with:
+                - Adequate IOP reduction & fewest complications
+            - Consider patient's ability to attend post-op follow-up visits:
+                - If mobility/transportation is limited
+                    - 
+                    - => Prefer nonpenetrating surgery, MIGS, or cyclodestructive procedures
+                - Require fewer postoperative visits than trabeculectomy or tube shunt
+            - If trabeculectomy chosen:
+                - **Limbus-based conjunctival flap** preferred
+                    - 
+                    - => lower risk of wound leak vs fornix-based flap
+- --------------------- Portal ---------------------
+    - 臨床 

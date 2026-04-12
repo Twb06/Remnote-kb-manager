@@ -1,0 +1,10 @@
+# Extraction Layer
+notebooklm-py
+
+# Delivery Layer
+mcp
+
+# Utilities
+python-dotenv
+requests
+pydantic

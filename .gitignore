@@ -1,0 +1,30 @@
+# Python Virtual Environments
+antigravitytest-env/
+venv/
+env/
+.env/
+
+# Node modules
+node_modules
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs
+.vscode/
+.idea/
+
+# agents / AI setting
+.agents/
+agents/
+.antigravity/
+
+# tmp files
+tmp/
+
+# Distribution / bundling
+dist/
+build/
+*.egg-info/

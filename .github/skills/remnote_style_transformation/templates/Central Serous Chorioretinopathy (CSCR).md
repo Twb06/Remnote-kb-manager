@@ -1,0 +1,52 @@
+- [Overview]();-typically occurs in **males** in their **20s to 50s** who exhibit acute or subacute central vision loss or distortion, **idiopathic noninflammatory disorder** characterized by a localized serous detachment of the sensory retina at the macula
+    - [Presentation]();;acute/subacute** unilateral central vision** loss or distortion. Other common complaints include micropsia, metamorphopsia, hyperopic (most common) or myopic shift, central scotoma, and reduced contrast sensitivity and color saturation
+    - [Examination ]()
+    - [Management]()
+- [Epidemiology]();;**20s to 50s, M > F (6X)** 
+- [Etiology]()
+- [Risk Factors]();;**Steroids** (both endogenous and exogenous) (systemic steroid or hypercortisolism/hyperaldosteronism), **Male gender** (6x than females), **Age** (> 50y/o associated with bilateral RPE loss and choroidal neovascularization), **phychosocial pressure**, gene, pregnancy,  *H. pylori*  infection, antibiotic use, alcohol use, untreated hypertension, and obstructive sleep apnea
+    - Strongest association risk factor:>steroids (both endogenous and exogenous) (systemic steroid or hypercortisolism/hyperaldosteronism)
+    - Other medication:>MEK inhibitor, Sildenafil (Viagra)
+- [General Pathology]()
+- [Pathophysiology]();;Steroid and other causes ⇒ epinephrine-mediated vasospasm ⇒ choroidal ischemia and **vascular hyperpermeability **⇒ Oncotic pressure + RPE dysfunction (less outflow)⇒ subretinal fluid
+- [History]();;acute/subacute unilateral central vision loss or distortion
+- [Physical examination]()
+    - Ophthalmoscopy:>typically round or oval serous macular detachment without hemorrhage, with small, yellow subretinal deposits in the area of neurosensory detachment
+- [Symptoms]();;micropsia視物顯小症, metamorphopsia視物變形, hyperopic (most common, caused by the anterior displacement of the macular photoreceptors) or myopic shift, central scotoma, and reduced contrast sensitivity and color saturation, mildly reduced VA (20/20 to 20/200)
+- [Signs]();;round or oval **serous macular detachment **without hemorrhage, with **small, yellow subretinal deposits** in the area of neurosensory detachment
+    - In chronic CSCR:>Macular RPE mottling, mono- or paucifocal RPE lesions with prominent elevation of the neurosensory retina by clear fluid
+- [Clinical diagnosis]()
+    - chronic CSCR::persistent subretinal fluid for greater than 6 months
+- [Diagnostic procedures]()
+    - ![](https://remnote-user-data.s3.amazonaws.com/O0EHoy9hjz5b_ivAiFTuLTLxsY2jLeqGa7--cIerCDG2_lvEjIZwIUZdOk4TF_pyuRNby8YXFZ6QfQXLatTT2kj1rbAVJoYTrDhmoxIMSHt-Y3yIChrg0AtyQ0viKBPZ.png)![](https://remnote-user-data.s3.amazonaws.com/2ZbIm1fRfkm4OhXzMn57Rc5YTvPxQWGNzUBKyeHIXM-QA8yA0z_TbogZ9_4YDICQji9pY9F0cW-89wxnbjFgfJH3xCsUAdZH34uEI-ZoA0VAHLYcOltGXfDlplObff_7.png)::CSCR
+        - C:>ink blot appearance
+        - D:>smokestack pattern  
+    - FAG:>**ink blot appearance** (enlarging dot sign) (31%), **smokestack pattern** (12%), and minimally enlarging spot (7%), Disc leak is not present in CSCR  
+        - ![](https://remnote-user-data.s3.amazonaws.com/4VZCxqgFA17tGqDUM-wnIPK-SJoHEntsMXFAcFXj69pGTAR3XfQYIAo0_Xk9zkzaV96BLHJYfhuYucYa9NXs0cuXyyyVBeoNwjalzcRQsziI-6xxxchhRRE6UNa5ctAr.png) 
+        - smokestack pattern::Vertically linear streaks of dye leakage and accumulating at the edge of detachment. shaped like an umbrella or a mushroom
+            - Caused by {{convection current and protein content}} 
+            - Location:>Parafoveal
+            - Leak starts in {{AV or early venous}} phase
+    - OCT:>**subretinal fluid**, PED (61%), an area of localized depression may denote the site of the leak, wavy RPE in inflammatory condition
+        - multiple serous PEDs and RPE changes, but not drusen
+        - ![](https://remnote-user-data.s3.amazonaws.com/sAosWKGX3u4zqqIjTHLMfypTK7orQPQZdAFAPN1lymFhmVj9yw0MkuHZhi13U57oVVnW7q8jrXA2njCQ-llPYxwsntNZtznvc2xm08XBkH0dZ6T5QShxsjJUMmrQ2Md4.png) 
+    - ICG:>**Delayed choroidal filling** in the **early phase**, Marked **dilation of large choroidal vein**, **Multifocal hyper-fluorescence with blurred contour in mid-phase** (choroidal vascular hyperpermeability) (hyperchoroid cloud), type 1 CNV
+        - ![](https://remnote-user-data.s3.amazonaws.com/nUhWecZHiZ3PINUCov8sXadfD34OPmlSoTWxWgeDYa4oflucm9YyXu8PT3GN6gaY9_vgqOtFmM0hZXMt6F3PPjzvliP9pEG65eCi7BQWQXW95XaMgRdAf2LFy4m5dgoE.png) 
+    - FAF:>RPE atrophy, pachydrusen, gravitational tracks
+        - ![](https://remnote-user-data.s3.amazonaws.com/mJV-pwjkVsBrrR63kLiPhFjrGwMsJ46hBXUW4y3P77wpWHmu6eWIWKt-xcbDvbGGgJrm4FgZevsjpHyv5ZbY03YHoo5qOcI8KFhuHpJ-iu-v7D4AlfaVbCsSD9P2SjAj.png) 
+- [Laboratory test]()
+- [Differential diagnosis]()
+    - subretinal fluid:>neovascular age-related macular degeneration/polypoidal choroidal vasculopathy, myopic choroidal neovascular membrane, choroidal tumor, hypertensive choroidopathy, leukemic choroidal infiltration, choroidopathy due to multiple myeloma, retinal venous occlusion, unilateral acute idiopathic maculopathy, inflammatory conditions including posterior scleritis or Vogt-Koyanagi-Harada disease, optic nerve pit, and rhegmatogenous retinal detachment
+    - Neurosensory detachments and pigment epithelial detachments simulating CSCR:>choroidal ischemia in SLE, Goodpasture syndrome, polyarteritis nodosa, thrombotic thrombocytopenic purpura, disseminated intravascular coagulation, granulomatosis with polyangiitis (formerly Wegener granulomatosis), malignant hypertension, and pregnancy-induced hypertension  
+    - Cf. bullous CSCR vs. rhegmatogenous retinal detachment:>bullous CSCR: history of kidney disease, autoimmune disease, systemic steroids usage; RPE mottling in resolved cases; not due to another primary process  
+    - Pachychorioid:>Pachychoroid pigment epitheliopathy (PPE), pachychoroid neovasculopathy & polypoidal choroidal vasculopathy (PCV)
+- [General treatment]();;no standardized treatment, risk factor modification, Discontinuation/reduction of steroids, defer intervention for up to 3-4 months for acute CSCR (90% **self-limiting**)
+    - Risk factor modification:>Discontinuation/reduction of steroids (increase the speed of CSCR resolution)
+- [Medical therapy]()
+    - **Mineralocorticoid receptor antagonists** (e.g., **spironolactone**, eplerenone) can reduce subretinal fluid, particularly in chronic CSCR
+- [Medical follow-up]()
+- [Surgery]();;photocoagulation not primary considered, due to close proximity to fovea, and may induced secondary CNV, not reduced recurrent rate
+    - For chronic or recurrent CSCR:>vPDT (photodynamic therapy with verteporfin); Half-fluence PDT, guided by abnormalities on ICGA
+        - Causing choroidal vessel shrinkage and remodeling, which reduces hyperpermeability
+- [Complications]()
+- [Prognosis]();;Self-limiting, good recovery of visual acuity within 3-6 months, high recurrence rate (about 30%)

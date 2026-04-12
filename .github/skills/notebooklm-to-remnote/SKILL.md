@@ -48,7 +48,7 @@ Save the NotebookLM output into separate files for the pipeline script.
 This script handles search, mapping, reading, and deduplication in a single call (zero agent token cost).
 ```bash
 python smart_logic_v5.py \
-  --skill-map ".agents/skills/remnote-kb-navigation/kb_map.json" \
+  --skill-map ".github/skills/remnote-kb-navigation/kb_map.json" \
   --overview-file ".agents/tmp/overview.md" \
   --content-file ".agents/tmp/answer.md"
 ```

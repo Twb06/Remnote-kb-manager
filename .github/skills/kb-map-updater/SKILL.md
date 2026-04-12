@@ -1,17 +1,24 @@
 ﻿---
 name: kb-map-updater
-description: Batch-fetches all RemNote top-level branches and regenerates English summary hints in kb_map.json. Use when the KB map needs a full refresh or after bulk content changes.
+description: Maintains kb_map.json — a lightweight index of the RemNote KB for agent routing. Supports incremental node addition (--add) and periodic full resync (fetch + rebuild).
 ---
 
 # KB Map Updater
 
-Refreshes `remnote-kb-navigation/kb_map.json` by batch-reading every top-level branch from RemNote and updating concise English summaries optimized for agent map-lookup accuracy.
+Maintains `remnote-kb-navigation/kb_map.json` — a **lightweight index** (not a full mirror) of the RemNote knowledge base. Each entry stores `remId`, `title`, hierarchy, and a keyword-dense English summary for agent map-lookup routing.
+
+## Key concept
+
+`kb_map.json` is an **index**, not a complete replica of the KB. It tracks only the nodes the agent needs for navigation and routing. Most day-to-day updates use `--add` to insert specific nodes on demand — no batch fetch required.
 
 ## When to use
 
-- User says "update the KB map", "refresh hints", or "sync the top-level map"
-- Another skill (e.g. `notebooklm-to-remnote`) has just written new content and the map needs a refresh
-- A periodic full-resync of all branch summaries is desired
+| Scenario | Action |
+|----------|--------|
+| Add a known remId to the index | `--add` (daily, no fetch) |
+| Another skill just wrote new content | `--add` the new remIds |
+| User says "refresh the KB map" / periodic full resync | fetch → `--rebuild` or `--update-summaries` |
+| Bootstrap (no kb_map.json yet) | fetch → `--rebuild` |
 
 ## Prerequisites
 
@@ -21,7 +28,11 @@ Refreshes `remnote-kb-navigation/kb_map.json` by batch-reading every top-level b
 
 ## Workflow
 
-### Step 1 — Ensure daemon is connected
+### Daily: add nodes incrementally (`--add`)
+
+The most common operation. Adds one or more nodes by remId, auto-resolving their position from RemNote. **No fetch script needed.**
+
+#### Step 1 — Ensure daemon is connected
 
 ```bash
 node ./node_modules/remnote-cli/dist/index.js status
@@ -34,10 +45,47 @@ node ./node_modules/remnote-cli/dist/index.js daemon start
 # wait ~5s, then re-check status
 ```
 
-### Step 2 — Run the fetch script
+#### Step 2 — Add nodes
 
 ```bash
-python .agents/skills/kb-map-updater/fetch_toplevel.py
+# Add a single node (auto-resolves position from RemNote parent chain):
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
+
+# Add multiple nodes at once:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
+
+# Add with a pre-filled summary:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "IOP measurement, tonometry"
+```
+
+**What it does:**
+- Skips any `remId` already in `kb_map.json` (no error, just warns).
+- For each remId, fetches `title`, `remType`, and `parentRemId` from RemNote via `remnote-cli read`.
+- **Auto-placement**: walks up the ancestor chain until it finds a node already in the map or root.
+- **Chain fill**: if intermediate ancestors are NOT in the map, they are automatically created along the path.
+- If the chain reaches root → top-level branch (reminds to update `BRANCHES` in `fetch_toplevel.py`).
+- Writes updated `kb_map.json`.
+
+**Parameters:**
+| Flag | Required | Description |
+|------|----------|-------------|
+| `--add <remId> [...]` | Yes | One or more RemNote rem IDs to add |
+| `--summary <text>` | No | Pre-fill summary for target nodes (English keywords); default: `""` |
+
+---
+
+### Full resync (rare): fetch + rebuild
+
+Only needed for bootstrap or periodic full refresh of structure/summaries.
+
+#### Step 1 — Ensure daemon is connected
+
+(Same as above.)
+
+#### Step 2 — Run the fetch script
+
+```bash
+python .github/skills/kb-map-updater/fetch_toplevel.py
 ```
 
 **What it does:**
@@ -51,14 +99,14 @@ python .agents/skills/kb-map-updater/fetch_toplevel.py
 
 Output: `toplevel_dump.json` — array of JSON objects, one per fetched node.
 
-### Step 3 — Build / update kb_map.json
+#### Step 3 — Build / update kb_map.json
 
-`build_kb_map.py` supports two modes:
+`build_kb_map.py` supports two batch modes (in addition to `--add` above):
 
-#### Default (`--update-summaries`): preserve structure, update summaries only
+##### `--update-summaries` (default): preserve structure, update summaries only
 
 ```bash
-python .agents/skills/kb-map-updater/build_kb_map.py
+python .github/skills/kb-map-updater/build_kb_map.py
 # same as: python ... --update-summaries
 ```
 
@@ -70,10 +118,10 @@ python .agents/skills/kb-map-updater/build_kb_map.py
 
 > Use this in normal refresh cycles. It respects any manual curation (e.g. nodes deliberately excluded from the map).
 
-#### `--rebuild`: full structure rebuild from dump
+##### `--rebuild`: full structure rebuild from dump
 
 ```bash
-python .agents/skills/kb-map-updater/build_kb_map.py --rebuild
+python .github/skills/kb-map-updater/build_kb_map.py --rebuild
 ```
 
 **What it does:**
@@ -84,34 +132,7 @@ python .agents/skills/kb-map-updater/build_kb_map.py --rebuild
 
 > After `--rebuild`, manually remove any unwanted nodes from `kb_map.json` before committing.
 
-#### `--add`: add nodes to the map (auto-placement + chain fill)
-
-```bash
-# Add a single node (auto-resolves position from RemNote parent chain):
-python .agents/skills/kb-map-updater/build_kb_map.py --add <remId>
-
-# Add multiple nodes at once:
-python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
-
-# Add with a pre-filled summary (applies to target nodes only, not intermediates):
-python .agents/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "IOP measurement, tonometry"
-```
-
-**What it does:**
-- Skips any `remId` already in `kb_map.json` (no error, just warns).
-- For each remId, fetches `title`, `remType`, and `parentRemId` from RemNote via `remnote-cli read`.
-- **Auto-placement**: walks up the ancestor chain until it finds a node already in the map or root.
-- **Chain fill**: if intermediate ancestors are NOT in the map, they are automatically created along the path. This preserves the full hierarchy from the map ancestor down to the target node.
-- If the chain reaches root → top-level branch (reminds to update `BRANCHES`).
-- Writes updated `kb_map.json`.
-
-**Parameters:**
-| Flag | Required | Description |
-|------|----------|-------------|
-| `--add <remId> [...]` | Yes | One or more RemNote rem IDs to add |
-| `--summary <text>` | No | Pre-fill summary for target nodes (English keywords); default: `""` |
-
-### Step 4 — Generate / update summaries
+#### Step 4 — Generate / update summaries
 
 For each node in `kb_map.json` where `summary == ""`, the agent should:
 
@@ -127,10 +148,10 @@ Update `kb_map.json` directly using `multi_replace_string_in_file` or by rewriti
 
 **Target file:**
 ```
-.agents/skills/remnote-kb-navigation/kb_map.json
+.github/skills/remnote-kb-navigation/kb_map.json
 ```
 
-### Step 5 — Verify
+#### Step 5 — Verify
 
 Spot-check 2-3 entries in `kb_map.json` to confirm:
 - `remId` is correct
@@ -143,7 +164,7 @@ When a **new top-level branch** is added to RemNote (visible under root `Da8SsKW
 
 1. Add the node to `kb_map.json`:
    ```bash
-   python .agents/skills/kb-map-updater/build_kb_map.py --add <remId>
+   python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
    ```
 2. If it was placed as a top-level branch, update the `BRANCHES` list in `fetch_toplevel.py`:
    ```python
@@ -154,7 +175,7 @@ When a **new top-level branch** is added to RemNote (visible under root `Da8SsKW
 When adding **child nodes** under an existing branch:
 ```bash
 # Single or multiple:
-python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2>
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2>
 ```
 Intermediate ancestors are auto-filled. No changes to `fetch_toplevel.py` needed for child nodes.
 
@@ -162,10 +183,10 @@ Intermediate ancestors are auto-filled. No changes to `fetch_toplevel.py` needed
 
 | Script | Purpose |
 |--------|---------|
-| `.agents/skills/kb-map-updater/fetch_toplevel.py` | Fetch structured content from RemNote |
-| `.agents/skills/kb-map-updater/build_kb_map.py` | Build/update `kb_map.json` from dump |
+| `.github/skills/kb-map-updater/fetch_toplevel.py` | Fetch structured content from RemNote |
+| `.github/skills/kb-map-updater/build_kb_map.py` | Build/update `kb_map.json` from dump |
 | `toplevel_dump.json` | Raw dump output (workspace root, transient) |
-| `.agents/skills/remnote-kb-navigation/kb_map.json` | Source-of-truth KB map |
+| `.github/skills/remnote-kb-navigation/kb_map.json` | Source-of-truth KB index |
 
 ## Summary field specification
 

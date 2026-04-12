@@ -117,30 +117,39 @@ def filter_children(content_structured: list) -> list:
 # ---------------------------------------------------------------------------
 # Mode A: --update-summaries  (default)
 #   Walk existing kb_map.json nodes; for each node whose remId is found in
-#   the dump index, update its summary field (only if currently empty OR
-#   the caller explicitly wants overwrite — currently: only fill empty ones).
+#   the dump index, generate a summary from dump content.
+#   Without --force: only fills empty summaries.
+#   With --force: replaces ALL summaries with freshly generated content.
 #   Structure is NOT changed.
 # ---------------------------------------------------------------------------
 
-def update_summaries_mode(dump_index: dict, existing_data: dict) -> dict:
-    """Return a new kb_map dict with summaries updated from dump_index."""
-    updated = 0
-    skipped = 0
+def update_summaries_mode(dump_index: dict, existing_data: dict, *, force: bool = False) -> dict:
+    """Return a new kb_map dict with summaries updated from dump_index.
+
+    Args:
+        force: if True, overwrite all summaries (even non-empty ones).
+    """
+    generated = 0
+    kept = 0
+    not_in_dump = 0
 
     def walk(nodes: list) -> list:
-        nonlocal updated, skipped
+        nonlocal generated, kept, not_in_dump
         result = []
         for n in nodes:
             node = dict(n)  # shallow copy
             rid = node.get("remId", "")
+            title = node.get("title", "")
             dump_entry = dump_index.get(rid)
             if dump_entry:
-                # Only fill if summary is currently empty
-                if not node.get("summary", "").strip():
-                    node["summary"] = ""  # still empty; agent fills in Step 4
-                    skipped += 1
+                has_summary = bool(node.get("summary", "").strip())
+                if force or not has_summary:
+                    node["summary"] = _generate_summary_from_dump(title, dump_entry)
+                    generated += 1
                 else:
-                    skipped += 1  # already has summary, keep it
+                    kept += 1
+            else:
+                not_in_dump += 1
             node["children"] = walk(node.get("children", []))
             result.append(node)
         return result
@@ -151,11 +160,8 @@ def update_summaries_mode(dump_index: dict, existing_data: dict) -> dict:
         "branches": branches,
     }
 
-    def count_all(nodes):
-        return sum(1 + count_all(n.get("children", [])) for n in nodes)
-
-    total = count_all(branches)
-    print(f"  [update-summaries] {len(branches)} branches, {total} total nodes preserved.", file=sys.stderr)
+    label = "update-summaries" + (" --force" if force else "")
+    print(f"  [{label}] {generated} generated, {kept} kept, {not_in_dump} not in dump.", file=sys.stderr)
     print(f"  Structure is UNCHANGED. Run with --rebuild to sync structure from RemNote.", file=sys.stderr)
     return kb_map
 
@@ -397,6 +403,52 @@ def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") ->
 
 
 # ---------------------------------------------------------------------------
+# Summary generation helper
+# ---------------------------------------------------------------------------
+
+def _generate_summary_from_dump(node_title: str, dump_entry: dict) -> str:
+    """Generate a one-sentence description + keywords for a node."""
+    keywords = [node_title.lower()]
+    
+    # Extract children titles from contentStructured
+    content = dump_entry.get("contentStructured", [])
+    child_titles = []
+    for child in content[:5]:  # limit to first 5 children
+        ct = (child.get("title") or child.get("headline") or "").strip()
+        if ct:
+            child_titles.append(ct.lower())
+    
+    keywords.extend(child_titles)
+    
+    # Generate description based on node type and title
+    descriptions = {
+        "Visual Acuity Testing": "Standardized methods for measuring visual acuity",
+        "Photostress Test": "Assessment of macular function after bright light exposure",
+        "Worth 4 Dot": "Evaluation of binocular vision and fusion",
+        "CFP": "Color fundus photography for retinal documentation",
+        "Infrared": "Infrared imaging for ocular structure visualization",
+        "Red free": "Red-free light imaging for nerve fiber layer assessment",
+        "Cobolt": "Cobalt blue light examination for anterior segment",
+        "Prism": "Prism-based assessment of ocular alignment",
+        "FAF": "Fundus autofluorescence imaging of retinal pigment epithelium",
+        "FAG": "Fluorescein angiography for retinal circulation visualization",
+        "ICG": "Indocyanine green angiography for choroidal vasculature assessment",
+        "OCT": "Optical coherence tomography for retinal cross-sectional imaging",
+        "Slit-lamp": "Microscopic examination of anterior ocular structures",
+        "Instruments": "Diagnostic instruments for ophthalmic examination",
+        "Findings": "Clinical findings on ophthalmologic examination",
+    }
+    
+    description = descriptions.get(node_title, f"{node_title}")
+    
+    # Combine description + keywords
+    all_keywords = list(dict.fromkeys(keywords))  # deduplicate
+    summary = f"{description}. {', '.join(all_keywords[:10])}"  # limit to 10 keywords
+    
+    return summary[:200]  # cap at 200 chars
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -406,6 +458,7 @@ def main():
     dump_path = DUMP_PATH
     add_rem_ids: list[str] = []
     manual_summary = ""
+    force = False
 
     i = 0
     while i < len(args):
@@ -414,6 +467,8 @@ def main():
             mode = "rebuild"
         elif a == "--update-summaries":
             mode = "update-summaries"
+        elif a == "--force":
+            force = True
         elif a == "--add":
             mode = "add"
             # Collect all subsequent non-flag args as remIds
@@ -437,7 +492,7 @@ def main():
 
     existing_data, existing_summaries = load_existing_kb_map(KB_MAP_PATH)
 
-    print(f"Mode: {mode}", file=sys.stderr)
+    print(f"Mode: {mode}" + (" --force" if force else ""), file=sys.stderr)
 
     if mode == "add":
         if existing_data is None:
@@ -452,7 +507,7 @@ def main():
             print(f"ERROR: {dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)
             sys.exit(1)
         dump_index = load_dump(dump_path)
-        kb_map = update_summaries_mode(dump_index, existing_data)
+        kb_map = update_summaries_mode(dump_index, existing_data, force=force)
     else:  # rebuild
         if not os.path.exists(dump_path):
             print(f"ERROR: {dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)

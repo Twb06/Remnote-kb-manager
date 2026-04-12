@@ -112,11 +112,18 @@ python .github/skills/kb-map-updater/build_kb_map.py
 
 **What it does:**
 - Keeps the existing `kb_map.json` structure **exactly as-is** (nodes, order, hierarchy).
-- Only updates the `summary` field for nodes whose `remId` appears in the dump.
+- For nodes whose `remId` appears in the dump, generates a summary from dump content **only if the current summary is empty**.
 - Nodes absent from the dump are left unchanged.
 - **Nodes in the dump that are NOT already in `kb_map.json` are ignored** — the map is treated as a manually curated allowlist.
 
-> Use this in normal refresh cycles. It respects any manual curation (e.g. nodes deliberately excluded from the map).
+With `--force`: replaces **all** summaries (even non-empty ones) with freshly generated content.
+
+```bash
+python .github/skills/kb-map-updater/build_kb_map.py --update-summaries --force
+```
+
+> Use default mode in normal refresh cycles (respects existing summaries).
+> Use `--force` when summary format or generation logic has changed and you want a full re-generation.
 
 ##### `--rebuild`: full structure rebuild from dump
 

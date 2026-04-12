@@ -137,10 +137,10 @@ python .github/skills/kb-map-updater/build_kb_map.py --rebuild
 For each node in `kb_map.json` where `summary == ""`, the agent should:
 
 1. Read the node's content from `toplevel_dump.json` (`contentStructured` for branches, full structured tree for terminals).
-2. Write a **concise English summary** (one line) that:
-   - Lists key medical terms, disease names, and procedure names.
-   - Uses abbreviations when well-known (e.g. AMD, CSNB, TED, IOL, ERG).
-   - Is optimized for **keyword-based map lookup** (agent routing accuracy, not human prose).
+2. Write a **concise English summary** that combines:
+   - **First sentence**: Brief one-line description of the node's medical topic.
+   - **Keywords**: Followed by comma/semicolon-separated list of key medical terms, disease names, procedure names, and abbreviations.
+   - Example format: `Measurement of intraocular pressure. IOP, tonometry, applanation, POAG, glaucoma`
    - Max ~200 characters.
 3. **Idempotency rule**: If a node already has a non-empty `summary`, only update if the new content contains significantly different or new information (new key terms, major topic change). Otherwise, leave unchanged.
 
@@ -193,9 +193,9 @@ Intermediate ancestors are auto-filled. No changes to `fetch_toplevel.py` needed
 | Rule | Detail |
 |------|--------|
 | Language | English only |
-| Content | Keyword-dense: disease names, procedure names, abbreviations, key concepts |
+| Content | One-sentence description; followed by keyword-dense list: disease names, procedure names, abbreviations, key concepts |
 | Length | ~200 chars max |
-| Format | Flat comma/semicolon-separated keywords — NOT prose sentences |
+| Format | `[Description]. [keyword1, keyword2, ...]` — description first, then flat comma/semicolon-separated keywords |
 | Update | Only update if new information is present (idempotent) |
-| Example | `IOP, POAG, PACG, NVG, GON, gonioscopy, visual field, glaucoma surgery, SLT, trabeculectomy` |
+| Example | `Measurement of intraocular pressure using various methods. IOP, tonometry, applanation, POAG, PACG, NVG, gonioscopy, visual field, glaucoma surgery, SLT, trabeculectomy` |
 

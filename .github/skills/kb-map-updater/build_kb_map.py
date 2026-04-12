@@ -15,7 +15,7 @@ THREE MODES:
       map structure with RemNote (e.g. after adding a new top-level branch).
       Existing summaries are preserved by remId across the rebuild.
 
-  --add <remId1> [remId2] [remId3] ...
+  --add <remId1> [remId2] [remId3] ... [--summary <text>]
       Adds one or more nodes to kb_map.json by remId.
       - Always auto-placement: fetches parentRemId from RemNote and walks
         up the ancestor chain until it finds a node already in kb_map.json
@@ -26,6 +26,7 @@ THREE MODES:
       - Skips any remId already in kb_map.json (no duplicates, no error).
       - For top-level branches, reminds to also add to BRANCHES in
         fetch_toplevel.py.
+      - Optional --summary applies to ALL nodes added in this invocation.
 
 Summary field rules:
   - keyword-dense English, ~200 chars max
@@ -40,6 +41,7 @@ Usage:
     python .agents/skills/kb-map-updater/build_kb_map.py --rebuild [dump.json]
     python .agents/skills/kb-map-updater/build_kb_map.py --add <remId>
     python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
+    python .agents/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "keywords here"
 """
 import json
 import os
@@ -321,8 +323,12 @@ def _insert_node(branches: list, node: dict, parent_id: str | None):
         print(f"      REMINDER: Add to BRANCHES in fetch_toplevel.py", file=sys.stderr)
 
 
-def add_node_mode(existing_data: dict, rem_ids: list[str]) -> dict:
-    """Add one or more nodes to kb_map.json with auto-placement and chain fill."""
+def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") -> dict:
+    """Add one or more nodes to kb_map.json with auto-placement and chain fill.
+
+    Args:
+        summary: optional summary applied to target nodes (not intermediates).
+    """
     branches = existing_data.get("branches", [])
     all_ids = _all_rem_ids(branches)
     added = 0
@@ -374,7 +380,7 @@ def add_node_mode(existing_data: dict, rem_ids: list[str]) -> dict:
             "remId": rem_id,
             "title": title,
             "remType": rem_type,
-            "summary": "",
+            "summary": summary,
             "children": [],
         }
         # direct_parent should now be in all_ids (or is root)
@@ -399,6 +405,7 @@ def main():
     mode = "update-summaries"
     dump_path = DUMP_PATH
     add_rem_ids: list[str] = []
+    manual_summary = ""
 
     i = 0
     while i < len(args):
@@ -418,6 +425,12 @@ def main():
                 print("ERROR: --add requires at least one remId.", file=sys.stderr)
                 sys.exit(1)
             continue  # skip i += 1 at bottom
+        elif a == "--summary":
+            i += 1
+            if i >= len(args):
+                print("ERROR: --summary requires a value.", file=sys.stderr)
+                sys.exit(1)
+            manual_summary = args[i]
         elif not a.startswith("--"):
             dump_path = a
         i += 1
@@ -430,7 +443,7 @@ def main():
         if existing_data is None:
             print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)
             sys.exit(1)
-        kb_map = add_node_mode(existing_data, add_rem_ids)
+        kb_map = add_node_mode(existing_data, add_rem_ids, manual_summary)
     elif mode == "update-summaries":
         if existing_data is None:
             print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)

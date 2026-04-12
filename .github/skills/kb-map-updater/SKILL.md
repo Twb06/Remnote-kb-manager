@@ -92,6 +92,9 @@ python .agents/skills/kb-map-updater/build_kb_map.py --add <remId>
 
 # Add multiple nodes at once:
 python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
+
+# Add with a pre-filled summary (applies to target nodes only, not intermediates):
+python .agents/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "IOP measurement, tonometry"
 ```
 
 **What it does:**
@@ -106,6 +109,7 @@ python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <re
 | Flag | Required | Description |
 |------|----------|-------------|
 | `--add <remId> [...]` | Yes | One or more RemNote rem IDs to add |
+| `--summary <text>` | No | Pre-fill summary for target nodes (English keywords); default: `""` |
 
 ### Step 4 — Generate / update summaries
 

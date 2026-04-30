@@ -272,7 +272,23 @@
           "title": "Retinal examination",
           "remType": "text",
           "summary": "Retinal examination techniques including electrophysiologic testing.",
-          "children": []
+          "children": [
+            {
+              "remId": "IZQUoVcFDyE0cdmN9",
+              "title": "Electrophysiologic testing",
+              "remType": "text",
+              "summary": "Retinal electrophysiologic tests including electroretinography (ERG), electro-oculography (EOG), visual evoked potential (VEP), and psychophysical testing.",
+              "children": [
+                {
+                  "remId": "mkhwZvLQhFzXkvHu7",
+                  "title": "Electroretinography (ERG)",
+                  "remType": "text",
+                  "summary": "Electroretinography test covering patient preparation (ISCEV 2015 full-field ERG guidelines), indications, and response types including multifocal ERG (mfERG) and pattern ERG (pERG).",
+                  "children": []
+                }
+              ]
+            }
+          ]
         }
       ]
     },

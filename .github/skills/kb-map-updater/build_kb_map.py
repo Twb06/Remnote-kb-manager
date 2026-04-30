@@ -1,14 +1,10 @@
 ﻿"""
 Build or update kb_map.json from toplevel_dump.json (structured format).
 
-THREE MODES:
-  --update-summaries (DEFAULT)
-      Preserves the existing kb_map.json structure exactly (which nodes are
-      present, hierarchy, order). Only fills/updates the 'summary' field for
-      nodes whose remId appears in toplevel_dump.json. Nodes not in the dump
-      are left unchanged. Nodes in the dump but NOT already in kb_map.json
-      are IGNORED — the map structure is treated as curated and authoritative.
+This script handles STRUCTURE ONLY. Summary writing is the AI agent's
+responsibility (see SKILL.md Step 4).
 
+TWO MODES:
   --rebuild
       Fully rebuilds kb_map.json structure from toplevel_dump.json, replacing
       all existing children. Use only when you intentionally want to sync the
@@ -33,15 +29,14 @@ Summary field rules:
   - include abbreviations + full names for major medical terms
   - optimized for agent map-lookup accuracy (not human prose)
   - empty string ("") means not yet summarized
+  - Summary content is written by the AI agent, NOT by this script
 
 Usage:
-    python .agents/skills/kb-map-updater/build_kb_map.py                  # update-summaries mode
-    python .agents/skills/kb-map-updater/build_kb_map.py --update-summaries
-    python .agents/skills/kb-map-updater/build_kb_map.py --rebuild
-    python .agents/skills/kb-map-updater/build_kb_map.py --rebuild [dump.json]
-    python .agents/skills/kb-map-updater/build_kb_map.py --add <remId>
-    python .agents/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
-    python .agents/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "keywords here"
+    python .github/skills/kb-map-updater/build_kb_map.py --rebuild
+    python .github/skills/kb-map-updater/build_kb_map.py --rebuild [dump.json]
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "keywords here"
 """
 import json
 import os
@@ -115,59 +110,7 @@ def filter_children(content_structured: list) -> list:
 
 
 # ---------------------------------------------------------------------------
-# Mode A: --update-summaries  (default)
-#   Walk existing kb_map.json nodes; for each node whose remId is found in
-#   the dump index, generate a summary from dump content.
-#   Without --force: only fills empty summaries.
-#   With --force: replaces ALL summaries with freshly generated content.
-#   Structure is NOT changed.
-# ---------------------------------------------------------------------------
-
-def update_summaries_mode(dump_index: dict, existing_data: dict, *, force: bool = False) -> dict:
-    """Return a new kb_map dict with summaries updated from dump_index.
-
-    Args:
-        force: if True, overwrite all summaries (even non-empty ones).
-    """
-    generated = 0
-    kept = 0
-    not_in_dump = 0
-
-    def walk(nodes: list) -> list:
-        nonlocal generated, kept, not_in_dump
-        result = []
-        for n in nodes:
-            node = dict(n)  # shallow copy
-            rid = node.get("remId", "")
-            title = node.get("title", "")
-            dump_entry = dump_index.get(rid)
-            if dump_entry:
-                has_summary = bool(node.get("summary", "").strip())
-                if force or not has_summary:
-                    node["summary"] = _generate_summary_from_dump(title, dump_entry)
-                    generated += 1
-                else:
-                    kept += 1
-            else:
-                not_in_dump += 1
-            node["children"] = walk(node.get("children", []))
-            result.append(node)
-        return result
-
-    branches = walk(existing_data.get("branches", []))
-    kb_map = {
-        "root": existing_data.get("root", {"remId": ROOT_REMID, "title": ROOT_TITLE}),
-        "branches": branches,
-    }
-
-    label = "update-summaries" + (" --force" if force else "")
-    print(f"  [{label}] {generated} generated, {kept} kept, {not_in_dump} not in dump.", file=sys.stderr)
-    print(f"  Structure is UNCHANGED. Run with --rebuild to sync structure from RemNote.", file=sys.stderr)
-    return kb_map
-
-
-# ---------------------------------------------------------------------------
-# Mode B: --rebuild
+# Mode A: --rebuild
 #   Fully rebuild structure from dump, preserving existing summaries by remId.
 # ---------------------------------------------------------------------------
 
@@ -220,7 +163,7 @@ def rebuild_mode(dump_path: str, existing_summaries: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Mode C: --add
+# Mode B: --add
 #   Add a single node to kb_map.json. Fetches metadata from RemNote if
 #   --title is not provided. Rejects duplicates.
 # ---------------------------------------------------------------------------
@@ -402,50 +345,7 @@ def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") ->
     }
 
 
-# ---------------------------------------------------------------------------
-# Summary generation helper
-# ---------------------------------------------------------------------------
 
-def _generate_summary_from_dump(node_title: str, dump_entry: dict) -> str:
-    """Generate a one-sentence description + keywords for a node."""
-    keywords = [node_title.lower()]
-    
-    # Extract children titles from contentStructured
-    content = dump_entry.get("contentStructured", [])
-    child_titles = []
-    for child in content[:5]:  # limit to first 5 children
-        ct = (child.get("title") or child.get("headline") or "").strip()
-        if ct:
-            child_titles.append(ct.lower())
-    
-    keywords.extend(child_titles)
-    
-    # Generate description based on node type and title
-    descriptions = {
-        "Visual Acuity Testing": "Standardized methods for measuring visual acuity",
-        "Photostress Test": "Assessment of macular function after bright light exposure",
-        "Worth 4 Dot": "Evaluation of binocular vision and fusion",
-        "CFP": "Color fundus photography for retinal documentation",
-        "Infrared": "Infrared imaging for ocular structure visualization",
-        "Red free": "Red-free light imaging for nerve fiber layer assessment",
-        "Cobolt": "Cobalt blue light examination for anterior segment",
-        "Prism": "Prism-based assessment of ocular alignment",
-        "FAF": "Fundus autofluorescence imaging of retinal pigment epithelium",
-        "FAG": "Fluorescein angiography for retinal circulation visualization",
-        "ICG": "Indocyanine green angiography for choroidal vasculature assessment",
-        "OCT": "Optical coherence tomography for retinal cross-sectional imaging",
-        "Slit-lamp": "Microscopic examination of anterior ocular structures",
-        "Instruments": "Diagnostic instruments for ophthalmic examination",
-        "Findings": "Clinical findings on ophthalmologic examination",
-    }
-    
-    description = descriptions.get(node_title, f"{node_title}")
-    
-    # Combine description + keywords
-    all_keywords = list(dict.fromkeys(keywords))  # deduplicate
-    summary = f"{description}. {', '.join(all_keywords[:10])}"  # limit to 10 keywords
-    
-    return summary[:200]  # cap at 200 chars
 
 
 # ---------------------------------------------------------------------------
@@ -454,21 +354,16 @@ def _generate_summary_from_dump(node_title: str, dump_entry: dict) -> str:
 
 def main():
     args = sys.argv[1:]
-    mode = "update-summaries"
+    mode = None
     dump_path = DUMP_PATH
     add_rem_ids: list[str] = []
     manual_summary = ""
-    force = False
 
     i = 0
     while i < len(args):
         a = args[i]
         if a == "--rebuild":
             mode = "rebuild"
-        elif a == "--update-summaries":
-            mode = "update-summaries"
-        elif a == "--force":
-            force = True
         elif a == "--add":
             mode = "add"
             # Collect all subsequent non-flag args as remIds
@@ -490,24 +385,19 @@ def main():
             dump_path = a
         i += 1
 
+    if mode is None:
+        print("ERROR: No mode specified. Use --rebuild or --add <remId>.", file=sys.stderr)
+        sys.exit(1)
+
     existing_data, existing_summaries = load_existing_kb_map(KB_MAP_PATH)
 
-    print(f"Mode: {mode}" + (" --force" if force else ""), file=sys.stderr)
+    print(f"Mode: {mode}", file=sys.stderr)
 
     if mode == "add":
         if existing_data is None:
             print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)
             sys.exit(1)
         kb_map = add_node_mode(existing_data, add_rem_ids, manual_summary)
-    elif mode == "update-summaries":
-        if existing_data is None:
-            print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)
-            sys.exit(1)
-        if not os.path.exists(dump_path):
-            print(f"ERROR: {dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)
-            sys.exit(1)
-        dump_index = load_dump(dump_path)
-        kb_map = update_summaries_mode(dump_index, existing_data, force=force)
     else:  # rebuild
         if not os.path.exists(dump_path):
             print(f"ERROR: {dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)

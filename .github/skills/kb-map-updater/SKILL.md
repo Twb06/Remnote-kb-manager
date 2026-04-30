@@ -17,7 +17,7 @@ Maintains `remnote-kb-navigation/kb_map.json` — a **lightweight index** (not a
 |----------|--------|
 | Add a known remId to the index | `--add` (daily, no fetch) |
 | Another skill just wrote new content | `--add` the new remIds |
-| User says "refresh the KB map" / periodic full resync | fetch → `--rebuild` or `--update-summaries` |
+| User says "refresh the KB map" / periodic full resync | fetch → `--rebuild` |
 | Bootstrap (no kb_map.json yet) | fetch → `--rebuild` |
 
 ## Prerequisites
@@ -99,33 +99,7 @@ python .github/skills/kb-map-updater/fetch_toplevel.py
 
 Output: `toplevel_dump.json` — array of JSON objects, one per fetched node.
 
-#### Step 3 — Build / update kb_map.json
-
-`build_kb_map.py` supports two batch modes (in addition to `--add` above):
-
-##### `--update-summaries` (default): preserve structure, update summaries only
-
-```bash
-python .github/skills/kb-map-updater/build_kb_map.py
-# same as: python ... --update-summaries
-```
-
-**What it does:**
-- Keeps the existing `kb_map.json` structure **exactly as-is** (nodes, order, hierarchy).
-- For nodes whose `remId` appears in the dump, generates a summary from dump content **only if the current summary is empty**.
-- Nodes absent from the dump are left unchanged.
-- **Nodes in the dump that are NOT already in `kb_map.json` are ignored** — the map is treated as a manually curated allowlist.
-
-With `--force`: replaces **all** summaries (even non-empty ones) with freshly generated content.
-
-```bash
-python .github/skills/kb-map-updater/build_kb_map.py --update-summaries --force
-```
-
-> Use default mode in normal refresh cycles (respects existing summaries).
-> Use `--force` when summary format or generation logic has changed and you want a full re-generation.
-
-##### `--rebuild`: full structure rebuild from dump
+#### Step 3 — Rebuild kb_map.json structure
 
 ```bash
 python .github/skills/kb-map-updater/build_kb_map.py --rebuild
@@ -139,19 +113,31 @@ python .github/skills/kb-map-updater/build_kb_map.py --rebuild
 
 > After `--rebuild`, manually remove any unwanted nodes from `kb_map.json` before committing.
 
-#### Step 4 — Generate / update summaries
+> **Important**: This script handles structure only. It does NOT generate or update summaries. Summary writing is the agent's responsibility in Step 4.
 
-For each node in `kb_map.json` where `summary == ""`, the agent should:
+#### Step 4 — Agent writes summaries (depth-based rules)
 
-1. Read the node's content from `toplevel_dump.json` (`contentStructured` for branches, full structured tree for terminals).
-2. Write a **concise English summary** that combines:
-   - **First sentence**: Brief one-line description of the node's medical topic.
-   - **Keywords**: Followed by comma/semicolon-separated list of key medical terms, disease names, procedure names, and abbreviations.
-   - Example format: `Measurement of intraocular pressure. IOP, tonometry, applanation, POAG, glaucoma`
-   - Max ~200 characters.
-3. **Idempotency rule**: If a node already has a non-empty `summary`, only update if the new content contains significantly different or new information (new key terms, major topic change). Otherwise, leave unchanged.
+**This step is always performed by the AI agent**, not by any script. The agent reads `toplevel_dump.json` and `kb_map.json`, then writes summaries directly into `kb_map.json` using `multi_replace_string_in_file`.
 
-Update `kb_map.json` directly using `multi_replace_string_in_file` or by rewriting the JSON.
+##### Depth-based summary rules
+
+| Node type | How to identify | Summary strategy |
+|-----------|-----------------|------------------|
+| **Branch node** (has children in kb_map.json) | `"children": [...]` is non-empty | Describe the scope/topic of the branch using its children as guide. Example: `"Surgical procedures in ophthalmology. instruments, corneal suture removal, TSCL, IOL, cataract"` |
+| **Terminal node** (no children in kb_map.json) | `"children": []` is empty | Use medical domain knowledge + dump content to describe the specific concept. Example: `"Corneal suture removal technique. knot burial, loose suture, nylon, 10-0, slit lamp"` |
+
+##### Process
+
+1. Read `toplevel_dump.json` to understand each node's content (children titles, structured content).
+2. Read `kb_map.json` to find nodes needing summaries (`summary == ""`  or low-quality placeholder summaries like `"Title: child1, child2"`).
+3. For each node, write a summary following these rules:
+   - **Format**: `[One-sentence description]. [keyword1, keyword2, ...]`
+   - **Language**: English only
+   - **Length**: ~300 chars max
+   - **Content**: Include abbreviations, full names for major medical terms, disease names, procedure names
+   - **Quality**: Must reflect medical domain knowledge, not just title word splitting
+4. Write summaries into `kb_map.json` using `multi_replace_string_in_file`.
+5. **Idempotency rule**: If a node already has a quality summary (not a placeholder), only update if the new content contains significantly different information.
 
 **Target file:**
 ```

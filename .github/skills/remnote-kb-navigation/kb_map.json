@@ -285,6 +285,27 @@
                   "remType": "text",
                   "summary": "Electroretinography test covering patient preparation (ISCEV 2015 full-field ERG guidelines), indications, and response types including multifocal ERG (mfERG) and pattern ERG (pERG).",
                   "children": []
+                },
+                {
+                  "remId": "0BILT0eDHxAgYg71f",
+                  "title": "Electro-oculography",
+                  "remType": "text",
+                  "summary": "EOG test measuring electric potential difference between cornea (positive) and RPE (negative) during eye movement. Used to examine RPE lesions. Interprets results using Arden ratio.",
+                  "children": []
+                },
+                {
+                  "remId": "PBjitKRLReWwGjhTl",
+                  "title": "Visual evoked potential",
+                  "remType": "text",
+                  "summary": "VEP test assessing ganglion cell and optic nerve pathway under 100ms. Types include pattern-reversal VEP and pattern-appearance VEP.",
+                  "children": []
+                },
+                {
+                  "remId": "VxqoJ5iMYU993raX4",
+                  "title": "Psychophysial testing",
+                  "remType": "text",
+                  "summary": "Content pending.",
+                  "children": []
                 }
               ]
             }

@@ -8,13 +8,13 @@
       "remId": "4uE8lPWyfyfMkV0NY",
       "title": "Basic optics",
       "remType": "document",
-      "summary": "Basic optics: Axis",
+      "summary": "Ophthalmic optics fundamentals. Contains Axis subtopic.",
       "children": [
         {
           "remId": "5vhhkndt4Vgu5fSSn",
           "title": "Axis",
           "remType": "text",
-          "summary": "",
+          "summary": "Axis-related content. Contains image resources.",
           "children": []
         }
       ]
@@ -23,27 +23,27 @@
       "remId": "t2RMKcbnchc4jlcbx",
       "title": "Fundamentals",
       "remType": "document",
-      "summary": "Fundamentals: Development, Metabolism, Anatomy",
+      "summary": "Ophthalmology fundamentals covering Development, Metabolism, Anatomy topics.",
       "children": [
         {
           "remId": "5MNsxs4sYJySC8Hw4",
           "title": "Development",
           "remType": "text",
-          "summary": "",
+          "summary": "Ocular development content. Contains image resources.",
           "children": []
         },
         {
           "remId": "JdUtn0RbCUsBTsXVR",
           "title": "Metabolism",
           "remType": "text",
-          "summary": "",
+          "summary": "Metabolism-related content covering RPE topic.",
           "children": []
         },
         {
           "remId": "U85Z8RPqP47VfcAKL",
           "title": "Anatomy",
           "remType": "text",
-          "summary": "",
+          "summary": "Ocular anatomy topic. Content pending.",
           "children": []
         }
       ]
@@ -88,103 +88,103 @@
       "remId": "mvIEkYdmzLIKXsPz1",
       "title": "Examination",
       "remType": "document",
-      "summary": "Ophthalmic examination methods, instruments, and findings. VA testing, slit-lamp, OCT, FAG, FAF, ICG, fundus imaging, macular hole, CWS, Roth spot, MNV, glaukomflecken, retinal exam, histology",
+      "summary": "Ophthalmic examination covering instruments (VA testing, photostress, Worth 4 dot, imaging modalities), findings (macular pathologies, retinal hemorrhages, vitreoretinal interface disorders), tissue specimen processing (biopsy techniques, staining methods), and retinal examination (electrophysiologic testing).",
       "children": [
         {
           "remId": "uDrK7VpnP7nKpbyIR",
           "title": "Instruments",
           "remType": "document",
-          "summary": "Ophthalmic examination instruments and imaging modalities. VA testing, photostress, Worth 4 dot, CFP, infrared, red-free, cobalt blue, prism, FAF, FAG, ICG, OCT, slit-lamp",
+          "summary": "Examination instruments including visual acuity testing (Snellen, LogMAR, ETDRS), photostress test, Worth 4 dot, red free imaging, cobalt filter, prism, FAF, FAG, ICG, OCT, and slit-lamp.",
           "children": [
             {
               "remId": "ggowA35wPnLjqtSDk",
               "title": "Visual Acuity Testing",
               "remType": "text",
-              "summary": "Assessment of best corrected visual acuity. BCVA, Snellen chart, LogMAR, ETDRS, pinhole, near vision, distance vision, refraction",
+              "summary": "Visual acuity assessment. Snellen Visual Acuity, LogMAR Acuity with minimum angle of resolution (MAR), Bailey-Lovie chart, ETDRS chart.",
               "children": []
             },
             {
               "remId": "x7ZySWGLZ9Wn9lb8O",
               "title": "Photostress Test",
               "remType": "text",
-              "summary": "Macular function test assessing photostress recovery time. PSRT, bright light bleach, macular disease, AMD, CSR, prolonged recovery",
+              "summary": "Macular function test. Dark adaptation with visual pigments bleached by light. Photostress recovery time (PSRT) normally 15-30 seconds. Prolonged in macular disease.",
               "children": []
             },
             {
               "remId": "7KYjwbaq1hcrdSfHU",
               "title": "Worth 4 Dot",
               "remType": "text",
-              "summary": "Binocular vision test using 4 colored dots to assess fusion and suppression. BSV, diplopia, suppression, strabismus, red-green glasses",
+              "summary": "Test to evaluate binocular vision including diplopia, suppression, and anomalous retinal correspondence. Uses red lens for right eye and green lens for left eye. Performed at 33 cm and 6 m.",
               "children": []
             },
             {
               "remId": "HY6BRN0PxkF27T8uH",
               "title": "CFP",
               "remType": "text",
-              "summary": "Color fundus photography for documenting retinal structures. fundus photo, disc, macula, vessels, retina, diabetic retinopathy, optic disc",
+              "summary": "Content pending.",
               "children": []
             },
             {
               "remId": "GP6fMWudhmcroDnrV",
               "title": "Infrared",
               "remType": "text",
-              "summary": "Infrared fundus imaging for choroidal and deep retinal structures. 815nm, SLO, near-infrared, choroidal lesions, subretinal fluid",
+              "summary": "Content pending.",
               "children": []
             },
             {
               "remId": "DVTtlFOQX9tITWlFU",
               "title": "Red free",
               "remType": "text",
-              "summary": "Red-free (green filter) fundus imaging enhancing nerve fiber layer visibility. RNFL, retinal hemorrhage, microaneurysm, NFL defect, SLO",
+              "summary": "Ophthalmic examination technique using green light filter to block red light, making blood vessels appear more clearly.",
               "children": []
             },
             {
               "remId": "Zv7Qq9psg5UQZVKBr",
               "title": "Cobolt",
               "remType": "text",
-              "summary": "Cobalt blue filter slit-lamp exam for fluorescein staining. NaFl, corneal epithelial defect, fluorescein, staining pattern, anterior segment",
+              "summary": "Blue light used to examine the nerve fiber layer of the eye.",
               "children": []
             },
             {
               "remId": "NUJllNpHGKKLfSPhS",
               "title": "Prism",
               "remType": "text",
-              "summary": "Prism use for measuring ocular deviation and binocular vision assessment. prism bar, cover test, prism cover test, strabismus, tropia, phoria, prism diopters",
+              "summary": "Prism-related content covering meridian and hand neutralization techniques.",
               "children": []
             },
             {
               "remId": "NStJ0YtQx1jk9MbF5",
               "title": "FAF",
               "remType": "text",
-              "summary": "Fundus autofluorescence imaging of RPE lipofuscin distribution. FAF, RPE health, geographic atrophy, AMD, dystrophies, hyper/hypo autofluorescence, SLO",
+              "summary": "Contains reference to clinical applications of fundus autofluorescence in retinal disease journal article.",
               "children": []
             },
             {
               "remId": "A2y33rfDXgGnoJPvL",
               "title": "FAG",
               "remType": "text",
-              "summary": "Fluorescein angiography for retinal vascular assessment. FA, FFA, leakage, staining, blockage, CNV, DR, BRVO, CRVO, CRAO, IV dye injection",
+              "summary": "Fluorescein angiography using 10% Sodium Fluorescein. Excitation filter 465-490nm, barrier filter 520-530nm. Covers angiographic phases and findings.",
               "children": []
             },
             {
               "remId": "Sq0ud6kPAd3g1BKOc",
               "title": "ICG",
               "remType": "text",
-              "summary": "Indocyanine green angiography for choroidal circulation imaging. ICGA, PCV, CSC, choroidal neovascularization, polypoidal, deep choroid, IV dye",
+              "summary": "Indocyanine green angiography for choroidal imaging. Advantages include better visualization through hemorrhage and fluid. Cannot distinguish between choroidal arteries and veins.",
               "children": []
             },
             {
               "remId": "NqAowkwZsWRZtcoNA",
               "title": "OCT",
               "remType": "text",
-              "summary": "Optical coherence tomography for retinal layer and optic nerve analysis. OCT, OCTA, macula, RNFL, GCL, subretinal fluid, drusen, ERM, layer segmentation",
+              "summary": "Optical coherence tomography covering AI applications, biomarkers, AMD, drusen types, and retinal layer anatomy including RPE, interdigitation zone, photoreceptor segments, ellipsoid zone, and myoid zone.",
               "children": []
             },
             {
               "remId": "0OPrdrhZozUYf4g5n",
               "title": "Slit-lamp",
               "remType": "text",
-              "summary": "Slit-lamp biomicroscopy for anterior and posterior segment evaluation. anterior segment, cornea, lens, vitreous, gonioscopy, 90D, 78D, fundus lens",
+              "summary": "Slit-lamp examination covering abnormal AC cells, hyphema, abnormal vitreous cells, and peripapillary atrophy.",
               "children": []
             }
           ]
@@ -193,69 +193,69 @@
           "remId": "q13MzZLW7qqXI8VoC",
           "title": "Findings",
           "remType": "document",
-          "summary": "Ophthalmic examination findings and retinal pathologies. macular hole, LMH, DLH, Roth spot, CWS, vitreoretinal interface, MNV, glaukomflecken, CFF",
+          "summary": "Ophthalmic findings including macular hole, lamellar macular holes (LMH), Roth spot, cotton wool spots (CWS), degenerative lamellar holes (DLH), vitreoretinal interface disorders, glaukomflecken, and macular neovascularization (MNV).",
           "children": [
             {
               "remId": "4VsYAVyAYBHSytxr8",
               "title": "Macular hole",
               "remType": "text",
-              "summary": "Full-thickness macular hole through all retinal layers. FTMH, Gass stage 1-4, OCT, vitrectomy, ILM peel, gas tamponade, ERM, VA loss",
+              "summary": "Absence of neurosensory retinal tissue at fovea caused by traction force. Peak incidence 60s-80s, more common in women. Includes epidemiology, etiology, risk factors (idiopathic, age-related, myopia), pathophysiology, symptoms (central vision loss, scotoma, metamorphopsia), and management options.",
               "children": []
             },
             {
               "remId": "aKjD37OVU27lZu4YY",
               "title": "Lamellar Macular Holes (LMH)",
               "remType": "text",
-              "summary": "Partial-thickness macular defect with preserved outer retina. LMH, epiretinal proliferation, ERP, ERM, vitreoretinal traction, OCT, FTMH distinction",
+              "summary": "Macular condition with OCT diagnostic criteria. Management includes observation (stable VA in ~78%) or surgery for progressive vision loss.",
               "children": []
             },
             {
               "remId": "IE7Y40ShOVjWiPSu5",
               "title": "Roth spot",
               "remType": "text",
-              "summary": "White-centered retinal hemorrhage indicating systemic disease. Roth spot, endocarditis, leukemia, severe anemia, septic emboli, fibrin, white center",
+              "summary": "White-centered retinal hemorrhages. Covers etiology and differential diagnosis.",
               "children": []
             },
             {
               "remId": "NwSIWmO79X3cLyDaM",
               "title": "Cotton wool spot (CWS)",
               "remType": "text",
-              "summary": "Superficial retinal whitening from nerve fiber layer ischemia. CWS, NFL infarct, axoplasmic stasis, DM, HTN, HIV, BRVO, anemia",
+              "summary": "Ischemia-related nerve fiber layer infarction. Associated diseases include DM, HTN, vascular occlusion, immune disease (SLE), migraine, and collagen disease.",
               "children": []
             },
             {
               "remId": "M4y64gzrBXXVSdRHX",
               "title": "Degenerative lamellar holes (DLH)",
               "remType": "text",
-              "summary": "Atrophic retinal hole from degenerative process with retinal detachment risk. DLH, lattice degeneration, atrophic hole, retinal detachment, laser prophylaxis",
+              "summary": "Contains image content.",
               "children": []
             },
             {
               "remId": "HF97yHRR6gyTw5Pyt",
               "title": "Disorders of the vitreoretinal interface",
               "remType": "text",
-              "summary": "Pathological conditions at the vitreoretinal interface causing traction. ERM, epiretinal membrane, VMT, vitreomacular traction, VMA, macular pucker, OCT",
+              "summary": "Vitreoretinal interface pathologies including vitreomacular adhesion (VMA), vitreomacular traction (VMT), full-thickness macular hole (FTMH), epiretinal membrane (ERM), lamellar hole, and pseudohole.",
               "children": []
             },
             {
               "remId": "B8XkfPfbgmyJoD3VF",
               "title": "Critical Flicker Frequency",
               "remType": "text",
-              "summary": "Visual function test measuring flicker fusion threshold. CFF, critical flicker fusion, optic nerve function, glaucoma, retinal ganglion cell, Hz",
+              "summary": "Content pending.",
               "children": []
             },
             {
               "remId": "iHkJMQwC2x3kZGZ5g",
               "title": "Glaukomflecken",
               "remType": "text",
-              "summary": "Anterior subcapsular lens opacities from acute IOP spike. glaukomflecken, AACG, acute angle closure, lens opacity, IOP, corneal edema, ischemic lens",
+              "summary": "Grey-white fleck-like opacities. Pathophysiology involves secondary changes due to necrosis of the lens epithelium.",
               "children": []
             },
             {
               "remId": "ZlFDwRLtKE6BtEf1K",
               "title": "Macular Neovascularization (MNV)",
               "remType": "text",
-              "summary": "Abnormal neovascular complex at the macula. MNV, CNV, choroidal neovascularization, type 1/2/3, AMD, OCT-A, anti-VEGF, subretinal fluid, exudates",
+              "summary": "Neovascular conditions at macula. Type 1 MNV (occult CNV) in sub-RPE space. Type 2 MNV (classic CNV) in subretinal space. Mixed type. Type 3 MNV originates from deep capillary plexus of retina. Includes FFA, OCT, and OCTA content.",
               "children": []
             }
           ]
@@ -264,14 +264,14 @@
           "remId": "ysVQc0seCgvIMlSXY",
           "title": "Tissue specimen processing",
           "remType": "text",
-          "summary": "Processing of ocular tissue specimens for pathological analysis. biopsy, histopathology, formalin fixation, paraffin embedding, H&E staining, cytology, pathology",
+          "summary": "Ocular tissue specimen processing techniques including eyelid and conjunctival biopsy, orbit biopsy, temporal artery biopsy, fine-needle aspiration biopsy, histochemical stain, and immunohistochemistry.",
           "children": []
         },
         {
           "remId": "GQ6xMETJQc5HuoRcG",
           "title": "Retinal examination",
           "remType": "text",
-          "summary": "Techniques for examining the retina including peripheral fundus. BIO, binocular indirect ophthalmoscopy, 90D, 78D, 3-mirror, scleral indentation, fundoscopy, peripheral retina",
+          "summary": "Retinal examination techniques including electrophysiologic testing.",
           "children": []
         }
       ]

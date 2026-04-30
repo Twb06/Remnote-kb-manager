@@ -110,14 +110,14 @@ node ./node_modules/remnote-cli/dist/index.js daemon start
 #### Step 2 — Add nodes
 
 ```bash
-# Add a single node (auto-resolves position from RemNote parent chain):
-python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
+# Add a single node with summary (auto-resolves position from RemNote parent chain):
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId> "IOP measurement, tonometry"
 
-# Add multiple nodes at once:
-python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
+# Add a single node without summary:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId> ""
 
-# Add with a pre-filled summary:
-python .github/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "IOP measurement, tonometry"
+# Add multiple nodes with individual summaries:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> "summary1" --add <remId2> "summary2" --add <remId3> "summary3"
 ```
 
 **What it does:**
@@ -131,8 +131,14 @@ python .github/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "IO
 **Parameters:**
 | Flag | Required | Description |
 |------|----------|-------------|
-| `--add <remId> [...]` | Yes | One or more RemNote rem IDs to add |
-| `--summary <text>` | No | Pre-fill summary for target nodes (English keywords); default: `""` |
+| `--add <remId> <summary>` | Yes | Add a node with remId and summary (can be repeated for multiple nodes). Summary can be empty string `""` |
+
+**Transaction safety:**
+- All processing happens in memory first
+- `kb_map.json` is only written if ALL nodes are successfully added
+- Any error (invalid remId, network failure, cycle detection) aborts the entire operation with rollback
+- No partial writes — atomic all-or-nothing behavior
+- Press Ctrl+C to cancel operation before completion
 
 ---
 
@@ -226,7 +232,7 @@ When a **new top-level branch** is added to RemNote (visible under root `Da8SsKW
 
 1. Add the node to `kb_map.json`:
    ```bash
-   python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
+   python .github/skills/kb-map-updater/build_kb_map.py --add <remId> ""
    ```
 2. If it was placed as a top-level branch, update the `BRANCHES` list in `fetch_toplevel.py`:
    ```python
@@ -236,8 +242,11 @@ When a **new top-level branch** is added to RemNote (visible under root `Da8SsKW
 
 When adding **child nodes** under an existing branch:
 ```bash
-# Single or multiple:
-python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2>
+# Single node:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> "summary text"
+
+# Multiple nodes:
+python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> "" --add <remId2> "summary2"
 ```
 Intermediate ancestors are auto-filled. No changes to `fetch_toplevel.py` needed for child nodes.
 

@@ -11,6 +11,35 @@ Maintains `remnote-kb-navigation/kb_map.json` — a **lightweight index** (not a
 
 `kb_map.json` is an **index**, not a complete replica of the KB. It tracks only the nodes the agent needs for navigation and routing. Most day-to-day updates use `--add` to insert specific nodes on demand — no batch fetch required.
 
+## Architecture Principles
+
+### Structure vs. Content Separation
+
+**build_kb_map.py manages STRUCTURE only:**
+- Node existence (add/remove via `--add` or `--rebuild`)
+- Parent-child relationships and hierarchy
+- Node metadata (remId, title, remType)
+- **Does NOT generate summaries**
+
+**AI Agent manages CONTENT only:**
+- Summary field updates
+- Reads RemNote content via `remnote-cli`
+- Writes summaries directly to `kb_map.json` via `multi_replace_string_in_file`
+- **Does NOT add/remove nodes**
+
+### Critical Constraint: Content Fidelity
+
+**MANDATORY: All summary content MUST be sourced from actual RemNote content.**
+
+- **Allowed**: Extract terms, concepts, abbreviations, procedures that appear in the node's RemNote content
+- **Allowed**: Rephrase or summarize existing content for clarity
+- **Allowed**: Use medical domain knowledge to **identify** key concepts already present in the content
+- **FORBIDDEN**: Add medical facts, diagnoses, procedures, or terminology NOT present in the RemNote content
+- **FORBIDDEN**: "Fill in" missing context with general medical knowledge
+- **FORBIDDEN**: Create descriptions based on node title alone without reading actual content
+
+**Verification rule**: Every keyword and phrase in the summary should trace back to specific text/children in the RemNote node.
+
 ## When to use
 
 | Scenario | Action |
@@ -27,6 +56,39 @@ Maintains `remnote-kb-navigation/kb_map.json` — a **lightweight index** (not a
 3. **Python 3** available in the activated virtual environment.
 
 ## Workflow
+
+### Daily: Update summaries only (most common)
+
+When you need to improve summary quality **without changing structure**:
+
+**Step 1 — Identify nodes needing updates**
+
+```bash
+grep '"summary": ""' .github/skills/remnote-kb-navigation/kb_map.json
+# Or: grep '"summary": ".*: .*"' for placeholder format
+```
+
+**Step 2 — Read actual content from RemNote**
+
+For each target node:
+```bash
+node ./node_modules/remnote-cli/dist/index.js read <remId> --depth 2 --child-limit 100 --include-content structured --json
+```
+
+**CRITICAL**: This step is MANDATORY. Do NOT write summaries based on:
+- Node title alone
+- General medical knowledge
+- Assumptions about what the content should contain
+
+**Step 3 — Write summaries directly into kb_map.json**
+
+Use `multi_replace_string_in_file` to update only the `"summary": "..."` field. Extract all keywords from the RemNote content you just read.
+
+**Step 4 — Verify**
+
+Spot-check 2-3 updated entries to ensure every keyword traces back to the RemNote content.
+
+---
 
 ### Daily: add nodes incrementally (`--add`)
 
@@ -128,16 +190,23 @@ python .github/skills/kb-map-updater/build_kb_map.py --rebuild
 
 ##### Process
 
-1. Read `toplevel_dump.json` to understand each node's content (children titles, structured content).
-2. Read `kb_map.json` to find nodes needing summaries (`summary == ""`  or low-quality placeholder summaries like `"Title: child1, child2"`).
-3. For each node, write a summary following these rules:
+1. **Read source content**: Use `remnote-cli read <remId> --depth 2 --include-content structured` to get the node's actual RemNote content.
+2. **Identify nodes needing updates**: Read `kb_map.json` to find nodes with `summary == ""` or low-quality placeholder summaries.
+3. **Write summaries from source only**:
    - **Format**: `[One-sentence description]. [keyword1, keyword2, ...]`
    - **Language**: English only
    - **Length**: ~300 chars max
    - **Content**: Include abbreviations, full names for major medical terms, disease names, procedure names
-   - **Quality**: Must reflect medical domain knowledge, not just title word splitting
-4. Write summaries into `kb_map.json` using `multi_replace_string_in_file`.
-5. **Idempotency rule**: If a node already has a quality summary (not a placeholder), only update if the new content contains significantly different information.
+   - **Quality**: Must reflect medical domain knowledge to **identify and organize** concepts already in the content
+   - **CRITICAL**: Every term, concept, and keyword MUST exist in the RemNote content. Do NOT add external medical knowledge.
+4. **Write summaries into kb_map.json**: Use `multi_replace_string_in_file` to update the `"summary": "..."` field.
+5. **Idempotency rule**: If a node already has a quality summary (not a placeholder), only update if the RemNote content has changed significantly.
+
+**Content Verification Checklist (before writing each summary):**
+- [ ] Read the node's RemNote content via `remnote-cli`
+- [ ] Every keyword in the summary appears in: node title, children titles, or structured content
+- [ ] Description accurately summarizes what IS in the content, not what SHOULD be there
+- [ ] If a node has minimal content (only image.png or empty children), summary should reflect that limitation
 
 **Target file:**
 ```
@@ -187,8 +256,9 @@ Intermediate ancestors are auto-filled. No changes to `fetch_toplevel.py` needed
 |------|--------|
 | Language | English only |
 | Content | One-sentence description; followed by keyword-dense list: disease names, procedure names, abbreviations, key concepts |
-| Length | ~200 chars max |
+| Length | ~300 chars max |
 | Format | `[Description]. [keyword1, keyword2, ...]` — description first, then flat comma/semicolon-separated keywords |
 | Update | Only update if new information is present (idempotent) |
 | Example | `Measurement of intraocular pressure using various methods. IOP, tonometry, applanation, POAG, PACG, NVG, gonioscopy, visual field, glaucoma surgery, SLT, trabeculectomy` |
+| **Content Fidelity** | **MANDATORY**: All terms, keywords, and descriptions MUST be extracted from the node's actual RemNote content (title, children, structured content, or text body). Do NOT create content from external medical knowledge or assumptions. If the RemNote content is minimal, the summary should be minimal. Use English only. |
 

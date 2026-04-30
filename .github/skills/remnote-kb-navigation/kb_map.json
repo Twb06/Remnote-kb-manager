@@ -8,13 +8,13 @@
       "remId": "4uE8lPWyfyfMkV0NY",
       "title": "Basic optics",
       "remType": "document",
-      "summary": "Optics, optical axis, refraction, light pathway, axis alignment, basic ophthalmic optics",
+      "summary": "Basic optics: Axis",
       "children": [
         {
           "remId": "5vhhkndt4Vgu5fSSn",
           "title": "Axis",
           "remType": "text",
-          "summary": "Optical axis, geometric reference line, axis measurement, refraction axis in ophthalmic optics",
+          "summary": "",
           "children": []
         }
       ]
@@ -23,27 +23,27 @@
       "remId": "t2RMKcbnchc4jlcbx",
       "title": "Fundamentals",
       "remType": "document",
-      "summary": "Ocular embryology, development, RPE metabolism, basic anatomy",
+      "summary": "Fundamentals: Development, Metabolism, Anatomy",
       "children": [
         {
           "remId": "5MNsxs4sYJySC8Hw4",
           "title": "Development",
           "remType": "text",
-          "summary": "Ocular development, embryology, developmental anatomy",
+          "summary": "",
           "children": []
         },
         {
           "remId": "JdUtn0RbCUsBTsXVR",
           "title": "Metabolism",
           "remType": "text",
-          "summary": "RPE (retinal pigment epithelium) metabolism, biochemistry, retinal metabolic processes",
+          "summary": "",
           "children": []
         },
         {
           "remId": "U85Z8RPqP47VfcAKL",
           "title": "Anatomy",
           "remType": "text",
-          "summary": "Basic ocular anatomy, fundamental anatomical structures of the eye",
+          "summary": "",
           "children": []
         }
       ]
@@ -58,28 +58,28 @@
           "remId": "A3lZlSz9lHhPXLbNl",
           "title": "器械",
           "remType": "text",
-          "summary": "procedure",
+          "summary": "Instruments used in ophthalmic procedures. Mcpherson tweezer, .12 tweezer, needle holder, surgical tools",
           "children": []
         },
         {
           "remId": "v8U7VfcO7C4K9SVoY",
           "title": "cornea拆線",
           "remType": "text",
-          "summary": "cornea拆線, procedure",
+          "summary": "Corneal suture removal technique and procedure. corneal suture, stitch removal, postoperative care",
           "children": []
         },
         {
           "remId": "pzhOxlwqLpXygvvET",
           "title": "其他地方拆線",
           "remType": "text",
-          "summary": "其他地方拆線, procedure",
+          "summary": "Suture removal at non-corneal ocular sites. conjunctival sutures, lid sutures, stitch removal technique",
           "children": []
         },
         {
           "remId": "U85Z8RPqP47VfcAKL",
           "title": "戴 TSCL",
           "remType": "text",
-          "summary": "tscl, procedure",
+          "summary": "",
           "children": []
         }
       ]
@@ -88,103 +88,103 @@
       "remId": "mvIEkYdmzLIKXsPz1",
       "title": "Examination",
       "remType": "document",
-      "summary": "Diagnostic instruments (VA, slit-lamp, CFP, FAF, FAG, ICG, OCT, prism), clinical findings (macular hole, LMH, Roth spot, CWS, MNV, glaukomflecken), tissue biopsy, ERG",
+      "summary": "Ophthalmic examination methods, instruments, and findings. VA testing, slit-lamp, OCT, FAG, FAF, ICG, fundus imaging, macular hole, CWS, Roth spot, MNV, glaukomflecken, retinal exam, histology",
       "children": [
         {
           "remId": "uDrK7VpnP7nKpbyIR",
           "title": "Instruments",
           "remType": "document",
-          "summary": "instruments, examination",
+          "summary": "Ophthalmic examination instruments and imaging modalities. VA testing, photostress, Worth 4 dot, CFP, infrared, red-free, cobalt blue, prism, FAF, FAG, ICG, OCT, slit-lamp",
           "children": [
             {
               "remId": "ggowA35wPnLjqtSDk",
               "title": "Visual Acuity Testing",
               "remType": "text",
-              "summary": "visual, acuity, testing, examination, instruments",
+              "summary": "Assessment of best corrected visual acuity. BCVA, Snellen chart, LogMAR, ETDRS, pinhole, near vision, distance vision, refraction",
               "children": []
             },
             {
               "remId": "x7ZySWGLZ9Wn9lb8O",
               "title": "Photostress Test",
               "remType": "text",
-              "summary": "photostress, test, examination, instruments",
+              "summary": "Macular function test assessing photostress recovery time. PSRT, bright light bleach, macular disease, AMD, CSR, prolonged recovery",
               "children": []
             },
             {
               "remId": "7KYjwbaq1hcrdSfHU",
               "title": "Worth 4 Dot",
               "remType": "text",
-              "summary": "worth, dot, examination, instruments",
+              "summary": "Binocular vision test using 4 colored dots to assess fusion and suppression. BSV, diplopia, suppression, strabismus, red-green glasses",
               "children": []
             },
             {
               "remId": "HY6BRN0PxkF27T8uH",
               "title": "CFP",
               "remType": "text",
-              "summary": "cfp, examination, instruments",
+              "summary": "Color fundus photography for documenting retinal structures. fundus photo, disc, macula, vessels, retina, diabetic retinopathy, optic disc",
               "children": []
             },
             {
               "remId": "GP6fMWudhmcroDnrV",
               "title": "Infrared",
               "remType": "text",
-              "summary": "infrared, examination, instruments",
+              "summary": "Infrared fundus imaging for choroidal and deep retinal structures. 815nm, SLO, near-infrared, choroidal lesions, subretinal fluid",
               "children": []
             },
             {
               "remId": "DVTtlFOQX9tITWlFU",
               "title": "Red free",
               "remType": "text",
-              "summary": "red, free, examination, instruments",
+              "summary": "Red-free (green filter) fundus imaging enhancing nerve fiber layer visibility. RNFL, retinal hemorrhage, microaneurysm, NFL defect, SLO",
               "children": []
             },
             {
               "remId": "Zv7Qq9psg5UQZVKBr",
               "title": "Cobolt",
               "remType": "text",
-              "summary": "cobolt, examination, instruments",
+              "summary": "Cobalt blue filter slit-lamp exam for fluorescein staining. NaFl, corneal epithelial defect, fluorescein, staining pattern, anterior segment",
               "children": []
             },
             {
               "remId": "NUJllNpHGKKLfSPhS",
               "title": "Prism",
               "remType": "text",
-              "summary": "prism, examination, instruments",
+              "summary": "Prism use for measuring ocular deviation and binocular vision assessment. prism bar, cover test, prism cover test, strabismus, tropia, phoria, prism diopters",
               "children": []
             },
             {
               "remId": "NStJ0YtQx1jk9MbF5",
               "title": "FAF",
               "remType": "text",
-              "summary": "faf, examination, instruments",
+              "summary": "Fundus autofluorescence imaging of RPE lipofuscin distribution. FAF, RPE health, geographic atrophy, AMD, dystrophies, hyper/hypo autofluorescence, SLO",
               "children": []
             },
             {
               "remId": "A2y33rfDXgGnoJPvL",
               "title": "FAG",
               "remType": "text",
-              "summary": "fag, examination, instruments",
+              "summary": "Fluorescein angiography for retinal vascular assessment. FA, FFA, leakage, staining, blockage, CNV, DR, BRVO, CRVO, CRAO, IV dye injection",
               "children": []
             },
             {
               "remId": "Sq0ud6kPAd3g1BKOc",
               "title": "ICG",
               "remType": "text",
-              "summary": "icg, examination, instruments",
+              "summary": "Indocyanine green angiography for choroidal circulation imaging. ICGA, PCV, CSC, choroidal neovascularization, polypoidal, deep choroid, IV dye",
               "children": []
             },
             {
               "remId": "NqAowkwZsWRZtcoNA",
               "title": "OCT",
               "remType": "text",
-              "summary": "oct, examination, instruments",
+              "summary": "Optical coherence tomography for retinal layer and optic nerve analysis. OCT, OCTA, macula, RNFL, GCL, subretinal fluid, drusen, ERM, layer segmentation",
               "children": []
             },
             {
               "remId": "0OPrdrhZozUYf4g5n",
               "title": "Slit-lamp",
               "remType": "text",
-              "summary": "slit, lamp, examination, instruments",
+              "summary": "Slit-lamp biomicroscopy for anterior and posterior segment evaluation. anterior segment, cornea, lens, vitreous, gonioscopy, 90D, 78D, fundus lens",
               "children": []
             }
           ]
@@ -193,69 +193,69 @@
           "remId": "q13MzZLW7qqXI8VoC",
           "title": "Findings",
           "remType": "document",
-          "summary": "findings, examination",
+          "summary": "Ophthalmic examination findings and retinal pathologies. macular hole, LMH, DLH, Roth spot, CWS, vitreoretinal interface, MNV, glaukomflecken, CFF",
           "children": [
             {
               "remId": "4VsYAVyAYBHSytxr8",
               "title": "Macular hole",
               "remType": "text",
-              "summary": "macular, hole, examination, findings",
+              "summary": "Full-thickness macular hole through all retinal layers. FTMH, Gass stage 1-4, OCT, vitrectomy, ILM peel, gas tamponade, ERM, VA loss",
               "children": []
             },
             {
               "remId": "aKjD37OVU27lZu4YY",
               "title": "Lamellar Macular Holes (LMH)",
               "remType": "text",
-              "summary": "lamellar, macular, holes, lmh, examination, findings",
+              "summary": "Partial-thickness macular defect with preserved outer retina. LMH, epiretinal proliferation, ERP, ERM, vitreoretinal traction, OCT, FTMH distinction",
               "children": []
             },
             {
               "remId": "IE7Y40ShOVjWiPSu5",
               "title": "Roth spot",
               "remType": "text",
-              "summary": "roth, spot, examination, findings",
+              "summary": "White-centered retinal hemorrhage indicating systemic disease. Roth spot, endocarditis, leukemia, severe anemia, septic emboli, fibrin, white center",
               "children": []
             },
             {
               "remId": "NwSIWmO79X3cLyDaM",
               "title": "Cotton wool spot (CWS)",
               "remType": "text",
-              "summary": "cotton, wool, spot, cws, examination, findings",
+              "summary": "Superficial retinal whitening from nerve fiber layer ischemia. CWS, NFL infarct, axoplasmic stasis, DM, HTN, HIV, BRVO, anemia",
               "children": []
             },
             {
               "remId": "M4y64gzrBXXVSdRHX",
               "title": "Degenerative lamellar holes (DLH)",
               "remType": "text",
-              "summary": "degenerative, lamellar, holes, dlh, examination, findings",
+              "summary": "Atrophic retinal hole from degenerative process with retinal detachment risk. DLH, lattice degeneration, atrophic hole, retinal detachment, laser prophylaxis",
               "children": []
             },
             {
               "remId": "HF97yHRR6gyTw5Pyt",
               "title": "Disorders of the vitreoretinal interface",
               "remType": "text",
-              "summary": "disorders, the, vitreoretinal, interface, examination, findings",
+              "summary": "Pathological conditions at the vitreoretinal interface causing traction. ERM, epiretinal membrane, VMT, vitreomacular traction, VMA, macular pucker, OCT",
               "children": []
             },
             {
               "remId": "B8XkfPfbgmyJoD3VF",
               "title": "Critical Flicker Frequency",
               "remType": "text",
-              "summary": "critical, flicker, frequency, examination, findings",
+              "summary": "Visual function test measuring flicker fusion threshold. CFF, critical flicker fusion, optic nerve function, glaucoma, retinal ganglion cell, Hz",
               "children": []
             },
             {
               "remId": "iHkJMQwC2x3kZGZ5g",
               "title": "Glaukomflecken",
               "remType": "text",
-              "summary": "glaukomflecken, examination, findings",
+              "summary": "Anterior subcapsular lens opacities from acute IOP spike. glaukomflecken, AACG, acute angle closure, lens opacity, IOP, corneal edema, ischemic lens",
               "children": []
             },
             {
               "remId": "ZlFDwRLtKE6BtEf1K",
               "title": "Macular Neovascularization (MNV)",
               "remType": "text",
-              "summary": "macular, neovascularization, mnv, examination, findings",
+              "summary": "Abnormal neovascular complex at the macula. MNV, CNV, choroidal neovascularization, type 1/2/3, AMD, OCT-A, anti-VEGF, subretinal fluid, exudates",
               "children": []
             }
           ]
@@ -264,14 +264,14 @@
           "remId": "ysVQc0seCgvIMlSXY",
           "title": "Tissue specimen processing",
           "remType": "text",
-          "summary": "tissue, specimen, processing, examination",
+          "summary": "Processing of ocular tissue specimens for pathological analysis. biopsy, histopathology, formalin fixation, paraffin embedding, H&E staining, cytology, pathology",
           "children": []
         },
         {
           "remId": "GQ6xMETJQc5HuoRcG",
           "title": "Retinal examination",
           "remType": "text",
-          "summary": "retinal, examination",
+          "summary": "Techniques for examining the retina including peripheral fundus. BIO, binocular indirect ophthalmoscopy, 90D, 78D, 3-mirror, scleral indentation, fundoscopy, peripheral retina",
           "children": []
         }
       ]
@@ -280,20 +280,20 @@
       "remId": "5CwJCcEZY38vm4dtb",
       "title": "Common presentation",
       "remType": "document",
-      "summary": "Leading causes of blindness (cataract, glaucoma, AMD, DR), decreased vision DDx, sudden painless vision loss, optic neuropathy subtypes, photopsias, acutely inflamed orbit",
+      "summary": "Common presentation: Leading cause of blindness, Decreased vision, Photopsias, Acutely inflamed orbit",
       "children": [
         {
           "remId": "dtNfDVu4ZzdsqiZ5C",
           "title": "Leading cause of blindness",
           "remType": "text",
-          "summary": "leading, cause, blindness, common presentation",
+          "summary": "",
           "children": []
         },
         {
           "remId": "OHUckvVjjEVkNtubv",
           "title": "Decreased vision",
           "remType": "document",
-          "summary": "decreased, vision, common presentation",
+          "summary": "",
           "children": [
             {
               "remId": "vyYtJCJb32AhN07Xc",
@@ -395,14 +395,14 @@
           "remId": "HcvFsCZkNbRXnf7ko",
           "title": "Photopsias",
           "remType": "text",
-          "summary": "photopsias, common presentation",
+          "summary": "",
           "children": []
         },
         {
           "remId": "qrsV8cDoSs7yiKNmW",
           "title": "Acutely inflamed orbit",
           "remType": "text",
-          "summary": "acutely, inflamed, orbit, common presentation",
+          "summary": "",
           "children": []
         }
       ]
@@ -411,41 +411,41 @@
       "remId": "TtzBhK6lHH71f8XQF",
       "title": "External disease",
       "remType": "document",
-      "summary": "Orbit & adnexa: 6P's evaluation, TED (Graves), pseudotumor, IOIS, orbital tumors (rhabdomyosarcoma, uveal melanoma, cavernous hemangioma, lymphoma, metastatic), sinusitis-induced ON, hordeolum/chalazion, trauma, conjunctivitis, blepharoplasty, evisceration, enucleation",
+      "summary": "External disease: Evaluation (6P's evaluation), Thyroid eye disease (TED), Pseudotumor, Idiopathic orbital inflammatory syndrome, Orbital tumor, Sinusitis-Induced Optic Neuropathy, Hordeolum vs. chala",
       "children": [
         {
           "remId": "CSiJBnpwFs2Y2kiko",
           "title": "Evaluation",
           "remType": "text",
-          "summary": "evaluation, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "dl8odBjfOzd13whpP",
           "title": "TED",
           "remType": "text",
-          "summary": "ted, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "nMC501IdR2ZC1PBOt",
           "title": "Pseudotumor",
           "remType": "text",
-          "summary": "pseudotumor, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "cPY33QXwkRNiI5pZo",
           "title": "IOIS",
           "remType": "text",
-          "summary": "iois, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "MQuRP1pdyFxcjeZHz",
           "title": "Orbital tumor",
           "remType": "document",
-          "summary": "orbital, tumor, external disease",
+          "summary": "",
           "children": [
             {
               "remId": "8GOXnft1wGb93fjqM",
@@ -509,49 +509,49 @@
           "remId": "StXU9R2BTeuhd8R0V",
           "title": "Sinusitis-Induced ON",
           "remType": "text",
-          "summary": "sinusitis, induced, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "wUbq1MQGALkLEM4Hl",
           "title": "Hordeolum/Chalazion",
           "remType": "text",
-          "summary": "hordeolum, chalazion, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "tChLljptHhLu7W1vB",
           "title": "Trauma",
           "remType": "text",
-          "summary": "trauma, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "lsd8746ldfqr1GTlk",
           "title": "Conjunctivitis",
           "remType": "text",
-          "summary": "conjunctivitis, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "OfeAb9z9k8a3aMT4q",
           "title": "Blepharoplasty",
           "remType": "text",
-          "summary": "blepharoplasty, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "N2k370V83anJC3jgN",
           "title": "Eviscleration",
           "remType": "text",
-          "summary": "eviscleration, external disease",
+          "summary": "",
           "children": []
         },
         {
           "remId": "rAPaYMUBcTsyO3slp",
           "title": "Enucleation",
           "remType": "text",
-          "summary": "enucleation, external disease",
+          "summary": "",
           "children": []
         }
       ]
@@ -560,90 +560,90 @@
       "remId": "W7KYjX2Q6Z722xbS8",
       "title": "Cornea",
       "remType": "document",
-      "summary": "Refraction data (diopter, curvature), astigmatism (WTR/ATR), 5-layer anatomy (540-560μm), topography, pachymetry, specular microscopy, corneal findings, HSV keratitis, corneal dystrophy, transplantation (DALK, DSAEK, PK), LASIK, MSC injection, exosome research",
+      "summary": "Cornea: 驗光資料, Astigmatism, Anatomy, Examination, Corneal findings, Disease, Surgery, Mesenchymal stromal cell injection on corneal wound healing, Smartphone-based diagnosis of triage of cornea disease",
       "children": [
         {
           "remId": "48QCw843pG7B5O2Af",
           "title": "驗光資料",
           "remType": "text",
-          "summary": "驗光資料, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "lybVU44Jay7QWIAjv",
           "title": "Astigmatism",
           "remType": "text",
-          "summary": "astigmatism, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Nemp9tD7cqC0zX79P",
           "title": "Anatomy",
           "remType": "text",
-          "summary": "anatomy, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "nc48KPxQgPoz3kQZW",
           "title": "Examination",
           "remType": "text",
-          "summary": "examination, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "b4CGkJmF8fmgKZO2f",
           "title": "Corneal findings",
           "remType": "text",
-          "summary": "corneal, findings, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "vTniKG4Auouo4KBXz",
           "title": "Disease",
           "remType": "text",
-          "summary": "disease, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "9yubujiD7SHpjiSAh",
           "title": "Surgery",
           "remType": "text",
-          "summary": "surgery, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "WbWeHNnqWHbCENjPN",
           "title": "MSC",
           "remType": "text",
-          "summary": "msc, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "4oDmv3j4QgGEgTryy",
           "title": "Smartphone diagnosis",
           "remType": "text",
-          "summary": "smartphone, diagnosis, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "gmV2iWCKISsNOQWJo",
           "title": "DALK rejection",
           "remType": "text",
-          "summary": "dalk, rejection, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "GTqIxGRy3S9FIB4nm",
           "title": "Endothelial spots",
           "remType": "text",
-          "summary": "endothelial, spots, cornea",
+          "summary": "",
           "children": []
         },
         {
           "remId": "3Cd0RumOpIphFn1mC",
           "title": "Exosome",
           "remType": "text",
-          "summary": "exosome, cornea",
+          "summary": "",
           "children": []
         }
       ]
@@ -652,69 +652,69 @@
       "remId": "OgQr7FNqhHLU0qlUs",
       "title": "Lens and Cataract",
       "remType": "document",
-      "summary": "NHI reimbursement criteria (age≥55, VA≤0.5), lens structure, cataract types (age-related, childhood, secondary), slit-lamp grading (NS, CO, PSC), IOL power formulas, phacoemulsification, IOL choices (multifocal, aspheric), complications (TASS, endophthalmitis)",
+      "summary": "Lens and Cataract: 健保給付條件, Lens, Prevalance in causing blindness, Type, Examination, IOL Power Prediction Formulas, Surgery, Choices of IOL, Complication, contains:Lens and Cataract",
       "children": [
         {
           "remId": "84DFC5x0FT4EwtNkM",
           "title": "健保給付",
           "remType": "text",
-          "summary": "健保給付, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ICWHU3vfJh26W3uqD",
           "title": "Lens",
           "remType": "text",
-          "summary": "lens, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ZEGtUP2TjS2BjszDd",
           "title": "Blindness prevalence",
           "remType": "text",
-          "summary": "blindness, prevalence, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Vsd2AO397FeC7AUPA",
           "title": "Type",
           "remType": "text",
-          "summary": "type, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "IjbDcYJ3djgErhZNR",
           "title": "Examination",
           "remType": "text",
-          "summary": "examination, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "XwYiuzSlFtzHDXezA",
           "title": "IOL Formula",
           "remType": "text",
-          "summary": "iol, formula, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ne6xBYNBcxFmeUelR",
           "title": "Surgery",
           "remType": "text",
-          "summary": "surgery, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "m0803hc9kSyUKOxj9",
           "title": "Choices of IOL",
           "remType": "text",
-          "summary": "choices, iol, lens and cataract",
+          "summary": "",
           "children": []
         },
         {
           "remId": "G2cb9Qx8N1UOpqqz5",
           "title": "Complication",
           "remType": "text",
-          "summary": "complication, lens and cataract",
+          "summary": "",
           "children": []
         }
       ]
@@ -723,118 +723,118 @@
       "remId": "NG49CdruX4zDzD2Rq",
       "title": "Glaucoma",
       "remType": "document",
-      "summary": "IOP & aqueous humor dynamics, ocular hypertension (>21mmHg), NTG, glaucoma types (POAG, PACG, NVG, pseudophakic, aphakic, uveitic), GON, OPP, gonioscopy, visual field, tonometry, acute angle closure emergency, medical/laser/surgical management",
+      "summary": "Glaucoma: IOP, Ocular Hypertension, Normal-Tension Glaucoma, Glaucoma definition, Risk factor, Epidemiology, Type, Neovascular Glaucoma (NVG), Pseudophakic Glaucoma, Aphakic Glaucoma, Glaucomatous Opt",
       "children": [
         {
           "remId": "0OxAYRxC7CWAiDBFo",
           "title": "IOP",
           "remType": "text",
-          "summary": "iop, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "J6tCobDYHwxmKoihr",
           "title": "Ocular Hypertension",
           "remType": "text",
-          "summary": "ocular, hypertension, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "mGwFn1RvewBJAxsUE",
           "title": "Normal-Tension Glaucoma",
           "remType": "text",
-          "summary": "normal, tension, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "6cDSqnAQjQT6sMG9Y",
           "title": "Definition",
           "remType": "text",
-          "summary": "definition, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "u44nLjfhC9JJSTS8g",
           "title": "Risk factor",
           "remType": "text",
-          "summary": "risk, factor, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "i59jd65xpjjUI1TvL",
           "title": "Epidemiology",
           "remType": "text",
-          "summary": "epidemiology, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "pgwcCeXsB2TXT8uRr",
           "title": "Type",
           "remType": "text",
-          "summary": "type, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "MmiFkaUw38rmSEbol",
           "title": "NVG",
           "remType": "text",
-          "summary": "nvg, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Uu8fU95csHi3YiA7A",
           "title": "Pseudophakic G",
           "remType": "text",
-          "summary": "pseudophakic, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "SCCgtZ30sFapfyxP8",
           "title": "Aphakic G",
           "remType": "text",
-          "summary": "aphakic, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "qXca2aXUAprAC74HA",
           "title": "GON",
           "remType": "text",
-          "summary": "gon, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "D9RDYAOOZhab4YPcp",
           "title": "Uveitis G",
           "remType": "text",
-          "summary": "uveitis, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "O7GYiVwufB18dSIXW",
           "title": "OPP",
           "remType": "text",
-          "summary": "opp, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "7MKyxDX7Ppb4zWRWA",
           "title": "Examination",
           "remType": "text",
-          "summary": "examination, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "SXlTBl08afB5dsinZ",
           "title": "Emergency",
           "remType": "text",
-          "summary": "emergency, glaucoma",
+          "summary": "",
           "children": []
         },
         {
           "remId": "2sB4jtF872mBvPvUt",
           "title": "Management",
           "remType": "text",
-          "summary": "management, glaucoma",
+          "summary": "",
           "children": []
         }
       ]
@@ -843,20 +843,20 @@
       "remId": "HI4spvrHQIjuw5sua",
       "title": "Iris",
       "remType": "document",
-      "summary": "Iris structure (stroma, sphincter/dilator muscle, pigmented epithelium), iris bombe, seclusio pupillae, aniridia",
+      "summary": "Iris: [image], Structure, Disease",
       "children": [
         {
           "remId": "KKiCFORB8IAkIRVef",
           "title": "Structure",
           "remType": "text",
-          "summary": "structure, iris",
+          "summary": "",
           "children": []
         },
         {
           "remId": "HagcDbCnyOcleFa0H",
           "title": "Disease",
           "remType": "text",
-          "summary": "disease, iris",
+          "summary": "",
           "children": []
         }
       ]
@@ -865,55 +865,55 @@
       "remId": "kl4ItbmoLAmfqce7L",
       "title": "Uveitis",
       "remType": "document",
-      "summary": "Patient evaluation, pediatric uveitis, anterior uveitis (AAU, CMV, JIA, Fuchs), panuveitis (bilateral, multi-segment), posterior uveitis (toxoplasmosis), ocular nodules, post-operative uveitis",
+      "summary": "Uveitis: Patient evaluation in uveitis, Pediatric Uveitis, Anterior Uveitis, Panuveitis, Posterior Uveitis, Ocular nodules, Post-operative uveitis",
       "children": [
         {
           "remId": "A0qAgL6nKhCEIQxik",
           "title": "Patient evaluation",
           "remType": "text",
-          "summary": "patient, evaluation, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "5sq9mBD0IZpnfsLV1",
           "title": "Pediatric Uveitis",
           "remType": "text",
-          "summary": "pediatric, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "hzeM86Lq7RVd8hlMg",
           "title": "Anterior Uveitis",
           "remType": "text",
-          "summary": "anterior, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "qiT6CepzAieLr1Cg1",
           "title": "Panuveitis",
           "remType": "text",
-          "summary": "panuveitis, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "rqH8FD6wDx0evUqdL",
           "title": "Posterior Uveitis",
           "remType": "text",
-          "summary": "posterior, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "XRWKTuLMt9D0ueKfB",
           "title": "Ocular nodules",
           "remType": "text",
-          "summary": "ocular, nodules, uveitis",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ckuSbqiz3QelHIEUT",
           "title": "Post-operative uveitis",
           "remType": "text",
-          "summary": "post, operative, uveitis",
+          "summary": "",
           "children": []
         }
       ]
@@ -922,230 +922,230 @@
       "remId": "axP0MADOJiMeJBf76",
       "title": "Retina",
       "remType": "document",
-      "summary": "Retinal anatomy (vitreous, circulation, blood-retinal barrier, choroid), CSNB, hemorrhage types (subretinal, subRPE, dot-blot, flame, suprachoroidal), vitreous disease (floaters, Terson, asteroid hyalosis, PVD), Purtscher retinopathy, RVO (CRVO/BRVO), amaurosis fugax, OIS, AMD, CSCR, pachychoroid, DR, RD, ERM, macular dystrophy (BVMD), CMV retinitis, ARN, PORN, vitreoretinal surgery",
+      "summary": "Retina: Anatomy, Congenital Stationary Night Blindness (CSNB), Acute hemorrhage, Vitreous disease, Purtscher Retinopathy, Purtscher-like retinopathy, Common retinopathy, Retinal venous occlusion (RVO)",
       "children": [
         {
           "remId": "QDmOATkudDt3ycjV6",
           "title": "Anatomy",
           "remType": "text",
-          "summary": "anatomy, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "LSQYVZV0SGmDllhx8",
           "title": "CSNB",
           "remType": "text",
-          "summary": "csnb, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "nkDvk6gIjEmCGfqrw",
           "title": "Hemorrhage",
           "remType": "text",
-          "summary": "hemorrhage, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "e3eKuKuqsrtEpSnAE",
           "title": "Vitreous disease",
           "remType": "text",
-          "summary": "vitreous, disease, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "7XTZH6hJvgSfhXpgt",
           "title": "Purtscher",
           "remType": "text",
-          "summary": "purtscher, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "bawUcQC3pFtbLqHKh",
           "title": "Common retinopathy",
           "remType": "text",
-          "summary": "common, retinopathy, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "X2ZfjvomoZAMgjnc3",
           "title": "RVO",
           "remType": "text",
-          "summary": "rvo, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "pUNCu7me4AtOGczMI",
           "title": "Amaurosis fugax",
           "remType": "text",
-          "summary": "amaurosis, fugax, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "tNR2mrtTOXu7vg6R1",
           "title": "OIS",
           "remType": "text",
-          "summary": "ois, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "W8cgUHLD04CXxZsRO",
           "title": "AMD",
           "remType": "text",
-          "summary": "amd, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "CKNrRljbHsAgGyqyn",
           "title": "Cuticular drusen",
           "remType": "text",
-          "summary": "cuticular, drusen, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "cbSLwe24c6IzRXVJh",
           "title": "CSCR",
           "remType": "text",
-          "summary": "cscr, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "9WIkaJCnYulBJ5pOv",
           "title": "Pattern dystrophy",
           "remType": "text",
-          "summary": "pattern, dystrophy, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "mPkcRyWB6JR9i2GMC",
           "title": "Hypertensive",
           "remType": "text",
-          "summary": "hypertensive, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "NDKURLm9BJ1rxP40m",
           "title": "RD",
           "remType": "text",
-          "summary": "retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "sLG9u48DKIM2cMqHi",
           "title": "Optic neuritis",
           "remType": "text",
-          "summary": "optic, neuritis, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "qJvR6dYYkOFmpi5vl",
           "title": "Diabetic Retinopathy",
           "remType": "text",
-          "summary": "diabetic, retinopathy, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "y0ksP7MCH0VgebRdw",
           "title": "PVD",
           "remType": "text",
-          "summary": "pvd, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "TL9OzfmvGTJGNarz3",
           "title": "ERM",
           "remType": "text",
-          "summary": "erm, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "k9shhk5KLsRuXM2YL",
           "title": "Retinal Breaks",
           "remType": "text",
-          "summary": "retinal, breaks, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "4tloqU6bjXv1mfpHO",
           "title": "Macular dystrophy",
           "remType": "text",
-          "summary": "macular, dystrophy, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Ysd2dY9V4rpmsms1B",
           "title": "BVMD",
           "remType": "text",
-          "summary": "bvmd, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "YU01Z1eIAvOG1NjM6",
           "title": "Infiltration",
           "remType": "text",
-          "summary": "infiltration, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "APSZU5fSvKaj3f6Cq",
           "title": "PNS",
           "remType": "text",
-          "summary": "pns, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ha2F8E1VJnjZdlZ2N",
           "title": "Pachychoroid",
           "remType": "text",
-          "summary": "pachychoroid, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "zXqDhUJR2YVdopFSb",
           "title": "Leukemic",
           "remType": "text",
-          "summary": "leukemic, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "q6TT91BqZau7UnpOY",
           "title": "CMV Retinitis",
           "remType": "text",
-          "summary": "cmv, retinitis, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "YVvJV7wXiOqLDHyGv",
           "title": "ARN",
           "remType": "text",
-          "summary": "arn, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "8Z0vGo6MO86qN9AZ0",
           "title": "PORN",
           "remType": "text",
-          "summary": "porn, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "A1vKzBdplv4kF4SCO",
           "title": "Candidiasis",
           "remType": "text",
-          "summary": "candidiasis, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "KJCfWYQ70BG1B0CdJ",
           "title": "Radiation",
           "remType": "text",
-          "summary": "radiation, retina",
+          "summary": "",
           "children": []
         },
         {
           "remId": "5fPulWTSwO6XgTZIl",
           "title": "Vitreoretinal surgery",
           "remType": "text",
-          "summary": "vitreoretinal, surgery, retina",
+          "summary": "",
           "children": []
         }
       ]
@@ -1154,202 +1154,202 @@
       "remId": "JC3yhtfC24Gv1sMCY",
       "title": "Neuro-ophthalmology",
       "remType": "document",
-      "summary": "Visual pathway & field defects, optic neuropathy (ethambutol, gaze-evoked amaurosis), Tolosa-Hunt syndrome, CN III/IV/VII palsy, oculosympathetic pathway (Horner), CN VII overactivity (BEB, hemifacial spasm), cavernous sinus & orbital apex syndromes, TVL, diplopia, ptosis, CIDP, Miller Fisher, dorsal midbrain, NMO, MS, INO, one-and-a-half, reflexes, migraine, papilledema, ophthalmoplegia",
+      "summary": "Neuro-ophthalmology: Visual Pathway, Optic nerve abnormality, Tolosa-Hunt Syndrome, CN III palsy, Oculosympathetic pathway, CN IV palsy, CN VII palsy, CN VII overactivity syndromes, Cavernous Sinus Sy",
       "children": [
         {
           "remId": "mqflesMq7Kdc1RMCD",
           "title": "Visual Pathway",
           "remType": "text",
-          "summary": "visual, pathway, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "gmgjVGvmSsvR5YhpY",
           "title": "Optic nerve abnormality",
           "remType": "text",
-          "summary": "optic, nerve, abnormality, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "HGjJMbjXfCwWNX47H",
           "title": "Tolosa-Hunt",
           "remType": "text",
-          "summary": "tolosa, hunt, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "FmoqlKBukwBlfRIWU",
           "title": "CN III palsy",
           "remType": "text",
-          "summary": "iii, palsy, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "qJQCjC7PzoY6iA8Bb",
           "title": "Oculosympathetic",
           "remType": "text",
-          "summary": "oculosympathetic, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "1mP4d7lQOGaeebcot",
           "title": "CN IV palsy",
           "remType": "text",
-          "summary": "palsy, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "o3ywldToxOUl5Dlhu",
           "title": "CN VII palsy",
           "remType": "text",
-          "summary": "vii, palsy, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "pRylO0npDUmF9fXKM",
           "title": "CN VII overactivity",
           "remType": "text",
-          "summary": "vii, overactivity, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "6kXFUc4JPdRR572wL",
           "title": "Cavernous Sinus",
           "remType": "text",
-          "summary": "cavernous, sinus, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "l21AVYx2IbrwQFDWd",
           "title": "Orbital Apex",
           "remType": "text",
-          "summary": "orbital, apex, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "U6nFEGK2mJBMvUeVk",
           "title": "TVL",
           "remType": "text",
-          "summary": "tvl, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "in8OgDATbvBXeND43",
           "title": "Diplopia",
           "remType": "text",
-          "summary": "diplopia, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "k3wIv4wq7wdeW03VL",
           "title": "Ptosis",
           "remType": "text",
-          "summary": "ptosis, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "aPu7szfx1lI5nYp7z",
           "title": "CIDP",
           "remType": "text",
-          "summary": "cidp, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "PRvEgLjwBv4wsakYL",
           "title": "Miller Fisher",
           "remType": "text",
-          "summary": "miller, fisher, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ZTKfRAaeHtX9GNLA0",
           "title": "Dorsal Midbrain",
           "remType": "text",
-          "summary": "dorsal, midbrain, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "77UGrrrKOE4wpMNOx",
           "title": "Synkinesis",
           "remType": "text",
-          "summary": "synkinesis, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "byjnIo6ZrAcoFzkEN",
           "title": "NMO",
           "remType": "text",
-          "summary": "nmo, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "FbaGpFR1Ak5gCppCq",
           "title": "MS",
           "remType": "text",
-          "summary": "neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "5GvBvKcwQAAQzSbTn",
           "title": "INO",
           "remType": "text",
-          "summary": "ino, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "J059o7Qv7LujZbZfk",
           "title": "One-and-a-half",
           "remType": "text",
-          "summary": "one, and, half, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "5MrLLgWmMjvrFLDOf",
           "title": "Reflexes",
           "remType": "text",
-          "summary": "reflexes, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "C19lRnwpAHl4fCcm3",
           "title": "Migraine",
           "remType": "text",
-          "summary": "migraine, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "jEsPADSaZD8xZGzhE",
           "title": "Papilledema",
           "remType": "text",
-          "summary": "papilledema, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Tcxt5Acw3u67JXwFC",
           "title": "Pseudopapilledema",
           "remType": "text",
-          "summary": "pseudopapilledema, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "pGwzhJpjVe6jnzVXu",
           "title": "Optic disc edema",
           "remType": "text",
-          "summary": "optic, disc, edema, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "4qWojdwOmwK2u61UF",
           "title": "Ophthalmoplegia",
           "remType": "text",
-          "summary": "ophthalmoplegia, neuro-ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "XddNgrjAbDBD95JgJ",
           "title": "Binocular diplopia",
           "remType": "text",
-          "summary": "binocular, diplopia, neuro-ophthalmology",
+          "summary": "",
           "children": []
         }
       ]
@@ -1358,27 +1358,27 @@
       "remId": "rGexWin57k2Yp7LxY",
       "title": "Systematic",
       "remType": "document",
-      "summary": "Systemic diseases with ocular manifestation: immunotherapy irAE (uveitis, vitritis, retinal vasculitis), Kikuchi-Fujimoto disease, phakomatoses",
+      "summary": "Systematic: Immunotherapy irAE (immune-relative adverse effect) in eye, Kikuchi-Fujimoto disease (KFD), Phakomatoses",
       "children": [
         {
           "remId": "WxlDBqi5SREzgVD0E",
           "title": "Immunotherapy irAE",
           "remType": "text",
-          "summary": "immunotherapy, irae, systematic",
+          "summary": "",
           "children": []
         },
         {
           "remId": "f2NJkFwNR0aJqg31t",
           "title": "Kikuchi-Fujimoto",
           "remType": "text",
-          "summary": "kikuchi, fujimoto, systematic",
+          "summary": "",
           "children": []
         },
         {
           "remId": "vx75LRBPJQ3wrmQyc",
           "title": "Phakomatoses",
           "remType": "text",
-          "summary": "phakomatoses, systematic",
+          "summary": "",
           "children": []
         }
       ]
@@ -1387,132 +1387,132 @@
       "remId": "bI7e9zIlyeyoPzBDV",
       "title": "Pediatric ophthalmology",
       "remType": "document",
-      "summary": "Pediatric red eye, strabismus, tearing (congenital glaucoma, epiblepharon), amblyopia (visual development, critical period), leukocoria, congenital corneal opacities, inherited eye diseases, fetal vessels (PFV), pediatric trauma/glaucoma, hyperopia, nanophthalmos, malignancy, albinism, DM, Marfan, nystagmus",
+      "summary": "Pediatric ophthalmology: Red eye and swelling, Strabismus, Tearing, Amblyopia, Leukocoria, Congenital Corneal Opacities, Inherited eye diseases, Fetal vessels, Ocular trauma in childhood, Childhood Gl",
       "children": [
         {
           "remId": "Cjl76LiUzpewPBahD",
           "title": "Red eye/swelling",
           "remType": "text",
-          "summary": "red, eye, swelling, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "c2NDZR6Wfy9bsBiXM",
           "title": "Strabismus",
           "remType": "text",
-          "summary": "strabismus, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "mENsrhGSkmqzX2h2h",
           "title": "Tearing",
           "remType": "text",
-          "summary": "tearing, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "SsWWksaakpmWMLlM1",
           "title": "Amblyopia",
           "remType": "text",
-          "summary": "amblyopia, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "FHhDDsL9NSwZ56az7",
           "title": "Leukocoria",
           "remType": "text",
-          "summary": "leukocoria, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "RcIgE14SNPqqViyqB",
           "title": "Congenital Corneal Opacities",
           "remType": "text",
-          "summary": "congenital, corneal, opacities, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "pcpsWZTJWxjtpWWEg",
           "title": "Inherited eye diseases",
           "remType": "text",
-          "summary": "inherited, eye, diseases, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "tGUm0rLX7droQjHne",
           "title": "Fetal vessels",
           "remType": "text",
-          "summary": "fetal, vessels, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "rlMuq6pLjGc1GG8rM",
           "title": "Trauma",
           "remType": "text",
-          "summary": "trauma, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "6NlQdNvbM8hlXOpXe",
           "title": "Glaucoma",
           "remType": "text",
-          "summary": "glaucoma, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "Qq8q6p1sp2xrkjjAb",
           "title": "Hyperopia",
           "remType": "text",
-          "summary": "hyperopia, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "KCGGXnySV4wzOY0Gi",
           "title": "Nanophthalmos",
           "remType": "text",
-          "summary": "nanophthalmos, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "oB1Lsmh0VKkFzBiSd",
           "title": "Malignancy",
           "remType": "text",
-          "summary": "malignancy, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "aQ81e78UKiTRG5D5p",
           "title": "Albinism",
           "remType": "text",
-          "summary": "albinism, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "CV6hBHg9VzMU7N45K",
           "title": "Diabetes",
           "remType": "text",
-          "summary": "diabetes, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "3xbGos8qJz8A2mmvM",
           "title": "Infection",
           "remType": "text",
-          "summary": "infection, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "FNw8z8v8JTyujkbIC",
           "title": "Marfan",
           "remType": "text",
-          "summary": "marfan, pediatric ophthalmology",
+          "summary": "",
           "children": []
         },
         {
           "remId": "SDhm6L73QmFm7CrHA",
           "title": "Nystagmus",
           "remType": "text",
-          "summary": "nystagmus, pediatric ophthalmology",
+          "summary": "",
           "children": []
         }
       ]
@@ -1521,90 +1521,90 @@
       "remId": "9o9I65kDVTQpu32Ob",
       "title": "Ophthamlology medication",
       "remType": "document",
-      "summary": "Blood-ocular barrier, glaucoma meds (combination, inflow/outflow), mydriatics & cycloplegics (phenylephrine, tropicamide, atropine, cyclopentolate), allergic disease, anti-inflammation, uveitis meds, antibiotics, antiviral, antifungal, artificial tears, diagnostic agents (Alcaine), drug side effects/toxicity",
+      "summary": "Ophthamlology medication: Blood-ocular barrier, Glaucoma Medication, Mydriatics &  cycloplegics, Allergic disease, Anti-inflammation, Uveitis Medication, Anti-bacterial agents, Antiviral agents, Anti-",
       "children": [
         {
           "remId": "feM7ebDxKOG9GipA2",
           "title": "Blood-ocular barrier",
           "remType": "text",
-          "summary": "blood, ocular, barrier, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "q4n8fH8ZJsU4o0gUB",
           "title": "Glaucoma Medication",
           "remType": "text",
-          "summary": "glaucoma, medication, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "AIfOkXDcBWWzaPC87",
           "title": "Mydriatics & cycloplegics",
           "remType": "text",
-          "summary": "mydriatics, cycloplegics, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "dmWXEs9yVYIRL9pSI",
           "title": "Allergic disease",
           "remType": "text",
-          "summary": "allergic, disease, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "EO3Xt4uWYz1j9L7bn",
           "title": "Anti-inflammation",
           "remType": "text",
-          "summary": "anti, inflammation, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "geOefWc6yNtbMOP9F",
           "title": "Uveitis Medication",
           "remType": "text",
-          "summary": "uveitis, medication, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "c69TlSzDv9JHO2ivJ",
           "title": "Anti-bacterial",
           "remType": "text",
-          "summary": "anti, bacterial, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "d91kZ2nazfi3oK3MG",
           "title": "Antiviral",
           "remType": "text",
-          "summary": "antiviral, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "ZGILqJhEKHJC7c09D",
           "title": "Anti-fungal",
           "remType": "text",
-          "summary": "anti, fungal, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "PaHnaSh1XCBqEh1ZD",
           "title": "Artificial tear",
           "remType": "text",
-          "summary": "artificial, tear, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "RLPCBten3CJtLonDS",
           "title": "Other",
           "remType": "text",
-          "summary": "other, ophthamlology medication",
+          "summary": "",
           "children": []
         },
         {
           "remId": "yBcLZXfaHSVTrQLSb",
           "title": "Side effect",
           "remType": "text",
-          "summary": "side, effect, ophthamlology medication",
+          "summary": "",
           "children": []
         }
       ]
@@ -1613,21 +1613,21 @@
       "remId": "2KIH8sENSdJ4x3jKk",
       "title": "GVHD",
       "remType": "text",
-      "summary": "Graft-versus-host disease ocular involvement (cornea, conjunctiva, lacrimal gland, meibomian gland), onset 6-9mo post-BMT, chronic GVHD, treatment (artificial tears, autologous serum, cyclosporin, tacrolimus)",
+      "summary": "GVHD: Overview, Presentation, Examination, Management, Etiology, BMT, Risk Factors, General Pathology, Pathophysiology, History, Onset, Physical examination, Symptoms, vision blur, Signs, Extraocular,",
       "children": []
     },
     {
       "remId": "re3th39xJtgK9Z42Y",
       "title": "Case discussion",
       "remType": "text",
-      "summary": "Morning & subspecialty case rounds: real clinical cases with CC/PI/impression/management, covering diplopia, orbital cellulitis, keratitis (HSV, microsporidia), ACG, RD, chemical burns, CSCR, VKH, Tolosa-Hunt, cavernous sinus syndrome, ERM, perimetry",
+      "summary": "",
       "children": []
     },
     {
       "remId": "t70gU6mbwxvCe23N8",
       "title": "Meta-analysis",
       "remType": "text",
-      "summary": "Entry point for meta-analysis methodology and evidence-based ophthalmology references",
+      "summary": "Meta-analysis: image.pngimage.pngimage.pngimage.pngimage.pngimage.pngimage.pngimage.png",
       "children": []
     }
   ]

@@ -11,7 +11,7 @@ TWO MODES:
       map structure with RemNote (e.g. after adding a new top-level branch).
       Existing summaries are preserved by remId across the rebuild.
 
-  --add <remId1> [remId2] [remId3] ... [--summary <text>]
+  --add <remId> <summary>
       Adds one or more nodes to kb_map.json by remId.
       - Always auto-placement: fetches parentRemId from RemNote and walks
         up the ancestor chain until it finds a node already in kb_map.json
@@ -22,7 +22,7 @@ TWO MODES:
       - Skips any remId already in kb_map.json (no duplicates, no error).
       - For top-level branches, reminds to also add to BRANCHES in
         fetch_toplevel.py.
-      - Optional --summary applies to ALL nodes added in this invocation.
+      - Can be specified multiple times to add multiple nodes with their summaries.
 
 Summary field rules:
   - keyword-dense English, ~200 chars max
@@ -34,10 +34,11 @@ Summary field rules:
 Usage:
     python .github/skills/kb-map-updater/build_kb_map.py --rebuild
     python .github/skills/kb-map-updater/build_kb_map.py --rebuild [dump.json]
-    python .github/skills/kb-map-updater/build_kb_map.py --add <remId>
-    python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> <remId2> <remId3>
-    python .github/skills/kb-map-updater/build_kb_map.py --add <remId> --summary "keywords here"
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId> "summary text"
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId1> "summary1" --add <remId2> "summary2"
+    python .github/skills/kb-map-updater/build_kb_map.py --add <remId> ""  # empty summary
 """
+import argparse
 import json
 import os
 import subprocess
@@ -202,9 +203,9 @@ def _fetch_rem_metadata(rem_id: str) -> dict:
             "parentRemId": data.get("parentRemId", ""),
         }
     except Exception as e:
-        print(f"ERROR: Failed to fetch rem {rem_id} from RemNote: {e}", file=sys.stderr)
-        print("  Provide --title manually or ensure remnote-cli daemon is running.", file=sys.stderr)
-        sys.exit(1)
+        error_msg = f"Failed to fetch rem {rem_id} from RemNote: {e}. Provide --title manually or ensure remnote-cli daemon is running."
+        print(f"ERROR: {error_msg}", file=sys.stderr)
+        raise RuntimeError(error_msg) from e
 
 
 def _resolve_ancestor_chain(start_parent_id: str, all_ids: set) -> tuple[list[dict], str | None]:
@@ -229,8 +230,9 @@ def _resolve_ancestor_chain(start_parent_id: str, all_ids: set) -> tuple[list[di
 
     while len(visited) < 20:
         if current_id in visited:
-            print(f"ERROR: Cycle detected at '{current_id}'.", file=sys.stderr)
-            sys.exit(1)
+            error_msg = f"Cycle detected at '{current_id}'."
+            print(f"ERROR: {error_msg}", file=sys.stderr)
+            raise RuntimeError(error_msg)
         visited.add(current_id)
 
         meta = _fetch_rem_metadata(current_id)
@@ -242,8 +244,9 @@ def _resolve_ancestor_chain(start_parent_id: str, all_ids: set) -> tuple[list[di
 
         grandparent = meta.get("parentRemId", "")
         if not grandparent:
-            print(f"ERROR: rem '{current_id}' has no parentRemId. Cannot auto-place.", file=sys.stderr)
-            sys.exit(1)
+            error_msg = f"rem '{current_id}' has no parentRemId. Cannot auto-place."
+            print(f"ERROR: {error_msg}", file=sys.stderr)
+            raise RuntimeError(error_msg)
 
         if grandparent == ROOT_REMID:
             return list(reversed(chain)), None
@@ -252,8 +255,9 @@ def _resolve_ancestor_chain(start_parent_id: str, all_ids: set) -> tuple[list[di
 
         current_id = grandparent
 
-    print(f"ERROR: Exceeded max depth (20) walking parent chain.", file=sys.stderr)
-    sys.exit(1)
+    error_msg = "Exceeded max depth (20) walking parent chain."
+    print(f"ERROR: {error_msg}", file=sys.stderr)
+    raise RuntimeError(error_msg)
 
 
 def _insert_node(branches: list, node: dict, parent_id: str | None):
@@ -261,8 +265,9 @@ def _insert_node(branches: list, node: dict, parent_id: str | None):
     if parent_id:
         pnode, _ = _find_node_by_id(branches, parent_id)
         if pnode is None:
-            print(f"ERROR: parent '{parent_id}' not found in tree.", file=sys.stderr)
-            sys.exit(1)
+            error_msg = f"parent '{parent_id}' not found in tree."
+            print(f"ERROR: {error_msg}", file=sys.stderr)
+            raise RuntimeError(error_msg)
         pnode["children"].append(node)
         print(f"    + '{node['title']}' under '{pnode['title']}'", file=sys.stderr)
     else:
@@ -272,17 +277,20 @@ def _insert_node(branches: list, node: dict, parent_id: str | None):
         print(f"      REMINDER: Add to BRANCHES in fetch_toplevel.py", file=sys.stderr)
 
 
-def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") -> dict:
+def add_node_mode(existing_data: dict, nodes: list[dict]) -> dict:
     """Add one or more nodes to kb_map.json with auto-placement and chain fill.
 
     Args:
-        summary: optional summary applied to target nodes (not intermediates).
+        nodes: list of dicts with 'remId' and 'summary' keys.
+               Example: [{'remId': 'abc', 'summary': 'text'}, ...]
     """
     branches = existing_data.get("branches", [])
     all_ids = _all_rem_ids(branches)
     added = 0
 
-    for rem_id in rem_ids:
+    for node_spec in nodes:
+        rem_id = node_spec['remId']
+        node_summary = node_spec.get('summary', '')
         if rem_id in all_ids:
             print(f"  SKIP: '{rem_id}' already exists in kb_map.json.", file=sys.stderr)
             continue
@@ -329,7 +337,7 @@ def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") ->
             "remId": rem_id,
             "title": title,
             "remType": rem_type,
-            "summary": summary,
+            "summary": node_summary,
             "children": [],
         }
         # direct_parent should now be in all_ids (or is root)
@@ -353,62 +361,70 @@ def add_node_mode(existing_data: dict, rem_ids: list[str], summary: str = "") ->
 # ---------------------------------------------------------------------------
 
 def main():
-    args = sys.argv[1:]
-    mode = None
-    dump_path = DUMP_PATH
-    add_rem_ids: list[str] = []
-    manual_summary = ""
+    parser = argparse.ArgumentParser(
+        description="Build or update kb_map.json from RemNote structure.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="Examples:\n"
+               "  %(prog)s --rebuild\n"
+               "  %(prog)s --add abc123 'Summary text here'\n"
+               "  %(prog)s --add id1 'sum1' --add id2 'sum2'\n"
+    )
 
-    i = 0
-    while i < len(args):
-        a = args[i]
-        if a == "--rebuild":
-            mode = "rebuild"
-        elif a == "--add":
-            mode = "add"
-            # Collect all subsequent non-flag args as remIds
-            i += 1
-            while i < len(args) and not args[i].startswith("--"):
-                add_rem_ids.append(args[i])
-                i += 1
-            if not add_rem_ids:
-                print("ERROR: --add requires at least one remId.", file=sys.stderr)
-                sys.exit(1)
-            continue  # skip i += 1 at bottom
-        elif a == "--summary":
-            i += 1
-            if i >= len(args):
-                print("ERROR: --summary requires a value.", file=sys.stderr)
-                sys.exit(1)
-            manual_summary = args[i]
-        elif not a.startswith("--"):
-            dump_path = a
-        i += 1
+    parser.add_argument('--rebuild', action='store_true',
+                        help='Rebuild kb_map.json from toplevel_dump.json')
+    parser.add_argument('--add', action='append', nargs=2,
+                        metavar=('REMID', 'SUMMARY'),
+                        help='Add a node with remId and summary (can be repeated)')
+    parser.add_argument('dump_path', nargs='?', default=DUMP_PATH,
+                        help='Path to dump file (for --rebuild mode)')
 
-    if mode is None:
-        print("ERROR: No mode specified. Use --rebuild or --add <remId>.", file=sys.stderr)
-        sys.exit(1)
+    args = parser.parse_args()
 
+    # Determine mode
+    if args.rebuild and args.add:
+        parser.error("Cannot use --rebuild and --add together.")
+
+    if not args.rebuild and not args.add:
+        parser.error("Must specify either --rebuild or --add.")
+
+    mode = "rebuild" if args.rebuild else "add"
     existing_data, existing_summaries = load_existing_kb_map(KB_MAP_PATH)
 
     print(f"Mode: {mode}", file=sys.stderr)
 
-    if mode == "add":
-        if existing_data is None:
-            print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)
-            sys.exit(1)
-        kb_map = add_node_mode(existing_data, add_rem_ids, manual_summary)
-    else:  # rebuild
-        if not os.path.exists(dump_path):
-            print(f"ERROR: {dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)
-            sys.exit(1)
-        kb_map = rebuild_mode(dump_path, existing_summaries)
+    # Transaction: build complete kb_map first, only write if successful
+    kb_map = None
+    try:
+        if mode == "add":
+            if existing_data is None:
+                print("ERROR: No existing kb_map.json found. Run --rebuild first.", file=sys.stderr)
+                sys.exit(1)
+            # Convert argparse result to list of dicts
+            nodes_to_add = [{"remId": remid, "summary": summary}
+                           for remid, summary in args.add]
+            kb_map = add_node_mode(existing_data, nodes_to_add)
+        else:  # rebuild
+            if not os.path.exists(args.dump_path):
+                print(f"ERROR: {args.dump_path} not found. Run fetch_toplevel.py first.", file=sys.stderr)
+                sys.exit(1)
+            kb_map = rebuild_mode(args.dump_path, existing_summaries)
 
-    os.makedirs(os.path.dirname(KB_MAP_PATH), exist_ok=True)
-    with open(KB_MAP_PATH, "w", encoding="utf-8") as f:
-        json.dump(kb_map, f, ensure_ascii=False, indent=2)
+        # Only write if processing succeeded
+        os.makedirs(os.path.dirname(KB_MAP_PATH), exist_ok=True)
+        with open(KB_MAP_PATH, "w", encoding="utf-8") as f:
+            json.dump(kb_map, f, ensure_ascii=False, indent=2)
 
-    print(f"\nDone. Written to {KB_MAP_PATH}", file=sys.stderr)
+        print(f"\nDone. Written to {KB_MAP_PATH}", file=sys.stderr)
+
+    except KeyboardInterrupt:
+        print("\n\nOperation cancelled by user. No changes written.", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"\nERROR: Operation failed: {e}", file=sys.stderr)
+        print("No changes written to kb_map.json (rollback).", file=sys.stderr)
+        import traceback
+        traceback.print_exc(file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

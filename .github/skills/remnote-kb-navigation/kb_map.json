@@ -76,7 +76,7 @@
           "children": []
         },
         {
-          "remId": "U85Z8RPqP47VfcAKL",
+          "remId": "78pdWD7J2aS8nK2Ch",
           "title": "戴 TSCL",
           "remType": "text",
           "summary": "",
@@ -317,110 +317,125 @@
       "remId": "5CwJCcEZY38vm4dtb",
       "title": "Common presentation",
       "remType": "document",
-      "summary": "Common presentation: Leading cause of blindness, Decreased vision, Photopsias, Acutely inflamed orbit",
+      "summary": "Common presentation categories in ophthalmology. leading cause of blindness, decreased vision, photopsias, acutely inflamed orbit",
       "children": [
         {
           "remId": "dtNfDVu4ZzdsqiZ5C",
           "title": "Leading cause of blindness",
           "remType": "text",
-          "summary": "",
+          "summary": "Major causes of vision loss worldwide. cataracts, glaucoma, age-related macular degeneration, diabetic retinopathy, corneal opacities",
           "children": []
         },
         {
           "remId": "OHUckvVjjEVkNtubv",
           "title": "Decreased vision",
           "remType": "document",
-          "summary": "",
+          "summary": "Patient presentation with reduced visual acuity. vision loss lasting longer than 24 hrs, clinical assessment",
           "children": [
             {
               "remId": "vyYtJCJb32AhN07Xc",
               "title": "Vision loss lasting longer than 24 hrs",
               "remType": "document",
-              "summary": "vision, loss, lasting, longer, than, hrs, common presentation, decreased vision",
+              "summary": "Persistent vision loss categorized by onset and pain. sudden painless, progressive painless, pain, optic neuropathy, retinal artery occlusion, retinal detachment, GCA",
               "children": [
                 {
                   "remId": "6gVTvcz0FYByRDbDL",
                   "title": "Sudden, painless",
                   "remType": "document",
-                  "summary": "painless, common presentation, decreased vision, vision loss lasting longer than 24 hrs",
+                  "summary": "Acute vision loss without ocular pain. CRAO, BRAO, retinal detachment, optic neuropathy",
                   "children": [
                     {
                       "remId": "hVqvJagr06fyOaTBD",
                       "title": "Optic neuropathy (ON)",
                       "remType": "document",
-                      "summary": "optic, neuropathy, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless",
+                      "summary": "Optic nerve dysfunction categorized by etiology. demyelinating, ischemic, inflammatory, infiltrative, compressive, hereditary, toxic-nutritional, radiation, traumatic, paraneoplastic",
                       "children": [
                         {
                           "remId": "7vRgAy5lOeONuLqk2",
                           "title": "Demyelinating ON",
                           "remType": "text",
-                          "summary": "demyelinating, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve inflammation with myelin loss. demyelinating optic neuropathy",
                           "children": []
                         },
                         {
                           "remId": "jBj4vND8gEYdemjJ2",
                           "title": "Ischemic ON (ION)",
                           "remType": "text",
-                          "summary": "ischemic, ion, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve damage from inadequate blood supply. ischemic optic neuropathy, ION, AAION, NAION, PION, arteritic, non-arteritic, posterior",
                           "children": []
                         },
                         {
                           "remId": "3siXnOSW7uYIR6mzV",
                           "title": "Inflammatory ON",
                           "remType": "text",
-                          "summary": "inflammatory, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve inflammation without demyelination. inflammatory optic neuropathy, non-demyelinating",
                           "children": []
                         },
                         {
                           "remId": "RF5uwpZHU1tHu6DcH",
                           "title": "Infiltrative ON",
                           "remType": "text",
-                          "summary": "infiltrative, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve infiltration by abnormal cells. infiltrative optic neuropathy",
                           "children": []
                         },
                         {
                           "remId": "BmXeq1WbVPGt0fch3",
                           "title": "Compressive ON",
                           "remType": "text",
-                          "summary": "compressive, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve dysfunction from external pressure. compressive optic neuropathy",
                           "children": []
                         },
                         {
                           "remId": "ZD04zNSr8YEb0MWXW",
                           "title": "Hereditary ON",
                           "remType": "text",
-                          "summary": "hereditary, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Genetic optic nerve disorders. hereditary optic neuropathy",
                           "children": []
                         },
                         {
                           "remId": "3rLwtB4F91MZ6xEBF",
                           "title": "Toxic-nutritional ON",
                           "remType": "text",
-                          "summary": "toxic, nutritional, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve damage from toxins or nutrient deficiency. toxic-nutritional optic neuropathy, drugs, toxins, nutritional deficiencies, ethambutol, amiodarone, linezolid, vigabatrin",
                           "children": []
                         },
                         {
                           "remId": "hff58m7bI0zo8BDo5",
                           "title": "Radiation ON (RON)",
                           "remType": "text",
-                          "summary": "radiation, ron, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve damage following radiation therapy. radiation optic neuropathy, RON",
                           "children": []
                         },
                         {
                           "remId": "xEXJiBZhFCnXuIYcH",
                           "title": "Traumatic ON",
                           "remType": "text",
-                          "summary": "traumatic, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve injury from trauma. traumatic optic neuropathy",
                           "children": []
                         },
                         {
                           "remId": "seJNKjhsqdNbMNLax",
                           "title": "Paraneoplastic ON",
                           "remType": "text",
-                          "summary": "paraneoplastic, common presentation, decreased vision, vision loss lasting longer than 24 hrs, sudden, painless, optic neuropathy (on)",
+                          "summary": "Optic nerve dysfunction as remote effect of cancer. paraneoplastic optic neuropathy",
                           "children": []
                         }
                       ]
+                    }
+                  ]
+                },
+                {
+                  "remId": "2t0CoApRm6M1iL0RG",
+                  "title": "Pain",
+                  "remType": "text",
+                  "summary": "Vision loss accompanied by pain differential diagnosis. giant cell arteritis",
+                  "children": [
+                    {
+                      "remId": "fPIuWD9Gilh7Fncl0",
+                      "title": "Giant Cell Arteritis (GCA)",
+                      "remType": "text",
+                      "summary": "Most common primary vasculitis in elderly affecting medium-to-large vessels. pathology: granulomatous necrotizing arteritis, multi-nucleated giant cells, fragmented internal elastic lamina, skip lesions; epidemiology: > 55 years, average 70, F > M; key symptom: jaw claudication almost pathognomonic, sudden unilateral visual loss, temporal artery thickened tender inflamed nodular; laboratory: elevated ESR CRP; diagnosis: temporal artery biopsy TAB gold standard 1-2.5 cm within 1 week; treatment: medical emergency, immediate systemic steroids; complications: AAION, CRAO; associated: polymyalgia rheumatica 50%, cardiovascular risk; prognosis: poor if vision loss",
+                      "children": []
                     }
                   ]
                 }
@@ -432,14 +447,14 @@
           "remId": "HcvFsCZkNbRXnf7ko",
           "title": "Photopsias",
           "remType": "text",
-          "summary": "",
+          "summary": "Visual perception of flashes of light. photopsias, etiology",
           "children": []
         },
         {
           "remId": "qrsV8cDoSs7yiKNmW",
           "title": "Acutely inflamed orbit",
           "remType": "text",
-          "summary": "",
+          "summary": "Rapid onset orbital inflammation etiology. infection, vascular lesions, neoplasia, thyroid eye disease, non-neoplastic inflammation",
           "children": []
         }
       ]
@@ -454,90 +469,90 @@
           "remId": "CSiJBnpwFs2Y2kiko",
           "title": "Evaluation",
           "remType": "text",
-          "summary": "",
+          "summary": "Systematic evaluation framework for external disease using 6P's. pain, progression, proptosis, palpation, pulsation, periorbital change",
           "children": []
         },
         {
           "remId": "dl8odBjfOzd13whpP",
           "title": "TED",
           "remType": "text",
-          "summary": "",
+          "summary": "Autoimmune orbital disease from anti-thyroid receptor antibodies. thyroid eye disease, TED, Graves' ophthalmopathy, thyroid-associated ophthalmopathy, hyperthyroidism, orbital fibroblasts, smoking, autoimmune",
           "children": []
         },
         {
           "remId": "nMC501IdR2ZC1PBOt",
           "title": "Pseudotumor",
           "remType": "text",
-          "summary": "",
+          "summary": "Orbital mass lesion differential diagnosis. pseudotumor, differential diagnosis",
           "children": []
         },
         {
           "remId": "cPY33QXwkRNiI5pZo",
           "title": "IOIS",
           "remType": "text",
-          "summary": "",
+          "summary": "Non-specific orbital inflammation of unknown cause. idiopathic orbital inflammatory syndrome, IOIS",
           "children": []
         },
         {
           "remId": "MQuRP1pdyFxcjeZHz",
           "title": "Orbital tumor",
           "remType": "document",
-          "summary": "",
+          "summary": "Space-occupying lesions in the orbit. dermatoid cyst, epidermoid cyst, rhabdomyoscaroma, uveal melanoma, vascular tumor, metastatic tumor, cavernous hemangioma, orbital adnexal lymphoma, cyberknife radiotherapy",
           "children": [
             {
               "remId": "8GOXnft1wGb93fjqM",
               "title": "Dermatoid and epidermoid cyst",
               "remType": "text",
-              "summary": "dermatoid, and, epidermoid, cyst, external disease, orbital tumor",
+              "summary": "Congenital orbital cystic lesions requiring surgical excision. superotemoral suture, congenital, chronic, excision",
               "children": []
             },
             {
               "remId": "LotsxqQHaGp3TJ776",
               "title": "Rhabdomyoscaroma",
               "remType": "text",
-              "summary": "rhabdomyoscaroma, external disease, orbital tumor",
+              "summary": "Pediatric orbital malignancy with acute presentation. supranasal, acute onset, gradual proptosis within weeks, 8-10 years old, treatment",
               "children": []
             },
             {
               "remId": "cucxc65xDHABz84zG",
               "title": "Uveal Melanoma",
               "remType": "text",
-              "summary": "uveal, melanoma, external disease, orbital tumor",
+              "summary": "Intraocular malignancy with globe-preserving treatment options. higher incidence in Whites, aggressive in Asian, poor VA, 30% asymptomatic, COMS trial, brachytherapy, enucleation, exenteration, high metastatic rate",
               "children": []
             },
             {
               "remId": "k96UlivHB74Ev7uKn",
               "title": "Vascular tumor",
               "remType": "text",
-              "summary": "vascular, tumor, external disease, orbital tumor",
+              "summary": "Orbital vascular neoplasms category. circumscribed choroidal hemangioma",
               "children": []
             },
             {
               "remId": "2OkUUwbbYkctydqi9",
               "title": "Metastatic tumor",
               "remType": "text",
-              "summary": "metastatic, tumor, external disease, orbital tumor",
+              "summary": "Secondary ocular malignancies with age-dependent patterns. children: orbit, neuroblastoma. adults: globe, choroid, cavernous hemangioma. choroidal metastasis",
               "children": []
             },
             {
               "remId": "xI0nhshzdkbRlIfEt",
               "title": "Cavernous hemangioma",
               "remType": "text",
-              "summary": "cavernous, hemangioma, external disease, orbital tumor",
+              "summary": "Benign encapsulated orbital vascular lesion with chronic presentation. vascular channels budding, fibrous capsule, chronic, unilateral, proptosis, diplopia, compressive optic neuropathy, gaze-evoked amaurosis",
               "children": []
             },
             {
               "remId": "t66sbeBX2O1ZJxoSU",
               "title": "Orbital adnexal lymphoma",
               "remType": "text",
-              "summary": "orbital, adnexal, lymphoma, external disease, orbital tumor",
+              "summary": "Extranodal lymphoma involving orbit, usually B-cell type. MALToma, 10% extranodal malignant lymphoma, non-Hodgkin lymphomas, B-cell type, primary limited to orbital, secondary systematic involvement",
               "children": []
             },
             {
               "remId": "msltpTYbUFcrDvuZ9",
               "title": "Cyberknife Radiotherapy",
               "remType": "text",
-              "summary": "cyberknife, radiotherapy, external disease, orbital tumor",
+              "summary": "Stereotactic radiation therapy for orbital lesions with real-time tracking. LINAC-based, high-dose focused radiation, 20 Gy typical dose, organ-at-risk sparing, real-time localization, radiation retinopathy, glaucoma, cataract, retinal detachment, maculopathy, vitreous hemorrhage",
               "children": []
             }
           ]
@@ -546,49 +561,106 @@
           "remId": "StXU9R2BTeuhd8R0V",
           "title": "Sinusitis-Induced ON",
           "remType": "text",
-          "summary": "",
+          "summary": "Optic nerve damage from sphenoethmoid sinus infection. sinusitis-induced optic neuropathy, sphenoethmoid sinusitis",
           "children": []
         },
         {
           "remId": "wUbq1MQGALkLEM4Hl",
           "title": "Hordeolum/Chalazion",
           "remType": "text",
-          "summary": "",
+          "summary": "Eyelid inflammatory lesions differential. hordeolum, chalazion, allergic conjunctivitis, follicular conjunctivitis, alphagan, staphylococcus, streptococcus, GPC",
           "children": []
         },
         {
           "remId": "tChLljptHhLu7W1vB",
           "title": "Trauma",
           "remType": "text",
-          "summary": "",
+          "summary": "Orbital and periorbital injury assessment. trauma, orbit anatomy, examination, orbital wall fracture",
           "children": []
         },
         {
           "remId": "lsd8746ldfqr1GTlk",
           "title": "Conjunctivitis",
           "remType": "text",
-          "summary": "",
-          "children": []
+          "summary": "Conjunctival inflammation evaluation. conjunctivitis, finding, etiology, clinical assessment",
+          "children": [
+            {
+              "remId": "Hkytik9lMFDIzciNd",
+              "title": "Finding",
+              "remType": "text",
+              "summary": "Clinical signs of conjunctivitis. swelling, chemosis, membrane, pseudomembrane, papillary reaction, follicular reaction",
+              "children": []
+            },
+            {
+              "remId": "4JBbZAjHIrAQWFEMq",
+              "title": "Etiology",
+              "remType": "text",
+              "summary": "Causes of conjunctivitis. bacterial, viral, allergic, lymphadenopathy, chlamydia, gonorrhea, Parinaud oculoglandular syndrome",
+              "children": []
+            },
+            {
+              "remId": "g4cscOk0FROKL6MWg",
+              "title": "Differential diagnosis",
+              "remType": "text",
+              "summary": "Differential diagnosis for conjunctivitis. Content pending",
+              "children": []
+            },
+            {
+              "remId": "5bjovsT44zUDJeP02",
+              "title": "scleritis",
+              "remType": "text",
+              "summary": "Scleral inflammation. young to middle aged, female predominance, epidemiology, etiology, risk factors, general pathology",
+              "children": []
+            },
+            {
+              "remId": "pQDMOoGepuFo88KWl",
+              "title": "Giant Papillary Conjunctivitis",
+              "remType": "text",
+              "summary": "Type IV hypersensitivity conjunctival reaction. contact lenses, exposed sutures, ocular prosthetics, IgG, IgE, IgM, complement C3, inflammation, vernal keratoconjunctivitis",
+              "children": []
+            },
+            {
+              "remId": "awDfo23HHbiXgck7Z",
+              "title": "Ocular Cicatricial Pemphigoid (OCP)",
+              "remType": "text",
+              "summary": "Chronic autoimmune conjunctival scarring disease. ocular cicatricial pemphigoid, OCP, overview, etiology, risk factors, general pathology",
+              "children": []
+            },
+            {
+              "remId": "EQ3yRvMDUu2G9EaOt",
+              "title": "Phlyctenulosis",
+              "remType": "text",
+              "summary": "Conjunctival nodular inflammation. phlyctenulosis",
+              "children": []
+            },
+            {
+              "remId": "pCgOvbL0FtHhZqG33",
+              "title": "Conjunctival vascular tortuosity and hyperemia",
+              "remType": "text",
+              "summary": "Conjunctival vascular changes. vascular tortuosity, hyperemia",
+              "children": []
+            }
+          ]
         },
         {
           "remId": "OfeAb9z9k8a3aMT4q",
           "title": "Blepharoplasty",
           "remType": "text",
-          "summary": "",
+          "summary": "Eyelid cosmetic or functional surgery. blepharoplasty, anatomy",
           "children": []
         },
         {
           "remId": "N2k370V83anJC3jgN",
           "title": "Eviscleration",
           "remType": "text",
-          "summary": "",
+          "summary": "Surgical removal of intraocular contents preserving sclera. indication: painful useless eye, contraindication: malignant tumor, process, advantage, disadvantage",
           "children": []
         },
         {
           "remId": "rAPaYMUBcTsyO3slp",
           "title": "Enucleation",
           "remType": "text",
-          "summary": "",
+          "summary": "Surgical removal of entire eyeball. indication, surgical technique, advantage, disadvantage",
           "children": []
         }
       ]

@@ -99,7 +99,7 @@ MAP_PATTERN = re.compile(r'^(\s*)-\s*`([^`]+)`\s*-\s*`([^`]+)`(?:\s*-\s*(.*))?$'
 
 
 def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
-    """Parse kb_map.json into flat entry list with indent, title, remId, hint (=summary)."""
+    """Parse kb_map.json into flat entry list with indent, title, remId, summary."""
     entries = []
     try:
         with open(kb_map_path, encoding="utf-8") as f:
@@ -118,7 +118,7 @@ def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
                     "indent": indent,
                     "title": title,
                     "remId": rid,
-                    "hint": summary,  # 'hint' kept for hierarchical_locate compatibility
+                    "summary": summary,  # 'summary' kept for hierarchical_locate compatibility
                 })
             flatten(node.get("children", []), indent + 2)
 
@@ -127,7 +127,7 @@ def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
 
 
 def parse_kb_map(kb_map_path: str) -> list[dict]:
-    """Parse KB map file into structured entries with indent, title, remId, hint.
+    """Parse KB map file into structured entries with indent, title, remId, summary.
 
     Accepts either:
       - kb_map.json  (primary format, recommended)
@@ -152,7 +152,7 @@ def parse_kb_map(kb_map_path: str) -> list[dict]:
                 "indent": len(m.group(1)),
                 "title": m.group(2),
                 "remId": m.group(3),
-                "hint": (m.group(4) or "").strip()
+                "summary": (m.group(4) or "").strip()
             })
     return entries
 
@@ -347,7 +347,7 @@ def hierarchical_locate(
     For terms that Step A (map grep) and Step B (search) both missed,
     use the map as a routing table:
       1. Score each top-level branch (indent=0) by keyword relevance
-         using title + hint fields.
+         using title + summary fields.
       2. Read the best candidate branch at depth 2 to discover children.
       3. Match term against discovered children titles.
 
@@ -365,7 +365,7 @@ def hierarchical_locate(
     branches = []
     for i, entry in enumerate(map_entries):
         if entry["indent"] == 0:
-            # Collect all child hints/titles for this branch
+            # Collect all child summarys/titles for this branch
             child_words = set()
             for j in range(i + 1, len(map_entries)):
                 if map_entries[j]["indent"] == 0:
@@ -373,14 +373,14 @@ def hierarchical_locate(
                 child_words.update(
                     normalize(w) for w in map_entries[j]["title"].split() if len(w) > 2
                 )
-                if map_entries[j]["hint"]:
+                if map_entries[j]["summary"]:
                     child_words.update(
-                        normalize(w) for w in map_entries[j]["hint"].split() if len(w) > 1
+                        normalize(w) for w in map_entries[j]["summary"].split() if len(w) > 1
                     )
             branches.append({
                 "remId": entry["remId"],
                 "title": entry["title"],
-                "hint": entry["hint"],
+                "summary": entry["summary"],
                 "child_words": child_words
             })
 
@@ -395,7 +395,7 @@ def hierarchical_locate(
         for branch in branches:
             branch_all_words = (
                 set(normalize(w) for w in branch["title"].split() if len(w) > 2)
-                | set(normalize(w) for w in branch["hint"].split() if len(w) > 1)
+                | set(normalize(w) for w in branch["summary"].split() if len(w) > 1)
                 | branch["child_words"]
             )
             # Score by word overlap + substring containment bonus

@@ -1,0 +1,90 @@
+{
+  "root": {
+    "remId": "test_root_id",
+    "title": "Test Knowledge Base"
+  },
+  "branches": [
+    {
+      "remId": "branch_vision_loss",
+      "title": "Vision Loss",
+      "remType": "document",
+      "summary": "Comprehensive overview of vision loss causes and management",
+      "children": [
+        {
+          "remId": "child_acute_vision_loss",
+          "title": "Acute Vision Loss",
+          "remType": "document",
+          "summary": "Sudden onset vision loss requiring urgent evaluation",
+          "children": [
+            {
+              "remId": "grandchild_crao",
+              "title": "CRAO",
+              "remType": "text",
+              "summary": "Central retinal artery occlusion - sudden painless vision loss",
+              "children": []
+            },
+            {
+              "remId": "grandchild_gca",
+              "title": "GCA",
+              "remType": "text",
+              "summary": "Giant cell arteritis - vision loss with jaw claudication and headache",
+              "children": []
+            }
+          ]
+        },
+        {
+          "remId": "child_chronic_vision_loss",
+          "title": "Chronic Vision Loss",
+          "remType": "document",
+          "summary": "Gradual progressive vision loss",
+          "children": [
+            {
+              "remId": "grandchild_glaucoma",
+              "title": "Glaucoma",
+              "remType": "text",
+              "summary": "Progressive optic neuropathy with elevated IOP",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "remId": "branch_external_disease",
+      "title": "External Disease",
+      "remType": "document",
+      "summary": "Diseases affecting external eye structures",
+      "children": [
+        {
+          "remId": "child_conjunctivitis",
+          "title": "Conjunctivitis",
+          "remType": "text",
+          "summary": "Inflammation of conjunctiva - viral, bacterial, allergic",
+          "children": []
+        },
+        {
+          "remId": "child_keratitis",
+          "title": "Keratitis",
+          "remType": "text",
+          "summary": "Corneal inflammation - infectious or inflammatory",
+          "children": []
+        }
+      ]
+    },
+    {
+      "remId": "branch_procedures",
+      "title": "Procedures",
+      "remType": "document",
+      "summary": "Common ophthalmic procedures and techniques",
+      "children": [
+        {
+          "remId": "child_cataract_surgery",
+          "title": "Cataract Surgery",
+          "remType": "text",
+          "summary": "Phacoemulsification with IOL implantation",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+﻿# Testing Dependencies for smart_logic_v5.py
+# Install: pip install -r requirements-test.txt
+
+# Core testing framework
+pytest>=8.0.0
+
+# Coverage reporting
+pytest-cov>=4.1.0
+coverage>=7.0.0
+
+# Mocking utilities
+pytest-mock>=3.12.0
+
+# Performance benchmarking (optional)
+pytest-benchmark>=4.0.0
+
+# Enhanced output
+pytest-html>=4.0.0

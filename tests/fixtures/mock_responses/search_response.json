@@ -1,0 +1,36 @@
+﻿{
+  "results": [
+    {
+      "remId": "gca_node_id",
+      "title": "GCA",
+      "aliases": ["Giant Cell Arteritis", "Temporal Arteritis"],
+      "tags": ["vasculitis", "vision-loss"],
+      "parentTitle": "Acute Vision Loss",
+      "parentRemId": "acute_vision_loss_id",
+      "remType": "text",
+      "score": 0.95
+    },
+    {
+      "remId": "gca_variant_id",
+      "title": "Giant Cell Arteritis",
+      "aliases": ["GCA"],
+      "tags": ["vasculitis"],
+      "parentTitle": "Systemic Diseases",
+      "parentRemId": "systemic_diseases_id",
+      "remType": "text",
+      "score": 0.88
+    },
+    {
+      "remId": "temporal_arteritis_id",
+      "title": "Temporal Arteritis",
+      "aliases": [],
+      "tags": ["arteritis"],
+      "parentTitle": "Vascular Disorders",
+      "parentRemId": "vascular_disorders_id",
+      "remType": "text",
+      "score": 0.75
+    }
+  ],
+  "total": 3,
+  "query": "GCA"
+}

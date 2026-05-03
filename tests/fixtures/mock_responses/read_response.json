@@ -1,0 +1,93 @@
+﻿{
+  "remId": "gca_node_id",
+  "title": "GCA",
+  "remType": "text",
+  "aliases": ["Giant Cell Arteritis", "Temporal Arteritis"],
+  "tags": ["vasculitis", "vision-loss"],
+  "parentRemId": "acute_vision_loss_id",
+  "parentTitle": "Acute Vision Loss",
+  "children": [
+    {
+      "remId": "gca_epidemiology_id",
+      "title": "Epidemiology",
+      "remType": "text",
+      "children": [
+        {
+          "remId": "gca_age_id",
+          "title": "Age >50 years",
+          "remType": "text",
+          "children": []
+        },
+        {
+          "remId": "gca_female_id",
+          "title": "Female > Male (3:1)",
+          "remType": "text",
+          "children": []
+        }
+      ]
+    },
+    {
+      "remId": "gca_clinical_id",
+      "title": "Clinical presentation",
+      "remType": "text",
+      "children": [
+        {
+          "remId": "gca_headache_id",
+          "title": "New temporal headache",
+          "remType": "text",
+          "children": []
+        },
+        {
+          "remId": "gca_jaw_id",
+          "title": "Jaw claudication",
+          "remType": "text",
+          "children": []
+        },
+        {
+          "remId": "gca_vision_id",
+          "title": "Vision loss or diplopia",
+          "remType": "text",
+          "children": []
+        }
+      ]
+    },
+    {
+      "remId": "gca_diagnosis_id",
+      "title": "Diagnostic workup",
+      "remType": "text",
+      "children": [
+        {
+          "remId": "gca_esr_id",
+          "title": "ESR >50 mm/hr",
+          "remType": "text",
+          "children": []
+        },
+        {
+          "remId": "gca_biopsy_id",
+          "title": "Temporal artery biopsy",
+          "remType": "text",
+          "children": []
+        }
+      ]
+    },
+    {
+      "remId": "gca_treatment_id",
+      "title": "Treatment",
+      "remType": "text",
+      "children": [
+        {
+          "remId": "gca_steroid_id",
+          "title": "High-dose corticosteroids (Prednisone 1 mg/kg/day)",
+          "remType": "text",
+          "children": []
+        },
+        {
+          "remId": "gca_urgent_id",
+          "title": "Start treatment immediately, don't wait for biopsy",
+          "remType": "text",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

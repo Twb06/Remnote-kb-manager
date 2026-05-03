@@ -199,6 +199,34 @@ class TestSearchUnmapped:
             _, top5 = result["test"]
             assert len(top5) == 2
 
+    @patch('smart_logic_v5.run_cli')
+    def test_search_unmapped_low_quality_results(self, mock_cli, capsys):
+        """Test search_unmapped logs when best score is below threshold (covers lines 333-334)"""
+        # Mock CLI to return low-quality results
+        # Use a term that will have SOME overlap but not enough
+        mock_cli.return_value = {
+            "results": [
+                {
+                    "remId": "low_quality_id",
+                    "title": "Medical",  # Partial match with "Medical Term"
+                    "aliases": [],
+                    "tags": [],
+                    "parentTitle": "Not Aliases",
+                    "parentRemId": "parent_id"
+                }
+            ]
+        }
+
+        result = search_unmapped(["Medical Term"], {})
+
+        # Term should not be accepted (score too low)
+        assert "Medical Term" not in result
+
+        # Should log miss message with best hit info
+        captured = capsys.readouterr()
+        assert "[MISS]" in captured.out
+        assert ("No high-quality match" in captured.out or "Medical" in captured.out)
+
 
 @pytest.mark.integration
 class TestHierarchicalLocate:
@@ -226,14 +254,12 @@ class TestHierarchicalLocate:
                 "indent": 0,
                 "title": "Test Branch",
                 "remId": "branch_id",
-                "hint": "Test branch summary",
                 "summary": "Test branch summary"
             },
             {
                 "indent": 2,
                 "title": "Test Child",
                 "remId": "child1",
-                "hint": "Test child summary",
                 "summary": "Test child summary"
             }
         ]
@@ -255,7 +281,7 @@ class TestHierarchicalLocate:
         mock_cli.return_value = {"remId": "branch", "children": []}
 
         map_entries = [
-            {"indent": 0, "title": "Branch", "remId": "branch", "hint": "summary", "summary": "summary"}
+            {"indent": 0, "title": "Branch", "remId": "branch", "summary": "summary"}
         ]
 
         already_mapped = {"existing": "existing_id"}
@@ -283,8 +309,8 @@ class TestHierarchicalLocate:
         }
 
         map_entries = [
-            {"indent": 0, "title": "Branch", "remId": "branch", "hint": "summary", "summary": "summary"},
-            {"indent": 2, "title": "Child Node", "remId": "child", "hint": "child summary", "summary": "child summary"}
+            {"indent": 0, "title": "Branch", "remId": "branch", "summary": "summary"},
+            {"indent": 2, "title": "Child Node", "remId": "child", "summary": "child summary"}
         ]
 
         _, context_map = hierarchical_locate(
@@ -295,6 +321,112 @@ class TestHierarchicalLocate:
 
         # Should return context information
         assert isinstance(context_map, dict)
+
+    @patch('smart_logic_v5.run_cli')
+    def test_hierarchical_handles_read_failure(self, mock_cli, capsys):
+        """Test hierarchical_locate handles branch read failure (covers lines 432-433)"""
+        # Mock CLI to return error
+        mock_cli.return_value = {"error": "Permission denied"}
+
+        map_entries = [
+            {"indent": 0, "title": "Protected Branch", "remId": "protected", "summary": "test summary"}
+        ]
+
+        result, _ = hierarchical_locate(["test"], {}, map_entries)
+
+        # Should return empty result (no matches found)
+        assert result == {}
+
+        # Should log error
+        captured = capsys.readouterr()
+        assert "[ERROR] Failed to read branch" in captured.out
+
+    @patch('smart_logic_v5.run_cli')
+    def test_hierarchical_no_match_in_branch(self, mock_cli, capsys):
+        """Test hierarchical_locate when term doesn't match any children (covers line 470)"""
+        mock_cli.return_value = {
+            "remId": "branch",
+            "title": "Test Branch",
+            "children": [
+                {"remId": "child1", "title": "Completely Different Topic", "children": []}
+            ]
+        }
+
+        map_entries = [
+            # Branch has "medical" in summary, so "medical retina" will match branch
+            # but not the child ("Completely Different Topic")
+            {"indent": 0, "title": "Test Branch", "remId": "branch", "summary": "medical summary"}
+        ]
+
+        result, _ = hierarchical_locate(["medical retina"], {}, map_entries)
+
+        # Should not find the term (no children match)
+        assert "medical retina" not in result
+
+        # Should log miss
+        captured = capsys.readouterr()
+        assert "[B2-MISS]" in captured.out
+        assert "medical retina" in captured.out
+
+    def test_hierarchical_early_return_no_missing(self):
+        """Test hierarchical_locate returns early when no missing terms (covers line 362)"""
+        map_entries = [
+            {"indent": 0, "title": "Branch", "remId": "branch", "summary": "summary"}
+        ]
+
+        # All terms already found
+        already_found = {"term1": "id1", "term2": "id2"}
+
+        result, context = hierarchical_locate(["term1", "term2"], already_found, map_entries)
+
+        # Should return empty results (early return)
+        assert result == {}
+        assert context == {}
+
+    @patch('smart_logic_v5.run_cli')
+    def test_hierarchical_multiple_branches(self, mock_cli):
+        """Test hierarchical_locate with multiple top-level branches (covers lines 368-372)"""
+        mock_cli.return_value = {
+            "remId": "branch1",
+            "title": "Medical Branch",
+            "children": [
+                {"remId": "ophth_child", "title": "Ophthalmology", "children": []}
+            ]
+        }
+
+        map_entries = [
+            {"indent": 0, "title": "Medical Branch", "remId": "branch1", "summary": "ophthalmology retina"},
+            {"indent": 2, "title": "Child", "remId": "child1", "summary": "child summary"},
+            {"indent": 0, "title": "Surgical Branch", "remId": "branch2", "summary": "surgery procedures"},
+            {"indent": 2, "title": "Child2", "remId": "child2", "summary": "child2 summary"}
+        ]
+
+        result, _ = hierarchical_locate(["retina"], {}, map_entries)
+
+        # Should pick Medical Branch due to better word overlap
+        assert mock_cli.call_args[0][0][:2] == ["read", "branch1"]
+
+    @patch('smart_logic_v5.run_cli')
+    def test_hierarchical_child_scoring_variants(self, mock_cli):
+        """Test different scoring conditions in child matching (covers lines 446-454)"""
+        mock_cli.return_value = {
+            "remId": "branch",
+            "title": "Test Branch",
+            "children": [
+                {"remId": "exact", "title": "Glaucoma", "children": []},
+                {"remId": "partial", "title": "Glaucoma Management", "children": []},
+                {"remId": "empty", "title": "", "children": []},  # Empty title (skip condition)
+            ]
+        }
+
+        map_entries = [
+            {"indent": 0, "title": "Test Branch", "remId": "branch", "summary": "glaucoma"}
+        ]
+
+        result, _ = hierarchical_locate(["glaucoma"], {}, map_entries)
+
+        # Should match exact (perfect match score = 10.0)
+        assert result.get("glaucoma") == "exact"
 
 
 @pytest.mark.integration
@@ -397,6 +529,87 @@ class TestCrossValidateB2:
 
         # Should fallback
         assert result == "fallback"
+
+    def test_cross_validate_both_empty(self, capsys):
+        """Test cross validation when both B and B2 have no results (covers lines 533-534)"""
+        result = cross_validate_b_and_b2("term", [], None, None)
+
+        # Should return None
+        assert result is None
+
+        # Should log validation message
+        captured = capsys.readouterr()
+        assert "[VALIDATE] No results from B or B2" in captured.out or "[VALIDATE]" in captured.out
+
+    def test_cross_validate_only_b_has_results(self, capsys):
+        """Test cross validation when only B has results (covers lines 538-540)"""
+        step_b_top5 = [
+            {"remId": "b_id", "title": "B Result"}
+        ]
+
+        result = cross_validate_b_and_b2("term", step_b_top5, None, None)
+
+        # Should use B result
+        assert result == "b_id"
+
+        # Should log validation
+        captured = capsys.readouterr()
+        assert "[VALIDATE]" in captured.out
+
+    @patch('smart_logic_v5.run_cli')
+    def test_cross_validate_b2_read_failure(self, mock_cli, capsys):
+        """Test cross validation when B2 branch read fails (covers lines 558-559)"""
+        mock_cli.return_value = {"error": "Permission denied"}
+
+        step_b_top5 = [{"remId": "b_id", "_id": "b_id", "title": "B Result"}]
+
+        result = cross_validate_b_and_b2("term", step_b_top5, "b2_id", "branch_id")
+
+        # Should handle read failure
+        captured = capsys.readouterr()
+        assert "[VALIDATE] Failed to read B2 branch" in captured.out or "[VALIDATE]" in captured.out
+
+    @patch('smart_logic_v5.run_cli')
+    def test_cross_validate_no_intersection_use_b2(self, mock_cli, capsys):
+        """Test cross validation uses B2 when no intersection found (covers lines 579-581)"""
+        mock_cli.return_value = {
+            "remId": "branch",
+            "children": [
+                {"remId": "other_id", "title": "Other Node", "children": []}
+            ]
+        }
+
+        step_b_top5 = [{"remId": "b_id", "_id": "b_id", "title": "B Result"}]
+
+        result = cross_validate_b_and_b2("term", step_b_top5, "b2_id", "branch_id")
+
+        # Should prefer B2 when no intersection
+        assert result == "b2_id"
+
+        # Should log validation
+        captured = capsys.readouterr()
+        assert "[VALIDATE]" in captured.out
+
+    @patch('smart_logic_v5.run_cli')
+    def test_cross_validate_no_intersection_b2_none(self, mock_cli, capsys):
+        """Test cross validation uses B when no intersection and B2 is None (covers line 588)"""
+        mock_cli.return_value = {
+            "remId": "branch",
+            "children": [
+                {"remId": "other_id", "title": "Other Node", "children": []}
+            ]
+        }
+
+        step_b_top5 = [{"remId": "b_id", "_id": "b_id", "title": "B Result"}]
+
+        result = cross_validate_b_and_b2("term", step_b_top5, None, "branch_id")
+
+        # Should use B result when B2 is None
+        assert result == "b_id"
+
+        # Should log validation
+        captured = capsys.readouterr()
+        assert "[VALIDATE]" in captured.out
 
 
 if __name__ == "__main__":

@@ -169,6 +169,18 @@ class TestParseKbMap:
         # Verify structure
         assert all("title" in entry and "remId" in entry for entry in entries)
 
+    def test_parse_kb_map_missing_file_logs_warning(self, capsys):
+        """Test that missing kb_map file logs warning (covers lines 106-108)"""
+        result = parse_kb_map("nonexistent_path.json")
+
+        # Should return empty list
+        assert result == []
+
+        # Should log warning to stdout (JSON file error)
+        captured = capsys.readouterr()
+        assert "[WARN] Failed to read kb_map.json" in captured.out
+        assert "nonexistent_path.json" in captured.out
+
 
 @pytest.mark.unit
 class TestParseOverview:
@@ -237,6 +249,23 @@ class TestParseOverview:
         # Should still parse without header
         assert "topic" in result
         assert len(result.get("topic", "")) > 0
+
+    def test_parse_overview_skips_empty_bullets(self):
+        """Test parse_overview skips empty bullet points (covers line 800)"""
+        text = """
+## Overview
+- **Main Topic**
+-
+- Subtopic 1
+-
+- Subtopic 2
+"""
+        result = parse_overview(text)
+
+        # Empty bullets should be skipped
+        assert result["topic"] == "Main Topic"
+        assert result["subtopics"] == ["Subtopic 1", "Subtopic 2"]
+        assert len(result["subtopics"]) == 2  # No empty items
 
 
 @pytest.mark.unit

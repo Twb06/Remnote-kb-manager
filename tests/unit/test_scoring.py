@@ -193,6 +193,54 @@ class TestCalculateEnhancedScore:
         # Expected: (10/15) * 0.5 = 0.333...
         assert score < 0.5  # Penalized score
 
+    @pytest.mark.parametrize("generic_term", [
+        "pattern", "test", "management", "treatment", "diagnosis"
+    ])
+    def test_penalizes_all_generic_terms(self, generic_term):
+        """Test that all generic terms receive penalty (covers lines 231-234)"""
+        hit = {
+            "remId": "generic_id",
+            "title": generic_term.capitalize(),  # e.g., "Pattern"
+            "aliases": [],
+            "tags": [],
+            "parentTitle": "Not Aliases"
+        }
+
+        # Use a longer search term where generic_term is substring
+        # This triggers the "hit_title in term_title_case" branch
+        search_term = f"medical {generic_term}"  # e.g., "medical pattern"
+        term_tc = f"Medical {generic_term.capitalize()}"  # e.g., "Medical Pattern"
+
+        score = calculate_enhanced_score(hit, search_term, term_tc, generic_term.capitalize())
+
+        # Score should be penalized
+        from smart_logic_v5 import PENALTY_GENERIC_TERMS
+        # Base: len("Pattern") / len("Medical Pattern")
+        # Then penalized: base * PENALTY_GENERIC_TERMS
+        base = len(generic_term.capitalize()) / len(term_tc)
+        expected_score = base * PENALTY_GENERIC_TERMS
+        assert abs(score - expected_score) < 0.01
+        assert score < base  # Penalized
+
+    def test_generic_term_substring_with_penalty(self):
+        """Test substring match with generic term penalty (covers lines 231-234)"""
+        hit = {
+            "remId": "generic_id",
+            "title": "Treatment",  # Generic term
+            "aliases": [],
+            "tags": [],
+            "parentTitle": "Not Aliases"
+        }
+
+        # "Treatment" is substring of "Glaucoma Treatment"
+        score = calculate_enhanced_score(hit, "glaucoma treatment", "Glaucoma Treatment", "Treatment")
+
+        # Should apply both substring logic AND penalty
+        from smart_logic_v5 import PENALTY_GENERIC_TERMS
+        base = len("Treatment") / len("Glaucoma Treatment")
+        expected = base * PENALTY_GENERIC_TERMS
+        assert abs(score - expected) < 0.01
+
     def test_combined_aliases_and_tags(self):
         """Test that both aliases and tags contribute to score"""
         hit = {

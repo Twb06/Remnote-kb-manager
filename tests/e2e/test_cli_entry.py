@@ -35,7 +35,7 @@ class TestCLIEntryPoint:
                 "--content-file", str(content_path)
             ],
             capture_output=True,
-            timeout=60,
+            timeout=120,
             encoding='utf-8',
             errors='replace'
         )

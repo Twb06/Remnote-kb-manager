@@ -1,0 +1,78 @@
+﻿{
+  "root": {
+    "remId": "root",
+    "title": "E2E Test Knowledge Base"
+  },
+  "branches": [
+    {
+      "remId": "ophthalmology_branch",
+      "title": "Ophthalmology",
+      "summary": "Eye care and diseases affecting vision",
+      "children": [
+        {
+          "remId": "glaucoma_node",
+          "title": "Glaucoma",
+          "summary": "Optic nerve damage and elevated intraocular pressure",
+          "children": [
+            {
+              "remId": "primary_open_angle",
+              "title": "Primary Open Angle Glaucoma",
+              "summary": "Most common form with gradual vision loss",
+              "children": []
+            },
+            {
+              "remId": "angle_closure",
+              "title": "Angle Closure Glaucoma",
+              "summary": "Acute form with sudden IOP elevation",
+              "children": []
+            }
+          ]
+        },
+        {
+          "remId": "retina_node",
+          "title": "Retina",
+          "summary": "Light-sensitive tissue at the back of the eye",
+          "children": [
+            {
+              "remId": "diabetic_retinopathy",
+              "title": "Diabetic Retinopathy",
+              "summary": "Diabetes complication affecting retinal blood vessels",
+              "children": []
+            },
+            {
+              "remId": "macular_degeneration",
+              "title": "Age-Related Macular Degeneration",
+              "summary": "Progressive loss of central vision",
+              "children": []
+            }
+          ]
+        },
+        {
+          "remId": "cataract_node",
+          "title": "Cataract",
+          "summary": "Clouding of the eye lens",
+          "children": []
+        }
+      ]
+    },
+    {
+      "remId": "cardiology_branch",
+      "title": "Cardiology",
+      "summary": "Heart and cardiovascular system diseases",
+      "children": [
+        {
+          "remId": "hypertension_node",
+          "title": "Hypertension",
+          "summary": "Elevated blood pressure condition",
+          "children": []
+        },
+        {
+          "remId": "heart_failure",
+          "title": "Heart Failure",
+          "summary": "Heart unable to pump sufficient blood",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

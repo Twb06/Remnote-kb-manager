@@ -1,24 +1,31 @@
-﻿- **Reliability Indices**
-  - Assessing the reliability of a visual field test is the essential first step before evaluating any visual field results
-  - Reliability indices measure the patient's performance, attentiveness, and gaze stability, ensuring that the test accurately reflects their true visual function
-  - If a test is significantly unreliable, further evaluation of the visual field printout is pointless
-  - False-positive rate
-    - This index measures the patient's tendency to press the response button even when no stimulus has been presented
-    - Of all the reliability indices, a high percentage of false-positives is the most detrimental to a visual field test
-    - Rates greater than 15% generally suggest an unreliable test, as it artificially inflates threshold values and masks true scotomas, making the visual field appear "better" than the patient's true visual function
-    - High false-positive scores can result in impossibly high threshold values (known as "white scotomas") and produce an abnormally pale grayscale printout
-    - In SITA testing, false-positive rates are estimated based on response times, such as responses made at impossible or unlikely times
-  - Fixation losses
-    - This index measures the stability of the patient's gaze during the test
-    - It is typically estimated by periodically presenting stimuli within the patient's physiologic blind spot; if the patient responds to the stimulus, it is presumed they were looking away from the central fixation target
-    - Modern automated perimeters also utilize a gaze tracker to continuously track the pupil location during the examination
-    - Compared to other reliability indices, a high fixation loss rate is considered the least detrimental to the overall visual field test
-  - False-negative rate
-    - This error is recorded when a patient fails to respond to a stimulus that is brighter than the previously determined threshold at that specific location
-    - A high rate can indicate patient inattention, tiredness, or malingering
-    - However, damaged areas of the visual field naturally exhibit increased variability, which naturally leads to a high false-negative rate regardless of attentiveness
-    - Visual field tests with high false-negative responses tend to produce a characteristic cloverleaf shape on the grayscale printout
-    - Because of the inherent variability found in diseased eyes, newer testing algorithms no longer measure the false-negative parameter
-  - Test duration
-    - The total time required to complete the test is also evaluated as a reliability metric
-    - Longer tests increase the likelihood of patient fatigue and diminish the patient's ability to maintain attentiveness
+- Reliability Indices
+    - Assessing the reliability of a visual field test is the essential first step before evaluating any visual field results
+    - Reliability indices measure the patient's performance, attentiveness, and gaze stability, ensuring that the test accurately reflects their true visual function
+    - If a test is significantly unreliable, further evaluation of the visual field printout is pointless
+    - False-Positive Rate
+        - Definition:>patient's tendency to press the response button even when no stimulus has been presented
+        - Of all the reliability indices, a high percentage of false-positives is the {{most detrimental}} to a visual field test
+        - Unreliable test threshold:>rates {{>15%}} artificially inflates threshold values and masks true scotomas, making the visual field appear "better" than true visual function
+        - High false-positive scores result in >>>
+            - Impossibly high threshold values (known as {{"white scotomas"}})
+            - Abnormally pale grayscale printout
+        - In {{SITA}} testing:>false-positive rates estimated based on response times at impossible or unlikely times
+    - Fixation Losses
+        - Definition:>measures the stability of the patient's gaze during the test
+        - Estimation method:>periodically presenting stimuli within the patient's physiologic {{blind spot}}; if patient responds, presumed looking away from central fixation target
+        - Modern automated perimeters:>utilize a {{gaze tracker}} to continuously track pupil location during examination
+        - Impact:>compared to other reliability indices, high fixation loss rate is {{least detrimental}} to overall visual field test
+    - False-Negative Rate
+        - Definition:>recorded when patient fails to respond to a stimulus {{brighter than the previously determined threshold}} at that specific location
+        - High rate can indicate >>>
+            - Patient inattention
+            - Tiredness
+            - Malingering
+        - Important note:>damaged areas naturally exhibit increased variability, leading to high false-negative rate {{regardless of attentiveness}}
+        - Grayscale pattern:>high false-negative responses produce characteristic {{cloverleaf shape}} on grayscale printout
+        - Evolution:>because of inherent variability in diseased eyes, {{newer testing algorithms}} no longer measure false-negative parameter
+    - Test Duration
+        - Definition:>total time required to complete the test, evaluated as a reliability metric
+        - Impact of longer tests >>>
+            - Increased likelihood of patient {{fatigue}}
+            - Diminished ability to maintain attentiveness

@@ -315,7 +315,7 @@ class TestParseMdToSections:
         assert isinstance(sections, dict)
 
     def test_parse_sections_with_empty_sections(self):
-        """Test parsing with some empty sections"""
+        """Test parsing with some empty sections - should filter them out"""
         md = """- **Section A**
   - Content here
 
@@ -326,8 +326,12 @@ class TestParseMdToSections:
 
         sections = parse_md_to_sections(md)
 
-        # Should handle empty sections
-        assert "Section A" in sections or len(sections) >= 2
+        # Should filter out Section B (no body content)
+        assert "Section A" in sections
+        assert "Section C" in sections
+        assert "Section B" not in sections
+        assert len(sections["Section A"]["body"]) > 0
+        assert len(sections["Section C"]["body"]) > 0
 
     def test_parse_sections_with_nested_bold(self):
         """Test parsing with nested bold markers"""
@@ -339,6 +343,39 @@ class TestParseMdToSections:
 
         # Should parse correctly despite nested bold
         assert len(sections) > 0
+
+    def test_parse_sections_filters_standalone_statements(self):
+        """Test that standalone bullet points without body are filtered out
+
+        This prevents fuzzy matching from selecting preamble statements
+        that have no actual content structure (Issue: Pipeline Phase 10)
+        """
+        md = """- Assessing the reliability is essential
+- Reliability indices measure performance
+- If a test is unreliable, evaluation is pointless
+- False-Positive Rate
+    - Definition:>tendency to press button incorrectly
+    - Threshold:>rates >15% are unreliable
+- Fixation Losses
+    - Measures gaze stability"""
+
+        sections = parse_md_to_sections(md)
+
+        # Should only include sections with body content
+        assert "False-Positive Rate" in sections
+        assert "Fixation Losses" in sections
+
+        # Should NOT include standalone statements
+        assert "Assessing the reliability is essential" not in sections
+        assert "Reliability indices measure performance" not in sections
+        assert "If a test is unreliable, evaluation is pointless" not in sections
+
+        # Verify sections have content
+        assert len(sections["False-Positive Rate"]["body"]) >= 2
+        assert len(sections["Fixation Losses"]["body"]) >= 1
+
+        # Total sections should be 2 (not 5)
+        assert len(sections) == 2
 
 
 # TODO: Add more parsing tests

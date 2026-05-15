@@ -2,7 +2,7 @@
 smart_logic_v5.py - All-in-one knowledge pipeline for NotebookLM → RemNote.
 
 Pipeline:
-  A. Lookup terms in kb_map.json top-level map (legacy SKILL.md supported)
+  A. Lookup terms in SKILL.md top-level map
   B. Search unmapped terms via remnote-cli
   B2. Hierarchical locate: route to best parent branch then read children to find term
   C. Read context tree (single depth-6 call, cached)
@@ -11,7 +11,7 @@ Pipeline:
 
 Usage:
   python smart_logic_v5.py \
-    --kb-map ".github/skills/remnote-kb-navigation/kb_map.json" \
+    --skill-map ".agents/skills/remnote-kb-navigation/SKILL.md" \
     --overview-file ".agents/tmp/overview.md" \
     --content-file ".agents/tmp/answer.md"
 """
@@ -29,41 +29,6 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 if sys.stderr.encoding != 'utf-8':
     sys.stderr.reconfigure(encoding='utf-8', errors='replace')
-
-# ═════════════════════════════════════════════════════════════════════════════
-# Configuration Constants
-# ═════════════════════════════════════════════════════════════════════════════
-
-# ── Search & Matching Thresholds ────────────────────────────────────────────
-SCORE_PERFECT_MATCH = 10.0          # Perfect title match base score
-SCORE_EXACT_MATCH_BONUS = 10.0      # Bonus for exact normalized match
-SCORE_TITLE_CASE_BONUS = 5.0        # Bonus for Title Case exact match
-
-THRESHOLD_MAP_LOOKUP = 0.5          # Minimum score for kb_map lookup match
-THRESHOLD_SEARCH_ACCEPT = 0.6       # Minimum score to accept search result
-THRESHOLD_HIERARCHICAL = 0.5        # Minimum score for hierarchical locate match
-
-# ── Scoring Weights ─────────────────────────────────────────────────────────
-WEIGHT_ALIASES_EXIST = 2.0          # Boost when node has aliases
-WEIGHT_TAGS_EXIST = 1.0             # Boost when node has tags
-WEIGHT_SUBSTRING_OVERLAP = 0.5      # Bonus for substring containment in branch matching
-PENALTY_GENERIC_TERMS = 0.3         # Penalty multiplier for generic short terms
-
-# ── CLI Parameters ──────────────────────────────────────────────────────────
-CLI_SEARCH_LIMIT = 50               # Max results per search query
-CLI_BRANCH_DEPTH = 2                # Depth for branch reading in hierarchical locate
-CLI_BRANCH_CHILD_LIMIT = 200        # Max children to read per branch
-CLI_TREE_DEPTH = 6                  # Depth for full context tree reading
-CLI_CROSS_VALIDATE_DEPTH = 2        # Depth for cross-validation branch reading
-
-# ── Embedding Thresholds ────────────────────────────────────────────────────
-EMBED_MATCH_THRESHOLD = 0.80        # Similarity threshold for MATCH classification
-EMBED_NEW_THRESHOLD = 0.30          # Similarity threshold below which line is NEW
-
-# ── Timeouts ────────────────────────────────────────────────────────────────
-DEFAULT_TIMEOUT_SECONDS = 60        # Default CLI timeout in seconds
-
-# ═════════════════════════════════════════════════════════════════════════════
 
 # ── CLI wrapper (carried from v4) ──────────────────────────────────────────
 
@@ -93,13 +58,13 @@ def normalize(text: str) -> str:
     return re.sub(r'\W+', '', str(text)).lower()
 
 
-# ── Step A: KB Map Lookup (kb_map.json primary, legacy SKILL.md supported) ──
+# ── Step A: Map Lookup (supports SKILL.md and kb_map.json) ─────────────────
 
-MAP_PATTERN = re.compile(r'^(\s*)-\s*`([^`]+)`\s*-\s*`([^`]+)`(?:\s*-\s*(.*))?$')  # For legacy SKILL.md
+MAP_PATTERN = re.compile(r'^(\s*)-\s*`([^`]+)`\s*-\s*`([^`]+)`(?:\s*-\s*(.*))?$')
 
 
 def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
-    """Parse kb_map.json into flat entry list with indent, title, remId, summary."""
+    """Parse kb_map.json into flat entry list with indent, title, remId, hint (=summary)."""
     entries = []
     try:
         with open(kb_map_path, encoding="utf-8") as f:
@@ -118,7 +83,7 @@ def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
                     "indent": indent,
                     "title": title,
                     "remId": rid,
-                    "summary": summary,  # 'summary' kept for hierarchical_locate compatibility
+                    "hint": summary,  # 'hint' kept for hierarchical_locate compatibility
                 })
             flatten(node.get("children", []), indent + 2)
 
@@ -126,23 +91,23 @@ def _parse_kb_map_json(kb_map_path: str) -> list[dict]:
     return entries
 
 
-def parse_kb_map(kb_map_path: str) -> list[dict]:
-    """Parse KB map file into structured entries with indent, title, remId, summary.
+def parse_skill_map(skill_path: str) -> list[dict]:
+    """Parse map file into structured entries with indent, title, remId, hint.
 
     Accepts either:
-      - kb_map.json  (primary format, recommended)
-      - SKILL.md     (legacy format, backward compatible)
+      - kb_map.json  (preferred, structured format)
+      - SKILL.md     (legacy regex format, backward compatible)
     """
-    if kb_map_path.endswith(".json"):
-        return _parse_kb_map_json(kb_map_path)
+    if skill_path.endswith(".json"):
+        return _parse_kb_map_json(skill_path)
 
     # Legacy SKILL.md parsing
     entries = []
-    if not os.path.exists(kb_map_path):
-        print(f"[WARN] Map file not found at {kb_map_path}")
+    if not os.path.exists(skill_path):
+        print(f"[WARN] Map file not found at {skill_path}")
         return entries
 
-    with open(kb_map_path, 'r', encoding='utf-8') as f:
+    with open(skill_path, 'r', encoding='utf-8') as f:
         map_lines = f.readlines()
 
     for line in map_lines:
@@ -152,17 +117,17 @@ def parse_kb_map(kb_map_path: str) -> list[dict]:
                 "indent": len(m.group(1)),
                 "title": m.group(2),
                 "remId": m.group(3),
-                "summary": (m.group(4) or "").strip()
+                "hint": (m.group(4) or "").strip()
             })
     return entries
 
 
-def lookup_kb_map(kb_map_path: str, terms: list[str]) -> tuple[dict[str, str], list[dict]]:
+def lookup_skill_map(skill_path: str, terms: list[str]) -> tuple[dict[str, str], list[dict]]:
     """
-    Lookup terms in KB map (kb_map.json primary, legacy SKILL.md supported).
+    Grep the map (kb_map.json or SKILL.md) for matching terms.
     Returns (found: {term: remId}, map_entries: list[dict]).
     """
-    map_entries = parse_kb_map(kb_map_path)
+    map_entries = parse_skill_map(skill_path)
     found = {}
 
     for term in terms:
@@ -177,11 +142,11 @@ def lookup_kb_map(kb_map_path: str, terms: list[str]) -> tuple[dict[str, str], l
                 score = len(term_norm) / max(1, len(entry_norm))
                 # Bonus for exact match
                 if term_norm == entry_norm:
-                    score += SCORE_EXACT_MATCH_BONUS
+                    score += 10
                 if score > best_score:
                     best_score = score
                     best_entry = entry
-        if best_entry and best_score >= THRESHOLD_MAP_LOOKUP:
+        if best_entry and best_score >= 0.5:
             found[term] = best_entry["remId"]
             print(f"  [MAP] '{term}' → {best_entry['title']} ({best_entry['remId']}) score={best_score:.2f}")
 
@@ -195,73 +160,13 @@ def to_title_case(text: str) -> str:
     words = text.split()
     return " ".join([w[0].upper() + w[1:] if len(w) > 0 else w for w in words])
 
-
-def calculate_enhanced_score(hit: dict, term: str, term_title_case: str, hit_title: str) -> float:
+def search_unmapped(terms: list[str], already_mapped: dict[str, str]) -> dict[str, str]:
     """
-    Enhanced scoring with:
-    1. Aliases boost (complete match = 10.0, exists = +2)
-    2. Tags boost (+1)
-    3. System aliases exclusion (score = 0)
-
-    Args:
-        hit: The search result hit
-        term: Original search term
-        term_title_case: Title-cased search term
-        hit_title: The title of the hit
-
-    Returns:
-        float: Enhanced score (0 = excluded, 10.0 = perfect match)
-    """
-    # ═══ EXCLUSION: System-generated Aliases nodes ═══
-    parent_title = hit.get("parentTitle", "")
-    parent_id = hit.get("parentRemId", "")
-
-    if parent_title == "Aliases" or parent_id == "xOuCp1mEAK82ZbPEB":
-        print(f"      [EXCLUDE] Skipping system alias node: {hit_title} (parent: {parent_title})")
-        return 0.0
-
-    # ═══ BASE SCORE: Title matching ═══
-    base_score = 0.0
-
-    if term_title_case == hit_title:
-        base_score = SCORE_PERFECT_MATCH
-    elif term_title_case in hit_title:
-        base_score = len(term_title_case) / len(hit_title)
-    elif hit_title in term_title_case:
-        base_score = (len(hit_title) / len(term_title_case))
-        # Penalty for generic short hits
-        if hit_title.lower() in ["pattern", "test", "management", "treatment", "diagnosis"]:
-            base_score *= PENALTY_GENERIC_TERMS
-
-    # ═══ BOOST 1: Aliases ═══
-    aliases = hit.get("aliases", [])
-    if isinstance(aliases, list) and aliases:
-        # Has aliases: boost points
-        base_score += WEIGHT_ALIASES_EXIST
-
-        # Check for complete match in aliases
-        for alias in aliases:
-            if isinstance(alias, str):
-                if alias.lower() == term.lower() or alias.lower() == term_title_case.lower():
-                    # Perfect alias match: maximum score
-                    print(f"      [ALIAS-MATCH] Perfect match in aliases: {alias}")
-                    return SCORE_PERFECT_MATCH
-
-    # ═══ BOOST 2: Tags ═══
-    tags = hit.get("tags", [])
-    if isinstance(tags, list) and tags:
-        # Has tags: boost point
-        base_score += WEIGHT_TAGS_EXIST
-
-    return base_score
-
-
-def search_unmapped(terms: list[str], already_mapped: dict[str, str]) -> dict[str, tuple[str, list[dict]]]:
-    """
-    Search unmapped terms in RemNote with enhanced scoring.
-
-    Returns: {term: (best_rem_id, top_5_candidates)}
-             where top_5_candidates = [(score, hit), ...]
+    Search unmapped terms in RemNote.
+    Strategy:
+    1. Convert term to Title Case (user convention).
+    2. Run raw search via CLI.
+    3. Score hits based on raw title overlap (no normalization).
     """
     found = {}
     for term in terms:
@@ -284,7 +189,7 @@ def search_unmapped(terms: list[str], already_mapped: dict[str, str]) -> dict[st
         # 2. Raw Search with aggregation
         all_hits = []
         for q in queries:
-            result = run_cli(["search", q, "--limit", str(CLI_SEARCH_LIMIT)])
+            result = run_cli(["search", q, "--limit", "50"])
             hits = result if isinstance(result, list) else result.get("results", [])
             all_hits.extend(hits)
 
@@ -292,8 +197,8 @@ def search_unmapped(terms: list[str], already_mapped: dict[str, str]) -> dict[st
             print(f"    [MISS] No hits for queries: {queries}")
             continue
 
-        # 3. Score all hits with enhanced scoring
-        scored_hits = []
+        best_score = 0
+        best_hit = None
         seen_ids = set()
 
         for hit in all_hits:
@@ -305,32 +210,32 @@ def search_unmapped(terms: list[str], already_mapped: dict[str, str]) -> dict[st
             seen_ids.add(rid)
 
             hit_title = (hit.get("title") or hit.get("text", "")).strip()
-            if not hit_title:
-                continue
+            if not hit_title: continue
 
-            # Enhanced scoring with aliases, tags, and exclusions
-            score = calculate_enhanced_score(hit, term, term_title_case, hit_title)
+            # Raw Scoring (Case Sensitive or Case Insensitive based on user preference)
+            # User said "topic的話所有單字字首會大寫"
+            score = 0
+            if term_title_case == hit_title:
+                score = 10.0
+            elif term_title_case in hit_title:
+                score = len(term_title_case) / len(hit_title)
+            elif hit_title in term_title_case:
+                score = (len(hit_title) / len(term_title_case))
+                # Penalty for generic short hits
+                if hit_title.lower() in ["pattern", "test", "management", "treatment"]:
+                    score *= 0.3
 
-            if score > 0:  # Only include non-zero scores
-                scored_hits.append((score, hit))
+            if score > best_score:
+                best_score = score
+                best_hit = hit
 
-        # 4. Sort and get top 5
-        scored_hits.sort(reverse=True, key=lambda x: x[0])
-        top_5 = scored_hits[:5]
-
-        if not top_5:
-            print(f"    [MISS] No quality matches for '{term}' after scoring")
-            continue
-
-        # 5. Best result
-        best_score, best_hit = top_5[0]
-        if best_score >= THRESHOLD_SEARCH_ACCEPT:
+        # Threshold 0.6 for quality Title Case matches
+        if best_hit and best_score >= 0.6:
             rid = best_hit.get("remId") or best_hit.get("_id")
-            found[term] = (rid, [hit for _, hit in top_5])
+            found[term] = rid
             print(f"    [FOUND] '{term}' → '{best_hit.get('title', '')}' ({rid}) score={best_score:.2f}")
-            print(f"    [TOP5] Candidates (scores): {[(h.get('title', '')[:30], f'{s:.2f}') for s, h in top_5]}")
         else:
-            best_title = best_hit.get('title', 'None')
+            best_title = best_hit.get('title', 'None') if best_hit else 'None'
             print(f"    [MISS] No high-quality match for '{term}' (best hit: '{best_title}', score: {best_score:.2f})")
 
     return found
@@ -342,30 +247,28 @@ def hierarchical_locate(
     terms: list[str],
     already_found: dict[str, str],
     map_entries: list[dict]
-) -> tuple[dict[str, str], dict[str, str]]:
+) -> dict[str, str]:
     """
     For terms that Step A (map grep) and Step B (search) both missed,
     use the map as a routing table:
       1. Score each top-level branch (indent=0) by keyword relevance
-         using title + summary fields.
+         using title + hint fields.
       2. Read the best candidate branch at depth 2 to discover children.
       3. Match term against discovered children titles.
 
-    Returns:
-        (found: {term: rem_id}, branch_contexts: {term: branch_rem_id})
+    This costs ~1 CLI read per missing term group (batched by branch),
+    far cheaper than an agent reading the entire KB.
     """
     found = {}
-    branch_contexts = {}  # NEW: Track which branch each term was found in
-
     missing = [t for t in terms if t not in already_found]
     if not missing:
-        return found, branch_contexts
+        return found
 
     # Build branch index: top-level entries (indent=0) with their sub-entries
     branches = []
     for i, entry in enumerate(map_entries):
         if entry["indent"] == 0:
-            # Collect all child summarys/titles for this branch
+            # Collect all child hints/titles for this branch
             child_words = set()
             for j in range(i + 1, len(map_entries)):
                 if map_entries[j]["indent"] == 0:
@@ -373,14 +276,14 @@ def hierarchical_locate(
                 child_words.update(
                     normalize(w) for w in map_entries[j]["title"].split() if len(w) > 2
                 )
-                if map_entries[j]["summary"]:
+                if map_entries[j]["hint"]:
                     child_words.update(
-                        normalize(w) for w in map_entries[j]["summary"].split() if len(w) > 1
+                        normalize(w) for w in map_entries[j]["hint"].split() if len(w) > 1
                     )
             branches.append({
                 "remId": entry["remId"],
                 "title": entry["title"],
-                "summary": entry["summary"],
+                "hint": entry["hint"],
                 "child_words": child_words
             })
 
@@ -395,14 +298,14 @@ def hierarchical_locate(
         for branch in branches:
             branch_all_words = (
                 set(normalize(w) for w in branch["title"].split() if len(w) > 2)
-                | set(normalize(w) for w in branch["summary"].split() if len(w) > 1)
+                | set(normalize(w) for w in branch["hint"].split() if len(w) > 1)
                 | branch["child_words"]
             )
             # Score by word overlap + substring containment bonus
             overlap = len(term_words & branch_all_words)
             for bw in branch_all_words:
                 if term_norm in bw or bw in term_norm:
-                    overlap += WEIGHT_SUBSTRING_OVERLAP
+                    overlap += 0.5
             if overlap > best_overlap:
                 best_overlap = overlap
                 best_branch = branch
@@ -415,7 +318,7 @@ def hierarchical_locate(
 
     if not branch_to_terms:
         print("  [B2] No candidate branches found for missing terms")
-        return found, branch_contexts
+        return found
 
     # Read each candidate branch at depth 2 and match
     read_cache: dict[str, list[dict]] = {}
@@ -424,9 +327,9 @@ def hierarchical_locate(
         print(f"  [B2] Reading branch '{branch_name}' ({branch_id}) for terms: {target_terms}")
 
         if branch_id not in read_cache:
-            data = run_cli(["read", branch_id, "--depth", str(CLI_BRANCH_DEPTH), "--child-limit", str(CLI_BRANCH_CHILD_LIMIT)])
+            data = run_cli(["read", branch_id, "--depth", "2", "--child-limit", "200"])
             if isinstance(data, dict) and "error" not in data:
-                children = _flatten_children(data, max_depth=CLI_BRANCH_DEPTH)
+                children = _flatten_children(data, max_depth=2)
                 read_cache[branch_id] = children
             else:
                 print(f"    [ERROR] Failed to read branch: {data.get('error', 'unknown')}")
@@ -447,138 +350,28 @@ def hierarchical_locate(
 
                 score = 0
                 if term_norm == child_norm:
-                    score = SCORE_PERFECT_MATCH
+                    score = 10.0
                 elif term_norm in child_norm:
                     score = len(term_norm) / len(child_norm)
                 elif child_norm in term_norm:
                     score = len(child_norm) / len(term_norm)
                 # Title Case exact match bonus
                 if term_tc == child_title:
-                    score += SCORE_TITLE_CASE_BONUS
+                    score += 5.0
 
                 if score > best_score:
                     best_score = score
                     best_child = child
 
-            if best_child and best_score >= THRESHOLD_HIERARCHICAL:
+            if best_child and best_score >= 0.5:
                 rid = best_child.get("remId") or best_child.get("_id")
                 if rid:
                     found[term] = rid
-                    branch_contexts[term] = branch_id  # NEW: Track branch
                     print(f"    [B2-FOUND] '{term}' → '{best_child['title']}' ({rid}) score={best_score:.2f}")
             else:
                 print(f"    [B2-MISS] '{term}' not found in branch '{branch_name}'")
 
-    return found, branch_contexts  # NEW: Return both
-
-
-def extract_all_rem_ids_from_tree(node: dict, max_depth: int, current_depth: int = 0) -> list[str]:
-    """
-    Recursively extract all rem IDs from a tree structure up to max_depth.
-
-    Args:
-        node: The tree node (dict with 'remId' and 'children')
-        max_depth: Maximum depth to traverse
-        current_depth: Current recursion depth
-
-    Returns:
-        List of rem IDs (as strings)
-    """
-    ids = []
-
-    if not isinstance(node, dict):
-        return ids
-
-    # Extract current node's ID (skip root at depth 0 if needed)
-    rid = node.get("remId") or node.get("_id")
-    if rid and current_depth > 0:
-        ids.append(str(rid))
-
-    # Recurse into children if within depth limit
-    if current_depth < max_depth:
-        children = node.get("children", [])
-        if isinstance(children, list):
-            for child in children:
-                ids.extend(extract_all_rem_ids_from_tree(child, max_depth, current_depth + 1))
-
-    return ids
-
-
-def cross_validate_b_and_b2(
-    term: str,
-    step_b_top5: list[dict],
-    step_b2_rem_id: Optional[str],
-    step_b2_branch_id: Optional[str]
-) -> Optional[str]:
-    """
-    Cross-validate Step B and B2 results by checking intersection.
-
-    Strategy:
-    1. If B2 found a result in a specific branch, read that branch (depth=2)
-    2. Check if any of B's top 5 candidates exist in that branch
-    3. If yes → return the highest-ranked B candidate that's in the branch
-    4. If no → decide between B and B2 based on confidence
-
-    Args:
-        term: The search term
-        step_b_top5: Top 5 candidates from Step B (list of hit dicts)
-        step_b2_rem_id: The rem_id found by Step B2 (can be None)
-        step_b2_branch_id: The branch where B2 found the result (can be None)
-
-    Returns:
-        The validated rem_id, or None if no confident result
-    """
-    # Edge case: No candidates from either step
-    if not step_b_top5 and not step_b2_rem_id:
-        print(f"    [VALIDATE] No results from B or B2 for '{term}'")
-        return None
-
-    # Edge case: Only B has results
-    if step_b_top5 and not step_b2_branch_id:
-        best_id = step_b_top5[0].get("remId") or step_b_top5[0].get("_id")
-        print(f"    [VALIDATE] Using B result (B2 has nothing): {best_id}")
-        return best_id
-
-    # Edge case: Only B2 has results
-    if not step_b_top5 and step_b2_rem_id:
-        print(f"    [VALIDATE] Using B2 result (B has nothing): {step_b2_rem_id}")
-        return step_b2_rem_id
-
-    # Main case: Both have results - perform cross-validation
-    print(f"    [VALIDATE] Cross-validating B and B2 results for '{term}'...")
-    print(f"    [VALIDATE] B top 5: {[h.get('title', '')[:30] for h in step_b_top5]}")
-    print(f"    [VALIDATE] B2 branch: {step_b2_branch_id}")
-
-    # Read B2 branch with depth to get all children
-    branch_data = run_cli(["read", step_b2_branch_id, "--depth", str(CLI_CROSS_VALIDATE_DEPTH)])
-    if isinstance(branch_data, dict) and "error" not in branch_data:
-        branch_children_ids = set(extract_all_rem_ids_from_tree(branch_data, max_depth=CLI_CROSS_VALIDATE_DEPTH))
-        print(f"    [VALIDATE] B2 branch contains {len(branch_children_ids)} rem IDs")
-    else:
-        print(f"    [VALIDATE] Failed to read B2 branch: {branch_data.get('error', 'unknown')}")
-        branch_children_ids = set()
-
-    # Check intersection: Find highest-ranked B candidate in B2 branch
-    for rank, candidate in enumerate(step_b_top5, start=1):
-        candidate_id = candidate.get("remId") or candidate.get("_id")
-        candidate_title = candidate.get("title", "")
-
-        if candidate_id in branch_children_ids:
-            print(f"    [VALIDATED] ✅ '{term}' → {candidate_id} ({candidate_title[:40]})")
-            print(f"    [VALIDATED] Found at B rank #{rank}, confirmed in B2 branch")
-            return candidate_id
-
-    # No intersection found
-    print(f"    [VALIDATE] ⚠️ No overlap between B top 5 and B2 branch children")
-
-    # Decision: Trust B2 if it has a result, otherwise use B's top result
-    if step_b2_rem_id:
-        print(f"    [VALIDATE] Using B2 result (no intersection): {step_b2_rem_id}")
-        return step_b2_rem_id
-    else:
-        best_id = step_b_top5[0].get("remId") or step_b_top5[0].get("_id")
-        print(f"    [VALIDATE] Using B top result (B2 has no specific result): {best_id}")
-        return best_id
+    return found
 
 
 def _flatten_children(node: dict, max_depth: int, current_depth: int = 0) -> list[dict]:
@@ -601,10 +394,10 @@ def _flatten_children(node: dict, max_depth: int, current_depth: int = 0) -> lis
 
 # ── Step C: Context Read (single call, cached) ────────────────────────────
 
-def read_context_tree(rem_id: str, timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS) -> dict:
-    """Read a single Rem at full depth with structured content. Cache-friendly."""
-    print(f"  [READ] Fetching tree for {rem_id} (depth {CLI_TREE_DEPTH}, timeout {timeout_seconds}s)...")
-    data = run_cli(["read", rem_id, "--depth", str(CLI_TREE_DEPTH), "--include-content", "structured"])
+def read_context_tree(rem_id: str, timeout_seconds: int = 60) -> dict:
+    """Read a single Rem at depth 6 with structured content. Cache-friendly."""
+    print(f"  [READ] Fetching tree for {rem_id} (depth 6, timeout {timeout_seconds}s)...")
+    data = run_cli(["read", rem_id, "--depth", "6", "--include-content", "structured"])
     if isinstance(data, dict) and "error" in data:
         print(f"    [ERROR] {data['error']}")
     return data
@@ -712,8 +505,8 @@ def extract_knowledge_lines(node: dict, depth: int = 0) -> list[str]:
 def compare_knowledge(
     existing_lines: list[str],
     new_md_lines: list[str],
-    match_threshold: float = EMBED_MATCH_THRESHOLD,
-    new_threshold: float = EMBED_NEW_THRESHOLD
+    match_threshold: float = 0.80,
+    new_threshold: float = 0.30
 ) -> dict:
     """
     Use sentence embeddings to classify each new line as MATCH, NEW, or AMBIGUOUS.
@@ -823,7 +616,7 @@ def parse_md_to_sections(md: str) -> dict[str, dict]:
 
 # ── Main Pipeline ──────────────────────────────────────────────────────────
 
-def run_pipeline(kb_map_path: str, overview_text: str, content_text: str) -> str:
+def run_pipeline(skill_map_path: str, overview_text: str, content_text: str) -> str:
     """
     Execute the full pipeline:
     A → B → B2 → C → D → E → output JSON.
@@ -841,59 +634,23 @@ def run_pipeline(kb_map_path: str, overview_text: str, content_text: str) -> str
     if not all_terms:
         return json.dumps({"error": "No terms found in overview"}, indent=2)
 
-    # ── Step A: KB Map Lookup ──
-    print(f"\n[Step A] KB map lookup...")
-    map_results, map_entries = lookup_kb_map(kb_map_path, all_terms)
-    print(f"  Found {len(map_results)}/{len(all_terms)} via map")
+    # ── Step A: Map Lookup ──
+    print(f"\n[Step A] Skill map lookup...")
+    map_results, map_entries = lookup_skill_map(skill_map_path, all_terms)
 
-    # ── Step B: Search unmapped (returns top 5 candidates) ──
+    # ── Step B: Search unmapped ──
     print(f"\n[Step B] Searching unmapped terms...")
-    unmapped_after_a = [t for t in all_terms if t not in map_results]
-    search_results_with_candidates = search_unmapped(unmapped_after_a, map_results)
+    search_results = search_unmapped(all_terms, map_results)
 
-    # Extract best remIds from B results
-    search_results = {term: rem_id for term, (rem_id, _) in search_results_with_candidates.items()}
-    print(f"  Found {len(search_results)}/{len(unmapped_after_a)} via search")
+    # Merge A + B
+    term_to_id = {**map_results, **search_results}
 
-    # ── Step B2: Hierarchical Locate (returns branch contexts) ──
-    unmapped_after_b = [t for t in unmapped_after_a if t not in search_results]
-    if unmapped_after_b:
-        print(f"\n[Step B2] Hierarchical locate for {len(unmapped_after_b)} missing terms...")
-        b2_results, branch_contexts = hierarchical_locate(
-            unmapped_after_b,
-            {**map_results, **search_results},
-            map_entries
-        )
-        print(f"  Found {len(b2_results)}/{len(unmapped_after_b)} via hierarchical locate")
-    else:
-        b2_results = {}
-        branch_contexts = {}
-
-    # ── Cross-Validation: Merge B and B2 with validation ──
-    print(f"\n[Cross-Validation] Merging B + B2 results...")
-    term_to_id = {**map_results}  # Start with map results (highest confidence)
-
-    for term in unmapped_after_a:
-        if term in search_results:
-            # B found something - check if B2 also found it
-            _, step_b_top5 = search_results_with_candidates.get(term, (None, []))
-            step_b2_rem_id = b2_results.get(term)
-            step_b2_branch_id = branch_contexts.get(term)
-
-            validated_id = cross_validate_b_and_b2(
-                term,
-                step_b_top5,
-                step_b2_rem_id,
-                step_b2_branch_id
-            )
-
-            if validated_id:
-                term_to_id[term] = validated_id
-
-        elif term in b2_results:
-            # Only B2 found something
-            term_to_id[term] = b2_results[term]
-            print(f"  [B2-ONLY] '{term}' → {b2_results[term]} (from B2 only)")
+    # ── Step B2: Hierarchical Locate (fallback for still-missing terms) ──
+    still_missing = [t for t in all_terms if t not in term_to_id]
+    if still_missing:
+        print(f"\n[Step B2] Hierarchical locate for {len(still_missing)} missing terms...")
+        b2_results = hierarchical_locate(all_terms, term_to_id, map_entries)
+        term_to_id.update(b2_results)
 
     missing_terms = [t for t in all_terms if t not in term_to_id]
 
@@ -1026,10 +783,10 @@ def run_pipeline(kb_map_path: str, overview_text: str, content_text: str) -> str
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Smart knowledge pipeline v5")
-    parser.add_argument("--kb-map", required=True, help="Path to kb_map.json (or legacy SKILL.md)")
+    parser.add_argument("--skill-map", required=True, help="Path to SKILL.md")
     parser.add_argument("--overview-file", required=True, help="Path to overview markdown")
     parser.add_argument("--content-file", required=True, help="Path to answer markdown")
-    parser.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT_SECONDS, help="CLI timeout in seconds")
+    parser.add_argument("--timeout", type=int, default=60, help="CLI timeout in seconds")
     args = parser.parse_args()
 
     with open(args.overview_file, 'r', encoding='utf-8-sig') as f:
@@ -1037,4 +794,4 @@ if __name__ == "__main__":
     with open(args.content_file, 'r', encoding='utf-8-sig') as f:
         content = f.read()
 
-    print(run_pipeline(args.kb_map, overview, content))
+    print(run_pipeline(args.skill_map, overview, content))

@@ -20,6 +20,14 @@ __pycache__/
 .agents/
 agents/
 .antigravity/
+AGENTS.md
+
+# Internal docs
+docs/adrs/
+docs/architecture/
+docs/design/
+docs/specs/
+docs/archive/
 
 # tmp files
 tmp/

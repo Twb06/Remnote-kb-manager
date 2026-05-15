@@ -1,5 +1,24 @@
 ﻿# Changelog
 
+## [v0.3.0] - 2026-05-14
+
+### Added
+- Modular architecture reorganization: Created `src/` directory structure with separated modules (`src/parsers`, `src/pipeline`, `src/routers`)
+- Comprehensive test suite achieving 71/71 PASSED (100% pass rate)
+- Architecture Decision Records (ADRs) documenting key design decisions across versions
+
+### Changed
+- Renamed `phase_1_2_ast.py` → `src/parsers/ast_parser.py`
+- Renamed `phase_3_search.py` → `src/pipeline/search_engine.py`
+- Renamed `phase_4_router.py` → `src/routers/real_nli_router.py`
+- Renamed `phase_4c_coordinator.py` → `src/pipeline/coordinator.py`
+- Updated all imports to reflect new modular structure
+- Improved code maintainability through semantic naming and clear separation of concerns
+
+### Fixed
+- `MockNLIRouter.infer()` missing return statement bug
+- Test attribute inconsistencies in unit tests
+
 ## [v0.2.0] - 2026-05-13
 
 ### Added

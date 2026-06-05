@@ -3,7 +3,7 @@
 
 根據實際實現修復：
 1. detect_indent_level() 保留 "-" 前綴 (lstrip only)
-2. build_ast_tree() 的 text 節點包含完整內容 (含 "-")
+2. build_ast_tree() 的 text 節點已 strip bullet markers (- * +)
 3. flatten_with_breadcrumbs() 返回字典列表 (非字符串)
 
 執行: pytest tests/unit/test_phase_1_2_fixed.py -v
@@ -92,8 +92,8 @@ class TestBuildAstTree:
         tree = build_ast_tree(lines)
 
         assert len(tree) == 1
-        assert tree[0]["text"] == "- Root"
-        assert tree[0]["breadcrumb"] == "- Root"
+        assert tree[0]["text"] == "Root"
+        assert tree[0]["breadcrumb"] == "Root"
         assert tree[0]["depth"] == 0
 
     def test_two_level_hierarchy(self):
@@ -106,13 +106,13 @@ class TestBuildAstTree:
 
         assert len(tree) == 1
         root = tree[0]
-        assert root["text"] == "- Ophthalmology"
-        assert root["breadcrumb"] == "- Ophthalmology"
+        assert root["text"] == "Ophthalmology"
+        assert root["breadcrumb"] == "Ophthalmology"
 
         assert len(root["children"]) == 1
         child = root["children"][0]
-        assert child["text"] == "- Glaucoma"
-        assert child["breadcrumb"] == "- Ophthalmology > - Glaucoma"
+        assert child["text"] == "Glaucoma"
+        assert child["breadcrumb"] == "Ophthalmology > Glaucoma"
 
     def test_three_level_deep_nesting(self):
         """三层深层嵌套"""
@@ -131,7 +131,7 @@ class TestBuildAstTree:
 
         level2 = level1["children"][0]
         assert level2["depth"] == 2
-        assert level2["breadcrumb"] == "- Level0 > - Level1 > - Level2"
+        assert level2["breadcrumb"] == "Level0 > Level1 > Level2"
 
     def test_multiple_siblings(self):
         """多个兄弟节点"""
@@ -214,7 +214,7 @@ class TestFlattenWithBreadcrumbs:
         item = flattened[0]
         assert "text" in item
         assert "breadcrumb" in item
-        assert item["text"] == "- Root"
+        assert item["text"] == "Root"
 
     def test_hierarchical_flat_plain_format(self):
         """多层展平 - plain 格式"""
@@ -228,12 +228,12 @@ class TestFlattenWithBreadcrumbs:
         assert len(flattened) == 2
 
         # 根项
-        assert flattened[0]["breadcrumb"] == "- Root"
-        assert "[- Root]" in flattened[0]["content_with_breadcrumb"]
+        assert flattened[0]["breadcrumb"] == "Root"
+        assert "[Root]" in flattened[0]["content_with_breadcrumb"]
 
-        # 子项
+        # 子項
         assert "Child" in flattened[1]["breadcrumb"]
-        assert "[- Root > - Child]" in flattened[1]["content_with_breadcrumb"]
+        assert "[Root > Child]" in flattened[1]["content_with_breadcrumb"]
 
     def test_markdown_format(self):
         """Markdown 格式"""

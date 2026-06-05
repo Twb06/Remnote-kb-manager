@@ -40,7 +40,7 @@ class TestPipelinePhase12Integration:
         tree = build_ast_tree(lines)
 
         assert len(tree) == 1
-        assert tree[0]["text"] == "- Ophthalmology"  # 保留 Markdown prefix
+        assert tree[0]["text"] == "Ophthalmology"  # bullet markers stripped
         assert len(tree[0]["children"]) == 2
 
     def test_phase_1_2_breadcrumb_generation(self):
@@ -55,8 +55,8 @@ class TestPipelinePhase12Integration:
         flat = flatten_with_breadcrumbs(tree)
 
         assert len(flat) == 3
-        # 檢查面包屑是否正確嵌套 (包含 Markdown prefix)
-        assert flat[2]["breadcrumb"] == "- Medical > - Ophthalmology > - Glaucoma"
+        # 檢查面包屑是否正確嵌套 (bullet markers 已 strip)
+        assert flat[2]["breadcrumb"] == "Medical > Ophthalmology > Glaucoma"
 
     def test_phase_1_2_with_special_formatting(self):
         """測試含特殊格式的 Phase 1.2"""

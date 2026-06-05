@@ -58,13 +58,13 @@ class TestDetectIndentLevel:
         """測試 2 空格縮排"""
         depth, content = detect_indent_level("  - Item")
         assert depth == 1
-        assert content == "Item"
+        assert content == "- Item"  # detect_indent_level 不移除 dash，同 test_single_dash_no_indent
 
     def test_tab_indent(self):
         """測試 tab 縮排"""
         depth, content = detect_indent_level("\t- Item")
         assert depth >= 1  # Tab 作為至少 1 層
-        assert content == "Item"
+        assert content == "- Item"  # detect_indent_level 不移除 dash
 
     def test_asterisk_prefix(self):
         """測試 asterisk 前綴"""
@@ -88,7 +88,7 @@ class TestDetectIndentLevel:
         """測試帶括號的內容"""
         depth, content = detect_indent_level("    - [Ophthalmology] Deep Learning")
         assert depth == 1
-        assert content == "[Ophthalmology] Deep Learning"
+        assert content == "- [Ophthalmology] Deep Learning"  # dash 保留，由 build_ast_tree 負責 strip
 
     def test_empty_after_indent(self):
         """測試縮排後空行"""
@@ -257,7 +257,7 @@ class TestFlattenWithBreadcrumbs:
         flat = flatten_with_breadcrumbs(tree, prefix_format="plain")
 
         assert len(flat) == 1
-        assert "[Glaucoma Types] Glaucoma Types" in flat[0]
+        assert flat[0]["content_with_breadcrumb"] == "[Glaucoma Types] Glaucoma Types"
 
     def test_multiple_levels_plain_format(self):
         """測試多級層級的 plain 格式"""
@@ -270,9 +270,9 @@ class TestFlattenWithBreadcrumbs:
         flat = flatten_with_breadcrumbs(tree, prefix_format="plain")
 
         assert len(flat) == 3
-        assert "[Glaucoma] Glaucoma" in flat[0]
-        assert "[Glaucoma > Open-Angle] Open-Angle" in flat[1]
-        assert "[Glaucoma > Open-Angle > NTG] NTG" in flat[2]
+        assert flat[0]["content_with_breadcrumb"] == "[Glaucoma] Glaucoma"
+        assert flat[1]["content_with_breadcrumb"] == "[Glaucoma > Open-Angle] Open-Angle"
+        assert flat[2]["content_with_breadcrumb"] == "[Glaucoma > Open-Angle > NTG] NTG"
 
     def test_markdown_format(self):
         """測試 markdown 格式"""
@@ -281,8 +281,8 @@ class TestFlattenWithBreadcrumbs:
         flat = flatten_with_breadcrumbs(tree, prefix_format="markdown")
 
         assert len(flat) == 1
-        assert "**[" in flat[0]
-        assert "]**" in flat[0]
+        assert "**[" in flat[0]["content_with_breadcrumb"]
+        assert "]**" in flat[0]["content_with_breadcrumb"]
 
     def test_html_format(self):
         """測試 HTML 格式"""
@@ -291,10 +291,10 @@ class TestFlattenWithBreadcrumbs:
         flat = flatten_with_breadcrumbs(tree, prefix_format="html")
 
         assert len(flat) == 1
-        assert "<breadcrumb>" in flat[0]
-        assert "</breadcrumb>" in flat[0]
-        assert "<content>" in flat[0]
-        assert "</content>" in flat[0]
+        assert "<breadcrumb>" in flat[0]["content_with_breadcrumb"]
+        assert "</breadcrumb>" in flat[0]["content_with_breadcrumb"]
+        assert "<content>" in flat[0]["content_with_breadcrumb"]
+        assert "</content>" in flat[0]["content_with_breadcrumb"]
 
     def test_sibling_breadcrumbs(self):
         """測試兄弟節點的面包屑"""
@@ -308,9 +308,9 @@ class TestFlattenWithBreadcrumbs:
 
         assert len(flat) == 3
         # 兄弟節點應有不同的面包屑
-        assert "Child1" in flat[1]
-        assert "Child2" in flat[2]
-        assert flat[1] != flat[2]
+        assert "Child1" in flat[1]["content_with_breadcrumb"]
+        assert "Child2" in flat[2]["content_with_breadcrumb"]
+        assert flat[1]["content_with_breadcrumb"] != flat[2]["content_with_breadcrumb"]
 
 
 class TestTransformTreeWithBreadcrumbs:

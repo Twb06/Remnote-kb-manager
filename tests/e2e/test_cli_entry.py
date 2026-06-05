@@ -1,153 +1,96 @@
-﻿"""
-E2E tests for CLI entry point (__main__)
+"""
+E2E tests for main.py CLI entry point.
 
-Tests the command-line interface execution with subprocess calls.
+Tests command-line invocation of main.py via subprocess with real fixture files.
 """
 
-import pytest
+import json
 import subprocess
 import sys
-import json
 from pathlib import Path
+
+import pytest
+
+FIXTURES = Path(__file__).parent / "fixtures"
+MAIN_PY = Path(__file__).parent.parent.parent / "main.py"
+KB_MAP = FIXTURES / "e2e_kb_map.json"
+ANSWER = FIXTURES / "e2e_content.md"
+
+
+def _run_main(*extra_args, timeout=120):
+    """Run main.py as subprocess and return CompletedProcess."""
+    return subprocess.run(
+        [sys.executable, str(MAIN_PY)] + list(extra_args),
+        capture_output=True,
+        timeout=timeout,
+        encoding="utf-8",
+        errors="replace",
+    )
 
 
 @pytest.mark.e2e
 class TestCLIEntryPoint:
-    """E2E tests for smart_logic_v5.py CLI entry"""
+    """E2E tests for the main.py CLI."""
 
-    def test_cli_entry_point_success(self, e2e_test_env, tmp_path):
-        """Test CLI execution via subprocess"""
-        # Arrange
-        kb_map_path = e2e_test_env["kb_map"]
-        overview_path = e2e_test_env["overview"]
-        content_path = e2e_test_env["content"]
-        output_path = tmp_path / "cli_output.json"
+    def test_help_exits_zero(self):
+        result = _run_main("--help", timeout=10)
+        assert result.returncode == 0
+        assert "--answer-file" in result.stdout
+        assert "--kb-map" in result.stdout
 
-        script_path = Path(__file__).parent.parent.parent / "smart_logic_v5.py"
-
-        # Act
-        result = subprocess.run(
-            [
-                sys.executable,
-                str(script_path),
-                "--kb-map", str(kb_map_path),
-                "--overview-file", str(overview_path),
-                "--content-file", str(content_path)
-            ],
-            capture_output=True,
-            timeout=120,
-            encoding='utf-8',
-            errors='replace'
-        )
-
-        # Assert
-        assert result.returncode == 0, f"CLI failed with error: {result.stderr}"
-
-        # Verify output is valid JSON (printed to stdout)
-        # The script prints debug info first, then JSON at the end
-        # Extract the last complete JSON object
-        stdout = result.stdout
-
-        # Find JSON by looking for the last '{' and matching '}'
-        json_start = stdout.rfind('\n{')  # JSON starts on a new line
-        if json_start < 0:
-            json_start = stdout.find('{')
-
-        if json_start >= 0:
-            # Find the matching closing brace
-            brace_count = 0
-            json_end = -1
-            for i in range(json_start, len(stdout)):
-                if stdout[i] == '{':
-                    brace_count += 1
-                elif stdout[i] == '}':
-                    brace_count -= 1
-                    if brace_count == 0:
-                        json_end = i + 1
-                        break
-
-            if json_end > 0:
-                json_str = stdout[json_start:json_end].strip()
-                output_data = json.loads(json_str)
-            else:
-                pytest.fail(f"Could not find complete JSON in stdout")
-        else:
-            pytest.fail(f"No JSON found in stdout: {stdout[:500]}")
-
-        assert isinstance(output_data, dict)
-        assert "auto_actions" in output_data or "ambiguous" in output_data
-
-
-    def test_cli_missing_required_argument(self, tmp_path):
-        """Test CLI error handling for missing arguments"""
-        # Arrange
-        script_path = Path(__file__).parent.parent.parent / "src" / "smart_logic_v5.py"
-
-        # Act - call without required --kb-map argument
-        result = subprocess.run(
-            [sys.executable, str(script_path), "--help"],
-            capture_output=True,
+    def test_missing_answer_file_exits_nonzero(self, tmp_path):
+        result = _run_main(
+            "--answer-file", str(tmp_path / "nonexistent.md"),
+            "--kb-map", str(KB_MAP),
             timeout=10,
-            encoding='utf-8',
-            errors='replace'
         )
+        assert result.returncode != 0
+        assert "ERROR" in result.stderr
 
-        # Assert - should show help or error gracefully
-        assert result.returncode in [0, 1, 2], "Should exit with standard error code"
-        # Help text or error message should be present
-        assert len(result.stdout) > 0 or len(result.stderr) > 0
-
-
-    def test_cli_with_timeout_option(self, e2e_test_env, tmp_path):
-        """Test CLI with optional timeout argument"""
-        # Arrange
-        kb_map_path = e2e_test_env["kb_map"]
-        overview_path = e2e_test_env["overview"]
-        content_path = e2e_test_env["content"]
-
-        script_path = Path(__file__).parent.parent.parent / "smart_logic_v5.py"
-
-        # Act - execute with timeout option (if supported)
-        result = subprocess.run(
-            [
-                sys.executable,
-                str(script_path),
-                "--kb-map", str(kb_map_path),
-                "--overview-file", str(overview_path),
-                "--content-file", str(content_path),
-                "--timeout", "30"  # Assuming timeout option exists
-            ],
-            capture_output=True,
-            timeout=60,
-            encoding='utf-8',
-            errors='replace'
+    def test_missing_kb_map_exits_nonzero(self, tmp_path):
+        result = _run_main(
+            "--answer-file", str(ANSWER),
+            "--kb-map", str(tmp_path / "nonexistent.json"),
+            timeout=10,
         )
+        assert result.returncode != 0
+        assert "ERROR" in result.stderr
 
-        # Assert - should either succeed or gracefully report unsupported option
-        assert result.returncode in [0, 1, 2]
+    def test_dry_run_does_not_write_output(self, tmp_path):
+        out_file = tmp_path / "out.json"
+        result = _run_main(
+            "--answer-file", str(ANSWER),
+            "--kb-map", str(KB_MAP),
+            "--output", str(out_file),
+            "--dry-run",
+            timeout=300,
+        )
+        assert result.returncode == 0, result.stderr
+        assert not out_file.exists()
 
-        if result.returncode == 0 and result.stdout:
-            # If succeeded, verify output
-            # Extract the last complete JSON object
-            stdout = result.stdout
-            json_start = stdout.rfind('\n{')
-            if json_start < 0:
-                json_start = stdout.find('{')
+    def test_successful_run_writes_json_output(self, tmp_path):
+        out_file = tmp_path / "out.json"
+        result = _run_main(
+            "--answer-file", str(ANSWER),
+            "--kb-map", str(KB_MAP),
+            "--output", str(out_file),
+            timeout=300,
+        )
+        assert result.returncode == 0, f"STDERR: {result.stderr[:500]}"
+        assert out_file.exists(), "Output JSON file was not written"
+        data = json.loads(out_file.read_text(encoding="utf-8"))
+        assert "pipeline_version" in data
+        assert "nli_statistics" in data
+        assert "detailed_output" in data
 
-            if json_start >= 0:
-                # Find matching closing brace
-                brace_count = 0
-                json_end = -1
-                for i in range(json_start, len(stdout)):
-                    if stdout[i] == '{':
-                        brace_count += 1
-                    elif stdout[i] == '}':
-                        brace_count -= 1
-                        if brace_count == 0:
-                            json_end = i + 1
-                            break
-
-                if json_end > 0:
-                    json_str = stdout[json_start:json_end].strip()
-                    output_data = json.loads(json_str)
-                    assert isinstance(output_data, dict)
+    def test_output_contains_final_actions_list(self, tmp_path):
+        out_file = tmp_path / "out.json"
+        result = _run_main(
+            "--answer-file", str(ANSWER),
+            "--kb-map", str(KB_MAP),
+            "--output", str(out_file),
+            timeout=300,
+        )
+        assert result.returncode == 0, result.stderr
+        data = json.loads(out_file.read_text(encoding="utf-8"))
+        assert isinstance(data["detailed_output"]["final_actions"], list)

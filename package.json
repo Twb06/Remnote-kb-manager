@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "remnote-cli": "file:../remnote-cli",
     "remnote-mcp-bridge": "file:../remnote-mcp-bridge",
     "remnote-mcp-server": "file:../remnote-mcp-server"
   }

@@ -109,6 +109,24 @@ def detect_indent_level(line: str) -> Tuple[int, str]:
     return depth, content
 
 
+def _strip_bullet_markers(content: str) -> str:
+    """
+    Strip leading markdown list/bullet markers from content text.
+
+    Strips: * item, - item, + item (with optional trailing spaces)
+    Does NOT strip bold markers (**text**) intentionally.
+
+    Examples:
+        >>> _strip_bullet_markers("- Glaucoma Types")
+        "Glaucoma Types"
+        >>> _strip_bullet_markers("*   HZO")
+        "HZO"
+        >>> _strip_bullet_markers("Normal text")
+        "Normal text"
+    """
+    return re.sub(r'^[*\-+]\s+', '', content.strip())
+
+
 def build_ast_tree(lines: List[str]) -> List[dict]:
     """
     從扁平行列表建構樹狀結構，保留每個節點的 breadcrumb。
@@ -144,22 +162,35 @@ def build_ast_tree(lines: List[str]) -> List[dict]:
             continue
 
         depth, content = detect_indent_level(line)
+        # Strip leading bullet markers (- * +) to get clean term text
+        text = _strip_bullet_markers(content)
+
+        # 清理堆疊：移除深度 >= 目前 depth 的節點 (must happen BEFORE path computation)
+        while stack and stack[-1][0] >= depth:
+            stack.pop()
+
+        # Compute path after stack is cleaned — stack[-1] is now the real parent
+        if stack:
+            parent_node = stack[-1][1]
+            node_index = len(parent_node["children"])
+            path = parent_node["path"] + [node_index]
+        else:
+            node_index = len(root_nodes)
+            path = [node_index]
 
         # 建立新節點
         node = {
             "depth": depth,
-            "text": content,
+            "level": depth,       # alias for depth, expected by tests
+            "path": path,         # positional index path in tree
+            "text": text,
             "breadcrumb_parts": [],
             "children": [],
             "parent": None
         }
 
-        # 清理堆疊：移除深度 >= 目前 depth 的節點
-        while stack and stack[-1][0] >= depth:
-            stack.pop()
-
-        # 計算 breadcrumb: 堆疊中所有節點 + 目前節點
-        breadcrumb_parts = [n[1]["text"] for n in stack] + [content]
+        # 計算 breadcrumb: 堆疊中所有節點 + 目前節點 (using normalized text)
+        breadcrumb_parts = [n[1]["text"] for n in stack] + [text]
         node["breadcrumb_parts"] = breadcrumb_parts
         node["breadcrumb"] = " > ".join(breadcrumb_parts)
         node["breadcrumb_formatted"] = f"[{node['breadcrumb']}]"
@@ -339,49 +370,14 @@ def enrich_nli_input_with_breadcrumb(
 
 
 if __name__ == "__main__":
-    # 測試範例
-    test_lines = [
-        "Ophtalmology",
-        "  Glaucoma Types",
-        "    Open-Angle",
-        "      Normal Tension Glaucoma",
-        "        FL Range: <3 mmHg",
-        "    Closed-Angle",
-        "      Acute Glaucoma"
-    ]
+    # Entry point: delegate to the v0.3 production pipeline via main.py
+    import sys
+    from pathlib import Path
 
-    print("=== AST Parser 測試 ===\n")
+    # Add project root to path so `main` is importable
+    project_root = Path(__file__).parent.parent.parent
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
 
-    # 測試 build_ast_tree
-    print("1. AST 樹構建")
-    tree = build_ast_tree(test_lines)
-    print(f"   根節點數: {len(tree)}")
-    print(f"   第一個根節點: {tree[0]['text']}")
-    print(f"   第一個根節點的 breadcrumb: {tree[0]['breadcrumb']}\n")
-
-    # 測試 flatten_with_breadcrumbs
-    print("2. 展平為清單")
-    items = flatten_with_breadcrumbs(tree)
-    print(f"   總項目數: {len(items)}")
-    for item in items[:5]:
-        print(f"   - {item['content_with_breadcrumb']}")
-    print()
-
-    # 測試 BreadcrumbIndex
-    print("3. Breadcrumb 索引")
-    index = BreadcrumbIndex()
-    for item in items:
-        index.add(item['text'], item['breadcrumb'])
-
-    retrieved = index.get_breadcrumb("Normal Tension Glaucoma")
-    print(f"   查詢 'Normal Tension Glaucoma': {retrieved}\n")
-
-    # 測試 enrich_nli_input_with_breadcrumb
-    print("4. NLI 輸入增強")
-    node = items[3]  # Normal Tension Glaucoma
-    premise, hypothesis = enrich_nli_input_with_breadcrumb(
-        node,
-        "FL pressure < 3 mmHg"
-    )
-    print(f"   Premise: {premise}")
-    print(f"   Hypothesis: {hypothesis}")
+    from main import main
+    sys.exit(main())

@@ -1,279 +1,231 @@
 ﻿"""
-main.py - NLI Pipeline v0.3 整合執行程式
+main.py - NLI Pipeline v0.3 Entry Point
 
-完整流程示範：
-1. Phase 1.2: AST + Breadcrumb (NotebookLM 提取轉換)
-2. Steps A-B2: 搜尋定位 (v5 邏輯)
-3. Step C: 讀取並轉換 context_trees
-4. Step D: 準備知識項目配對
-5. NLI Router: 統一分類並生成最終動作
+Usage:
+    python main.py [options]
 
-執行方式：
-    python main.py
+Options:
+    --answer-file   Path to the answer/content markdown file
+                    (default: .agents/tmp/answer.md)
+    --kb-map        Path to the RemNote kb_map.json navigation file
+                    (default: .github/skills/remnote-kb-navigation/kb_map.json)
+    --output        Path to write pipeline_output.json
+                    (default: pipeline_output.json)
+    --dry-run       Print planned actions without writing output file
 """
 
+import argparse
 import json
-from typing import Dict, List
+import sys
+from pathlib import Path
+from typing import Dict, List, Optional
+
 from src.pipeline.core import PipelineV6
-from src.routers.nli_types import NLIRouterV6
-from src.routers.nli_bart import RealNLIRouter  # 真實 NLI 模型
+from src.routers.nli_bart import RealNLIRouter
 
 
-def create_sample_data():
+# ---------------------------------------------------------------------------
+# Input parsing helpers
+# ---------------------------------------------------------------------------
+
+def _parse_answer_lines(answer_path: Path) -> List[str]:
+    """Read answer.md and return non-empty lines (preserving indentation)."""
+    text = answer_path.read_text(encoding="utf-8")
+    lines = []
+    for line in text.splitlines():
+        # Skip top-level header markers but keep all content lines
+        if line.strip().startswith("## "):
+            continue
+        lines.append(line)
+    # Strip trailing blank lines
+    while lines and not lines[-1].strip():
+        lines.pop()
+    return lines
+
+
+def _flatten_kb_map(kb_map_data: dict) -> Dict[str, Optional[str]]:
     """
-    建立樣本數據用於測試
+    Flatten the nested kb_map.json structure into {title: remId} dict.
+    Entries without a remId are mapped to None.
     """
+    flat: Dict[str, Optional[str]] = {}
 
-    # 1. NotebookLM 提取（帶縮排）
-    notebooklm_extract = [
-        "Ophthalmology",
-        "  Glaucoma",
-        "    Types",
-        "      Open-Angle",
-        "        Normal Tension Glaucoma",
-        "        High Tension Glaucoma",
-        "      Closed-Angle",
-        "        Acute Glaucoma",
-        "  Cataracts",
-        "    Nuclear Sclerotic",
-        "    Cortical",
-        "  Retinal Diseases",
-        "    Age-related Macular Degeneration",
-        "    Diabetic Retinopathy"
-    ]
+    def _walk(node: dict) -> None:
+        title = node.get("title")
+        rem_id = node.get("remId") or node.get("id")
+        if title:
+            flat[title] = rem_id or None
+        for child in node.get("children", []):
+            _walk(child)
 
-    # 2. 現有知識庫映射
-    kb_map = {
-        "Ophthalmology": "rem_root",
-        "Glaucoma": "rem_001",
-        "Types": None,  # 新項
-        "Open-Angle": "rem_002",
-        "Normal Tension Glaucoma": None,  # 新項
-        "High Tension Glaucoma": "rem_003",
-        "Closed-Angle": "rem_004",
-        "Acute Glaucoma": None,  # 新項
-        "Cataracts": "rem_005",
-        "Nuclear Sclerotic": None,  # 新項
-        "Cortical": None,  # 新項
-        "Retinal Diseases": "rem_006",
-        "Age-related Macular Degeneration": None,  # 新項
-        "Diabetic Retinopathy": "rem_007"
-    }
+    root = kb_map_data.get("root", {})
+    if root:
+        _walk(root)
+    for branch in kb_map_data.get("branches", []):
+        _walk(branch)
 
-    # 3. 現有 RemNote context_trees
-    context_trees = {
-        "tree_1": {
-            "id": "rem_001",
-            "title": "Glaucoma",
-            "content": "眼壓升高導致視神經損傷的疾病群",
+    return flat
+
+
+def _build_context_trees(kb_map_data: dict) -> dict:
+    """
+    Build context_trees expected by PipelineV6 from the kb_map.json branches.
+    Each top-level branch becomes one tree keyed by its remId.
+    """
+    trees = {}
+    for i, branch in enumerate(kb_map_data.get("branches", [])):
+        key = branch.get("remId") or f"tree_{i}"
+        trees[key] = {
+            "id": branch.get("remId"),
+            "title": branch.get("title", ""),
+            "content": branch.get("summary", ""),
             "children": [
                 {
-                    "id": "rem_002",
-                    "title": "Open-Angle",
-                    "content": "青光眼中最常見的類型，占 90% 患者",
-                    "children": [
-                        {
-                            "id": "rem_003",
-                            "title": "High Tension Glaucoma",
-                            "content": "眼壓明顯升高的開角型青光眼",
-                            "children": []
-                        }
-                    ]
-                },
-                {
-                    "id": "rem_004",
-                    "title": "Closed-Angle",
-                    "content": "虹膜與角膜接觸導致，發作急促",
+                    "id": c.get("remId"),
+                    "title": c.get("title", ""),
+                    "content": c.get("summary", ""),
                     "children": []
                 }
+                for c in branch.get("children", [])
             ]
         }
-    }
-
-    return notebooklm_extract, kb_map, context_trees
+    return trees
 
 
-def run_v1_3_pipeline():
-    """
-    執行完整的 NLI Pipeline v0.3
-    """
+# ---------------------------------------------------------------------------
+# Pipeline runner
+# ---------------------------------------------------------------------------
 
-    print("\n" + "="*80)
-    print("🚀 NLI Pipeline v0.3 整合執行程式")
-    print("="*80)
+def run_pipeline(
+    answer_lines: List[str],
+    kb_map: Dict[str, Optional[str]],
+    context_trees: dict,
+    dry_run: bool = False,
+) -> dict:
+    """Execute the full v0.3 pipeline and return the result dict."""
+    print(f"\n[main] Input lines  : {len(answer_lines)}")
+    print(f"[main] KB map entries: {len(kb_map)}")
+    print(f"[main] Context trees : {len(context_trees)}")
 
-    # ========================================================================
-    # 準備樣本數據
-    # ========================================================================
-    notebooklm_extract, kb_map, context_trees = create_sample_data()
-
-    print(f"\n📊 輸入數據統計:")
-    print(f"   NotebookLM 提取行數: {len(notebooklm_extract)}")
-    print(f"   知識庫映射項數: {len(kb_map)}")
-    print(f"   Context Trees 棵數: {len(context_trees)}")
-
-    # ========================================================================
-    # 創建管線
-    # ========================================================================
     pipeline = PipelineV6()
-
-    # ========================================================================
-    # 執行前期階段 (Phase 1.2 + Steps A-D)
-    # ========================================================================
     search_terms = list(kb_map.keys())
 
     knowledge_items = pipeline.execute_pipeline(
-        notebooklm_extract,
+        answer_lines,
         search_terms,
         kb_map,
-        context_trees
+        context_trees,
     )
 
-    # ========================================================================
-    # 執行 NLI Router (使用真實模型)
-    # ========================================================================
-    router = RealNLIRouter()  # 使用 BART-Large-MNLI 真實模型
+    router = RealNLIRouter()
     router_result = router.apply_nli_routing(knowledge_items)
 
-    # ========================================================================
-    # 整合結果
-    # ========================================================================
-    final_result = {
-        "pipeline_stage": "v0.3-complete",
+    stats = router_result["statistics"]
+    total = stats["created"] + stats["updated"] + stats["skipped"] + stats["requires_llm"]
+    auto_rate = (total - stats["requires_llm"]) / total if total > 0 else 1.0
+
+    result = {
+        "pipeline_version": "v0.3",
         "execution_summary": {
             "total_knowledge_items": len(knowledge_items),
             "final_actions": len(router_result["final_actions"]),
-            "llm_interventions": len(router_result["requires_llm_intervention"])
+            "llm_interventions": len(router_result["requires_llm_intervention"]),
         },
         "pipeline_statistics": pipeline.get_statistics(),
-        "nli_statistics": router_result["statistics"],
+        "nli_statistics": stats,
+        "auto_processing_rate": round(auto_rate, 4),
         "detailed_output": {
             "final_actions": [a.to_dict() for a in router_result["final_actions"]],
-            "llm_interventions": [c.to_dict() for c in router_result["requires_llm_intervention"]]
-        }
+            "llm_interventions": [
+                c.to_dict() for c in router_result["requires_llm_intervention"]
+            ],
+        },
     }
 
-    # ========================================================================
-    # 輸出結果
-    # ========================================================================
-    print("\n" + "="*80)
-    print("📋 FINAL RESULTS - NLI Pipeline v0.3")
-    print("="*80)
-
-    print(f"\n✅ 執行摘要:")
-    print(f"   Total Knowledge Items: {final_result['execution_summary']['total_knowledge_items']}")
-    print(f"   Final Actions: {final_result['execution_summary']['final_actions']}")
-    print(f"   LLM Interventions: {final_result['execution_summary']['llm_interventions']}")
-
-    print(f"\n📊 NLI 統計 (最重要指標):")
-    nli_stats = final_result["nli_statistics"]
-    print(f"   Created: {nli_stats['created']}")
-    print(f"   Updated: {nli_stats['updated']}")
-    print(f"   Skipped: {nli_stats['skipped']}")
-    print(f"   Requires LLM: {nli_stats['requires_llm']}")
-    print(f"   Auto Rate (完全自動化): 100.0%")  # v0.2.0 目標
-    print(f"   Average NLI Confidence: {nli_stats['avg_nli_confidence']:.2%}")
-
-    print(f"\n🎯 前 5 個最終動作:")
-    for idx, action in enumerate(router_result["final_actions"][:5], 1):
-        print(f"   {idx}. [{action.action}] {action.term}")
-        print(f"      新 Breadcrumb: {action.new_breadcrumb}")
-        if action.existing_breadcrumb:
-            print(f"      舊 Breadcrumb: {action.existing_breadcrumb}")
-        print(f"      NLI 信心度: {action.nli_confidence:.2%}")
-
-    if len(router_result["final_actions"]) > 5:
-        print(f"   ... 以及 {len(router_result['final_actions']) - 5} 項")
+    # Console summary
+    print(f"\n[main] --- Results ---")
+    print(f"  Created         : {stats['created']}")
+    print(f"  Updated         : {stats['updated']}")
+    print(f"  Skipped         : {stats['skipped']}")
+    print(f"  Requires LLM    : {stats['requires_llm']}")
+    print(f"  Auto rate       : {auto_rate:.1%}")
+    print(f"  Avg NLI conf.   : {stats['avg_nli_confidence']:.2%}")
 
     if router_result["requires_llm_intervention"]:
-        print(f"\n🔧 需要 LLM 干預的案例 ({len(router_result['requires_llm_intervention'])} 項):")
-        for idx, case in enumerate(router_result["requires_llm_intervention"][:3], 1):
-            print(f"   {idx}. [{case.type}] {case.term}")
-            print(f"      原因: {case.reason}")
+        print(f"\n[main] LLM intervention cases:")
+        for case in router_result["requires_llm_intervention"]:
+            print(f"  [{case.type}] {case.term} — {case.reason}")
 
-    # ========================================================================
-    # 保存詳細輸出
-    # ========================================================================
-    output_file = "pipeline_output.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(final_result, f, ensure_ascii=False, indent=2)
+    return result
 
-    print(f"\n💾 詳細輸出已保存至: {output_file}")
 
-    # ========================================================================
-    # 改進指標
-    # ========================================================================
-    print("\n" + "="*80)
-    print("📈 v0.2.0 改進相比 v5 (預期改進)")
-    print("="*80)
+# ---------------------------------------------------------------------------
+# CLI entry point
+# ---------------------------------------------------------------------------
 
-    comparison = {
-        "自動處理率": {"v5": "27%", "v0.2": "100%", "改善": "+73%"},
-        "人工審查量": {"v5": "73%", "v0.2": "0%", "改善": "-100%"},
-        "階層保留": {"v5": "❌ 否", "v0.2": "✅ 是", "改善": "質性改進"},
-        "上下文品質": {"v5": "單行孤立", "v0.2": "完整路徑", "改善": "質性改進"},
-        "NLI 準確度": {"v5": "~85%", "v0.2": "~92%+", "改善": "+7%"},
-        "端對端時間": {"v5": "~2秒", "v0.2": "~2-2.5秒", "改善": "+0-500ms"},
-        "誤報率": {"v5": "~30%", "v0.2": "<3%", "改善": "-27%"},
-        "API 成本": {"v5": "$0", "v0.2": "<$0.001", "改善": "極低"}
-    }
+def _build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="NLI Pipeline v0.3 — NotebookLM → RemNote knowledge sync"
+    )
+    parser.add_argument(
+        "--answer-file",
+        type=Path,
+        default=Path(".agents/tmp/answer.md"),
+        help="Hierarchical markdown answer file from NotebookLM (default: .agents/tmp/answer.md)",
+    )
+    parser.add_argument(
+        "--kb-map",
+        type=Path,
+        default=Path(".github/skills/remnote-kb-navigation/kb_map.json"),
+        help="RemNote navigation kb_map.json (default: .github/skills/remnote-kb-navigation/kb_map.json)",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("pipeline_output.json"),
+        help="Output JSON file path (default: pipeline_output.json)",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print planned actions without writing output file",
+    )
+    return parser
 
-    for metric, values in comparison.items():
-        print(f"\n{metric}:")
-        print(f"  v5: {values['v5']}")
-        print(f"  v0.2: {values['v0.2']}")
-        print(f"  改善: {values['改善']}")
 
-    # ========================================================================
-    # 關鍵技術亮點
-    # ========================================================================
-    print("\n" + "="*80)
-    print("✨ v0.2.0 關鍵技術亮點")
-    print("="*80)
+def main(argv: Optional[List[str]] = None) -> int:
+    parser = _build_arg_parser()
+    args = parser.parse_args(argv)
 
-    highlights = [
-        ("Phase 1.2 AST", "完整保留知識層級結構，為每項生成完整 breadcrumb 路徑"),
-        ("雙邊 Breadcrumb", "新內容和現有內容都帶完整層級上下文，增強 NLI 判斷"),
-        ("統一NLI路由", "3 級閾值判斷，消除複雜的 ambiguous 項，實現 0% 人工審查"),
-        ("Step D 準備層", "清晰的知識項目配對，為 NLI 路由提供結構化輸入"),
-        ("完全自動化", "CREATE/UPDATE/SKIP/REQUIRES_LLM 四分類，複雜情況由 LLM 處理")
-    ]
+    # Validate inputs
+    if not args.answer_file.exists():
+        print(f"[main] ERROR: answer file not found: {args.answer_file}", file=sys.stderr)
+        return 1
 
-    for idx, (title, description) in enumerate(highlights, 1):
-        print(f"\n{idx}. {title}:")
-        print(f"   {description}")
+    if not args.kb_map.exists():
+        print(f"[main] ERROR: kb_map file not found: {args.kb_map}", file=sys.stderr)
+        return 1
 
-    # ========================================================================
-    # 下一步行動
-    # ========================================================================
-    print("\n" + "="*80)
-    print("🎯 下一步行動")
-    print("="*80)
-    print("""
-1. ✅ 【已完成】Phase 1.2 AST 模組實作
-2. ✅ 【已完成】smart_logic_v6.py 架構建立
-3. ✅ 【已完成】NLI Router 統一分類實作
-4. ⏳ 【待辦】添加單元測試
-   - Phase 1.2 邊界情況測試 (tabs vs spaces, 多層深度)
-   - Step D 配對邏輯測試
-   - NLI 分類閾值測試
-5. ⏳ 【待辦】集成真實 NLI 模型 (microsoft/deberta-v3-small)
-6. ⏳ 【待辦】實現 CLI 執行層 (execute_cli_actions)
-7. ⏳ 【待辦】E2E 整合測試與效能驗證
-    """)
+    # Load inputs
+    answer_lines = _parse_answer_lines(args.answer_file)
+    kb_map_data = json.loads(args.kb_map.read_text(encoding="utf-8"))
+    kb_map = _flatten_kb_map(kb_map_data)
+    context_trees = _build_context_trees(kb_map_data)
 
-    print("="*80 + "\n")
+    # Run pipeline
+    result = run_pipeline(answer_lines, kb_map, context_trees, dry_run=args.dry_run)
 
-    return final_result
+    # Write output
+    if not args.dry_run:
+        args.output.write_text(
+            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"\n[main] Output written to: {args.output}")
+    else:
+        print("\n[main] Dry-run mode — output not written.")
+
+    return 0
 
 
 if __name__ == "__main__":
-    result = run_v1_3_pipeline()
-
-    # 簡要統計
-    print("\n✅ Pipeline 執行完成！")
-    print(f"\n關鍵成就:")
-    print(f"  • 自動化率: 100% (無人工審查)")
-    print(f"  • 層級保留: ✅ 完整保留 (雙邊 breadcrumb)")
-    print(f"  • NLI 分類: {result['nli_statistics']['created'] + result['nli_statistics']['updated'] + result['nli_statistics']['skipped']} 項自動判斷")
-    print(f"  • 平均信心度: {result['nli_statistics']['avg_nli_confidence']:.2%}")
+    sys.exit(main())

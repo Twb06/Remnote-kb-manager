@@ -37,15 +37,82 @@ If the user provides or points to a specific template in the `templates/` direct
 ## RemNote Formatting Rules (IMPORTANT)
 
 When formatting content meant for RemNote manually (Situation A), act as an expert in clinical medicine and note structuring:
-1. **Title Case**: All hierarchical section titles must be Capitalized Title Case.
-2. **Flatten Hierarchy**: Remove all Markdown headers (`#`, `##`, `###`). Use indented unordered lists (`- `) exclusively. Top level has no indent, children get 4 spaces per depth level.
-3. **Tags Cleaning**: Strictly remove any HTML/XML like `<cite>` tags or similar tracking attributes.
-4. **Flashcard syntax**:
-    *   Basic Q&A: `>>` or `==`.
-    *   Cloze deletion: `{{text}}` or with hint `{{text}{({hint})}}`.
-    *   Multi-line card: Use `>>>` on the parent, its indented children form the back.
-    *   Concept/Descriptor: Concept `:>`; Descriptor `;-`.
-5. **No Filler Text**: Under NO circumstances append conclusions, greetings, or post-generation questions. ONLY output the formatted plaintext inside a SINGLE `CODE BLOCK`.
+
+### 1. Basic Formatting
+- **Title Case**: All titles that is specific a disease or unique keyword (e.g., "Glaucoma" is a specific disease and doesn't use in other circumstances, and "false-positive rate" could be use globally under each disease or exams) must be Capitalized Title Case, and Alias or abbreviation could be provided after the full name (e.g., "Normal-Tension Glaucoma (NTG)", not "normal-tension glaucoma")
+- **Flatten Hierarchy**: Remove all Markdown headers (`#`, `##`, `###`). Use indented unordered lists (`- `) exclusively. Top level has no indent, children get **exactly 2 spaces** per depth level
+- **Tags Cleaning**: Strictly remove any HTML/XML like `<cite>` tags or similar tracking attributes
+- **No Filler Text**: Under NO circumstances append conclusions, greetings, or post-generation questions. ONLY output the formatted plaintext inside a SINGLE `CODE BLOCK`
+
+### 2. Flashcard Syntax (Critical - Match User's Style)
+Apply flashcard markers strategically based on content type:
+
+**Concept/Descriptor (Most Common)**:
+- Use `:>` for definitions, key facts, or answers
+- Example: `Normal IOP:>10~22 mmHg` or `Risk factor:>high IOP, resistance of optic nerve`
+
+**Definition (::)**:
+- Use `::` for term definitions or equivalences
+- Example: `Applanation tonometry::gold standard` or `chronic CSCR::persistent subretinal fluid for >6 months`
+
+**Cloze Deletion ({{}})**:
+- Use for **numbers, percentages, key terms** that should be memorized
+- Example: `{{10}}% per each 1 mmHg`, `Rates greater than {{15%}}`, `{{gaze tracker}}`
+- With hint: `{{text}{({hint})}}` (例如 `{{10}}{({percentage})}`)
+
+**Multi-line Cards**:
+- Use `>>>` on parent for multi-line back content
+- Example:
+  ```
+  - Aqueous humor production and drainage >>>
+      - Trabecular meshwork (70-90%)
+      - Uveoscleral outflow (10-30%)
+  ```
+
+**Basic Q&A**:
+- Use `>>` for simple question-answer pairs when `:>` is not suitable
+- Example: `Risk of VF progression increases {{10}}% per each 1 mmHg`
+
+**Descriptor (;-)**:
+- Use `;-` for brief descriptions or summaries under section headers
+- Example: `[Overview]();-Elevated IOP (>21 mmHg) w/o optic nerve damage`
+
+### 3. Medical Content Specifics
+
+**Numbers and Ranges**:
+- Use `~` for ranges: `10~22 mmHg` (not `-` or `to`)
+- Always include units: `<555 μm`, `≥30`, `>24`
+- Percentages in cloze: `{{15%}}`, `{{10}}%`
+
+**Abbreviations**:
+- Keep medical abbreviations standard: IOP, CCT, PSD, RNFL, OCT, FAG, ICG
+- Define on first use if needed: `Normal-Tension Glaucoma (NTG)`
+
+### 4. Structure Patterns from User Templates
+
+**For Definitions**:
+```markdown
+- Normal IOP:>10~22 mmHg, 台灣人約10~20 mmHg
+- Applanation tonometry::gold standard
+```
+
+**For Examinations/Findings**:
+```markdown
+- Signs >>>
+  - round or oval **serous macular detachment**
+  - **small, yellow subretinal deposits**
+```
+
+**For Risk Factors/Etiologies**:
+```markdown
+- Risk factor:>high IOP, resistance of optic nerve, impaired autoregulation
+```
+
+### 5. Output Format
+- ALWAYS wrap final output in a single markdown code block (```)
+- NO explanations, greetings, or follow-up questions outside the code block
+- Preserve exact indentation (4 spaces per level)
+- Keep line breaks for readability (one concept per line)
 
 ### General Template (General Medical concept or others)
 - For general concepts, you do **not** need to strictly adhere to a rigid template. Check the content and dynamically create headings.

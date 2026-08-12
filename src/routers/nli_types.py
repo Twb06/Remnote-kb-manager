@@ -1,4 +1,4 @@
-﻿"""
+"""
 nli_router.py - NLI Router v1.3
 
 統一 NLI 路由系統，完全替代 v5 的複雜邏輯：
@@ -41,6 +41,7 @@ class FinalAction:
     # 內容
     new_content: str = ""
     new_breadcrumb: str = ""
+    existing_content: Optional[str] = None
     existing_breadcrumb: Optional[str] = None
 
     # NLI 判斷
@@ -64,6 +65,7 @@ class FinalAction:
             "rem_id": self.rem_id,
             "new_content": self.new_content,
             "new_breadcrumb": self.new_breadcrumb,
+            "existing_content": self.existing_content,
             "existing_breadcrumb": self.existing_breadcrumb,
             "nli_confidence": self.nli_confidence,
             "nli_verdict": self.nli_verdict,
@@ -277,7 +279,7 @@ class NLIRouterV6:
             }
         """
         print("\n" + "="*60)
-        print("🔄 NLI Router v1.3 開始執行")
+        print("[START] NLI Router v1.3 開始執行")
         print("="*60 + "\n")
 
         self.final_actions = []
@@ -327,7 +329,7 @@ class NLIRouterV6:
         self.statistics["ambiguous_rate"] = 0.0  # v1.3: 完全消除 ambiguous
 
         print("\n" + "="*60)
-        print("✅ NLI Router 執行完成")
+        print("[OK] NLI Router 執行完成")
         print(f"   CREATE: {self.statistics['created']}")
         print(f"   UPDATE: {self.statistics['updated']}")
         print(f"   SKIP: {self.statistics['skipped']}")
@@ -442,62 +444,168 @@ class NLIRouterV6:
 # 測試與範例
 # ============================================================================
 
-if __name__ == "__main__":
-    # 建立測試 knowledge_items
-    test_items = [
-        KnowledgeItem(
-            term="Glaucoma",
-            rem_id="rem_001",
-            action="UPDATE",
-            new_content="青光眼是眼壓升高導致視神經損傷的疾病",
-            new_breadcrumb="[Ophthalmology > Glaucoma]",
-            new_breadcrumb_parts=["Ophthalmology", "Glaucoma"],
-            existing_content="高眼壓相關疾病",
-            existing_breadcrumb="[眼科疾病 > 青光眼]",
-            existing_breadcrumb_parts=["眼科疾病", "青光眼"],
-            nli_context={
-                "new_hierarchical_path": "Ophthalmology > Glaucoma",
-                "existing_hierarchical_path": "眼科疾病 > 青光眼"
+def main(argv: Optional[List[str]] = None):
+    import argparse
+    import sys
+    import json
+    from pathlib import Path
+
+    # Fallback to demo if no arguments are provided
+    if (argv is None and len(sys.argv) == 1) or (argv is not None and len(argv) == 0):
+        print("[INFO] Running demo mode with mock data (use --help to see CLI options)...")
+        # 建立測試 knowledge_items
+        test_items = [
+            KnowledgeItem(
+                term="Glaucoma",
+                rem_id="rem_001",
+                action="UPDATE",
+                new_content="青光眼是眼壓升高導致視神經損傷的疾病",
+                new_breadcrumb="[Ophthalmology > Glaucoma]",
+                new_breadcrumb_parts=["Ophthalmology", "Glaucoma"],
+                existing_content="高眼壓相關疾病",
+                existing_breadcrumb="[眼科疾病 > 青光眼]",
+                existing_breadcrumb_parts=["眼科疾病", "青光眼"],
+                nli_context={
+                    "new_hierarchical_path": "Ophthalmology > Glaucoma",
+                    "existing_hierarchical_path": "眼科疾病 > 青光眼"
+                }
+            ),
+            KnowledgeItem(
+                term="Normal Tension Glaucoma",
+                rem_id=None,
+                action="CREATE",
+                new_content="眼壓正常但仍有視神經損傷",
+                new_breadcrumb="[Ophthalmology > Glaucoma > Normal Tension]",
+                new_breadcrumb_parts=["Ophthalmology", "Glaucoma", "Normal Tension"]
+            ),
+            KnowledgeItem(
+                term="Open-Angle Glaucoma",
+                rem_id="rem_002",
+                action="UPDATE",
+                new_content="慢性進行性青光眼類型",
+                new_breadcrumb="[Ophthalmology > Glaucoma > Open-Angle]",
+                new_breadcrumb_parts=["Ophthalmology", "Glaucoma", "Open-Angle"],
+                existing_content="慢性青光眼",
+                existing_breadcrumb="[眼科疾病 > 青光眼 > 開角型]",
+                existing_breadcrumb_parts=["眼科疾病", "青光眼", "開角型"],
+                nli_context={
+                    "new_hierarchical_path": "Ophthalmology > Glaucoma > Open-Angle",
+                    "existing_hierarchical_path": "眼科疾病 > 青光眼 > 開角型"
+                }
+            )
+        ]
+
+        # 執行 NLI Router
+        router = NLIRouterV6(use_mock=True)
+        result = router.apply_nli_routing(test_items)
+
+        # 顯示結果
+        print("\n[RESULTS] 最終動作:")
+        for action in result["final_actions"]:
+            print(f"  [{action.action}] {action.term} - 信心度: {action.nli_confidence:.2%}")
+
+        if result["requires_llm_intervention"]:
+            print(f"\n[INTERVENTION] 需要 LLM 干預: {len(result['requires_llm_intervention'])} 項")
+
+        # 顯示統計
+        print(f"\n[STATS] 統計:")
+        for key, value in result["statistics"].items():
+            print(f"  {key}: {value}")
+        return
+
+    parser = argparse.ArgumentParser(
+        description="NLIRouterV6 (Mock/DeBERTa) CLI — Run classification on single pairs or batch JSON files"
+    )
+    parser.add_argument(
+        "--premise", "-p",
+        type=str,
+        help="Premise text for single NLI inference."
+    )
+    parser.add_argument(
+        "--hypothesis", "-y",
+        type=str,
+        help="Hypothesis text for single NLI inference."
+    )
+    parser.add_argument(
+        "--input", "-i",
+        type=Path,
+        help="Path to a JSON file containing a list of KnowledgeItem dictionaries."
+    )
+    parser.add_argument(
+        "--output", "-o",
+        type=Path,
+        default=Path("mock_routing_output.json"),
+        help="Path to write the routing results JSON (default: mock_routing_output.json)."
+    )
+    parser.add_argument(
+        "--use-mock",
+        type=bool,
+        default=True,
+        help="Whether to use the mock heuristic router instead of DeBERTa (default: True)."
+    )
+
+    args = parser.parse_args(argv)
+
+    # Validate combinations
+    if args.premise or args.hypothesis:
+        if not args.premise or not args.hypothesis:
+            print("Error: Both --premise and --hypothesis must be provided for single-pair inference.", file=sys.stderr)
+            sys.exit(1)
+        
+        # Execute single pair NLI prediction using NLIRouterV6's underlying router
+        router = NLIRouterV6(use_mock=args.use_mock)
+        result = router.nli.infer(args.premise, args.hypothesis)
+        
+        output_dict = {
+            "premise": args.premise,
+            "hypothesis": args.hypothesis,
+            "verdict": result.verdict,
+            "confidence": result.confidence,
+            "scores": {
+                "entailment": result.entailment_score,
+                "neutral": result.neutral_score,
+                "contradiction": result.contradiction_score
             }
-        ),
-        KnowledgeItem(
-            term="Normal Tension Glaucoma",
-            rem_id=None,
-            action="CREATE",
-            new_content="眼壓正常但仍有視神經損傷",
-            new_breadcrumb="[Ophthalmology > Glaucoma > Normal Tension]",
-            new_breadcrumb_parts=["Ophthalmology", "Glaucoma", "Normal Tension"]
-        ),
-        KnowledgeItem(
-            term="Open-Angle Glaucoma",
-            rem_id="rem_002",
-            action="UPDATE",
-            new_content="慢性進行性青光眼類型",
-            new_breadcrumb="[Ophthalmology > Glaucoma > Open-Angle]",
-            new_breadcrumb_parts=["Ophthalmology", "Glaucoma", "Open-Angle"],
-            existing_content="慢性青光眼",
-            existing_breadcrumb="[眼科疾病 > 青光眼 > 開角型]",
-            existing_breadcrumb_parts=["眼科疾病", "青光眼", "開角型"],
-            nli_context={
-                "new_hierarchical_path": "Ophthalmology > Glaucoma > Open-Angle",
-                "existing_hierarchical_path": "眼科疾病 > 青光眼 > 開角型"
+        }
+        print(json.dumps(output_dict, ensure_ascii=False, indent=2))
+        return
+
+    if args.input:
+        if not args.input.exists():
+            print(f"Error: Input file not found: {args.input}", file=sys.stderr)
+            sys.exit(1)
+
+        # Load input knowledge items JSON
+        raw_data = json.loads(args.input.read_text(encoding="utf-8-sig"))
+        knowledge_items = [KnowledgeItem(**item_dict) for item_dict in raw_data]
+
+        router = NLIRouterV6(use_mock=args.use_mock)
+        routing_result = router.apply_nli_routing(knowledge_items)
+
+        # Serialize results
+        final_actions_serialized = [action.to_dict() for action in routing_result["final_actions"]]
+        requires_llm_serialized = [case.to_dict() for case in routing_result["requires_llm_intervention"]]
+        
+        output_dict = {
+            "pipeline_version": "v0.3-mock-standalone",
+            "statistics": routing_result["statistics"],
+            "detailed_output": {
+                "final_actions": final_actions_serialized,
+                "llm_interventions": requires_llm_serialized
             }
+        }
+
+        args.output.write_text(
+            json.dumps(output_dict, ensure_ascii=False, indent=2),
+            encoding="utf-8"
         )
-    ]
+        print(f"\n[nli_types] Routing results written to: {args.output}")
+        return
 
-    # 執行 NLI Router
-    router = NLIRouterV6(use_mock=True)
-    result = router.apply_nli_routing(test_items)
+    print("Error: You must provide either (--premise and --hypothesis) OR --input.", file=sys.stderr)
+    parser.print_usage(sys.stderr)
+    sys.exit(1)
 
-    # 顯示結果
-    print("\n📋 最終動作:")
-    for action in result["final_actions"]:
-        print(f"  [{action.action}] {action.term} - 信心度: {action.nli_confidence:.2%}")
 
-    if result["requires_llm_intervention"]:
-        print(f"\n🔧 需要 LLM 干預: {len(result['requires_llm_intervention'])} 項")
-
-    # 顯示統計
-    print(f"\n📊 統計:")
-    for key, value in result["statistics"].items():
-        print(f"  {key}: {value}")
+if __name__ == "__main__":
+    main()

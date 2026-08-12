@@ -1,0 +1,144 @@
+﻿name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  unit-integration-tests:
+    name: Unit & Integration Tests
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Activate virtual environment
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+          .\antigravitytest-env\Scripts\Activate.ps1
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov pytest-mock pytest-benchmark pytest-html
+
+      - name: Run unit and integration tests
+        shell: pwsh
+        run: |
+          pytest tests/unit tests/integration -v --cov=smart_logic_v5 --cov-report=term-missing --cov-report=html --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Upload coverage HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: htmlcov/
+          retention-days: 14
+
+  e2e-tests:
+    name: E2E Tests
+    runs-on: windows-latest
+    needs: unit-integration-tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Activate virtual environment
+        shell: pwsh
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+          .\antigravitytest-env\Scripts\Activate.ps1
+
+      - name: Install Python dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov pytest-mock
+
+      - name: Install RemNote CLI
+        shell: pwsh
+        run: |
+          npm install -g remnote-cli
+          npx remnote-cli --version
+
+      - name: Setup RemNote daemon (optional)
+        shell: pwsh
+        env:
+          REMNOTE_API_KEY: ${{ secrets.REMNOTE_API_KEY }}
+        run: |
+          # If RemNote daemon setup is needed, configure here
+          # For now, E2E tests will run with mocked RemNote calls
+          echo "RemNote daemon setup placeholder"
+
+      - name: Run E2E tests
+        shell: pwsh
+        run: |
+          pytest tests/e2e -v --cov=smart_logic_v5 --cov-append --cov-report=term-missing
+        continue-on-error: true  # E2E tests may fail if RemNote daemon not available
+
+      - name: Upload E2E test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-test-results
+          path: pytest-report.html
+          retention-days: 14
+
+  coverage-report:
+    name: Combined Coverage Report
+    runs-on: windows-latest
+    needs: [unit-integration-tests, e2e-tests]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Download coverage reports
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+
+      - name: Display coverage summary
+        shell: pwsh
+        run: |
+          echo "Coverage report downloaded and available in artifacts"
+          echo "View detailed report in coverage-report artifact"

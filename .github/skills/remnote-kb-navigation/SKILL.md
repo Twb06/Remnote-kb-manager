@@ -21,9 +21,10 @@ Use this skill to orient quickly in a user's whole RemNote knowledge base.
 
 1. Use JSON output (default). Do not use `--text` for navigation.
 2. Use ID-first traversal via `read`.
-3. Start shallow (`--depth 1`) for orientation.
-4. Use high child limit for full branch listings: `--child-limit 500`.
-5. Keep operations read-only unless write confirmation policy allows mutating commands.
+3. Use scoped search via `search <query> --parent-id <parent-rem-id>` to precisely locate subtopics under their resolved parent to prevent collision/false matches on generic subtopic names. Initial top-level searches should target the root ID `Da8SsKWwuA9doqpsp`.
+4. Start shallow (`--depth 1`) for orientation.
+5. Use high child limit for full branch listings: `--child-limit 500`.
+6. Keep operations read-only unless write confirmation policy allows mutating commands.
 
 ## Top-level map (customize)
 ### Example
@@ -274,6 +275,7 @@ Use this skill to orient quickly in a user's whole RemNote knowledge base.
 3. Read that branch shallowly first:
    a. while using remnote-cli `remnote-cli read <branch-id> --depth 1 --child-limit 500`
    b. while using remnote-mcp `call remnote_search <branch-id> include-content structured depth 1 child-limit 500`
+   c. if searching for a specific sub-topic by title under a resolved parent ID: `remnote-cli search "Subtopic Title" --parent-id <parent-id>`
 4. Descend deeper only in the selected subtree.
 5. If multiple branches seem relevant, read 2-3 candidate branches shallowly, then ask a focused clarification.
 6. **Map Update Rule**: If a new topic is written and its `parentID` already exists in the Top-level map, and sub-items are already listed under that ID (indicating it's an important annotated branch), you must synchronize this new topic (Title, ID, Hint) into the `SKILL.md` map for future navigation reference.

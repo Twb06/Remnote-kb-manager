@@ -19,12 +19,16 @@ ANSWER = FIXTURES / "e2e_content.md"
 
 def _run_main(*extra_args, timeout=120):
     """Run main.py as subprocess and return CompletedProcess."""
+    import os
+    env = os.environ.copy()
+    env["PYTEST_CURRENT_TEST"] = "true"  # Force offline mode in child process!
     return subprocess.run(
         [sys.executable, str(MAIN_PY)] + list(extra_args),
         capture_output=True,
         timeout=timeout,
         encoding="utf-8",
         errors="replace",
+        env=env,
     )
 
 

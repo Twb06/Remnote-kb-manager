@@ -1,4 +1,4 @@
-﻿"""
+"""
 main.py - NLI Pipeline v0.3 Entry Point
 
 Usage:
@@ -21,7 +21,14 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 from src.pipeline.core import PipelineV6
-from src.routers.nli_bart import RealNLIRouter
+
+
+
+class RealNLIRouter:
+    """Lazy loading proxy for RealNLIRouter to avoid heavy PyTorch/Transformers imports at startup."""
+    def __new__(cls, *args, **kwargs):
+        from src.routers.nli_bart import RealNLIRouter as ActualRealNLIRouter
+        return ActualRealNLIRouter(*args, **kwargs)
 
 
 # ---------------------------------------------------------------------------
@@ -154,7 +161,7 @@ def run_pipeline(
     if router_result["requires_llm_intervention"]:
         print(f"\n[main] LLM intervention cases:")
         for case in router_result["requires_llm_intervention"]:
-            print(f"  [{case.type}] {case.term} — {case.reason}")
+            print(f"  [{case.action}] {case.term} - {case.nli_reason}")
 
     return result
 
@@ -166,6 +173,48 @@ def run_pipeline(
 def _build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="NLI Pipeline v0.3 — NotebookLM → RemNote knowledge sync"
+    )
+    parser.add_argument(
+        "--mode",
+        type=str,
+        default="legacy",
+        choices=["legacy", "rag-sync", "export-kb"],
+        help="Execution mode: 'legacy', 'rag-sync' or 'export-kb'",
+    )
+    parser.add_argument(
+        "--topic",
+        type=str,
+        default="",
+        help="Topic for RAG sync mode",
+    )
+    parser.add_argument(
+        "--folder-id",
+        type=str,
+        default="",
+        help="Target RemNote folder ID for RAG sync mode",
+    )
+    parser.add_argument(
+        "--is-disease",
+        action="store_true",
+        help="Whether the topic is a disease (enables slot matching in RAG mode)",
+    )
+    parser.add_argument(
+        "--source-notebook",
+        type=str,
+        default="",
+        help="Source NotebookLM ID to extract knowledge from",
+    )
+    parser.add_argument(
+        "--remnote-notebook",
+        type=str,
+        default="",
+        help="RemNote NotebookLM ID containing the RemNote KB",
+    )
+    parser.add_argument(
+        "--query",
+        type=str,
+        default="",
+        help="Query to ask the source notebook",
     )
     parser.add_argument(
         "--answer-file",
@@ -182,20 +231,70 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("pipeline_output.json"),
-        help="Output JSON file path (default: pipeline_output.json)",
+        default=None,
+        help="Output file path (default: pipeline_output.json for sync, remnote_export_{topic}.md for export)",
     )
     parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Print planned actions without writing output file",
     )
+    parser.add_argument(
+        "--gaps-file",
+        type=str,
+        default=None,
+        help="Path to a local markdown file containing gaps/updates tree to bypass NotebookLM query",
+    )
     return parser
 
 
 def main(argv: Optional[List[str]] = None) -> int:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8')
     parser = _build_arg_parser()
     args = parser.parse_args(argv)
+
+    if args.mode == "export-kb":
+        from src.pipeline.remnote_client import RemNoteClient
+        if not args.folder_id:
+            print("[main] ERROR: --folder-id is required for export-kb mode", file=sys.stderr)
+            return 1
+        output_file = args.output
+        if not output_file:
+            if args.topic:
+                output_file = Path(f"remnote_export_{args.topic}.md")
+            else:
+                output_file = Path("remnote_export.md")
+        client = RemNoteClient(dry_run=args.dry_run)
+        print(f"Exporting RemNote folder {args.folder_id}...")
+        kb_markdown = client.read_markdown(args.folder_id)
+        if kb_markdown:
+            output_file.write_text(kb_markdown, encoding="utf-8")
+            print(f"Successfully exported to {output_file}")
+            return 0
+        else:
+            print("ERROR: Failed to export RemNote folder", file=sys.stderr)
+            return 1
+
+    if args.mode == "rag-sync":
+        from src.pipeline.rag_pipeline import RAGPipeline
+        if not args.topic or not args.folder_id:
+            print("[main] ERROR: --topic and --folder-id are required for rag-sync mode", file=sys.stderr)
+            return 1
+        
+        import asyncio
+        pipeline = RAGPipeline(dry_run=args.dry_run, is_disease=args.is_disease)
+        asyncio.run(pipeline.execute(
+            target_folder_id=args.folder_id, 
+            topic=args.topic,
+            source_notebook_id=args.source_notebook,
+            remnote_notebook_id=args.remnote_notebook,
+            query=args.query,
+            gaps_file=args.gaps_file
+        ))
+        return 0
 
     # Validate inputs
     if not args.answer_file.exists():
@@ -208,7 +307,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     # Load inputs
     answer_lines = _parse_answer_lines(args.answer_file)
-    kb_map_data = json.loads(args.kb_map.read_text(encoding="utf-8"))
+    kb_map_data = json.loads(args.kb_map.read_text(encoding="utf-8-sig"))
     kb_map = _flatten_kb_map(kb_map_data)
     context_trees = _build_context_trees(kb_map_data)
 

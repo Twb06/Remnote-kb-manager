@@ -1,4 +1,4 @@
-﻿"""
+"""
 AST Parser - Phase 1.2: AST + Breadcrumb Core Library
 
 提供文本結構解析和面包屑生成的核心功能，用於：
@@ -305,9 +305,12 @@ def transform_tree_with_breadcrumbs(tree: dict) -> dict:
         original_content = node.get("content", "")
         content_with_breadcrumb = f"[{breadcrumb}] {original_content}" if original_content else breadcrumb_formatted
 
+        # 當前節點的 ID，同時支援 id, remId, _id
+        node_id = node.get("id") or node.get("remId") or node.get("_id")
+
         # 轉換節點
         transformed = {
-            "id": node.get("id"),
+            "id": node_id,
             "title": node_title,
             "content": original_content,
             "breadcrumb": breadcrumb,

@@ -1,4 +1,22 @@
-﻿# Changelog
+# Changelog
+
+## [v0.5.0] - 2026-07-03
+
+### Added
+- **RAG-Driven RemNote Sync Pipeline**: Introduced `RAGPipeline` implementing active gap/update discovery using NotebookLM as a RAG database.
+- **Direct Deepest Parent Search Strategy**: Optimized RemNote folder matching by directly querying the leaf category under the subject root and verifying its `parentTitle` against the AST breadcrumb, bypassing unnecessary mid-level API calls.
+- **Path ID Cache (`_path_id_cache`)**: Added an in-memory dictionary caching resolved category paths to prevent redundant API queries.
+- **Local Gaps File Bypass (`--gaps-file`)**: Added CLI option to read pre-saved markdown gap trees directly from a local file, bypassing Google NotebookLM API calls for faster developer debugging.
+- **Root Category Omission Constraint**: Enhanced Phase 1 prompt forbidding NotebookLM from omitting any intermediate existing folder levels.
+- **Dynamic Parent ID Generator**: Generates unique, name-based parent IDs in dry-run mode (e.g., `dry-run-id-<name>`) to support distinct parent titles in simulation logs.
+
+### Changed
+- Refactored `_resolve_or_create_parent_path` in `rag_pipeline.py` with the direct match search and fallback mechanism.
+- Enhanced `main.py` argparser with `--gaps-file` parameter.
+
+### Fixed
+- Fixed UnboundLocalError by initializing file paths at the start of RAG pipeline execution.
+- Handled CLI search response dictionary type mismatch.
 
 ## [v0.3.0] - 2026-05-14
 

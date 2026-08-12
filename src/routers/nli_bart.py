@@ -1,4 +1,4 @@
-﻿"""
+"""
 real_nli_router.py - 真實 NLI Router 實現
 
 使用 microsoft/deberta-v3-small 進行真實 NLI 推論
@@ -324,6 +324,8 @@ class RealNLIRouter:
                     rem_id=None,
                     new_content=item.new_content,
                     new_breadcrumb=item.new_breadcrumb,
+                    existing_content=None,
+                    existing_breadcrumb=None,
                     nli_confidence=1.0,
                     nli_verdict="N/A",
                     nli_reason="新項目，無需比較"
@@ -404,6 +406,7 @@ class RealNLIRouter:
             rem_id=item.rem_id,
             new_content=item.new_content,
             new_breadcrumb=item.new_breadcrumb,
+            existing_content=item.existing_content,
             existing_breadcrumb=item.existing_breadcrumb,
             nli_confidence=nli_result.confidence,
             nli_verdict=nli_result.verdict,
@@ -482,63 +485,172 @@ def benchmark_nli_router(router: RealNLIRouter, num_samples: int = 10) -> dict:
     return results
 
 
-if __name__ == "__main__":
-    # 測試真實 NLI Router
-    print("🧪 測試 RealNLIRouter\n")
+def main(argv: Optional[List[str]] = None):
+    import argparse
+    import sys
+    import json
+    from pathlib import Path
 
-    # 初始化
-    router = RealNLIRouter()
+    # Fallback to test/benchmark if no arguments are provided
+    if (argv is None and len(sys.argv) == 1) or (argv is not None and len(argv) == 0):
+        print("[INFO] Running demo and benchmark mode (use --help to see CLI options)...")
+        # 初始化
+        router = RealNLIRouter()
 
-    print("\n" + "="*80)
-    print("📊 基本推論測試")
-    print("="*80)
+        print("\n" + "="*80)
+        print("[TEST] 基本推論測試")
+        print("="*80)
 
-    # 測試案例
-    test_cases = [
-        {
-            "premise": "[Ophthalmology > Glaucoma] Glaucoma is characterized by elevated IOP",
-            "hypothesis": "[Eye Diseases > Glaucoma] Glaucoma involves increased intraocular pressure",
-            "expected": "ENTAILMENT"
-        },
-        {
-            "premise": "[Ophthalmology > Cataracts] Cataracts cause lens opacity",
-            "hypothesis": "[Eye Diseases] Diabetic retinopathy damages blood vessels",
-            "expected": "NEUTRAL"
-        },
-        {
-            "premise": "[Ophthalmology > Glaucoma] Normal Tension Glaucoma has IOP < 21 mmHg",
-            "hypothesis": "[Eye Diseases > Glaucoma] NTG has elevated pressure > 30 mmHg",
-            "expected": "CONTRADICTION"
+        # 測試案例
+        test_cases = [
+            {
+                "premise": "[Ophthalmology > Glaucoma] Glaucoma is characterized by elevated IOP",
+                "hypothesis": "[Eye Diseases > Glaucoma] Glaucoma involves increased intraocular pressure",
+                "expected": "ENTAILMENT"
+            },
+            {
+                "premise": "[Ophthalmology > Cataracts] Cataracts cause lens opacity",
+                "hypothesis": "[Eye Diseases] Diabetic retinopathy damages blood vessels",
+                "expected": "NEUTRAL"
+            },
+            {
+                "premise": "[Ophthalmology > Glaucoma] Normal Tension Glaucoma has IOP < 21 mmHg",
+                "hypothesis": "[Eye Diseases > Glaucoma] NTG has elevated pressure > 30 mmHg",
+                "expected": "CONTRADICTION"
+            }
+        ]
+
+        for i, case in enumerate(test_cases, 1):
+            print(f"\n案例 {i}:")
+            print(f"  Premise: {case['premise'][:60]}...")
+            print(f"  Hypothesis: {case['hypothesis'][:60]}...")
+
+            result = router.infer(case['premise'], case['hypothesis'])
+
+            print(f"  結果: {result.verdict} (信心度: {result.confidence:.2%})")
+            print(f"  分數: E={result.entailment_score:.2f}, N={result.neutral_score:.2f}, C={result.contradiction_score:.2f}")
+            print(f"  預期: {case['expected']} | {'[OK]' if result.verdict == case['expected'] else '[FAIL]'}")
+
+        print("\n" + "="*80)
+        print("[BENCHMARK] 性能基準測試")
+        print("="*80 + "\n")
+
+        # 性能測試
+        benchmark_results = benchmark_nli_router(router, num_samples=20)
+
+        print("\n" + "="*80)
+        print("[STATS] 統計摘要")
+        print("="*80)
+
+        stats = router.get_statistics()
+        print(f"\n總推論次數: {stats['total_inferences']}")
+        print(f"平均推論時間: {stats['average_inference_ms']:.1f} ms")
+        print(f"快取命中率: {stats['cache_hit_rate']:.1%}")
+        print(f"快取大小: {stats['cache_size_current']}/{router.cache_size}")
+        print(f"設備: {stats['device']}")
+
+        print("\n[OK] 測試完成！")
+        return
+
+    parser = argparse.ArgumentParser(
+        description="RealNLIRouter CLI — Run zero-shot classification on single pairs or batch JSON files"
+    )
+    parser.add_argument(
+        "--premise", "-p",
+        type=str,
+        help="Premise text for single NLI inference."
+    )
+    parser.add_argument(
+        "--hypothesis", "-y",
+        type=str,
+        help="Hypothesis text for single NLI inference."
+    )
+    parser.add_argument(
+        "--input", "-i",
+        type=Path,
+        help="Path to a JSON file containing a list of KnowledgeItem dictionaries."
+    )
+    parser.add_argument(
+        "--output", "-o",
+        type=Path,
+        default=Path("bart_routing_output.json"),
+        help="Path to write the routing results JSON (default: bart_routing_output.json)."
+    )
+    parser.add_argument(
+        "--model", "-m",
+        type=str,
+        default="facebook/bart-large-mnli",
+        help="Hugging Face NLI model name (default: facebook/bart-large-mnli)."
+    )
+    parser.add_argument(
+        "--device", "-d",
+        type=str,
+        default=None,
+        help="Target execution device (e.g. cpu, cuda). Auto-detects by default."
+    )
+
+    args = parser.parse_args(argv)
+
+    # Validate combinations
+    if args.premise or args.hypothesis:
+        if not args.premise or not args.hypothesis:
+            print("Error: Both --premise and --hypothesis must be provided for single-pair inference.", file=sys.stderr)
+            sys.exit(1)
+        
+        # Execute single pair NLI prediction
+        router = RealNLIRouter(model_name=args.model, device=args.device)
+        result = router.infer(args.premise, args.hypothesis)
+        
+        output_dict = {
+            "premise": args.premise,
+            "hypothesis": args.hypothesis,
+            "verdict": result.verdict,
+            "confidence": result.confidence,
+            "scores": {
+                "entailment": result.entailment_score,
+                "neutral": result.neutral_score,
+                "contradiction": result.contradiction_score
+            }
         }
-    ]
+        print(json.dumps(output_dict, ensure_ascii=False, indent=2))
+        return
 
-    for i, case in enumerate(test_cases, 1):
-        print(f"\n案例 {i}:")
-        print(f"  Premise: {case['premise'][:60]}...")
-        print(f"  Hypothesis: {case['hypothesis'][:60]}...")
+    if args.input:
+        if not args.input.exists():
+            print(f"Error: Input file not found: {args.input}", file=sys.stderr)
+            sys.exit(1)
 
-        result = router.infer(case['premise'], case['hypothesis'])
+        # Load input knowledge items JSON
+        raw_data = json.loads(args.input.read_text(encoding="utf-8-sig"))
+        knowledge_items = [KnowledgeItem(**item_dict) for item_dict in raw_data]
 
-        print(f"  結果: {result.verdict} (信心度: {result.confidence:.2%})")
-        print(f"  分數: E={result.entailment_score:.2f}, N={result.neutral_score:.2f}, C={result.contradiction_score:.2f}")
-        print(f"  預期: {case['expected']} | {'✅' if result.verdict == case['expected'] else '⚠️'}")
+        router = RealNLIRouter(model_name=args.model, device=args.device)
+        routing_result = router.apply_nli_routing(knowledge_items)
 
-    print("\n" + "="*80)
-    print("📊 性能基準測試")
-    print("="*80 + "\n")
+        # Serialize results
+        final_actions_serialized = [action.to_dict() for action in routing_result["final_actions"]]
+        requires_llm_serialized = [case.to_dict() for case in routing_result["requires_llm_intervention"]]
+        
+        output_dict = {
+            "pipeline_version": "v0.3-bart-standalone",
+            "statistics": routing_result["statistics"],
+            "detailed_output": {
+                "final_actions": final_actions_serialized,
+                "llm_interventions": requires_llm_serialized
+            }
+        }
 
-    # 性能測試
-    benchmark_results = benchmark_nli_router(router, num_samples=20)
+        args.output.write_text(
+            json.dumps(output_dict, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+        print(f"\n[nli_bart] Routing results written to: {args.output}")
+        return
 
-    print("\n" + "="*80)
-    print("📈 統計摘要")
-    print("="*80)
+    print("Error: You must provide either (--premise and --hypothesis) OR --input.", file=sys.stderr)
+    parser.print_usage(sys.stderr)
+    sys.exit(1)
 
-    stats = router.get_statistics()
-    print(f"\n總推論次數: {stats['total_inferences']}")
-    print(f"平均推論時間: {stats['average_inference_ms']:.1f} ms")
-    print(f"快取命中率: {stats['cache_hit_rate']:.1%}")
-    print(f"快取大小: {stats['cache_size_current']}/{router.cache_size}")
-    print(f"設備: {stats['device']}")
 
-    print("\n✅ 測試完成！")
+if __name__ == "__main__":
+    main()
